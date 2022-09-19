@@ -1,0 +1,101 @@
+/* 
+Table Of Contents 
+
+    Defaults
+        Root
+        Fonts
+        Page Elements
+        Scroll Bar
+
+    Header
+    
+    Footer
+*/
+
+/* Root */
+:root {
+    --primary-color: #fff;
+    --secondary-color: #000;
+    --complementary-color: #8096A3;
+    --beige-color: #E9E0CF;
+    --placeholder-color: #D9D9D9;
+}
+
+
+/* Fonts */
+@font-face {
+    font-family: 'raleway';
+    src: url('../fonts/raleway-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'cormorant';
+    src: url('../fonts/cormorant-medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Page Elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  color: var(--secondary-color);
+  font-family: 'raleway', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  transition: transform 0.5s, opacity 0.1s;
+  text-decoration: none;
+}
+
+html{
+    font-size: 16px;
+    scrollbar-color: var(--complementary-color) var(--secondary-color);
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body {
+    background-color: var(--primary-color);
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1;
+    max-width: 80rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2rem 0 2rem;
+}
+
+img {
+    width: 5rem;
+}
+
+
+/* Scroll Bar */
+::-webkit-scrollbar{
+    width: 0.8rem;
+    background: transparent;
+    }
+::-webkit-scrollbar-track{
+    background: var(--primary-color);
+    }
+::-webkit-scrollbar-thumb{
+    background: var(--complementary-color);
+    border: .2rem solid var(--complementary-color);
+    border-radius: 20px;
+}
+
+
+/* Header */
+
+
+
+/* Footer */
