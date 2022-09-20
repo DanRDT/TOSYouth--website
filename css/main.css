@@ -8,6 +8,11 @@ Table Of Contents
         Scroll Bar
 
     Header
+        Logo
+        Navigation
+        Navigation Button
+        Navigation Items
+        Shopping Cart
     
     Footer
 */
@@ -67,11 +72,11 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     line-height: 1;
-    max-width: 80rem;
+    max-width: 75rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 2rem 0 2rem;
+    padding: 0 1rem 0 1rem;
 }
 
 img {
@@ -96,6 +101,149 @@ img {
 
 /* Header */
 
+header {
+    position: relative;
+    width: 100%;
+    padding: 1rem 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.logo img {
+    width: 3rem;
+    width: clamp(3.5rem, 10vw, 5.5rem);
+}
+
+
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    background: var(--primary-color);
+    width: 100%;
+    height: 100%;
+}
+nav[data-visible="false"] {
+    transform: translateX(0);
+}
+nav[data-visible="true"] {
+    transform: translateX(-100%);
+}
+
+/* Navigation Button */
+#menu-button {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    z-index: 100;
+    cursor: pointer;
+}
+#menu-button:hover {
+    filter: drop-shadow(0.5px 0.5px 0.6px grey); 
+}
+
+.menu-button-line {
+    padding: 0.19rem 1rem;
+    margin: 0.3rem 0;
+    background: var(--secondary-color);
+    border-radius: 0.125rem;
+}
+
+
+#menu-button[data-active="true"] .menu-button-line:nth-child(1) {
+    transform: translateY(0.7rem) rotate(-45deg);
+}
+
+#menu-button[data-active="true"] .menu-button-line:nth-child(2) {
+    opacity: 0;
+}
+#menu-button[data-active="false"] .menu-button-line:nth-child(2) {
+    transition: opacity 1.4s;    
+}
+
+#menu-button[data-active="true"] .menu-button-line:nth-child(3) {
+    transform: translateY(-0.7rem) rotate(45deg);
+}
+
+/* Navigation Items */
+nav a {
+    position: relative;
+    font-size: 1.3rem;
+}
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 2%;
+    width: 96%;
+    padding: 1px 0;
+    background: var(--complementary-color);
+    transform: translateY(0.3rem) scaleX(0.5);
+    opacity: 0;
+    transition: transform 0.2s;
+}
+
+nav a:hover::after {
+    transform: translateY(0) scaleX(1);
+    opacity: 1;
+}
+
+/* Shopping Cart */
+.shopping-cart {
+    cursor: pointer;
+}
+.shopping-cart:hover {
+    filter: drop-shadow(0.7px 0.7px 0.6px grey); 
+}
+
+.shopping-cart img {
+    width: 2.75rem;
+    padding-right: 0.2rem;
+}
+
+@media (min-width: 650px) {
+    nav,
+    nav[data-visible="true"],
+    nav[data-visible="false"] {
+    position: relative;
+    top: auto;
+    right: auto;
+    flex-direction: row;
+    gap: 1.5rem;
+    background: transparent;
+    width: auto;
+    height: auto;
+    transform: translateX(0);
+    }
+    #menu-button {
+        display: none;
+    }
+}
+
+
+
+
 
 
 /* Footer */
+
+footer {
+
+}
+
+footer a {
+
+}
+
+.copyright {
+
+}

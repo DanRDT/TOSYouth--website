@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,12 +16,17 @@
         <a class="logo" href="../index.html">
             <img src="../imgs/logo.svg" alt="logo">
         </a>
-        <nav>
-            <a href="./about-us.html">About Us</a>
-            <a href="./merch.html">Merch</a>
-            <a href="./events.html">Events</a>
-            <a href="">Contact</a>
-            <div>
+        <div id="menu-button" data-active="false">
+            <div class="menu-button-line"></div>
+            <div class="menu-button-line"></div>
+            <div class="menu-button-line"></div>
+        </div>
+        <nav data-visible="false">
+            <a href="../index.html">Home</a>
+            <a href="../pages/about-us.html">About Us</a>
+            <a href="../pages/merch.html">Merch</a>
+            <a href="../pages/events.html">Events</a>
+            <div class="shopping-cart">
                 <img src="../imgs/cart-icon.png" alt="cart-icon">
             </div>
         </nav>
@@ -32,10 +39,10 @@
     </main>
 
     <footer>
-        <a href="./about-us.html">About Us</a>
-        <a href="./events.html">Events</a>
-        <a href="./merch.html">Merch</a>
-        <a href="">Contact</a>
+        <a href="../index.html">Home</a>
+        <a href="../pages/about-us.html">About Us</a>
+        <a href="../pages/events.html">Events</a>
+        <a href="../pages/merch.html">Merch</a>
         <p class="copyright">© 2022 Tabernacle of Salvation Church Youth</p>
     </footer>
 
