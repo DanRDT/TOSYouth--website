@@ -1,0 +1,122 @@
+/* 
+Table of Contents
+
+    Main
+        Section 1
+            Title
+            Picture
+            Trapazoid Quote
+            Larger screens
+
+        Section 2
+
+
+        Section 3
+
+
+
+
+*/
+
+:root {
+    --primary-color: #fff;
+    --secondary-color: #000;
+    --complementary-color: #8096A3;
+    --beige-color: #E9E0CF;
+    --placeholder-color: #D9D9D9;
+}
+
+main {
+    width: 100%;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Section 1 */
+#section1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+/* Title */
+.title {
+    width: 100%;
+    position: relative;
+    top: 5rem;
+    left: 0;
+    z-index: 3;
+}
+
+.title h1 {
+    font-family: 'cormorant';
+    font-size: clamp( 2.4rem, 10vw, 4.5rem);
+    line-height: clamp( 2.2rem, 7vw, 3rem);
+    letter-spacing: 4px;
+    position: relative;
+    left: 3vw;
+    width: fit-content;
+}
+.title span:nth-of-type(1) {
+    font-family: 'core sans a';
+    font-size: clamp( 1.1rem, 4vw, 1.8rem);
+    letter-spacing: 7px;
+}
+.title span:nth-of-type(2) {
+    font-family: 'cormorant';
+    font-size: clamp( 2.1rem, 7.5vw, 3.3rem);
+}
+
+/* Picture */
+.cross-picture-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.cross-picture {
+    background: url("../imgs/cross-picture.png") no-repeat top/cover;
+    position: relative;
+    width: clamp( 16rem, 50vw, 30rem);
+    height: clamp( 29rem, 70vw, 43rem);
+    z-index: 2;
+    right: 2vw;
+}
+
+/* Trapazoid Quote */
+.trapazoid-container {
+    max-width: 30rem;
+    position: relative;
+    top: -3%;
+    left: -5%;
+    background: var(--complementary-color);
+    margin: 0 10% 4rem 2rem;
+    padding: 7rem 5rem;
+    padding: clamp(3rem, 10vw, 7rem) clamp( 2rem, 3vw, 4rem);
+    transform: skewX(10deg);
+    z-index: 1;
+}
+.trapazoid-container h3 {
+    transform: skewX(-10deg);
+    line-height: clamp( 1.3rem, 5vw, 1.7rem);
+    font-size: clamp(0.9rem, 3.5vw, 1.3rem);
+}
+
+/* Larger screens */
+@media (min-width: 650px) {
+    .title h1 {
+        left: auto;
+        padding-right: min(20rem, 20vw);
+        width: auto;
+    }
+    .cross-picture-container {
+        justify-content: center;
+    }
+    .cross-picture {
+        margin-left: 50%;   
+    }
+        
+}

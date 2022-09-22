@@ -13,8 +13,13 @@ Table Of Contents
         Navigation Button
         Navigation Items
         Shopping Cart
+        Larger Screens
     
     Footer
+        Footer Navigation
+        Larger Screens
+
+    
 */
 
 /* Root */
@@ -40,6 +45,13 @@ Table Of Contents
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'core sans a';
+    src: url('../fonts/core-sans-a-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 
 /* Page Elements */
@@ -212,6 +224,7 @@ nav a:hover::after {
     padding-right: 0.2rem;
 }
 
+/* Larger Screens */
 @media (min-width: 650px) {
     .header-nav,
     .header-nav[data-visible="true"],
@@ -253,6 +266,7 @@ footer {
     background: var(--secondary-color);
 }
 
+/* Footer Navigation */
 .footer-nav {
     padding: 1.5rem 0;
     display: flex;
@@ -272,7 +286,7 @@ footer {
     text-align: center;
 }
 
-
+/* Larger Screens */
 @media (min-width: 650px) {
     .footer-nav {
     padding: 3rem 0;
