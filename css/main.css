@@ -27,6 +27,7 @@ Table Of Contents
     --primary-color: #fff;
     --secondary-color: #000;
     --complementary-color: #8096A3;
+    --complementary-color-darker: rgb(73, 95, 116);
     --beige-color: #E9E0CF;
     --placeholder-color: #D9D9D9;
 }
@@ -92,7 +93,8 @@ body {
     align-items: center;
 }
 
-main {
+main,
+section {
     width: 100%;
 }
 /* Required for an overflow and transform bug at smaller screen sizes */

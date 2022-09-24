@@ -186,7 +186,7 @@ Table of Contents
 }
 [data-appear-on-scroll="false"] {
     opacity: 0;
-    transform: translateY(7rem);
+    transform: translateY(5rem);
 }
 [data-appear-on-scroll="true"] {
     opacity: 1;

@@ -1,0 +1,106 @@
+/* 
+Table Of Contents 
+
+    Font Sizes
+
+    Events
+        Event Info Layout
+        Event Image
+        Button
+    
+    Event Details
+    
+*/
+
+
+/* Font Sizes */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: clamp( 2.1rem, 10vw, 4.5rem);
+    padding-top: 2rem;
+    padding-top: clamp( 1rem, 3vw, 2rem);
+    padding-bottom: clamp( 0.5rem, 3vw, 2rem);
+}
+
+h2 {
+    text-align: center;
+    padding: 2rem 0;
+    line-height: 2.5rem;
+    line-height: clamp( 1.5rem, 7vw, 2.5rem);
+}
+
+h2, h3 {
+    font-size: clamp(0.9rem, 3.5vw, 1.25rem);
+}
+
+h4,
+.more-info-button,
+.return-button {
+    font-size: clamp(0.75rem, 3vw, 1.05rem);
+}
+
+
+/* Events */
+.events {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.events-to-come-lbl {
+    padding: clamp( 3rem, 10vw, 5rem) 0;
+}
+
+/* Event Info Layout */
+.event {
+    padding: clamp( 1.8rem, 5vw, 3rem) 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.event-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.event-info h3 {
+    padding-top: 0.5rem;
+}
+
+
+
+/* Event Image */
+.event-img {
+    background: var(--placeholder-color) url("") no-repeat center/cover;
+    aspect-ratio: 1/1;
+    width: 8rem;
+    width: clamp( 5.5rem, 22vw, 8rem);
+}
+
+
+/* Button */
+.more-info-button,
+.return-button {
+    font-size: clamp(0.9rem, 3.5vw, 1.25rem);
+    padding: clamp(0.2rem, 3vw, 0.5rem) clamp(1rem, 5vw, 1.6rem);
+    background: var(--complementary-color);
+    color: var(--primary-color);
+    transition: background 0.2s;
+    margin-bottom: 0.2rem;
+}
+.more-info-button:hover, 
+.more-info-button:active,
+.return-button:hover,
+.return-button:active {
+    background: var(--complementary-color-darker);
+}
+
+/* Event Details */
