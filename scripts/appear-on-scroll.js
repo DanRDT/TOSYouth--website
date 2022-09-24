@@ -6,15 +6,25 @@ const options = {
 };
 
 const observer = new IntersectionObserver( (items, observer) => {
-    items.forEach(item => {
-        if (!item.isIntersecting) {
-          return;
-        }
-        else if (item.isIntersecting) {
+  let delayNumCount = 1;
+  items.forEach(item => {
+    if (!item.isIntersecting) {
+      return;
+    }
+    else if (item.isIntersecting) {
+      if (item.target.getAttribute('data-appear-on-scroll-delay') === "true") {
+        const delaySecs = delayNumCount * 100;
+        delayNumCount++;
+        setTimeout(() => {
           item.target.setAttribute('data-appear-on-scroll', "true");
-          observer.unobserve(item.target);
-        }
-    })
+        }, delaySecs)
+      }
+      else {
+        item.target.setAttribute('data-appear-on-scroll', "true");
+      }
+      observer.unobserve(item.target);
+    }
+  })
 }, options)
 
 export default observedItems.forEach(item => {
