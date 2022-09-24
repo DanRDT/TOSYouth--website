@@ -19,5 +19,4 @@ const observer = new IntersectionObserver( (items, observer) => {
 
 export default observedItems.forEach(item => {
     observer.observe(item);
-    console.log(item)
 })
