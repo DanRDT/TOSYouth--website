@@ -1,0 +1,84 @@
+/* Table of Contents
+
+        Grid
+        Images
+        Text
+        Larger Screens
+        Appear on Scroll
+
+*/
+
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Grid */
+.grid {
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp( 1rem, 3vw, 3rem);
+}
+
+/* Images */
+.about-us-img {
+    border-radius: 8px;
+    min-height: 15rem;
+    margin: 2rem 0rem;
+}
+
+.about-us-img:nth-of-type(1) {
+    background: var(--placeholder-color) url("../imgs/children-photo.jpg") no-repeat center/cover;
+}
+
+.about-us-img:nth-of-type(4) {
+    background: var(--placeholder-color) url("../imgs/church-photo.jpg") no-repeat center/cover;
+}
+
+.about-us-img:nth-of-type(5) {
+    background: var(--placeholder-color) url("") no-repeat center/cover;
+}
+
+/* Text */
+.about-us-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 2rem 0rem;
+}
+
+/* Larger Screens */
+@media (min-width: 650px) {
+    .grid {
+        max-width: 85%;
+    }
+    .about-us-img,
+    .about-us-info {
+        margin: 3rem 1rem;
+        padding: 0 clamp( 0.3rem, 1vw ,1rem);
+    }
+
+}
+
+/* Appear on Scroll */
+[data-appear-on-scroll] {
+    transition: transform 1.2s, opacity 1s 0.1s;
+}
+[data-appear-on-scroll="false"] {
+    opacity: 0;
+    transform: translateX(10rem);
+}
+.grid div:nth-of-type(3)[data-appear-on-scroll="false"],
+.grid div:nth-of-type(4)[data-appear-on-scroll="false"] {
+    opacity: 0;
+    transform: translateX(-10rem);
+}
+[data-appear-on-scroll="true"] {
+    opacity: 1;
+    transform: translate(0);
+}

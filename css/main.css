@@ -6,6 +6,7 @@ Table Of Contents
         Fonts
         Page Elements
         Scroll Bar
+        Font Sizes
 
     Header
         Logo
@@ -126,6 +127,28 @@ svg {
     border: .2rem solid var(--complementary-color);
     border-radius: 20px;
 }
+
+/* Font Sizes */
+h1 {
+    font-size: clamp( 2.1rem, 10vw, 4.5rem);
+    padding-top: 2rem;
+    padding-top: clamp( 1rem, 3vw, 2rem);
+    padding-bottom: clamp( 0.5rem, 3vw, 2rem);
+}
+
+h2 {
+    text-align: center;
+    line-height: clamp( 1.5rem, 7vw, 2.5rem);
+}
+
+h2, h3 {
+    font-size: clamp(0.95rem, 3.5vw, 1.25rem);
+}
+
+h4 {
+    font-size: clamp(0.8rem, 3vw, 1.05rem);
+}
+
 
 
 /* Header */
