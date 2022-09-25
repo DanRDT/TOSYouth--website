@@ -1,0 +1,203 @@
+/* Table of Contents 
+
+    Section 1
+        New Arrivals
+        Button
+    
+    Section 2
+        Merch Items
+        Merch Image
+    
+    Section 3
+        Heading
+        Images
+
+    Section 4
+
+
+*/
+
+:root {
+    --primary-color: #fff;
+    --secondary-color: #000;
+    --complementary-color: #8096A3;
+    --complementary-color-darker: rgb(73, 95, 116);
+    --beige-color: #E9E0CF;
+    --placeholder-color: #D9D9D9;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+/* Section 1 */
+#section1 {
+    background: var(--placeholder-color) url("") no-repeat center/cover;
+}
+
+/* New Arrivals */
+.new-arrivals {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5rem 0;
+    padding: 2rem 3rem;
+    width: auto;
+    height: auto;
+    z-index: 3;
+}
+.transparent-bg {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+
+.new-arrivals h2 {
+    color: var(--primary-color);
+    
+}
+.new-arrivals h1 {
+    color: var(--primary-color);
+    padding: 0 0 1.5rem 0;    
+}
+
+
+
+/* Button */
+.shop-now-button {
+    padding: 1rem 3rem;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border: 1.5px solid var(--primary-color);
+    transition: background 0.2s;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active {
+    background-color: rgb(45, 45, 45);
+}
+
+/* Section 2 */
+#section2 {
+    padding: 0 0.5rem;
+}
+
+.subheading {
+    padding: 1rem 0;
+    background-color: var(--beige-color);
+    width: 100%;
+    text-align: center;
+    font-style: italic;
+    /* font-weight: bold; */
+}
+
+/* Merch Items */
+.merch-items,
+.latest-items {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    justify-content: space-around;
+    width: 100%;
+}
+ 
+.merch-item {
+
+}
+
+/* Merch Image */
+.item-img {
+    width: 12rem;
+    height: 18rem;
+    background-color: var(--placeholder-color);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.item-img img {
+    height: 100%;
+    width: auto;
+}
+
+/* Section 3 */
+#section3 {
+    background-color: var(--secondary-color);
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+
+/* Heading */
+.most-wanted-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.most-wanted-heading h2 {
+    color: var(--primary-color);
+    text-align: left;
+    width: 100%;
+    transform: rotate(-5deg);
+}
+.most-wanted-heading h1 {
+    color: var(--primary-color);
+    padding: 0 0 2rem 0;
+}
+
+
+/* Images */
+.most-wanted-imgs {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+.most-wanted-short-img {
+    background: var(--placeholder-color) url("../imgs/church-photo.jpg") no-repeat center/cover;
+    height: 11rem;
+    width: 18rem;
+    position: relative;
+    bottom: 5rem;
+    right: -3rem;
+}
+.most-wanted-tall-img {
+    background: var(--placeholder-color) url("../imgs/cross-picture.png") no-repeat center/cover;
+    height: 30rem;
+    width: 17rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Section 4 */
+#section4 {
+    margin: 6rem;
+}

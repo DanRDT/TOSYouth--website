@@ -70,7 +70,7 @@ Table of Contents
     z-index: 2;
 }
 .cross-picture {
-    background: url("../imgs/cross-picture-resized.png") no-repeat top/cover;
+    background: url("../imgs/cross-picture.png") no-repeat top/cover;
     position: relative;
     width: clamp( 16rem, 50vw, 30rem);
     height: clamp( 29rem, 70vw, 43rem);
