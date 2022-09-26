@@ -53,6 +53,13 @@ Table Of Contents
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'corinthia';
+    src: url('../fonts/corinthia-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 
 
@@ -163,7 +170,7 @@ header {
 
 /* Logo */
 .logo {
-    padding-left: 1rem;
+    padding-left: 1.5rem;
 }
 .logo img {
     width: 3rem;
@@ -291,6 +298,9 @@ nav a:active::after {
     }
     #menu-button {
         display: none;
+    }
+    .shopping-cart{
+        margin-right: 1.5rem;
     }
 }
 
