@@ -2,7 +2,7 @@ const observedItems = document.querySelectorAll('[data-appear-on-scroll]')
 
 const options = {
     threshold: 0,
-    rootMargin: "-15px"
+    rootMargin: "-15px 0px"
 };
 
 const observer = new IntersectionObserver( (items, observer) => {

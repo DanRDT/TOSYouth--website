@@ -70,16 +70,10 @@ section {
     transition: transform 1.2s, opacity 1s 0.1s;
 }
 [data-appear-on-scroll="false"] {
-    /* opacity: 0; */
     transform: translateX(10rem);
-    /* transition: transform 0s, opacity 0s; */
+    transition: transform 0s, opacity 0s;
 }
 .grid div:nth-of-type(3)[data-appear-on-scroll="false"],
 .grid div:nth-of-type(4)[data-appear-on-scroll="false"] {
-    /* opacity: 0; */
     transform: translateX(-10rem);
 }
-/* [data-appear-on-scroll="true"] {
-    opacity: 1;
-    transform: translate(0);
-} */

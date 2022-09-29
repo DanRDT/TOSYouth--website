@@ -181,17 +181,8 @@ Table of Contents
 }
 
 /* Appear on Scroll */
-/* [data-appear-on-scroll] {
-    transition: transform 1s, opacity 1s 0.1s;
-} */
 [data-appear-on-scroll="false"] {
-    /* opacity: 0; */
     transform: translateY(5rem);
-    /* transition: transform 0s, opacity 0s; */
-}
-[data-appear-on-scroll="true"] {
-    /* opacity: 1; */
-    /* transform: translate(0); */
 }
 
 .trapazoid-container[data-appear-on-scroll="false"],

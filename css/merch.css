@@ -81,7 +81,7 @@ section {
     color: var(--primary-color);
     background-color: var(--secondary-color);
     border: 1.5px solid var(--primary-color);
-    transition: background 0.2s;
+    transition: background 0.2s, transform 1s, opacity 1s 0.1s;
     font-size: clamp(0.9rem, 3vw, 1rem);
 }
 
@@ -260,3 +260,9 @@ section {
 #section4 {
     margin: clamp( 4rem, 4vw, 6rem);
 }
+
+/* Appear on Scroll */
+[data-appear-on-scroll="false"] {
+    transform: translateX(8rem);
+}
+
