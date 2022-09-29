@@ -67,6 +67,7 @@ h2 {
     background: var(--placeholder-color) url("") no-repeat center/cover;
     aspect-ratio: 1/1;
     width: clamp( 5.5rem, 22vw, 8rem);
+    min-height: clamp( 5.5rem, 22vw, 8rem);
 }
 
 
@@ -116,14 +117,15 @@ h2 {
 }
 
 /* Appear on Scroll */
-[data-appear-on-scroll] {
+/* [data-appear-on-scroll] {
     transition: transform 1s, opacity 1s 0.1s;
-}
+} */
 [data-appear-on-scroll="false"] {
-    opacity: 0;
+    /* opacity: 0; */
     transform: translateX(10rem);
+    /* transition: transform 0s, opacity 0s; */
 }
-[data-appear-on-scroll="true"] {
+/* [data-appear-on-scroll="true"] {
     opacity: 1;
     transform: translate(0);
-}
+} */

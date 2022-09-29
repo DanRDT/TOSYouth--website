@@ -14,6 +14,8 @@
 
     Section 4
 
+    Appear On Scroll
+
 */
 
 :root {
@@ -120,9 +122,7 @@ section {
  
 .merch-items {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-columns: repeat(auto-fill,minmax(130px, 1fr));
-    /* grid-auto-flow: row; */
     gap: 0.5rem;
     margin: 1rem 0;
     width: 100%;
@@ -145,39 +145,26 @@ section {
     font-size: clamp(0.8rem, 1.7vw, 1.05rem);
 }
 
-/* .merch-item:nth-child(5n + 1) {
-    grid-column: 1;
-}
-.merch-item:nth-child(5n + 2) {
-    grid-column: 2;
-}
-.merch-item:nth-child(5n + 3) {
-    grid-column: 3;
-}
-.merch-item:nth-child(5n + 4) {
-    grid-column: 4;
-}
-.merch-item:nth-child(5n + 5) {
-    grid-column: 5;
-} */
+
 
 
 /* Merch Image */
 .item-img {
-    aspect-ratio: 2/3;
     width: clamp( 7.9rem, 20vw, 12rem);
+    aspect-ratio: 2/3;
     background-color: var(--placeholder-color);
     display: flex;
     justify-content: center;
     overflow: hidden;
 }
+
 .merch-items .merch-item .item-img {
     width: clamp( 7.9rem, 28vw, 12rem);
 }
 
 .item-img img {
-    height: 100%;
     width: auto;
+    height: calc(clamp( 7.9rem, 28vw, 12rem) * 1.5);
 }
 
 
@@ -239,7 +226,6 @@ section {
 .most-wanted-short-img {
     background: var(--placeholder-color) url("../imgs/sample-images/folded-hoodie.jpg") no-repeat center/cover;
     height: auto;
-    width: 18rem;
     width: clamp(10rem, 25vw, 18rem);
     aspect-ratio: 18/11;
     position: relative;
@@ -250,7 +236,6 @@ section {
 .most-wanted-tall-img {
     background: var(--placeholder-color) url("../imgs/sample-images/girl-in-hoodie.jpg") no-repeat center/cover;
     height: auto;
-    width: 17rem;
     width: clamp(9rem, 27vw, 17rem);
     aspect-ratio: 17/30;
     margin-right: 0.7rem;

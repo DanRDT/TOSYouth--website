@@ -7,6 +7,7 @@ Table Of Contents
         Page Elements
         Scroll Bar
         Font Sizes
+        Appear On Scroll
 
     Header
         Logo
@@ -154,6 +155,20 @@ h2, h3 {
 h4 {
     font-size: clamp(0.8rem, 3vw, 1.05rem);
 }
+
+/* Appear on Scroll */
+[data-appear-on-scroll] {
+    transition: transform 1s, opacity 1s 0.1s;
+}
+[data-appear-on-scroll="false"] {
+    opacity: 0;
+    transition: transform 0s, opacity 0s;
+}
+[data-appear-on-scroll="true"] {
+    opacity: 1;
+    transform: translate(0);
+}
+
 
 
 
