@@ -185,7 +185,7 @@ header {
 
 /* Logo */
 .logo {
-    padding-left: 1.5rem;
+    margin-left: clamp(1rem, 4vw, 1.7rem);
 }
 .logo img {
     width: 3rem;
