@@ -1,3 +1,4 @@
+const { application } = require("express");
 const express = require("express");
 const path = require("path");
 
@@ -24,9 +25,14 @@ app.get("/merch-store", (req,res)=>{
     res.sendFile(path.resolve(__dirname, './pages/merch-store.html'))
 })
 
+// app.get('/merch-store/:itemID', (req, res) => {
+//     res.send("<p>item</p>")
+// })
+
+
 
 app.all('*', (req, res)=>{
-    res.status(404).send('<h1>Resource not found<h1>')
+    res.status(404).sendFile(path.resolve(__dirname,'./pages/error404.html'))
 })
 
 app.listen(5000, ()=>{
