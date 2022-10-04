@@ -1,18 +1,18 @@
 {
-  "name": "tosyouth-merch-site",
+  "name": "tosyouth-merch-website-server",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "type": "module",
   "scripts": {
-    "start": "node server/app.js",
-    "dev": "nodemon server/app.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DanRDT/TOSYouth--website.git"
   },
-  "author": "",
+  "author": "Daniel Pulber",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DanRDT/TOSYouth--website/issues"
