@@ -3,12 +3,18 @@ const app = express();
 
 const path = require("path");
 
-const logger = require("./logger.js")
+const logger = require("./logger")
+
+const merch = require('./routes/merch.js')
+const events = require('./routes/events.js')
 
 
 
 app.use(express.static(path.resolve(__dirname, '../client')))
 app.use(logger)
+
+app.use('/merch', merch)
+app.use('/events', events)
 
 app.get("/", (req,res)=>{
     res.sendFile(path.resolve(__dirname, '../pages/index.html'))
@@ -16,23 +22,7 @@ app.get("/", (req,res)=>{
 app.get("/about-us", (req,res)=>{
     res.sendFile(path.resolve(__dirname, '../pages/about-us.html'))
 })
-app.get("/events", (req,res)=>{
-    res.sendFile(path.resolve(__dirname, '../pages/events.html'))
-})
-app.get("/event-details", (req,res)=>{
-    res.sendFile(path.resolve(__dirname, '../pages/event-details.html'))
-})
-app.get("/merch", (req,res)=>{
-    res.sendFile(path.resolve(__dirname, '../pages/merch.html'))
-})
-app.get("/merch-store", (req,res)=>{
-    res.sendFile(path.resolve(__dirname, '../pages/merch-store.html'))
-})
 
-app.get('/merch-store/:itemID', (req, res) => {
-    const {itemID} = req.params 
-    res.send(`<p>item ${itemID}</p>`)
-})
 
 
 
