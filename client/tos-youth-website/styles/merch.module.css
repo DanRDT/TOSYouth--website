@@ -1,0 +1,259 @@
+/* Table of Contents 
+
+    Section 1
+        New Arrivals
+        Button
+    
+    Section 2
+        Merch Items
+        Merch Image
+    
+    Section 3
+        Heading
+        Images
+
+    Section 4
+
+    Appear On Scroll
+
+*/
+
+
+.main-container section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+/* Section 1 */
+#section1 {
+    background: var(--placeholder-color) url("/imgs/clothes-rack.jpg") no-repeat center/cover;
+    max-width: 70rem;
+    width: calc(100% + 2rem);
+}
+
+/* New Arrivals */
+.new-arrivals {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: clamp(3rem, 10vw, 5rem) 0;
+    padding: clamp(1rem, 5vw, 2rem) clamp(2.2rem, 5vw, 3rem);
+    z-index: 3;
+}
+.transparent-bg {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+
+.new-arrivals h2 {
+    color: var(--primary-color);
+    
+}
+.new-arrivals h1 {
+    color: var(--primary-color);
+    padding: 0 0 clamp(1rem, 4vw, 1.5rem) 0;    
+}
+
+
+
+/* Button */
+.shop-now-button {
+    padding: 1rem 3rem;
+    padding: clamp(0.5rem, 3vw, 1rem) clamp( 1.5rem, 6vw, 3rem);
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border: 1.5px solid var(--primary-color);
+    transition: background 0.2s, transform 1s, opacity 1s 0.1s;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+}
+
+.shop-now-button:hover,
+.shop-now-button:active {
+    background-color: rgb(45, 45, 45);
+}
+
+/* Section 2 */
+#section2 {
+    padding: 0 0.5rem;
+}
+
+.subheading {
+    padding: 1rem 0;
+    background-color: var(--beige-color);
+    width: 100%;
+    text-align: center;
+    font-style: italic;
+    /* font-weight: bold; */
+}
+
+/* Merch Items */
+.latest-items {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    justify-content: space-evenly;
+    width: 100%;
+}
+@media (max-width: 578px) and (min-width: 443px) {
+    .latest-items .merch-item:nth-child(4) {
+        display: none;
+    }
+}
+ 
+.merch-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(130px, 1fr));
+    gap: 0.5rem;
+    margin: 1rem 0;
+    width: 100%;
+    justify-items: center;
+}
+@media (min-width: 560px) {
+    .merch-items {
+        grid-template-columns: repeat(auto-fill,minmax(clamp(150px, 25vw, 200px), 1fr));
+    }
+}
+
+.merch-item {
+    width: fit-content;
+}
+.merch-item h3 {
+    font-size: clamp(0.95rem, 2vw, 1.25rem);
+}
+
+.merch-item h4 {
+    font-size: clamp(0.8rem, 1.7vw, 1.05rem);
+}
+
+
+
+
+/* Merch Image */
+.item-img {
+    width: clamp( 7.9rem, 20vw, 12rem);
+    aspect-ratio: 2/3;
+    background-color: var(--placeholder-color);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.merch-items .merch-item .item-img {
+    width: clamp( 7.9rem, 28vw, 12rem);
+}
+
+.item-img img {
+    width: auto;
+    height: calc(clamp( 7.9rem, 28vw, 12rem) * 1.5);
+}
+
+
+/* Section 3 */
+#section3 {
+    background-color: var(--secondary-color);
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 72rem;
+    width: calc(100% + 2rem);
+    min-height: clamp( 23rem, 45vh, 27rem);
+    margin-bottom: 0;
+}
+
+.most-wanted-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+/* Heading */
+.most-wanted-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0.7rem;
+    z-index: 1;
+}
+
+.most-wanted-heading h2 {
+    color: var(--primary-color);
+    text-align: left;
+    width: 100%;
+    transform: rotate(-5deg);
+    font-family: 'corinthia';
+    font-size: 3.5rem;
+    font-size: clamp( 1.9rem, 5vw, 3.5rem);
+}
+.most-wanted-heading h1 {
+    color: var(--primary-color);
+    padding: 0 0 clamp(1rem, 2.5vw, 2rem) 0;
+    font-family: 'cormorant';
+    font-size: clamp( 2.1rem, 8vw, 4.5rem);
+}
+
+
+/* Images */
+.most-wanted-imgs {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+.most-wanted-short-img {
+    background: var(--placeholder-color) url("/imgs/sample-images/folded-hoodie.jpg") no-repeat center/cover;
+    height: auto;
+    width: clamp(10rem, 25vw, 18rem);
+    aspect-ratio: 18/11;
+    position: relative;
+    bottom: clamp( 1rem, 6vw, 5rem);
+    left: clamp(1.5rem, 5.5vw, 3rem);
+    z-index: 2;
+}
+.most-wanted-tall-img {
+    background: var(--placeholder-color) url("/imgs/sample-images/girl-in-hoodie.jpg") no-repeat center/cover;
+    height: auto;
+    width: clamp(9rem, 27vw, 17rem);
+    aspect-ratio: 17/30;
+    margin-right: 0.7rem;
+}
+@media (max-width: 500px) {
+    .most-wanted-container {
+        justify-content: flex-end;
+    }
+    .most-wanted-heading {
+        position: absolute;
+        top: 3rem;
+        left: 0;
+        left: calc(-6% + 2rem);
+    }
+    .most-wanted-tall-img {
+        margin-top: 1rem;
+    }
+}
+
+
+/* Section 4 */
+#section4 {
+    margin: clamp( 4rem, 4vw, 6rem);
+}
+
+/* Appear on Scroll */
+.main-container [data-appear-on-scroll="false"] {
+    transform: translateX(8rem);
+}
+

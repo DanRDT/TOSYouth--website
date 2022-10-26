@@ -9,7 +9,7 @@
 */
 
 
-section {
+.main-container section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,6 +23,7 @@ section {
     gap: clamp( 1rem, 3vw, 3rem);
 }
 
+
 /* Images */
 .about-us-img {
     border-radius: 8px;
@@ -31,15 +32,15 @@ section {
 }
 
 .about-us-img:nth-of-type(1) {
-    background: var(--placeholder-color) url("../imgs/sample-images/children-photo.jpg") no-repeat center/cover;
+    background: var(--placeholder-color) url("/imgs/sample-images/children-photo.jpg") no-repeat center/cover;
 }
 
 .about-us-img:nth-of-type(4) {
-    background: var(--placeholder-color) url("../imgs/sample-images/church-photo.jpg") no-repeat center/cover;
+    background: var(--placeholder-color) url("/imgs/sample-images/church-photo.jpg") no-repeat center/cover;
 }
 
 .about-us-img:nth-of-type(5) {
-    background: var(--placeholder-color) url("") no-repeat center/cover;
+    background: var(--placeholder-color) url("/") no-repeat center/cover;
 }
 
 /* Text */
@@ -66,10 +67,10 @@ section {
 }
 
 /* Appear on Scroll */
-[data-appear-on-scroll] {
+.main-container [data-appear-on-scroll] {
     transition: transform 1.2s, opacity 1s 0.1s;
 }
-[data-appear-on-scroll="false"] {
+.main-container [data-appear-on-scroll="false"] {
     transform: translateX(10rem);
     transition: transform 0s, opacity 0s;
 }

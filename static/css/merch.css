@@ -18,17 +18,8 @@
 
 */
 
-:root {
-    --primary-color: #fff;
-    --secondary-color: #000;
-    --complementary-color: #8096A3;
-    --complementary-color-darker: rgb(73, 95, 116);
-    --beige-color: #E9E0CF;
-    --placeholder-color: #D9D9D9;
-}
 
-
-section {
+.main-container section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,7 +28,7 @@ section {
 
 /* Section 1 */
 #section1 {
-    background: var(--placeholder-color) url("../imgs/clothes-rack.jpg") no-repeat center/cover;
+    background: var(--placeholder-color) url("/imgs/clothes-rack.jpg") no-repeat center/cover;
     max-width: 70rem;
     width: calc(100% + 2rem);
 }
@@ -224,7 +215,7 @@ section {
 }
 
 .most-wanted-short-img {
-    background: var(--placeholder-color) url("../imgs/sample-images/folded-hoodie.jpg") no-repeat center/cover;
+    background: var(--placeholder-color) url("/imgs/sample-images/folded-hoodie.jpg") no-repeat center/cover;
     height: auto;
     width: clamp(10rem, 25vw, 18rem);
     aspect-ratio: 18/11;
@@ -234,7 +225,7 @@ section {
     z-index: 2;
 }
 .most-wanted-tall-img {
-    background: var(--placeholder-color) url("../imgs/sample-images/girl-in-hoodie.jpg") no-repeat center/cover;
+    background: var(--placeholder-color) url("/imgs/sample-images/girl-in-hoodie.jpg") no-repeat center/cover;
     height: auto;
     width: clamp(9rem, 27vw, 17rem);
     aspect-ratio: 17/30;
@@ -262,7 +253,7 @@ section {
 }
 
 /* Appear on Scroll */
-[data-appear-on-scroll="false"] {
+.main-container [data-appear-on-scroll="false"] {
     transform: translateX(8rem);
 }
 

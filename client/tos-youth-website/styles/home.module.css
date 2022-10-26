@@ -1,0 +1,203 @@
+/* 
+Table of Contents
+
+    Main
+        Section 1
+            Title
+            Picture
+            Trapazoid Quote
+            Larger screens
+
+        Section 2
+            About Us Quote
+            Button
+
+        Section 3
+            Heading
+            Contact Info
+            Social Media Icons
+
+        Appear on Scroll
+
+*/
+
+
+/* Section 1 */
+#section1,
+#section2,
+#section3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+/* Title */
+.title {
+    width: 100%;
+    position: relative;
+    top: 5rem;
+    left: 0;
+    z-index: 3;
+}
+
+.title h1 {
+    font-family: 'cormorant';
+    font-size: clamp( 2.4rem, 10vw, 4.5rem);
+    line-height: clamp( 2.2rem, 7vw, 3rem);
+    letter-spacing: 4px;
+    position: relative;
+    left: 3vw;
+    width: fit-content;
+}
+.title span:nth-of-type(1) {
+    font-family: 'core sans a';
+    font-size: clamp( 1.1rem, 4vw, 1.8rem);
+    letter-spacing: 7px;
+}
+.title span:nth-of-type(2) {
+    font-family: 'cormorant';
+    font-size: clamp( 2.1rem, 7.5vw, 3.3rem);
+}
+
+/* Picture */
+.cross-picture-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 2;
+}
+.cross-picture {
+    background: url("../imgs/cross-picture.png") no-repeat top/cover;
+    position: relative;
+    width: clamp( 16rem, 60vw, 30rem);
+    height: clamp( 32rem, 100vw, 43rem);
+    right: 2vw;
+}
+
+/* Trapazoid Quote */
+.trapazoid-container {
+    position: relative;
+    top: -3vh;
+    left: -5%;
+    z-index: 1;
+}
+.trapazoid {
+    max-width: clamp(20rem,70vw,32rem);
+    background: var(--complementary-color);
+    margin: 0 10% 4rem 2rem;
+    padding: clamp(3rem, 9vw, 7rem) clamp( 2rem, 3vw, 4rem);
+    transform: skewX(10deg);
+}
+.trapazoid-container h3 {
+    transform: skewX(-10deg);
+    line-height: clamp( 1.3rem, 4.8vw, 1.7rem);
+    font-size: clamp(0.9rem, 3vw, 1.3rem);
+}
+
+/* Larger screens */
+@media (min-width: 650px) {
+    .title h1 {
+        left: auto;
+        padding-right: min(20rem, 20vw);
+        width: auto;
+    }
+    .cross-picture-container {
+        justify-content: center;
+    }
+    .cross-picture {
+        margin-left: 50%;   
+    }
+    #section1 {
+        left: -1rem;
+    }    
+}
+
+/* Section 2 */
+#section2,
+#section3 {
+    padding: 5rem 0;
+}
+
+/* About Us Quote */
+.about-us {
+    max-width: 41rem;
+    line-height: clamp( 1.3rem, 5vw, 1.7rem);
+    font-size: clamp(0.9rem, 3.5vw, 1.25rem);
+    margin: 0 3rem 2rem;
+    position: relative;
+}
+.quotes {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/imgs/double-quotes-icon.png") no-repeat center/contain;
+    opacity: 0.08;
+}
+
+
+/* Button */
+.learn-more {
+    font-size: clamp(0.9rem, 3.5vw, 1.25rem);
+    padding: clamp(0.2rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem);
+    border: 2px solid var(--secondary-color);
+    transition: color 0.1s, background 0.15s, border 0.15s;
+}
+.learn-more:hover, 
+.learn-more:active {
+    background: var(--complementary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--complementary-color);
+}
+
+
+
+/* Section 3 */
+
+/* Heading */
+.heading {
+    font-size: clamp( 2rem, 7.5vw, 2.7rem);
+    padding-bottom: 2rem;
+}
+
+/* Contact Info */
+.contact-info {
+    line-height: clamp( 1.3rem, 5vw, 1.7rem);
+    font-size: clamp(0.8rem, 3.6vw, 1.2rem);
+    padding-bottom: 2rem;
+}
+
+/* Social Media Icons */
+#instagram-icon svg {
+    width: clamp(3rem, 13vw, 4.3rem);
+}
+
+#instagram-icon:hover #instagram-icon-path,
+#instagram-icon:active #instagram-icon-path {
+    fill: url(#instagram-gradient);
+}
+
+/* Appear on Scroll */
+.main-container [data-appear-on-scroll] { 
+    transform: translateY(5rem);
+}
+
+.trapazoid-container[data-appear-on-scroll="false"],
+.title[data-appear-on-scroll="false"] {
+    transform: translate(-10rem, 0rem);
+}
+
+.cross-picture-container[data-appear-on-scroll="false"],
+.about-us[data-appear-on-scroll="false"],
+.learn-more[data-appear-on-scroll="false"] {
+    transform: translate(10rem, 0rem);
+}
+
+@media (min-width: 650px) {
+    .trapazoid-container[data-appear-on-scroll="false"] {
+    transform: translate(10rem, 0rem);
+    }
+}

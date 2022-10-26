@@ -1,0 +1,122 @@
+/* 
+Table Of Contents 
+
+    Events
+        Event Info Layout
+        Event Image
+        Button
+    
+    Event Details
+    
+*/
+
+
+.main-container section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Font Sizes */
+
+.main-container h2 {
+    padding: 2rem 0;
+}
+
+.more-info-button,
+.return-button {
+    font-size: clamp(0.8rem, 3vw, 1.05rem);
+}
+
+
+/* Events */
+.events {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.events-to-come-lbl {
+    padding: clamp( 3rem, 10vw, 5rem) 0;
+}
+
+/* Event Info Layout */
+.event {
+    padding: clamp( 1.8rem, 5vw, 3rem) 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.event-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.event-info h3 {
+    padding-top: 0.5rem;
+}
+
+
+
+/* Event Image */
+.event-img,
+.event-details-img {
+    background: var(--placeholder-color) url("/") no-repeat center/cover;
+    aspect-ratio: 1/1;
+    width: clamp( 5.5rem, 22vw, 8rem);
+    min-height: clamp( 5.5rem, 22vw, 8rem);
+}
+
+
+/* Button */
+.more-info-button,
+.return-button {
+    font-size: clamp(0.9rem, 3.5vw, 1.25rem);
+    padding: clamp(0.2rem, 3vw, 0.5rem) clamp(1rem, 5vw, 1.6rem);
+    background: var(--complementary-color);
+    color: var(--primary-color);
+    transition: background 0.2s;
+    margin-bottom: 0.2rem;
+}
+.more-info-button:hover, 
+.more-info-button:active,
+.return-button:hover,
+.return-button:active {
+    background: var(--complementary-color-darker);
+}
+
+.return-button {
+    margin: 0 0 1.5rem 0;
+}
+/* Event Details */
+.event-details {
+    padding: 2rem 10%;
+    display: grid;
+    grid-template:  "a b ."
+                    "c c c";
+    max-width: 60rem;
+}
+
+.event-details-img {
+    grid-area: a;
+    width: clamp( 6rem, 22vw, 10rem);
+    margin-left: 1rem;
+
+}
+.event-details-info {
+    grid-area: b;
+    padding-left: clamp( 1rem, 5vw, 3rem);
+}
+.description{
+    grid-area: c;
+    padding: 2rem 1rem 0 1rem;
+    line-height: clamp( 1.2rem, 5vw, 1.5rem);
+}
+
+/* Appear on Scroll */
+.main-container [data-appear-on-scroll="false"] {
+    transform: translateX(10rem);
+}
