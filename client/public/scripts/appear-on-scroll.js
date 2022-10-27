@@ -27,8 +27,8 @@ const observer = new IntersectionObserver( (items, observer) => {
   })
 }, options)
 
-export default observedItems.forEach(item => {
+export default function observe() {observedItems.forEach(item => {
   observer.observe(item);
-})
+})};
 
 

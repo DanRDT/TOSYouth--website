@@ -1,4 +1,6 @@
 import Meta from '../components/Meta'
+import Scripts from '../components/Scripts'
+
 
 
 export default function Home() {
@@ -6,40 +8,41 @@ export default function Home() {
     <div>    
       <link rel="stylesheet" type="text/css" href="/css/home.css"/>
       <Meta/>
+      <Scripts/>
       <main>
-        <div className={"main-container"}>
+        <div className='main-container'>
             <section id="section1">
-                <div className={"title"} data-appear-on-scroll="false">
+                <div className='title' data-appear-on-scroll="false">
                     <h1>
-                        TABERNACLE<br></br><span>OF SALVATION</span><br></br> <span>YOUTH</span>
+                        TABERNACLE<br/><span>OF SALVATION</span><br/> <span>YOUTH</span>
                     </h1>
                 </div>
-                <div className={"cross-picture-container"} data-appear-on-scroll="false">
-                    <div className={"cross-picture"}>
+                <div className='cross-picture-container' data-appear-on-scroll="false">
+                    <div className='cross-picture'>
                 </div>
                 </div>
-                <div className={"trapazoid-container"} data-appear-on-scroll="false">
-                    <div className={"trapazoid"}>
-                        <h3>But if we walk in the light, as he is in the light, we have fellowship with one another, and the blood of Jesus, his Son, purifies us from all sin.<br></br>1 John 1:7</h3> 
+                <div className='trapazoid-container' data-appear-on-scroll="false">
+                    <div className='trapazoid'>
+                        <h3>But if we walk in the light, as he is in the light, we have fellowship with one another, and the blood of Jesus, his Son, purifies us from all sin.<br/>1 John 1:7</h3> 
                     </div>
                 </div>
             </section>
             
-            <div className={"seperation-line"}></div>
+            <div className='seperation-line'></div>
 
             <section id="section2">
-                <h3 className={"about-us"} data-appear-on-scroll="false">
+                <h3 className='about-us' data-appear-on-scroll="false">
                     “We are the youth of Tabernacle of Salvation. Add some other text here. Sample text to follow. Potato wedges probably are not best for relationships. He had a vague sense that trees gave birth to dinosaurs. The light in his life was actually a fire burning all around him.”
-                    <div className={"quotes"}></div>
+                    <div className='quotes'></div>
                 </h3>
-                <a className={"learn-more"} href="/about-us" data-appear-on-scroll="false">Learn More</a>
+                <a className='learn-more' href="/about-us" data-appear-on-scroll="false">Learn More</a>
             </section>
             
-            <div className={"seperation-line"}></div>
+            <div className='seperation-line'></div>
             
             <section id="section3">
-                <h2 className={"heading"} data-appear-on-scroll="false">Contact</h2>
-                <h3 className={"contact-info"} data-appear-on-scroll="false">Contact us for more information<br></br>
+                <h2 className='heading' data-appear-on-scroll="false">Contact</h2>
+                <h3 className='contact-info' data-appear-on-scroll="false">Contact us for more information<br/>
                     tosy.youth@gmail.com || 13891 Asheville Hwy, Inman, SC 29349</h3>
                 <a id="instagram-icon" href="https://www.instagram.com/t.o.s.youth/" data-appear-on-scroll="false">
                     <svg viewBox="0 0 164 160" fill="none" xmlns="http://www.w3.org/2000/svg">
