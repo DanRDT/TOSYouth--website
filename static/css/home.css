@@ -181,7 +181,7 @@ Table of Contents
 }
 
 /* Appear on Scroll */
-.main-container [data-appear-on-scroll] { 
+.main-container [data-appear-on-scroll="false"] {
     transform: translateY(5rem);
 }
 

@@ -70,7 +70,7 @@ Table of Contents
     z-index: 2;
 }
 .cross-picture {
-    background: url("../imgs/cross-picture.png") no-repeat top/cover;
+    background: url("/imgs/cross-picture.png") no-repeat top/cover;
     position: relative;
     width: clamp( 16rem, 60vw, 30rem);
     height: clamp( 32rem, 100vw, 43rem);
@@ -88,7 +88,7 @@ Table of Contents
     max-width: clamp(20rem,70vw,32rem);
     background: var(--complementary-color);
     margin: 0 10% 4rem 2rem;
-    padding: clamp(3rem, 9vw, 7rem) clamp( 2rem, 3vw, 4rem);
+    padding: clamp(3rem, 5.5vw, 7rem) clamp(2rem, 3vw, 4rem);
     transform: skewX(10deg);
 }
 .trapazoid-container h3 {
@@ -181,7 +181,7 @@ Table of Contents
 }
 
 /* Appear on Scroll */
-.main-container [data-appear-on-scroll] { 
+.main-container [data-appear-on-scroll="false"] {
     transform: translateY(5rem);
 }
 
