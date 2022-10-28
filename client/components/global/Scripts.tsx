@@ -25,10 +25,10 @@ const Scripts = () => {
                 // console.log("Ready");
             }}
             onLoad={() => {
-                console.log("Loaded");
+                // console.log("Loaded");
             }}
             onError={() => {
-                console.log("Error");
+                console.log("UI Scripts Error");
             }}
         /> 
     )

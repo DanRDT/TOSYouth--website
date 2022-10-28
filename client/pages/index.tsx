@@ -1,6 +1,6 @@
-import Meta from '../components/global/Meta'
+import Meta from '../components/global/meta'
 
-import Scripts from '../components/global/Scripts'
+import Scripts from '../components/global/scripts'
 import Script from 'next/script'
 import Head from 'next/head'
 

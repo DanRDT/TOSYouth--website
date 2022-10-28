@@ -1,5 +1,5 @@
-import Meta from '../../components/global/Meta'
-import Scripts from '../../components/global/Scripts'
+import Meta from '../../components/global/meta'
+import Scripts from '../../components/global/scripts'
 
 
 

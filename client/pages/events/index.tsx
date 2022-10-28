@@ -1,5 +1,6 @@
-import Meta from '../../components/global/Meta'
-import Scripts from '../../components/global/Scripts'
+import Meta from '../../components/global/meta'
+import Scripts from '../../components/global/scripts'
+import Events from '../../components/events/events'
 
 
 
@@ -19,25 +20,8 @@ export default function Home() {
                 <section id="section2">
                     <h1>Upcoming Events</h1>
                     <div className='seperation-line'></div>
-                    <div className='events'>
-                        <div className='event' data-appear-on-scroll="false" data-appear-on-scroll-delay="true">
-                            <div className='event-img'></div>
-                            <div className='event-info'>
-                                <h3>Park Day</h3>
-                                <h4>10/15/2022</h4>
-                                <a className='more-info-button' href="/events/1">More Info</a>
-                            </div>
-                        </div>
-                        <div className='seperation-line'></div>
-                        <div className='event' data-appear-on-scroll="false" data-appear-on-scroll-delay="true">
-                            <div className='event-img'></div>
-                            <div className='event-info'>
-                                <h3>New Years</h3>
-                                <h4>12/31/2022</h4>
-                                <a className='more-info-button' href="/events/1">More Info</a>
-                            </div>
-                        </div>
-                        <div className='seperation-line'></div>
+                    <div className='events' key="events">
+                        <Events/>
                         <h3 className='events-to-come-lbl' data-appear-on-scroll="false" data-appear-on-scroll-delay="true">More Events To Come...</h3>
                     </div>                
                 </section>

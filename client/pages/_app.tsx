@@ -1,7 +1,7 @@
 import '../styles/globals.css'
-import Header from "../components/global/Header";
-import Footer from "../components/global/Footer";
-import Scripts from '../components/global/Scripts';
+import Header from "../components/global/header";
+import Footer from "../components/global/footer";
+// import Scripts from '../components/global/scripts';
 
 function MyApp({ Component, pageProps }) {
   return (

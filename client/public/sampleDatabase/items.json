@@ -1,0 +1,193 @@
+[
+    {
+        "id": "1",
+        "name": "Blue T-Shirt",
+        "description": "Nice T-shirt with cool design fits well and all",
+        "price": "9.99",
+        "image": "/imgs/sample-images/folded-hoodie.jpg",
+        "type": "shirt",
+        "gender": "all",
+        "color": "blue",
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Grey Hoodie",
+        "description": "Nice hoodie with cool design fits well and all",
+        "price": "19.99",
+        "image": "/imgs/sample-images/girl-in-hoodie.jpg",
+        "type": "hoodie",
+        "gender": "all",
+        "color": "grey",
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ]
+    },
+    {
+        "id": "3",
+        "name": "Grey Pants",
+        "description": "Nice pants with cool design fits well and all",
+        "price": "24.99",
+        "image": "/imgs/sample-images/folded-hoodie.jpg",
+        "type": "pants",
+        "gender": "male",
+        "color": "grey",
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ]
+    },
+    {
+        "id": "4",
+        "name": "Grey Sweater",
+        "description": "Nice hoodie with cool design fits well and all",
+        "price": "21.99",
+        "image": "/imgs/sample-images/girl-in-hoodie.jpg",
+        "type": "hoodie",
+        "gender": "all",
+        "color": "grey",
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ]
+    },
+    {
+        "id": "1",
+        "name": "Blue T-Shirt",
+        "description": "Nice T-shirt with cool design fits well and all",
+        "price": "9.99",
+        "image": "/imgs/sample-images/folded-hoodie.jpg",
+        "type": "shirt",
+        "gender": "all",
+        "color": "blue",
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Grey Hoodie",
+        "description": "Nice hoodie with cool design fits well and all",
+        "price": "19.99",
+        "image": "/imgs/sample-images/girl-in-hoodie.jpg",
+        "type": "hoodie",
+        "gender": "all",
+        "color": "grey",
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ]
+    },
+    {
+        "id": "3",
+        "name": "Grey Pants",
+        "description": "Nice pants with cool design fits well and all",
+        "price": "24.99",
+        "image": "/imgs/sample-images/folded-hoodie.jpg",
+        "type": "pants",
+        "gender": "male",
+        "color": "grey",
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ]
+    },
+    {
+        "id": "4",
+        "name": "Grey Sweater",
+        "description": "Nice hoodie with cool design fits well and all",
+        "price": "21.99",
+        "image": "/imgs/sample-images/girl-in-hoodie.jpg",
+        "type": "hoodie",
+        "gender": "all",
+        "color": "grey",
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ]
+    },{
+        "id": "1",
+        "name": "Blue T-Shirt",
+        "description": "Nice T-shirt with cool design fits well and all",
+        "price": "9.99",
+        "image": "/imgs/sample-images/folded-hoodie.jpg",
+        "type": "shirt",
+        "gender": "all",
+        "color": "blue",
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ]
+    },
+    {
+        "id": "2",
+        "name": "Grey Hoodie",
+        "description": "Nice hoodie with cool design fits well and all",
+        "price": "19.99",
+        "image": "/imgs/sample-images/girl-in-hoodie.jpg",
+        "type": "hoodie",
+        "gender": "all",
+        "color": "grey",
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ]
+    },
+    {
+        "id": "3",
+        "name": "Grey Pants",
+        "description": "Nice pants with cool design fits well and all",
+        "price": "24.99",
+        "image": "/imgs/sample-images/folded-hoodie.jpg",
+        "type": "pants",
+        "gender": "male",
+        "color": "grey",
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ]
+    },
+    {
+        "id": "4",
+        "name": "Grey Sweater",
+        "description": "Nice hoodie with cool design fits well and all",
+        "price": "21.99",
+        "image": "/imgs/sample-images/girl-in-hoodie.jpg",
+        "type": "hoodie",
+        "gender": "all",
+        "color": "grey",
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ]
+    }
+]

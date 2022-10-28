@@ -36,6 +36,12 @@ Table Of Contents
     flex-direction: column;
     align-items: center;
 }
+.event-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .events-to-come-lbl {
     padding: clamp( 3rem, 10vw, 5rem) 0;

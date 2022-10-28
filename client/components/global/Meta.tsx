@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Scripts from "./Scripts";
+// import Scripts from "./scripts";
 import Script from "next/script";
 
 const Meta = ({title, description}) => {
