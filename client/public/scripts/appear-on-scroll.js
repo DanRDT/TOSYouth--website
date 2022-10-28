@@ -7,7 +7,7 @@ const options = {
 
 const observer = new IntersectionObserver( (items, observer) => {
   let delayNumCount = 1;
-  items.forEach(item => {
+  items.map(item => {
     if (!item.isIntersecting) {
       return;
     }
@@ -26,9 +26,9 @@ const observer = new IntersectionObserver( (items, observer) => {
     }
   })
 }, options)
-
-export default function observe() {observedItems.forEach(item => {
-  observer.observe(item);
-})};
+// function observe() {
+export default observedItems.forEach(item => {
+  return observer.observe(item);
+});
 
 

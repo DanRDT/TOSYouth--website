@@ -1,14 +1,16 @@
 import '../styles/globals.css'
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/global/Header";
+import Footer from "../components/global/Footer";
+import Scripts from '../components/global/Scripts';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <>
+      {/* <Scripts></Scripts> */}
       <Header/>
       <Component {...pageProps} />
       <Footer/>
-    </div>
+    </>
   )
 }
 

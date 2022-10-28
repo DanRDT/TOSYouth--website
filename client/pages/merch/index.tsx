@@ -1,13 +1,13 @@
-import Meta from '../../components/Meta'
-import Scripts from '../../components/Scripts'
+import Meta from '../../components/global/Meta'
+import Scripts from '../../components/global/Scripts'
 
 
 
 export default function Home() {
   return (
-    <div>    
+    <>    
         <link rel="stylesheet" type="text/css" href="/css/merch.css" key="merch-css"/>
-        <Meta/>
+        <Meta title={"Merch"} description={"Merch Store Home Page"}/>
         <Scripts/>
         <main>
             <div className='main-container'>
@@ -16,7 +16,7 @@ export default function Home() {
                         <div className='transparent-bg'></div>
                         <h2>Try Our</h2>
                         <h1>New Arrivals</h1>
-                        <a href="/merch/store" className='shop-now-button'>Shop Now</a>
+                        <a href="/merch/items" className='shop-now-button'>Shop Now</a>
                     </div>
                 </section>
                 <section id="section2">
@@ -57,7 +57,7 @@ export default function Home() {
                         <div className='most-wanted-heading' data-appear-on-scroll="false">
                             <h2>The Most</h2>
                             <h1>WANTED</h1>
-                            <a href="/merch/store" className='shop-now-button'>Take a Look</a>
+                            <a href="/merch/items" className='shop-now-button'>Take a Look</a>
                         </div>
                         <div className='most-wanted-imgs' data-appear-on-scroll="false">
                             <div className='most-wanted-short-img'></div>
@@ -66,10 +66,10 @@ export default function Home() {
                     </div>
                 </section>
                 <section id="section4">
-                    <a href="/merch/store" className='shop-now-button' data-appear-on-scroll="false">Shop All</a>                
+                    <a href="/merch/items" className='shop-now-button' data-appear-on-scroll="false">Shop All</a>                
                 </section>
             </div>
         </main>
-    </div>
+    </>
   )
 }

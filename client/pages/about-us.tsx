@@ -1,14 +1,17 @@
-import Meta from '../components/Meta'
-import Scripts from '../components/Scripts'
+import Meta from '../components/global/Meta'
+import Scripts from '../components/global/Scripts'
+
+import Script from 'next/script'
+
 
 
 
 export default function Home() {
   return (
-    <div>    
+    <>    
       <link rel="stylesheet" type="text/css" href="/css/about-us.css"/>
-      <Meta/>
-      <Scripts/>
+      <Meta title={"About Us"} description={"Learn more about us and our goals"}/>
+      <Scripts/> 
       <main>
             <div className='main-container'>
                 <section>
@@ -20,13 +23,13 @@ export default function Home() {
                             <h2>Missionary</h2>
                             <h4>We do missionary trips and such insert more text here. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit missionary trips and such insert more text here. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</h4>
                         </div>
-                        <div className='about-us-info' data-appear-on-scroll="false">
+                        <div className='about-us-info' data-appear-on-scroll="false" data-appear-on-scroll-delay="true">
                             <h2>Youth Services</h2>
                             <h4>We have youth services every monday and such insert more text here. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit and such insert more text here. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</h4>
                         </div>
-                        <div className='about-us-img' data-appear-on-scroll="false"></div>
-                        <div className='about-us-img' data-appear-on-scroll="false"></div>
-                        <div className='about-us-info' data-appear-on-scroll="false">
+                        <div className='about-us-img' data-appear-on-scroll="false" data-appear-on-scroll-delay="true"></div>
+                        <div className='about-us-img' data-appear-on-scroll="false" data-appear-on-scroll-delay="true"></div>
+                        <div className='about-us-info' data-appear-on-scroll="false" data-appear-on-scroll-delay="true">
                             <h2>Other topic</h2>
                             <h4>Enter some other topic here and such insert more text here. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit and such insert more text here. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</h4>
                         </div>
@@ -34,6 +37,6 @@ export default function Home() {
                 </section>
             </div>
         </main>
-    </div>
+    </>
   )
 }

@@ -1,14 +1,15 @@
-import Meta from '../components/Meta'
-import Scripts from '../components/Scripts'
+import Meta from '../components/global/Meta'
 
-
+import Scripts from '../components/global/Scripts'
+import Script from 'next/script'
+import Head from 'next/head'
 
 export default function Home() {
   return (
-    <div>    
+    <>    
       <link rel="stylesheet" type="text/css" href="/css/home.css"/>
       <Meta/>
-      <Scripts/>
+      <Scripts/> 
       <main>
         <div className='main-container'>
             <section id="section1">
@@ -60,6 +61,6 @@ export default function Home() {
             </section>
         </div>
       </main>
-    </div>
+    </>
   )
 }

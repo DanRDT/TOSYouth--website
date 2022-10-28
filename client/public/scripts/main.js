@@ -1,5 +1,6 @@
 // Introspection observer to animate in items on scroll
-import appearOnScroll from "/scripts/appear-on-scroll.js"
-appearOnScroll();
+import appearOnScroll from "./appear-on-scroll.js"
+// appearOnScroll();
+
 // Navigation Slide-out Functionality
-import navigation from "/scripts/navigation.js"
+import navigation from "./navigation.js"

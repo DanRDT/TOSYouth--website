@@ -1,13 +1,13 @@
-import Meta from '../../components/Meta'
-import Scripts from '../../components/Scripts'
+import Meta from '../../components/global/Meta'
+import Scripts from '../../components/global/Scripts'
 
 
 
 export default function Home() {
   return (
-    <div>    
+    <>    
         <link rel="stylesheet" type="text/css" href="/css/events.css" key="events-css"/>
-        <Meta/>
+        <Meta title={""} description={""}/>
         <Scripts/>
         <main>
             <div className='main-container'>
@@ -27,6 +27,6 @@ export default function Home() {
                 </section>
             </div>
         </main>
-    </div>
+    </>
   )
 }
