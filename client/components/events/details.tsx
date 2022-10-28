@@ -11,7 +11,8 @@ const Details = () => {
         "name": "",
         "date": "",
         "description": "",
-        "price": ""
+        "price": "",
+        "image": ""
     });
 
     useEffect(() => {
@@ -31,15 +32,15 @@ const Details = () => {
 
     }, [router.isReady]);
     
-    return (
+    return ( 
         <div data-appear-on-scroll="false" className='event-details'>
-            <div className='event-details-img'></div>
+            <Meta title={event.name} description={event.description}/>
+            <div className='event-details-img' style={{background: `var(--placeholder-color) url(${event.image}) no-repeat center/cover`}}></div>
             <div className='event-info event-details-info'>
                 <h3>{event.name}</h3>
                 <h4>Date: {event.date}</h4>
                 <h4>Price: {event.price}</h4>
             </div>
-            <Meta title={""} description={""}/>
             <h4 data-appear-on-scroll="false" className='description'>Description: {event.description}</h4>
         </div>
     )

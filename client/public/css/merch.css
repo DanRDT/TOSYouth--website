@@ -127,13 +127,17 @@
 
 .merch-item {
     width: fit-content;
+    margin-bottom: 0.5rem; 
 }
 .merch-item h3 {
     font-size: clamp(0.95rem, 2vw, 1.25rem);
+    margin: 0.3rem 0.35rem; 
+    
 }
 
 .merch-item h4 {
     font-size: clamp(0.8rem, 1.7vw, 1.05rem);
+    margin-left: 0.45rem; 
 }
 
 
@@ -147,6 +151,7 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
+    border-radius: 0.7rem;
 }
 
 .merch-items .merch-item .item-img {

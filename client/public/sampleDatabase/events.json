@@ -4,20 +4,23 @@
         "name": "Park Day",
         "date": "10/25/2022",
         "description": "This will be the Park Day. We will hangout for a day and eat stuff and play games and the such. This will be the Park Day. We will hangout for a day and eat stuff and play games and the such.This will be the Park Day. We will hangout for a day and eat stuff and play games and the such.",
-        "price": "Free"
+        "price": "Free",
+        "image": "/imgs/sample-images/church-photo.jpg"
     },
     {
         "id": "2",
         "name": "New Year",
         "date": "12/31/2022",
         "description": "This will be the new years party. We will hangout for a night and eat stuff and play games and the such. This will be the new years party. We will hangout for a night and eat stuff and play games and the such. This will be the new years party. We will hangout for a night and eat stuff and play games and the such.",
-        "price": "$70"
+        "price": "$70",
+        "image": "/imgs/sample-images/church-photo.jpg"
     },
     {
         "id": "3",
         "name": "Sample Event",
         "date": "02/05/2023",
         "description": "This will be the sample event. We will hangout for a while and eat stuff and play games and the such. This will be the sample event. We will hangout for a while and eat stuff and play games and the such. This will be the sample event. We will hangout for a while and eat stuff and play games and the such.",
-        "price": "$40"
+        "price": "$40",
+        "image": ""
     }
 ]

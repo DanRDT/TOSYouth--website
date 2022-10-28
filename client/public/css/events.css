@@ -74,6 +74,7 @@ Table Of Contents
     aspect-ratio: 1/1;
     width: clamp( 5.5rem, 22vw, 8rem);
     min-height: clamp( 5.5rem, 22vw, 8rem);
+    border-radius: 0.4rem;
 }
 
 
