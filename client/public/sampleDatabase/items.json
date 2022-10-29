@@ -36,7 +36,7 @@
         "name": "Grey Pants",
         "description": "Nice pants with cool design fits well and all",
         "price": "24.99",
-        "image": "/imgs/sample-images/folded-hoodie.jpg",
+        "image": "",
         "type": "pants",
         "gender": "male",
         "color": "grey",

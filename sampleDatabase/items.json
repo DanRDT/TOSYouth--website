@@ -64,7 +64,7 @@
         ]
     },
     {
-        "id": "1",
+        "id": "5",
         "name": "Blue T-Shirt",
         "description": "Nice T-shirt with cool design fits well and all",
         "price": "9.99",
@@ -80,7 +80,7 @@
         ]
     },
     {
-        "id": "2",
+        "id": "6",
         "name": "Grey Hoodie",
         "description": "Nice hoodie with cool design fits well and all",
         "price": "19.99",
@@ -96,7 +96,7 @@
         ]
     },
     {
-        "id": "3",
+        "id": "7",
         "name": "Grey Pants",
         "description": "Nice pants with cool design fits well and all",
         "price": "24.99",
@@ -112,7 +112,7 @@
         ]
     },
     {
-        "id": "4",
+        "id": "8",
         "name": "Grey Sweater",
         "description": "Nice hoodie with cool design fits well and all",
         "price": "21.99",
@@ -127,7 +127,7 @@
             "XL"
         ]
     },{
-        "id": "1",
+        "id": "9",
         "name": "Blue T-Shirt",
         "description": "Nice T-shirt with cool design fits well and all",
         "price": "9.99",
@@ -143,7 +143,7 @@
         ]
     },
     {
-        "id": "2",
+        "id": "10",
         "name": "Grey Hoodie",
         "description": "Nice hoodie with cool design fits well and all",
         "price": "19.99",
@@ -159,7 +159,7 @@
         ]
     },
     {
-        "id": "3",
+        "id": "11",
         "name": "Grey Pants",
         "description": "Nice pants with cool design fits well and all",
         "price": "24.99",
@@ -175,7 +175,7 @@
         ]
     },
     {
-        "id": "4",
+        "id": "12",
         "name": "Grey Sweater",
         "description": "Nice hoodie with cool design fits well and all",
         "price": "21.99",
