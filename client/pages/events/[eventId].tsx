@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import Details from '../../components/events/details'
 import Meta from '../../components/global/meta'
 import Scripts from '../../components/global/scripts'
@@ -5,6 +6,9 @@ import Scripts from '../../components/global/scripts'
 
 
 export default function Home() {
+  const router = useRouter();
+  const eventId = router.query.eventId
+
   return (
     <>    
         <link rel="stylesheet" type="text/css" href="/css/events.css" key="events-css"/>
@@ -15,7 +19,7 @@ export default function Home() {
                 <section>
                     <h1 >Details</h1>
                     <div className='seperation-line'></div>
-                    <Details/>
+                    <Details eventId={eventId}/>
                     <a className='return-button' href="/events">Return</a>
                 </section>
             </div>

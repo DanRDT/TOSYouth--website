@@ -2,9 +2,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Meta from "../global/meta";
 
-const Details = () => {
+const Details = (eventId) => {
     const router = useRouter();
-    const eventId = router.query.eventId
         
     const [event, setEvent] = useState({
         "id": "",
@@ -21,10 +20,11 @@ const Details = () => {
             const res = await fetch("/sampleDatabase/events.json");
             const events = await res.json();
 
-            events.map((item, index) => {
-                if (eventId == item.id) {
+            events.map((item) => {
+                if (eventId.eventId === item.id) {
                     setEvent(item);
                 }
+                
             })
 
         }

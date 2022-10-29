@@ -9,7 +9,7 @@ import Script from 'next/script'
 export default function Home() {
   return (
     <>    
-      <link rel="stylesheet" type="text/css" href="/css/about-us.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/about-us.css"/>
       <Meta title={"About Us"} description={"Learn more about us and our goals"}/>
       <Scripts/> 
       <main>
