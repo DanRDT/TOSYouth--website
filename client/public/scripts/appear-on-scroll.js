@@ -1,4 +1,9 @@
-const observedItems = document.querySelectorAll('[data-appear-on-scroll]')
+let observedItems = [];
+
+
+function getItems() {
+  observedItems = document.querySelectorAll('[data-appear-on-scroll]')
+}
 
 const options = {
     threshold: 0,
@@ -10,6 +15,9 @@ const observer = new IntersectionObserver( (items, observer) => {
   items.map(item => {
     if (!item.isIntersecting) {
       return;
+    }
+    else if (item.target.getAttribute('data-appear-on-scroll') === "true") {
+      observer.unobserve(item.target);
     }
     else if (item.isIntersecting) {
       if (item.target.getAttribute('data-appear-on-scroll-delay') === "true") {
@@ -26,9 +34,40 @@ const observer = new IntersectionObserver( (items, observer) => {
     }
   })
 }, options)
-// function observe() {
-export default observedItems.forEach(item => {
-  return observer.observe(item);
-});
+
+
+function observe() {
+  getItems();
+  observedItems.forEach(item => {
+    return (observer.observe(item));
+  })
+};
+
+
+export default function reobserve() {
+
+  observe();
+  
+  const interval100 = setInterval(() => {
+    observe();
+  }, 100);
+  
+  
+  setTimeout(() => {
+    clearInterval(interval100)
+
+    const interval500 = setInterval(() => {
+      observe();
+    }, 500);
+
+    setTimeout(() => {
+      clearInterval(interval500)
+    }, 4500);
+  
+
+  }, 500);
+
+};
+
 
 

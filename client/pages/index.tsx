@@ -19,8 +19,7 @@ export default function Home() {
                     </h1>
                 </div>
                 <div className='cross-picture-container' data-appear-on-scroll="false">
-                    <div className='cross-picture'>
-                </div>
+                    <div className='cross-picture'></div>
                 </div>
                 <div className='trapazoid-container' data-appear-on-scroll="false">
                     <div className='trapazoid'>
