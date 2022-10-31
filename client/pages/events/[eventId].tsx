@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Details from '../../components/events/details'
 import Meta from '../../components/global/meta'
@@ -20,7 +21,7 @@ export default function Home() {
                     <h1 >Details</h1>
                     <div className='seperation-line'></div>
                     <Details eventId={eventId}/>
-                    <a className='return-button' href="/events">Return</a>
+                    <Link href="/events"><a className='return-button' >Return</a></Link>
                 </section>
             </div>
         </main>

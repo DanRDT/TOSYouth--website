@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Meta from '../../components/global/meta'
 import Scripts from '../../components/global/scripts'
 import LatestItems from '../../components/merch/latestItems'
@@ -17,7 +18,7 @@ export default function Home() {
                         <div className='transparent-bg'></div>
                         <h2>Try Our</h2>
                         <h1>New Arrivals</h1>
-                        <a href="/merch/items" className='shop-now-button'>Shop Now</a>
+                        <Link href="/merch/items"><a className='shop-now-button'>Shop Now</a></Link>
                     </div>
                 </section>
                 <section id="section2">
@@ -31,7 +32,7 @@ export default function Home() {
                         <div className='most-wanted-heading' data-appear-on-scroll="false">
                             <h2>The Most</h2>
                             <h1>WANTED</h1>
-                            <a href="/merch/items" className='shop-now-button'>Take a Look</a>
+                            <Link href="/merch/items"><a href="/merch/items" className='shop-now-button'>Take a Look</a></Link>
                         </div>
                         <div className='most-wanted-imgs' data-appear-on-scroll="false">
                             <div className='most-wanted-short-img'></div>
@@ -40,7 +41,7 @@ export default function Home() {
                     </div>
                 </section>
                 <section id="section4">
-                    <a href="/merch/items" className='shop-now-button' data-appear-on-scroll="false">Shop All</a>                
+                    <Link href="/merch/items"><a href="/merch/items" className='shop-now-button' data-appear-on-scroll="false">Shop All</a></Link>            
                 </section>
             </div>
         </main>

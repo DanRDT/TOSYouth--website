@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react"
 
 const Events = () => {
@@ -20,7 +21,7 @@ const Events = () => {
                 <div className='event-info'>
                     <h3>{event.name}</h3>
                     <h4>{event.date}</h4>
-                    <a className='more-info-button' href={`/events/${event.id}`}>More Info</a>
+                    <Link href={`/events/${event.id}`}><a className='more-info-button' >More Info</a></Link>
                 </div>
             </div>
         <div className='seperation-line'></div>

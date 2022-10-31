@@ -3,6 +3,7 @@ import Meta from '../components/global/meta'
 import Scripts from '../components/global/scripts'
 import Script from 'next/script'
 import Head from 'next/head'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -35,7 +36,7 @@ export default function Home() {
                     “We are the youth of Tabernacle of Salvation. Add some other text here. Sample text to follow. Potato wedges probably are not best for relationships. He had a vague sense that trees gave birth to dinosaurs. The light in his life was actually a fire burning all around him.”
                     <div className='quotes'></div>
                 </h3>
-                <a className='learn-more' href="/about-us" data-appear-on-scroll="false">Learn More</a>
+                <Link href="/about-us"><a className='learn-more' data-appear-on-scroll="false">Learn More</a></Link>
             </section>
             
             <div className='seperation-line'></div>
