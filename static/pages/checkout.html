@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabernacle of Salvation Youth</title>
+    <meta name="description" content="Tabernacle of Salvation Youth Website">
+    <link rel="icon" href="../imgs/logo.svg"/>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/checkout.css">
+    <script type="module" defer src="../scripts/main.js"></script>
+    <script type="module" defer src="../scripts/billing-info.js"></script>
+</head>
+<body>
+    <header>
+        <a class="logo" href="/">
+            <img src="../imgs/logo.svg" alt="logo">
+        </a>
+        <div id="menu-button" data-active="false">
+            <div class="menu-button-line"></div>
+            <div class="menu-button-line"></div>
+            <div class="menu-button-line"></div>
+        </div>
+        <nav class="header-nav" data-visible="false">
+            <a href="/">Home</a>
+            <a href="/about-us">About Us</a>
+            <a href="/events">Events</a>
+            <a href="/merch">Merch</a>
+            <div class="shopping-cart">
+                <img src="../imgs/cart-icon.png" alt="cart-icon">
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="main-container">
+            <h1>Checkout</h1>
+            <div class="seperation-line spcl"></div>
+            <h3 class="info-lbl">Shipping Information</h3>
+            <section class="shipping-info">
+                <h4>Name
+                <input class="info-input" type="text" name="name" placeholder="..." required/></h4>
+                <h4>Email
+                <input class="info-input" type="text" name="email" placeholder="..." required/></h4>
+                <h4>Street Address
+                <input class="info-input" type="text" name="address" placeholder="..." required/></h4>
+                <h4>Phone
+                <input class="info-input" type="text" name="phone" placeholder="..." required/></h4>
+                <h4>Apartment / Unit / Suite
+                <input class="info-input" type="text" name="unit" placeholder="..." required/></h4>
+                <h4>Zip Code
+                <input class="info-input" type="text" name="zip" placeholder="..." required/></h4>
+                <h4>City
+                <input class="info-input" type="text" name="city" placeholder="..." required/></h4>
+                <h4>State
+                <input class="info-input" type="text" name="state" placeholder="..." required/></h4>
+            </section>
+            <div class="seperation-line"></div>
+            <h3 class="info-lbl">Billing Information</h3>
+            <div class="same-as-shipping-container">
+                <input class="same-as-shipping" id="same-as-shipping" type="checkbox">
+                <label class="same-as-shipping-lbl" for="same-as-shipping">Same as shipping</label>
+            </div>
+            <section class="billing-info">
+                <h4>Name
+                <input class="info-input" type="text" name="name" placeholder="..." required/></h4>
+                <h4>Email
+                <input class="info-input" type="text" name="email" placeholder="..." required/></h4>
+                <h4>Street Address
+                <input class="info-input" type="text" name="address" placeholder="..." required/></h4>
+                <h4>Phone
+                <input class="info-input" type="text" name="phone" placeholder="..." required/></h4>
+                <h4>Apartment / Unit / Suite
+                <input class="info-input" type="text" name="unit" placeholder="..." required/></h4>
+                <h4>Zip Code
+                <input class="info-input" type="text" name="zip" placeholder="..." required/></h4>
+                <h4>City
+                <input class="info-input" type="text" name="city" placeholder="..." required/></h4>
+                <h4>State
+                <input class="info-input" type="text" name="state" placeholder="..." required/></h4>
+            </section>
+            <div class="seperation-line"></div>
+            
+            <section class="summary">
+                <h4 class="subtotal">Subtotal: <span>$99.98</span></h4>
+                <h4 class="shipping">Shipping: <span class="rgt-item"> Free </span>
+                </h4>
+                <p>Estimated Delivery: 5-7 business days</p>
+                <h4 class="tax">Tax: <span class="rgt-item">$6.07</span></h4>
+                <h4 class="total">Total: <span class="rgt-item">$105.05</span></h4>
+                <h4 class="pay-btn">Proceed to Payment</h4>
+            </section>
+            
+        </div>
+    </main>
+
+    <footer>
+        <div class="seperation-line"></div>
+        <nav class="footer-nav">
+            <a href="/">Home</a>
+            <a href="/about-us">About Us</a>
+            <a href="/events">Events</a>
+            <a href="/merch">Merch</a>
+        </nav>
+        <p class="copyright">© 2022 Tabernacle of Salvation Church Youth</p>
+    </footer>
+
+</body>
+</html>
