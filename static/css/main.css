@@ -80,7 +80,7 @@ Table Of Contents
 
 html{
     font-size: 16px;
-    scrollbar-color: var(--complementary-color) var(--secondary-color);
+    scrollbar-color: var(--complementary-color) var(--primary-color);
     scrollbar-width: thin;
     scroll-behavior: smooth;
     display: flex;
@@ -338,6 +338,10 @@ footer {
     width: 95%;
     height: 3px;
     background: var(--secondary-color);
+}
+
+.seperation-line.spcl {
+    width: calc(95% + 2rem);
 }
 
 /* Footer Navigation */

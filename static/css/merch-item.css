@@ -63,15 +63,14 @@
     gap: 0.5rem;
     width: clamp( 16rem, 40vw, 23rem);
     flex-wrap: wrap;
-    /* overflow-x: scroll; */
 }
 
 
 .extra-image {
     background-color: var(--placeholder-color);
     object-fit: cover;
-    width: clamp( 3.3rem, 8.5vw,5rem);
-    height: clamp( 3.3rem, 8.5vw,5rem);
+    width: clamp( 3.3rem, 8.5vw,4.7rem);
+    height: clamp( 3.3rem, 8.5vw,4.7rem);
     border: 1px solid grey;
     cursor: pointer;
     border-radius: 0.4rem;
@@ -112,6 +111,10 @@ h3 {
 .quantity-lbl,
 .add-to-cart-btn {
     margin-top: 1.5rem;
+}
+
+.description {
+    line-height: normal;
 }
 
 /* Color */
@@ -198,7 +201,9 @@ h3 {
     height: 3rem;
     margin: 0.5rem 0 0 0.1rem;
 }
+.quantity h2 {
 
+}
 
 .plus,
 .minus {

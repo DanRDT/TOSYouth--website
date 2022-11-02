@@ -346,6 +346,9 @@ footer {
     height: 3px;
     background: var(--secondary-color);
 }
+.seperation-line.spcl {
+    width: calc(95% + 2rem);
+}
 
 /* Footer Navigation */
 .footer-nav {
