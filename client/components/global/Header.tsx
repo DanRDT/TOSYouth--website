@@ -20,9 +20,11 @@ const Header = () => {
                 <Link href="/about-us"><a>About Us</a></Link>
                 <Link href="/events"><a>Events</a></Link>
                 <Link href="/merch"><a>Merch</a></Link>
-                <div className={"shopping-cart"}>
-                    <img src="/imgs/cart-icon.png" alt="cart-icon"></img>
-                </div>
+                <Link href="/merch/cart">
+                    <div className={"shopping-cart"}>
+                        <img src="/imgs/cart-icon.png" alt="cart-icon"></img>
+                    </div>
+                </Link>
             </nav>
         </header>
     )

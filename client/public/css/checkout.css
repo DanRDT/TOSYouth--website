@@ -1,0 +1,219 @@
+/* Table of Contents
+
+    Section
+        Cart Item
+            Cart Item Image
+            Cart Item Info
+                Quantity
+
+        Checkout
+
+*/
+
+
+/* Section */
+.summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+
+/* Cart Item */
+.main-container h4,
+.main-container h3 {
+    width: fit-content;
+}
+.main-container h3 {
+    font-size: clamp(1.3rem, 5vw, 1.60rem);
+}
+.main-container input,
+.main-container h4,
+.subtotal,
+.pay-btn {
+    font-size: clamp(1rem, 3.3vw, 1.1rem);
+}
+
+
+.info-lbl {
+    margin-top: 2rem;
+}
+
+.shipping-info,
+.billing-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: auto;
+    gap: 1.5rem;
+    margin: 1.5rem 0 2rem 0;
+}
+.shipping-info h4,
+.billing-info h4 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.shipping-info h4 input,
+.billing-info h4 input {
+    padding: 0.4rem;
+    width: clamp(20rem, 40vw, 29rem);
+    outline: none;
+}
+
+
+
+@media (max-width: 760px) {
+    .shipping-info,
+    .billing-info {
+        grid-template-columns: 1fr;
+    }
+    .shipping-info h4 input,
+    .billing-info h4 input {
+        width: clamp(15rem, 70vw, 27rem);
+    }
+}
+
+
+
+
+.same-as-shipping-container {
+    margin-top: 1.5rem;
+}
+
+.same-as-shipping-container.same-as {
+    margin: 1.5rem 0;
+}
+.billing-info.same-as {
+    display: none;
+}
+
+
+
+.same-as-shipping {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+}
+.same-as-shipping-lbl {
+    padding-left: 4px;
+    cursor: pointer;
+    position: relative;
+}
+.same-as-shipping-lbl::before {
+    content: '';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: -1.5rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    border: 1px solid black;
+}
+.same-as-shipping:checked ~ .same-as-shipping-lbl::before {
+    content: '\002714';
+}
+
+
+
+
+.same-as-shipping:checked,
+.same-as-shipping:checked ~ .same-as-shipping-lbl {
+    padding-bottom: 1.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Summary */
+section.summary {
+    margin: 2.5rem 0 2rem 0;
+    width: fit-content;
+}
+/* .shipping {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+} */
+.summary p {
+    font-size: clamp(0.7rem, 3vw, 0.9rem);
+    color: grey;
+    margin-top: 0.3rem;
+    align-self: flex-start;
+}
+
+.subtotal,
+.shipping,
+.tax,
+.total {
+    margin-top: 0.7rem;
+    width: clamp(15rem, 70vw,18rem) !important;
+    display: flex;
+    justify-content: space-between;
+}
+
+.total {
+    margin-top: 2rem;
+    /* border-top: 1px solid black; */
+
+}
+
+.total span {
+    border-top: 1px solid black;
+    padding-top: 0.2rem;
+}
+
+
+
+.pay-btn {
+    padding: 0.8rem 2.2rem;
+    background-color: var(--complementary-color);
+    width: fit-content;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 1.5rem;
+}
+.pay-btn:hover {
+    background-color: var(--complementary-color-darker);
+}
+
