@@ -10,10 +10,6 @@ const Footer = () => {
                 <Link href="/about-us"><a>About Us</a></Link>
                 <Link href="/events"><a>Events</a></Link>
                 <Link href="/merch"><a>Merch</a></Link>
-                {/* <a href="/">Home</a>
-                <a href="/about-us">About Us</a>
-                <a href="/events">Events</a>
-                <a href="/merch">Merch</a> */}
             </nav>
             <p className={"copyright"}>© 2022 Tabernacle of Salvation Church Youth</p>
         </footer>

@@ -1,8 +1,4 @@
 import Meta from '../components/global/meta'
-
-import Scripts from '../components/global/scripts'
-import Script from 'next/script'
-import Head from 'next/head'
 import Link from 'next/link'
 
 export default function Home() {
@@ -10,7 +6,6 @@ export default function Home() {
     <>    
       <link rel="stylesheet" type="text/css" href="/css/home.css"/>
       <Meta/>
-      <Scripts/> 
       <main>
         <div className='main-container'>
             <section id="section1">

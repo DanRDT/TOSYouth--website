@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Meta from '../../components/global/meta'
-import Scripts from '../../components/global/scripts'
 import LatestItems from '../../components/merch/latestItems'
 
 
@@ -10,7 +9,6 @@ export default function Home() {
     <>    
         <link rel="stylesheet" type="text/css" href="/css/merch.css" key="merch-css"/>
         <Meta title={"Merch"} description={"Merch Store Home Page"}/>
-        <Scripts/>
         <main>
             <div className='main-container'>
                 <section id="section1">

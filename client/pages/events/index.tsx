@@ -1,5 +1,4 @@
 import Meta from '../../components/global/meta'
-import Scripts from '../../components/global/scripts'
 import Events from '../../components/events/events'
 
 
@@ -9,7 +8,6 @@ export default function Home() {
     <>    
         <link rel="stylesheet" type="text/css" href="/css/events.css" key="events-css"/>
         <Meta title={"Events"} description={"View upcoming events"}/>
-        <Scripts/>
         <main>
             <div className='main-container'>
                 <section id="section1">

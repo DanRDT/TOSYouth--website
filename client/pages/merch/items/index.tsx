@@ -1,5 +1,4 @@
 import Meta from '../../../components/global/meta'
-import Scripts from '../../../components/global/scripts'
 import Items from '../../../components/merch/items'
 
 
@@ -9,7 +8,6 @@ export default function Home() {
     <>    
         <link rel="stylesheet" type="text/css" href="/css/merch.css" key="merch-css"/>
         <Meta title={"Merch Store"} description={"View all the items we have in our store"}/>
-        <Scripts/>
         <main>
             <div className='main-container'>
                 <section>

@@ -1,6 +1,4 @@
 import Meta from '../../../components/global/meta'
-import Scripts from '../../../components/global/scripts'
-
 
 
 export default function Home() {

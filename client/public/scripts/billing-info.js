@@ -1,6 +1,17 @@
-const billing = document.querySelector('.billing-info');
-const checkbox = document.querySelector('.same-as-shipping');
-const container = document.querySelector('.same-as-shipping-container');
+let billing = document.querySelector('.billing-info');
+let checkbox = document.querySelector('.same-as-shipping');
+let container = document.querySelector('.same-as-shipping-container');
+
+setInterval(() => {
+    billing = document.querySelector('.billing-info');
+    checkbox = document.querySelector('.same-as-shipping');
+    container = document.querySelector('.same-as-shipping-container');
+    try {
+        checkbox.addEventListener('change', () => {
+            checkCheckbox()
+        })
+    } catch {}
+}, 5000);
 
 function checkCheckbox() {
     if (checkbox.checked) {

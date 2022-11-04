@@ -1,8 +1,5 @@
-import Link from 'next/link'
 import Meta from '../../components/global/meta'
-import Scripts from '../../components/global/scripts'
-import LatestItems from '../../components/merch/latestItems'
-
+import Script from 'next/script'
 
 
 export default function Home() {
@@ -10,7 +7,11 @@ export default function Home() {
     <>    
         <link rel="stylesheet" type="text/css" href="/css/checkout.css"/>
         <Meta title={"Checkout"} description={""}/>
-        <Scripts/>
+        <Script
+            strategy="afterInteractive"
+            type="module"
+            src="/scripts/billing-info.js"
+        />
         <script type="module" defer src="/scripts/billing-info.js"></script>
         <main>
             <div className='main-container'>

@@ -3,12 +3,12 @@ import appearOnScroll from "./appear-on-scroll.js"
 
 appearOnScroll()
 
+//refresh querySelector
 function urlChange (history){
     let pushState = history.pushState;
     history.pushState = function(state) {
         setTimeout(() => {
             appearOnScroll();
-            console.log(history.state.url);
         }, 1)
         return pushState.apply(history, arguments);
     };

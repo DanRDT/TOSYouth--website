@@ -1,8 +1,4 @@
 import Meta from '../components/global/meta'
-import Scripts from '../components/global/scripts'
-
-import Script from 'next/script'
-
 
 
 
@@ -11,7 +7,6 @@ export default function Home() {
     <>    
     <link rel="stylesheet" type="text/css" href="/css/about-us.css"/>
       <Meta title={"About Us"} description={"Learn more about us and our goals"}/>
-      <Scripts/> 
       <main>
             <div className='main-container'>
                 <section>

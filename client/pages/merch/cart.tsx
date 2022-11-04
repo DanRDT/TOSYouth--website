@@ -1,7 +1,5 @@
 import Link from 'next/link'
 import Meta from '../../components/global/meta'
-import Scripts from '../../components/global/scripts'
-import LatestItems from '../../components/merch/latestItems'
 
 
 
@@ -10,7 +8,6 @@ export default function Home() {
     <>    
         <link rel="stylesheet" type="text/css" href="/css/cart.css"/>
         <Meta title={"Cart"} description={"View your shopping cart"}/>
-        <Scripts/>
         <main>
             <div className='main-container'>
             <section>
@@ -80,7 +77,9 @@ export default function Home() {
                 </div>
                 <div className="checkout">
                     <h4 className="subtotal">Subtotal: $99.98</h4>
-                    <h4 className="checkout-btn">Checkout</h4>
+                    <Link href="/merch/checkout">
+                        <h4 className="checkout-btn">Checkout</h4>
+                    </Link>
                 </div>
             </section>
             </div>

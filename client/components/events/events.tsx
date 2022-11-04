@@ -8,7 +8,6 @@ const Events = () => {
         async function getEvents() {
             const res = await fetch("/sampleDatabase/events.json")
             setEvents(await res.json());
-            // console.log(await res.json());
         }
         getEvents();
     }, []);

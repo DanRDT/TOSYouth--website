@@ -1,5 +1,4 @@
-'use client';
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import Script from 'next/script';
 
 
@@ -21,12 +20,6 @@ const Scripts = () => {
             strategy="afterInteractive"
             type="module"
             src="/scripts/main.js"
-            onReady={() => {
-                // console.log("Ready");
-            }}
-            onLoad={() => {
-                // console.log("Loaded");
-            }}
             onError={() => {
                 console.log("UI Scripts Error");
             }}
@@ -39,38 +32,7 @@ const Scripts = () => {
     //         type="module"
     //         src="/scripts/test.js"
     //         onReady={() => {
-    //             const observedItems = document.querySelectorAll('[data-appear-on-scroll]')
-
-    //             const options = {
-    //                 threshold: 0,
-    //                 rootMargin: "-15px 0px"
-    //             };
-
-    //             const observer = new IntersectionObserver( (items, observer) => {
-    //             let delayNumCount = 1;
-    //             items.forEach(item => {
-    //                 if (!item.isIntersecting) {
-    //                 return;
-    //                 }
-    //                 else if (item.isIntersecting) {
-    //                 if (item.target.getAttribute('data-appear-on-scroll-delay') === "true") {
-    //                     const delaySecs = delayNumCount * 100;
-    //                     delayNumCount++;
-    //                     setTimeout(() => {
-    //                     item.target.setAttribute('data-appear-on-scroll', "true");
-    //                     }, delaySecs)
-    //                 }
-    //                 else {
-    //                     item.target.setAttribute('data-appear-on-scroll', "true");
-    //                 }
-    //                 observer.unobserve(item.target);
-    //                 }
-    //             })
-    //             }, options)
-
-    //             observedItems.forEach(item => {
-    //             observer.observe(item);
-    //             });
+    //            
     //             console.log("ready");
                 
     //         }}
