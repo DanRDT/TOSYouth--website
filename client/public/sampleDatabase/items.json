@@ -7,7 +7,13 @@
         "image": "/imgs/sample-images/folded-hoodie.jpg",
         "type": "shirt",
         "gender": "all",
-        "color": "blue",
+        "colors": [
+            "white",
+            "black",
+            "grey",
+            "light blue",
+            "biege"
+        ],
         "sizes": [
             "S",
             "M",
@@ -23,7 +29,13 @@
         "image": "/imgs/sample-images/girl-in-hoodie.jpg",
         "type": "hoodie",
         "gender": "all",
-        "color": "grey",
+        "colors": [
+            "white",
+            "black",
+            "grey",
+            "light blue",
+            "biege"
+        ],
         "sizes": [
             "S",
             "M",
@@ -39,7 +51,13 @@
         "image": "",
         "type": "pants",
         "gender": "male",
-        "color": "grey",
+        "colors": [
+            "white",
+            "black",
+            "grey",
+            "light blue",
+            "biege"
+        ],
         "sizes": [
             "S",
             "M",
@@ -55,7 +73,13 @@
         "image": "/imgs/sample-images/girl-in-hoodie.jpg",
         "type": "hoodie",
         "gender": "all",
-        "color": "grey",
+        "colors": [
+            "white",
+            "black",
+            "grey",
+            "light blue",
+            "biege"
+        ],
         "sizes": [
             "S",
             "M",
@@ -71,7 +95,13 @@
         "image": "/imgs/sample-images/folded-hoodie.jpg",
         "type": "shirt",
         "gender": "all",
-        "color": "blue",
+        "colors": [
+            "white",
+            "black",
+            "grey",
+            "light blue",
+            "biege"
+        ],
         "sizes": [
             "S",
             "M",
@@ -87,7 +117,13 @@
         "image": "/imgs/sample-images/girl-in-hoodie.jpg",
         "type": "hoodie",
         "gender": "all",
-        "color": "grey",
+        "colors": [
+            "white",
+            "black",
+            "grey",
+            "light blue",
+            "biege"
+        ],
         "sizes": [
             "S",
             "M",
@@ -103,7 +139,13 @@
         "image": "/imgs/sample-images/folded-hoodie.jpg",
         "type": "pants",
         "gender": "male",
-        "color": "grey",
+        "colors": [
+            "white",
+            "black",
+            "grey",
+            "light blue",
+            "biege"
+        ],
         "sizes": [
             "S",
             "M",
@@ -119,14 +161,21 @@
         "image": "/imgs/sample-images/girl-in-hoodie.jpg",
         "type": "hoodie",
         "gender": "all",
-        "color": "grey",
+        "colors": [
+            "white",
+            "black",
+            "grey",
+            "light blue",
+            "biege"
+        ],
         "sizes": [
             "S",
             "M",
             "L",
             "XL"
         ]
-    },{
+    },
+    {
         "id": "9",
         "name": "Blue T-Shirt",
         "description": "Nice T-shirt with cool design fits well and all",
@@ -134,7 +183,13 @@
         "image": "/imgs/sample-images/folded-hoodie.jpg",
         "type": "shirt",
         "gender": "all",
-        "color": "blue",
+        "colors": [
+            "white",
+            "black",
+            "grey",
+            "light blue",
+            "biege"
+        ],
         "sizes": [
             "S",
             "M",
@@ -150,7 +205,13 @@
         "image": "/imgs/sample-images/girl-in-hoodie.jpg",
         "type": "hoodie",
         "gender": "all",
-        "color": "grey",
+        "colors": [
+            "white",
+            "black",
+            "grey",
+            "light blue",
+            "biege"
+        ],
         "sizes": [
             "S",
             "M",
@@ -166,7 +227,13 @@
         "image": "/imgs/sample-images/folded-hoodie.jpg",
         "type": "pants",
         "gender": "male",
-        "color": "grey",
+        "colors": [
+            "white",
+            "black",
+            "grey",
+            "light blue",
+            "biege"
+        ],
         "sizes": [
             "S",
             "M",
@@ -182,7 +249,13 @@
         "image": "/imgs/sample-images/girl-in-hoodie.jpg",
         "type": "hoodie",
         "gender": "all",
-        "color": "grey",
+        "colors": [
+            "white",
+            "black",
+            "grey",
+            "light blue",
+            "biege"
+        ],
         "sizes": [
             "S",
             "M",
