@@ -6,7 +6,7 @@ import Details from '../../components/events/details'
 
 export default function Home() {
   const router = useRouter();
-  const id = router.query.id
+  const id = router.query.eventId
 
   return (
     <>    

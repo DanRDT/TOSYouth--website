@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react"
 
-const Events = () => {
+const Items = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -17,7 +17,7 @@ const Events = () => {
         {items.map((item) => (
             <Link href={`/merch/items/${item.id}`} key={item.id}><a className='merch-item' data-appear-on-scroll="false" data-appear-on-scroll-delay="true">
                 <div className='item-img'>
-                    <img src={item.image} alt=""/>
+                    <img src={item.images[0]} alt=""/>
                 </div>
                 <h3>{item.name}</h3>
                 <h4>${item.price}</h4>
@@ -28,4 +28,4 @@ const Events = () => {
     
 }
 
-export default Events
+export default Items

@@ -104,6 +104,7 @@
     margin: 1rem 0;
     justify-content: space-evenly;
     width: 100%;
+    min-height: 15rem;
 }
 @media (max-width: 890px) and (min-width: 640px) {
     .latest-items .merch-item:nth-child(4) {

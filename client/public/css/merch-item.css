@@ -23,7 +23,7 @@
 .main-container section {
     display: flex;
     justify-content: center;
-    margin: 2rem 0 3rem 0;
+    margin: 2rem 0 1.5rem 0;
     gap: 2rem;
 }
 
@@ -81,6 +81,21 @@
 .item-info {
     display: flex;
     flex-direction: column;
+}
+.plchlder{
+    max-width: clamp( 30ch, 40vw,45ch);
+}
+    
+.plchlder::after {
+    content: "_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _";
+    pointer-events: none;
+    opacity: 0; 
+}
+.title::after,
+.description::after {
+    content: "_";
+    pointer-events: none;
+    opacity: 0; 
 }
 
 h2,
