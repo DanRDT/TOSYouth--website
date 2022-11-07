@@ -6,7 +6,7 @@ const Events = () => {
 
     useEffect(() => {
         async function getEvents() {
-            const res = await fetch("/sampleDatabase/events.json")
+            const res = await fetch("/api/events")
             setEvents(await res.json());
         }
         getEvents();

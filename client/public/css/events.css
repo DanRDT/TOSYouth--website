@@ -122,6 +122,17 @@ Table Of Contents
     padding: 2rem 1rem 0 1rem;
     line-height: clamp( 1.2rem, 5vw, 1.5rem);
 }
+.description::after {
+    content: "_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _";
+    pointer-events: none;
+    opacity: 0;
+}
+.event-details-info h3::after {
+    content: "_";
+    pointer-events: none;
+    opacity: 0;
+}
+
 
 /* Appear on Scroll */
 .main-container [data-appear-on-scroll="false"] {
