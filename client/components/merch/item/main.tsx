@@ -24,7 +24,6 @@ const Item = (id) => {
         if(!router.isReady) return;
         async function getItem() {            
             const res = await fetch(`/api/merch/${id.id}`)
-            console.log(`/api/merch/${id.id}`)
             setItem(await res.json());
         }
         getItem();
@@ -33,15 +32,15 @@ const Item = (id) => {
     return (
         <>      
         <section>
-                <Images/>
+                <Images id={item}/>
                 <div className="item-info">
                     <h3 className="title">{item.name}</h3>
                     <h4 className="price">{`$${item.price}`}</h4>
                     <h4 className="description">{item.description}</h4>
                     <h4 className="color-lbl">Color</h4>
-                    <Colors/>
+                    <Colors id={item}/>
                     <h4 className="size-lbl">Size</h4>
-                    <Sizes/>
+                    <Sizes id={item}/>
                     <h4 className="quantity-lbl">Quantity</h4>
                     <Quantity/>
                     <h4 className="add-to-cart-btn">Add to Cart</h4>

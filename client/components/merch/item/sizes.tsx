@@ -1,13 +1,13 @@
 
-const Sizes = () => {
+const Sizes = (item) => {
 
     return (
         <div className="sizes">
-            <div className="size">S</div>
-            <div className="size">M</div>
-            <div className="size">L</div>
-            <div className="size">XL</div>
-            <div className="size">XXL</div>
+            {item.id.sizes.map((size,index) => {
+                return(
+                <div key={"size"+index} className="size">{size}</div>
+                )
+            })}
         </div>
     )
     
