@@ -20,7 +20,8 @@
 
 
 /* Section */
-.main-container section {
+.main-container section {    
+    position: relative;
     display: flex;
     justify-content: center;
     margin: 2rem 0 1.5rem 0;
@@ -31,8 +32,18 @@
     margin-top: 2.5rem;
 }
 
-
-
+.back-arrow {
+    position: absolute;
+    top: -2rem;
+    left: 1rem;
+    transition: transform 0s;
+    transform: rotate(90deg);
+}
+@media (max-width: 990px) {
+    .back-arrow {
+        left: -1rem;
+    }
+}
 
 
 /* Images */
@@ -274,6 +285,11 @@ h3 {
     .main-container > .seperation-line {
         display: none;
     }
+    .back-arrow {
+        left: -4.5rem;
+        top: -1.1rem;
+        
+    }
     .images {
         flex-direction: row;
     }
@@ -299,8 +315,22 @@ h3 {
         max-width: clamp( 20rem, 77vw, 25rem);
     }
 }
+@media (max-width: 420px) {
+    .back-arrow {
+        left: -3.8rem;
+    }
+    .back-arrow img{
+        height: 4.2rem;
+    }
+}
 
-@media (max-width: 380px) {
+@media (max-width: 400px) {
+    .back-arrow {
+        left: -2.2rem;
+    }
+    .back-arrow img {
+        height: 4.3rem;
+    }
     .images {
         flex-direction: column;
     }

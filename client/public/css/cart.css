@@ -109,7 +109,7 @@
 
 .down-arrow {
     position: absolute;
-    background: url("../imgs/arrow-down.png") no-repeat center/contain;
+    background: url("../imgs/arrow-down.svg") no-repeat center/contain;
     width: 1.7rem;
     height: 100%;
     right: 0;

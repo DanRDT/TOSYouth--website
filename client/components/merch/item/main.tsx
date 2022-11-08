@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react"
 import Colors from "./colors";
@@ -32,6 +33,7 @@ const Item = (id) => {
     return (
         <>      
         <section>
+                <Link href="/merch/items"><a className="back-arrow"><img src="/imgs/arrow-down.svg" alt="Return"/></a></Link>
                 <Images id={item}/>
                 <div className="item-info">
                     <h3 className="title">{item.name}</h3>
