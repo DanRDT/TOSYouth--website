@@ -4,12 +4,11 @@ const Colors = (item) => {
 
     return (    
         <div className="colors">
-            {item.id.colors.map((color,index) => {
-                return(
-                <div key={"color"+index} className="color" 
+            {item.id.colors.map((color,index) => (
+                <div key={"color"+index} className="color" title={color}
                 style={{backgroundColor: getColor(color), display: getDisplay(color)}}></div>
-                )
-            })}
+                
+            ))}
         </div>
     )
 }
