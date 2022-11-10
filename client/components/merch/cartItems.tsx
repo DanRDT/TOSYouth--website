@@ -1,35 +1,33 @@
-import Link from "next/link";
 import { useEffect, useState } from "react"
 import checkForShoppingCart from "../functions/checkForShoppingCart";
 import getCart from "../functions/getCart";
 import useCartEventListener from "../hooks/useCartEventListener";
 
 const CartItems = () => {
-    const [items, setItems] = useState([]);
+    const [cart, setCart] = useState([]);
 
     const removeItem = (id) => {
         const newCart = [];
-        items.map((item) => {
+        cart.map((item) => {
             if (item.id != id) {
                 newCart.push(item)
             }
         })
-        setItems(newCart);
+        setCart(newCart);
         localStorage.setItem("ShoppingCart", JSON.stringify(newCart))
     }
 
     useEffect(() => {
         checkForShoppingCart();
-        setItems(getCart());
-        console.log("page mount");
+        setCart(getCart());
     }, []);
     
-    useCartEventListener(setItems)
+    useCartEventListener(setCart)
     
     function displayCart() {
-        if (typeof items != "undefined" && items != null && items.length != null
-        && items.length > 0) {
-            return items.map((item, index) => (
+        if (typeof cart != "undefined" && cart != null && cart.length != null
+        && cart.length > 0) {
+            return cart.map((item, index) => (
                 <div key={"cartitem"+index} className="cart-item-container">
                 <div className="cart-item">
                     <img className="cart-item-img" src="/imgs/sample-images/girl-in-hoodie.jpg"/>
@@ -37,7 +35,7 @@ const CartItems = () => {
                         <h3>{item.name}</h3>
                         <h4>${item.price}</h4>
                         <h4>Size: {item.size}</h4>
-                        <h4>Color: {item.color}</h4>
+                        {/* <h4>Color: {item.color}</h4> */}
                         <h4 className="quantity">Quantity
                             <div className="quantity-dropdown">
                                 <select name="" id="">

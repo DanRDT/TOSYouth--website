@@ -1,13 +1,12 @@
 import { useRouter } from 'next/router';
 import Meta from '../../../components/global/meta'
+import useCartEventListener from '../../../components/hooks/useCartEventListener';
 import Item from '../../../components/merch/item/main'
 
 
 export default function Home() {
     const router = useRouter();
     const id = router.query.merchId
-
-
 
     return (
         <>    
