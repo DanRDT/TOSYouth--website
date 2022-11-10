@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { useEffect, useState } from "react"
+import checkForShoppingCart from "../../functions/checkForShoppingCart";
 
 const ShippingInfo = () => {
     const [items, setItems] = useState([]);
 
+    useEffect(() => {
+        checkForShoppingCart();
+    }, []);
     
     return (
         <>      

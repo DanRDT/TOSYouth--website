@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react"
+import checkForShoppingCart from "../../functions/checkForShoppingCart";
 import Colors from "./colors";
 import Images from "./images";
 import Quantity from "./quantity";
@@ -22,6 +23,7 @@ const Item = (id) => {
     });
 
     useEffect(() => {
+        checkForShoppingCart();
         if(!router.isReady) return;
         async function getItem() {            
             const res = await fetch(`/api/merch/${id.id}`)
