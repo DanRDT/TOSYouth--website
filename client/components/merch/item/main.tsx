@@ -34,7 +34,7 @@ const Item = (id) => {
         "price": "",
         // "color": "",
         "size": "",
-        "quantity": ""
+        "quantity": "1"
     });
     
     const addItem = () => {
@@ -98,10 +98,7 @@ const Item = (id) => {
             ...selectedItem,
             "id": item.id,
             "name": item.name,
-            "price": item.price,
-            // "color": "",
-            // "size": "",
-            "quantity": "1"
+            "price": item.price
         })
     }, [item]);
     

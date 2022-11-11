@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react"
 import checkForShoppingCart from "../functions/checkForShoppingCart";
 import getCart from "../functions/getCart";
@@ -6,10 +7,10 @@ import useCartEventListener from "../hooks/useCartEventListener";
 const CartItems = () => {
     const [cart, setCart] = useState([]);
 
-    const removeItem = (id) => {
+    const removeItem = (id,size) => {
         const newCart = [];
         cart.map((item) => {
-            if (item.id != id) {
+            if (item.id != id || item.size != size) {
                 newCart.push(item)
             }
         })
@@ -28,11 +29,12 @@ const CartItems = () => {
         if (typeof cart != "undefined" && cart != null && cart.length != null
         && cart.length > 0) {
             return cart.map((item, index) => (
+                // <Link href={`/merch/items/${item.id}`}></Link>
                 <div key={"cartitem"+index} className="cart-item-container">
                 <div className="cart-item">
-                    <img className="cart-item-img" src="/imgs/sample-images/girl-in-hoodie.jpg"/>
+                    <Link href={`/merch/items/${item.id}`}><a><img className="cart-item-img" src="/imgs/sample-images/girl-in-hoodie.jpg"/></a></Link>
                     <div className="cart-item-info">
-                        <h3>{item.name}</h3>
+                        <Link href={`/merch/items/${item.id}`}><a><h3>{item.name}</h3></a></Link>
                         <h4>${item.price}</h4>
                         <h4>Size: {item.size}</h4>
                         {/* <h4>Color: {item.color}</h4> */}
@@ -52,7 +54,7 @@ const CartItems = () => {
                                 </select>
                                 <div className="down-arrow"></div>
                             </div>
-                            <p onClick={() => {removeItem(item.id)}}>Remove</p>
+                            <p onClick={() => {removeItem(item.id,item.size)}}>Remove</p>
                         </h4>
                     </div>
                 </div>

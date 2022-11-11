@@ -57,11 +57,11 @@
 }
 
 .cart-item-info > h4,
-.cart-item-info > h3 {
+.cart-item-info h3 {
     margin-top: 0.8rem;
     width: fit-content;
 }
-.cart-item-info > h3 {
+.cart-item-info h3 {
     font-size: clamp(1.3rem, 5vw, 1.60rem);
 }
 .cart-item-info > h4,
