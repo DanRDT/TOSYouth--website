@@ -14,6 +14,8 @@ const Item = (id) => {
     const router = useRouter();
     
     const [cart, setCart] = useState([]);
+    const [added, setAdded] = useState("Add to Cart");
+    const [cartLoading, setCartLoading] = useState("");
 
     const [item, setItem] = useState({
         "id":"",
@@ -36,8 +38,8 @@ const Item = (id) => {
     });
     
     const addItem = () => {
+        setCartLoading("active-loading")
         const newCart = cart.map(e => e);
-
         let exists = false;
         newCart.map((cartItem, i) => {
             if (cartItem.id == selectedItem.id) {
@@ -58,10 +60,20 @@ const Item = (id) => {
                 "name": item.name,
                 "price": item.price,
                 // "color": "Rainbow",
-                "size": "S",
+                "size": selectedItem.size,
                 "quantity": Number(selectedItem.quantity) + ''
             })
         }
+
+        setTimeout(() => {
+            setAdded("Added")
+            setCartLoading("")
+        }, 300);
+        setTimeout(() => {
+            setAdded("Add to Cart")
+            setCartLoading("")
+        }, 1800);
+        
         
         setCart(newCart);
         localStorage.setItem("ShoppingCart", JSON.stringify(newCart))
@@ -110,7 +122,9 @@ const Item = (id) => {
                     <Sizes item={item} selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>
                     <h4 className="quantity-lbl">Quantity</h4>
                     <Quantity selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>
-                    <h4 className="add-to-cart-btn" onClick={addItem}>Add to Cart</h4>
+                    <h4 className={`add-to-cart-btn ${cartLoading}`} onClick={addItem}>{added}
+                        <div className={`loading-animation ${cartLoading}`}></div>
+                    </h4>
                     <div className="plchlder"></div>
                 </div>
             </section>

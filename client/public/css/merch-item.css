@@ -268,6 +268,7 @@ h3 {
     cursor: pointer;
     transition: background 0.2s;
     margin-top: 2.5rem;
+    position: relative;
 }
 
 .add-to-cart-btn:hover {
@@ -275,7 +276,36 @@ h3 {
 }
 
 
+.add-to-cart-btn.active-loading {
+    color: transparent;
+    pointer-events: none;
+}
+.loading-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0.6rem;
+  border-radius: 50px;
+  border: 0.3rem solid transparent;
+  border-top: 0.3rem solid var(--primary-color);
+  border-bottom: 0.3rem solid var(--primary-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0s;
+}
+.loading-animation.active-loading {
+  opacity: 1;
+  animation: loading-submit 1.3s linear infinite;
+}
 
+@keyframes loading-submit {
+    0%{
+          transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100%{
+          transform: translate(-50%,-50%) rotate(360deg);
+    }
+}
 
 @media (max-width: 650px) {
     .main-container section {
@@ -346,17 +376,6 @@ h3 {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
