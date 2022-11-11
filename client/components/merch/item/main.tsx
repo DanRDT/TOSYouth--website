@@ -42,7 +42,7 @@ const Item = (id) => {
         const newCart = cart.map(e => e);
         let exists = false;
         newCart.map((cartItem, i) => {
-            if (cartItem.id == selectedItem.id) {
+            if (cartItem.id == selectedItem.id && cartItem.size == selectedItem.size) {
                 newCart[i] = {
                     "id": selectedItem.id,
                     "name": selectedItem.name,
@@ -73,7 +73,6 @@ const Item = (id) => {
             setAdded("Add to Cart")
             setCartLoading("")
         }, 1800);
-        
         
         setCart(newCart);
         localStorage.setItem("ShoppingCart", JSON.stringify(newCart))

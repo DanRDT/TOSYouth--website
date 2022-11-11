@@ -1,10 +1,24 @@
+import { useEffect, useState } from "react"
 
 const Sizes = ({item, selectedItem, setSelectedItem}) => {
 
+
+    function setSize(size) {
+        setSelectedItem(prevSelectedItem => {
+            return {...prevSelectedItem, "size": size}
+        })
+    }
+    function selectedSize(size) {
+        if (size == selectedItem.size) {
+            return "selected"
+        }
+        return ""
+    }
+    
     return (
         <div className="sizes">
             {item.sizes.map((size,index) => (
-                <div key={"size"+index} className="size">{size}</div>
+                <div key={"size"+index} className={`size ${selectedSize(size)}`} onClick={() => setSize(size)}>{size}</div>
             ))}
         </div>
     )
