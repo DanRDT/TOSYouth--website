@@ -1,9 +1,9 @@
 
-const Sizes = (item) => {
+const Sizes = ({item, selectedItem, setSelectedItem}) => {
 
     return (
         <div className="sizes">
-            {item.id.sizes.map((size,index) => (
+            {item.sizes.map((size,index) => (
                 <div key={"size"+index} className="size">{size}</div>
             ))}
         </div>

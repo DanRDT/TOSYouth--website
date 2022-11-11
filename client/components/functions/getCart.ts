@@ -1,6 +1,4 @@
-export default getCart;
-
-function getCart() {
+export default function getCart() {
     const cart = JSON.parse(localStorage.getItem("ShoppingCart"))
     return cart;
 }

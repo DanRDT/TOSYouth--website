@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react"
 import checkForShoppingCart from "../../functions/checkForShoppingCart";
 import getCart from "../../functions/getCart";
+import Meta from "../../global/meta";
 import useCartEventListener from "../../hooks/useCartEventListener";
 import Colors from "./colors";
 import Images from "./images";
@@ -31,7 +32,7 @@ const Item = (id) => {
         "price": "",
         // "color": "",
         "size": "",
-        "quantity": "1",
+        "quantity": ""
     });
     
     const addItem = () => {
@@ -39,8 +40,6 @@ const Item = (id) => {
 
         let exists = false;
         newCart.map((cartItem, i) => {
-            console.log("index: "+i + " id: " + cartItem.id);
-            
             if (cartItem.id == selectedItem.id) {
                 newCart[i] = {
                     "id": selectedItem.id,
@@ -60,13 +59,12 @@ const Item = (id) => {
                 "price": item.price,
                 // "color": "Rainbow",
                 "size": "S",
-                "quantity": "5"
+                "quantity": Number(selectedItem.quantity) + ''
             })
         }
         
         setCart(newCart);
         localStorage.setItem("ShoppingCart", JSON.stringify(newCart))
-        
     }
 
     useEffect(() => {
@@ -76,7 +74,6 @@ const Item = (id) => {
     useCartEventListener(setCart)
     
     useEffect(() => {
-        checkForShoppingCart();
         if(!router.isReady) return;
         async function getItem() {            
             const res = await fetch(`/api/merch/${id.id}`)
@@ -87,18 +84,20 @@ const Item = (id) => {
     
     useEffect(() => {
         setSelectedItem({
+            ...selectedItem,
             "id": item.id,
             "name": item.name,
             "price": item.price,
             // "color": "",
-            "size": "",
-            "quantity": "1",
+            // "size": "",
+            "quantity": "1"
         })
     }, [item]);
     
     return (
         <>      
             <section>
+                <Meta title={item.name} description={item.description} />
                 <Link href="/merch/items"><a className="back-arrow"><img src="/imgs/arrow-down.svg" alt="Return"/></a></Link>
                 <Images id={item}/>
                 <div className="item-info">
@@ -108,9 +107,9 @@ const Item = (id) => {
                     {/* <h4 className="color-lbl">Color</h4> */}
                     {/* <Colors id={item}/> */}
                     <h4 className="size-lbl">Size</h4>
-                    <Sizes id={item}/>
+                    <Sizes item={item} selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>
                     <h4 className="quantity-lbl">Quantity</h4>
-                    <Quantity/>
+                    <Quantity selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>
                     <h4 className="add-to-cart-btn" onClick={addItem}>Add to Cart</h4>
                     <div className="plchlder"></div>
                 </div>
