@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const Sizes = ({item, selectedItem, setSelectedItem}) => {
+const Sizes = ({item, selectedItem, setSelectedItem, pickSize}) => {
 
 
     function setSize(size) {
@@ -16,7 +16,7 @@ const Sizes = ({item, selectedItem, setSelectedItem}) => {
     }
     
     return (
-        <div className="sizes">
+        <div className={`sizes ${pickSize}`}>
             {item.sizes.map((size,index) => (
                 <div key={"size"+index} className={`size ${selectedSize(size)}`} onClick={() => setSize(size)}>{size}</div>
             ))}

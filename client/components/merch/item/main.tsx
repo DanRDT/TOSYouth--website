@@ -16,6 +16,7 @@ const Item = (id) => {
     const [cart, setCart] = useState([]);
     const [added, setAdded] = useState("Add to Cart");
     const [cartLoading, setCartLoading] = useState("");
+    const [pickSize, setPickSize] = useState("");
 
     const [item, setItem] = useState({
         "id":"",
@@ -38,6 +39,13 @@ const Item = (id) => {
     });
     
     const addItem = () => {
+        if (selectedItem.size == "") {
+            setPickSize("pick-size")
+            setTimeout(() => {
+                setPickSize("")
+            }, 2500);
+            return
+        }
         setCartLoading("active-loading")
         const newCart = cart.map(e => e);
         let exists = false;
@@ -69,6 +77,13 @@ const Item = (id) => {
             })
         }
 
+        setSelectedItem(prevItem => {
+            return {...prevItem, "quantity": "1"}
+        })
+
+        setCart(newCart);
+        localStorage.setItem("ShoppingCart", JSON.stringify(newCart))
+        
         setTimeout(() => {
             setAdded("Added")
             setCartLoading("")
@@ -76,10 +91,8 @@ const Item = (id) => {
         setTimeout(() => {
             setAdded("Add to Cart")
             setCartLoading("")
+            setPickSize("")
         }, 1800);
-        
-        setCart(newCart);
-        localStorage.setItem("ShoppingCart", JSON.stringify(newCart))
     }
 
     useEffect(() => {
@@ -119,7 +132,7 @@ const Item = (id) => {
                     {/* <h4 className="color-lbl">Color</h4> */}
                     {/* <Colors id={item}/> */}
                     <h4 className="size-lbl">Size</h4>
-                    <Sizes item={item} selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>
+                    <Sizes item={item} selectedItem={selectedItem} setSelectedItem={setSelectedItem} pickSize={pickSize}/>
                     <h4 className="quantity-lbl">Quantity</h4>
                     <Quantity selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>
                     <h4 className={`add-to-cart-btn ${cartLoading}`} onClick={addItem}>{added}

@@ -22,14 +22,14 @@ const Quantity = ({selectedItem, setSelectedItem}) => {
 
     return (
         <div className="quantity">
-            <div className="plus" onClick={() => plus()}>
+            <button className="plus" onClick={() => plus()}>
                 <div className="plus-line"></div>
                 <div className="plus-line"></div>
-            </div>
+            </button>
             <h3>{selectedItem.quantity}</h3>
-            <div className="minus" onClick={() => minus()}>
+            <button className="minus" onClick={() => minus()}>
                 <div className="minus-line"></div>
-            </div>
+            </button>
         </div>
     )
     
