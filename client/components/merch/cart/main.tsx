@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react"
-import checkForShoppingCart from "../functions/checkForShoppingCart";
-import getCart from "../functions/getCart";
-import useCartEventListener from "../hooks/useCartEventListener";
+import checkForShoppingCart from "../../functions/checkForShoppingCart";
+import getCart from "../../functions/getCart";
+import useCartEventListener from "../../hooks/useCartEventListener";
+import Quantity from "./quantity";
+import Remove from "./remove";
 
 const CartItems = () => {
     const [cart, setCart] = useState([]);
@@ -29,7 +31,6 @@ const CartItems = () => {
         if (typeof cart != "undefined" && cart != null && cart.length != null
         && cart.length > 0) {
             return cart.map((item, index) => (
-                // <Link href={`/merch/items/${item.id}`}></Link>
                 <div key={"cartitem"+index} className="cart-item-container">
                 <div className="cart-item">
                     <Link href={`/merch/items/${item.id}`}><a><img className="cart-item-img" src="/imgs/sample-images/girl-in-hoodie.jpg"/></a></Link>
@@ -39,22 +40,8 @@ const CartItems = () => {
                         <h4>Size: {item.size}</h4>
                         {/* <h4>Color: {item.color}</h4> */}
                         <h4 className="quantity">Quantity
-                            <div className="quantity-dropdown">
-                                <select name="" id="">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                                <div className="down-arrow"></div>
-                            </div>
-                            <p onClick={() => {removeItem(item.id,item.size)}}>Remove</p>
+                            <Quantity index={index} item={item} cart={cart} setCart={setCart}/>
+                            <Remove item={item} cart={cart} setCart={setCart}/>
                         </h4>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Meta from '../../components/global/meta'
-import CartItems from '../../components/merch/cartItems'
+import CartItems from '../../components/merch/cart/main'
 
 
 

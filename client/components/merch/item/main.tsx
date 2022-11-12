@@ -43,13 +43,17 @@ const Item = (id) => {
         let exists = false;
         newCart.map((cartItem, i) => {
             if (cartItem.id == selectedItem.id && cartItem.size == selectedItem.size) {
+                let quantity = (Number(cartItem.quantity) + Number(selectedItem.quantity)) + ''
+                if (Number(quantity) > 10) {
+                    quantity = '10'
+                }
                 newCart[i] = {
                     "id": selectedItem.id,
                     "name": selectedItem.name,
                     "price": selectedItem.price,
                     // "color": selectedItem.color,
                     "size": selectedItem.size,
-                    "quantity": (Number(cartItem.quantity) + Number(selectedItem.quantity)) + ''
+                    "quantity": quantity
                 }
                 exists = true;
             }
