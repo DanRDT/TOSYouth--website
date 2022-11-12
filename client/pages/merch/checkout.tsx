@@ -3,7 +3,7 @@ import Script from 'next/script'
 import ShippingInfo from '../../components/merch/checkout/shippingInfo'
 import BillingInfo from '../../components/merch/checkout/billingInfo'
 import Summary from '../../components/merch/checkout/summary'
-
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -18,7 +18,13 @@ export default function Home() {
         <script type="module" defer src="/scripts/billing-info.js"></script>
         <main>
             <div className='main-container'>
-            <h1>Checkout</h1>
+            <div className='heading-container'>
+              <h1>Checkout</h1>
+              <Link href="/merch/cart"><a>
+                <img src="/imgs/arrow-down.svg" alt="" />
+                <h4>Shopping Cart</h4>
+              </a></Link>
+            </div>
             <div className="seperation-line spcl"></div>
             <h3 className="info-lbl">Shipping Information</h3>
             <ShippingInfo/>
