@@ -1,9 +1,7 @@
-import Link from "next/link";
 import { useEffect, useState } from "react"
 import checkForShoppingCart from "../../functions/checkForShoppingCart";
 
-const ShippingInfo = () => {
-    const [items, setItems] = useState([]);
+const Summary = () => {
 
     useEffect(() => {
         checkForShoppingCart();
@@ -25,4 +23,4 @@ const ShippingInfo = () => {
     
 }
 
-export default ShippingInfo
+export default Summary

@@ -10,7 +10,7 @@ import Images from "./images";
 import Quantity from "./quantity";
 import Sizes from "./sizes";
 
-const Item = (id) => {
+const Item = ({id}) => {
     const router = useRouter();
     
     const [cart, setCart] = useState([]);
@@ -107,7 +107,7 @@ const Item = (id) => {
     useEffect(() => {
         if(!router.isReady) return;
         async function getItem() {            
-            const res = await fetch(`/api/merch/${id.id}`)
+            const res = await fetch(`/api/merch/${id}`)
             setItem(await res.json());
         }
         getItem();
@@ -128,13 +128,13 @@ const Item = (id) => {
             <section>
                 <Meta title={item.name} description={item.description} />
                 <Link href="/merch/items"><a className="back-arrow"><img src="/imgs/arrow-down.svg" alt="Return"/></a></Link>
-                <Images id={item}/>
+                <Images item={item}/>
                 <div className="item-info">
                     <h3 className="title">{item.name}</h3>
                     <h4 className="price">{`$${item.price}`}</h4>
                     <h4 className="description">{item.description}</h4>
                     {/* <h4 className="color-lbl">Color</h4> */}
-                    {/* <Colors id={item}/> */}
+                    {/* <Colors item={item}/> */}
                     <h4 className="size-lbl">Size</h4>
                     <Sizes item={item} selectedItem={selectedItem} setSelectedItem={setSelectedItem} pickSize={pickSize}/>
                     <h4 className="quantity-lbl">Quantity</h4>

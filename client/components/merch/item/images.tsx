@@ -1,11 +1,11 @@
 
-const Images = (item) => {
+const Images = ({item}) => {
     
     return (    
         <div className="images">
-            <img className="main-image" src={item.id.images[0]}/>
+            <img className="main-image" src={item.images[0]}/>
             <div className="extra-images">
-                {item.id.images.map((image,index) => (
+                {item.images.map((image,index) => (
                     <img key={"image"+index} className="extra-image" src={image}/>
                 ))}
             </div>

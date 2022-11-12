@@ -10,17 +10,6 @@ import Subtotal from "./subtotal";
 const CartItems = () => {
     const [cart, setCart] = useState([]);
 
-    const removeItem = (id,size) => {
-        const newCart = [];
-        cart.map((item) => {
-            if (item.id != id || item.size != size) {
-                newCart.push(item)
-            }
-        })
-        setCart(newCart);
-        localStorage.setItem("ShoppingCart", JSON.stringify(newCart))
-    }
-
     useEffect(() => {
         checkForShoppingCart();
         setCart(getCart());

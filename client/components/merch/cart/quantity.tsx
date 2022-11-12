@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react"
 
-const CartItems = ({index, item, cart, setCart}) => {
+const Quantity = ({index, item, cart, setCart}) => {
 
     const changeQuantity = (selectedQuantity) => {
         const newCart = [...cart];
@@ -36,7 +35,7 @@ const CartItems = ({index, item, cart, setCart}) => {
     )
 }
 
-export default CartItems
+export default Quantity
 
 
 

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react"
 
-const Items = () => {
+const LatestItems = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -28,4 +28,4 @@ const Items = () => {
     
 }
 
-export default Items
+export default LatestItems

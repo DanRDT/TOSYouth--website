@@ -1,10 +1,8 @@
-import { getDisplayName } from "next/dist/shared/lib/utils"
-
-const Colors = (item) => {
+const Colors = ({item}) => {
 
     return (    
         <div className="colors">
-            {item.id.colors.map((color,index) => (
+            {item.colors.map((color,index) => (
                 <div key={"color"+index} className="color" title={color}
                 style={{backgroundColor: getColor(color), display: getDisplay(color)}}></div>
                 

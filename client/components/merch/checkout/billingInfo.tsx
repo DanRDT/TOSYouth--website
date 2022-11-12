@@ -1,8 +1,5 @@
-import Link from "next/link";
-import { useEffect, useState } from "react"
 
-const ShippingInfo = () => {
-    const [items, setItems] = useState([]);
+const BillingInfo = () => {
 
     
     return (
@@ -31,4 +28,4 @@ const ShippingInfo = () => {
     
 }
 
-export default ShippingInfo
+export default BillingInfo

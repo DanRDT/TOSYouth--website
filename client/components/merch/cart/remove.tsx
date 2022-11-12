@@ -1,11 +1,4 @@
-import Link from "next/link";
-import { useEffect, useState } from "react"
-import checkForShoppingCart from "../../functions/checkForShoppingCart";
-import getCart from "../../functions/getCart";
-import useCartEventListener from "../../hooks/useCartEventListener";
-import Quantity from "./quantity";
-
-const CartItems = ({item, cart, setCart}) => {
+const Remove = ({item, cart, setCart}) => {
 
     const removeItem = (id,size) => {
         const newCart = [];
@@ -25,7 +18,4 @@ const CartItems = ({item, cart, setCart}) => {
     )
 }
 
-export default CartItems
-
-
-
+export default Remove

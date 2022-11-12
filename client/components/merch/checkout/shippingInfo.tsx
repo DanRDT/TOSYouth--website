@@ -1,10 +1,6 @@
-import Link from "next/link";
-import { useEffect, useState } from "react"
 
 const ShippingInfo = () => {
-    const [items, setItems] = useState([]);
 
-    
     return (
         <>      
             <section className="shipping-info">
