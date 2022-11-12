@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import Meta from '../../components/global/meta'
-import CartItems from '../../components/merch/cart/main'
+import CartItems from '../../components/merch/cart/cart'
+import Subtotal from '../../components/merch/cart/subtotal'
 
 
 
@@ -14,15 +14,7 @@ export default function Home() {
             <section>
                 <h1 >Cart</h1>
                 <div className="seperation-line spcl"></div>
-                <div className="cart-items">
                     <CartItems/>
-                </div>
-                <div className="checkout">
-                    <h4 className="subtotal">Subtotal: $99.98</h4>
-                    <Link href="/merch/checkout">
-                        <h4 className="checkout-btn">Checkout</h4>
-                    </Link>
-                </div>
             </section>
             </div>
         </main>

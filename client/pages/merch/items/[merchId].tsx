@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import Item from '../../../components/merch/item/main'
+import Item from '../../../components/merch/item/item'
 
 
 export default function Home() {

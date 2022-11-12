@@ -143,7 +143,17 @@
     cursor: pointer;
     transition: background 0.2s;
     margin-top: 2rem;
+    position: relative;
 }
 .checkout-btn:hover {
     background-color: var(--complementary-color-darker);
+}
+.checkout-btn.empty-cart::after {
+    content: "Sorry, Your Shopping Cart Is Empty";
+    position: absolute;
+    bottom: -1.6rem;
+    right: 50%;
+    width: max-content;
+    transform: translateX(50%) scale(0.9);
+    pointer-events: none;
 }

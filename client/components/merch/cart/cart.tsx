@@ -5,6 +5,7 @@ import getCart from "../../functions/getCart";
 import useCartEventListener from "../../hooks/useCartEventListener";
 import Quantity from "./quantity";
 import Remove from "./remove";
+import Subtotal from "./subtotal";
 
 const CartItems = () => {
     const [cart, setCart] = useState([]);
@@ -63,10 +64,13 @@ const CartItems = () => {
     
     
     return (
-        <>      
+        <> 
+        <div className="cart-items">
         {
             displayCart()
         }    
+        </div>
+        <Subtotal cart={cart}/>
         </>
     )
 }
