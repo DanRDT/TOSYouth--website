@@ -33,6 +33,7 @@ const Item = (id) => {
         "id": "",
         "name": "",
         "price": "",
+        "image": "",
         // "color": "",
         "size": "",
         "quantity": "1"
@@ -59,6 +60,7 @@ const Item = (id) => {
                     "id": selectedItem.id,
                     "name": selectedItem.name,
                     "price": selectedItem.price,
+                    "image": selectedItem.image,
                     // "color": selectedItem.color,
                     "size": selectedItem.size,
                     "quantity": quantity
@@ -71,6 +73,7 @@ const Item = (id) => {
                 "id": item.id,
                 "name": item.name,
                 "price": item.price,
+                "image": selectedItem.image,
                 // "color": "Rainbow",
                 "size": selectedItem.size,
                 "quantity": Number(selectedItem.quantity) + ''
@@ -115,7 +118,8 @@ const Item = (id) => {
             ...selectedItem,
             "id": item.id,
             "name": item.name,
-            "price": item.price
+            "price": item.price,
+            "image": item.images[0],
         })
     }, [item]);
     

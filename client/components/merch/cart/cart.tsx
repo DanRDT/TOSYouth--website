@@ -34,7 +34,7 @@ const CartItems = () => {
             return cart.map((item, index) => (
                 <div key={"cartitem"+index} className="cart-item-container">
                 <div className="cart-item">
-                    <Link href={`/merch/items/${item.id}`}><a><img className="cart-item-img" src="/imgs/sample-images/girl-in-hoodie.jpg"/></a></Link>
+                    <Link href={`/merch/items/${item.id}`}><a><img className="cart-item-img" src={item.image}/></a></Link>
                     <div className="cart-item-info">
                         <Link href={`/merch/items/${item.id}`}><a><h3>{item.name}</h3></a></Link>
                         <h4>${item.price}</h4>
