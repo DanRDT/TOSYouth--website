@@ -1,10 +1,22 @@
+import { useState } from "react"
 
-const BillingInfo = () => {
-
+const BillingInfo = ({sameAsShipping, setSameAsShipping}) => {
     
     return (
-        <>      
-            <section className="billing-info">
+        <>  
+            <div className={`same-as-shipping-container ${sameAsShipping}`}>
+                <input 
+                  onClick={() => {
+                    if (sameAsShipping == '') {
+                      setSameAsShipping("same-as")
+                    } else if (sameAsShipping == 'same-as') {
+                      setSameAsShipping('')
+                    }
+                  }} 
+                  className="same-as-shipping" id="same-as-shipping" type="checkbox"/>
+                <label className="same-as-shipping-lbl" htmlFor="same-as-shipping">Same as shipping</label>
+            </div>    
+            <section className={`billing-info  ${sameAsShipping}`}>
                 <h4>Name
                 <input className="info-input" type="text" name="name" placeholder="..." required/></h4>
                 <h4>Email

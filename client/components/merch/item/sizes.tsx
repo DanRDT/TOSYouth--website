@@ -36,7 +36,6 @@ const Sizes = ({item, selectedItem, setSelectedItem, pickSize}) => {
             ))}
         </div>
     )
-    
 }
 
 export default Sizes
