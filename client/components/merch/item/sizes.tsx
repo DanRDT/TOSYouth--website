@@ -1,22 +1,38 @@
-const Sizes = ({item, selectedItem, setSelectedItem, pickSize}) => {
+import { useEffect, useState } from "react"
 
+const Sizes = ({item, selectedItem, setSelectedItem, pickSize}) => {
+    const [selectedSize, setSelectedSize] = useState(null)
+    const [prevSelectedSize, setprevSelectedSize] = useState(null)
+    const [selectedSizes, setSelectedSizes] = useState([""])
 
     function setSize(size) {
         setSelectedItem(prevSelectedItem => {
             return {...prevSelectedItem, "size": size}
         })
     }
-    function selectedSize(size) {
-        if (size == selectedItem.size) {
-            return "selected"
-        }
-        return ""
-    }
     
+    useEffect(()=>{
+        setSelectedSizes(prevSelectedSizes => {
+            const tempArray = [...prevSelectedSizes]
+            tempArray[prevSelectedSize] = ""
+            tempArray[selectedSize] = "selected"
+            setprevSelectedSize(selectedSize)
+            return tempArray
+        })
+    }, [selectedItem.size])
+
     return (
         <div className={`sizes ${pickSize}`}>
             {item.sizes.map((size,index) => (
-                <div key={"size"+index} className={`size ${selectedSize(size)}`} onClick={() => setSize(size)}>{size}</div>
+                <div 
+                    key={"size"+index} 
+                    className={`size ${selectedSizes[index]}`} 
+                    onClick={() => {
+                        setSize(size)
+                        setSelectedSize(index)
+                    }}>
+                    {size}
+                </div>
             ))}
         </div>
     )

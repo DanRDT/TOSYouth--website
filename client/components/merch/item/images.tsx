@@ -7,15 +7,13 @@ const Images = ({item}) => {
 
 
     useEffect(() => {
-        setSelectedImageBorder(prevselectedImageBorder => {
-            const tempArray = [...prevselectedImageBorder]
+        setSelectedImageBorder(prevSelectedImageBorder => {
+            const tempArray = [...prevSelectedImageBorder]
             tempArray[prevImageBorder] = ""
             tempArray[selectedImage] = "selected"
             setprevImageBorder(selectedImage)
             return tempArray
         })
-
-
     }, [selectedImage])
 
     
