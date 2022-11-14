@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react"
-import checkForShoppingCart from "../../functions/checkForShoppingCart";
-import getCart from "../../functions/getCart";
+import checkForShoppingCart from "../../hooks/checkForShoppingCart";
+import getCart from "../../hooks/getCart";
 import Meta from "../../global/meta";
 import useCartEventListener from "../../hooks/useCartEventListener";
 import Colors from "./colors";

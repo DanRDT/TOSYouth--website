@@ -217,6 +217,9 @@
     transition: background 0.2s;
     margin-top: 1.5rem;
 }
+.pay-btn h4 {
+    color: var(--primary-color);
+}
 .pay-btn:hover {
     background-color: var(--complementary-color-darker);
 }

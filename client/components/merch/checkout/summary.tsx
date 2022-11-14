@@ -1,12 +1,7 @@
-import { useEffect, useState } from "react"
-import checkForShoppingCart from "../../functions/checkForShoppingCart";
+import setLocalCheckoutInfo from "../../hooks/setLocalCheckoutInfo"
 
-const Summary = () => {
+const Summary = ({billingInfo, shippingInfo}) => {
 
-    useEffect(() => {
-        checkForShoppingCart();
-    }, []);
-    
     return (
         <>      
             <section className="summary">
@@ -16,7 +11,7 @@ const Summary = () => {
                 <p>Estimated Delivery: 5-7 business days</p>
                 <h4 className="tax">Tax: <span className="rgt-item">$6.07</span></h4>
                 <h4 className="total">Total: <span className="rgt-item">$105.05</span></h4>
-                <h4 className="pay-btn">Proceed to Payment</h4>
+                <a className="pay-btn" onClick={() => setLocalCheckoutInfo(shippingInfo, billingInfo)}><h4>Proceed to Payment</h4></a>
             </section>
         </>
     )

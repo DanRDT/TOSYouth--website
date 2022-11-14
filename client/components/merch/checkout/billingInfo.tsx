@@ -1,21 +1,9 @@
 import { useEffect, useRef, useState } from "react"
-import checkForCheckoutInfo from "../../functions/checkForCheckoutInfo";
-import getCheckoutInfo from "../../functions/getCheckoutInfo";
+import checkForCheckoutInfo from "../../hooks/checkForCheckoutInfo";
+import getCheckoutInfo from "../../hooks/getCheckoutInfo";
+import setLocalCheckoutInfo from "../../hooks/setLocalCheckoutInfo";
 
-const BillingInfo = ({shippingInfo, setShippingInfo}) => {
-    const [sameAsShipping, setSameAsShipping] = useState('same-as')
-    const [sameAsShippingBox, setSameAsShippingBox] = useState(true)
-    const [billingInfo, setBillingInfo] = useState({
-        "name": '',
-        "email": '',
-        "phone": '',
-        "address": '',
-        "unit": '',
-        "zip": '',
-        "city": '',
-        "state": ''
-    });
-    const billingInfoRenders = useRef(0)
+const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping, setSameAsShipping}) => {
 
     function changeBillingInfo(e, billingInfoKey) {
         setBillingInfo(prev => {
@@ -23,50 +11,18 @@ const BillingInfo = ({shippingInfo, setShippingInfo}) => {
             return tempObject
         })
     }
-    useEffect(() => {
-        checkForCheckoutInfo();
-        setBillingInfo(getCheckoutInfo("billing"))
-    }, []);
 
-    useEffect(() => {
-        if (billingInfoRenders.current != 2) {
-            return
-        }
-        if (JSON.stringify(shippingInfo) != JSON.stringify(billingInfo)) {
-            setSameAsShipping('')
-            setSameAsShippingBox(false)
-        } else {
-            setSameAsShipping('same-as')
-            setSameAsShippingBox(true)
-        }
-    }, [billingInfo]);
-
-    useEffect(() => {
-        billingInfoRenders.current = billingInfoRenders.current + 1
-        if (billingInfoRenders.current < 2) {
-            return
-        }
-        const prevCheckout = JSON.parse(localStorage.getItem("CheckoutInfo"))
-        localStorage.setItem("CheckoutInfo", JSON.stringify({
-            ...prevCheckout, "billingInfo":billingInfo}))
-    }, [billingInfo]);
-    
-
-    
     return (
         <>  
             <div className={`same-as-shipping-container ${sameAsShipping}`}>
                 <input 
-                    defaultChecked={sameAsShippingBox}
                     onChange={() => {
-                        console.log(sameAsShipping);
-                        
                         if (sameAsShipping == '') {
                             setSameAsShipping("same-as")
-                            // setSameAsShippingBox(true)
+                            setBillingInfo(shippingInfo)
+                            setLocalCheckoutInfo(shippingInfo, shippingInfo) //pass billing as shipping
                         } else if (sameAsShipping == 'same-as') {
                             setSameAsShipping('')
-                            // setSameAsShippingBox(false)
                         }
                     }} 
                     className={`same-as-shipping ${sameAsShipping}`} id="same-as-shipping" type="checkbox"/>

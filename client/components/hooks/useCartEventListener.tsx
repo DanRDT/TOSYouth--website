@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import getCart from "../functions/getCart";
+import getCart from "./getCart";
 
 export default function useCartEventListener(setCart) {
     useEffect(() => {

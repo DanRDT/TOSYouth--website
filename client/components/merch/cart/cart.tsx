@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react"
-import checkForShoppingCart from "../../functions/checkForShoppingCart";
-import getCart from "../../functions/getCart";
+import checkForShoppingCart from "../../hooks/checkForShoppingCart";
+import getCart from "../../hooks/getCart";
 import useCartEventListener from "../../hooks/useCartEventListener";
 import Quantity from "./quantity";
 import Remove from "./remove";

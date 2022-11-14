@@ -1,11 +1,9 @@
 import { useEffect, useRef, useState } from "react"
-import checkForCheckoutInfo from "../../functions/checkForCheckoutInfo";
-import getCheckoutInfo from "../../functions/getCheckoutInfo";
+import checkForCheckoutInfo from "../../hooks/checkForCheckoutInfo";
+import getCheckoutInfo from "../../hooks/getCheckoutInfo";
 
-const ShippingInfo = ({shippingInfo, setShippingInfo}) => {
+const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShipping}) => {
     
-    const shippingInfoRenders = useRef(0)
-
     function changeShippingInfo(e, shippingInfoKey) {
         setShippingInfo(prev => {
             const tempObject = {...prev, [shippingInfoKey]: e.target.value}
@@ -14,19 +12,10 @@ const ShippingInfo = ({shippingInfo, setShippingInfo}) => {
     }
     
     useEffect(() => {
-        checkForCheckoutInfo();
-        setShippingInfo(getCheckoutInfo("shipping"))
-    }, []);
-    useEffect(() => {
-        shippingInfoRenders.current = shippingInfoRenders.current + 1
-        if (shippingInfoRenders.current < 2) {
-            return
+        if (sameAsShipping == "same-as") {
+            setBillingInfo(shippingInfo)
         }
-        const prevCheckout = JSON.parse(localStorage.getItem("CheckoutInfo"))
-        localStorage.setItem("CheckoutInfo", JSON.stringify({
-            ...prevCheckout, "shippingInfo":shippingInfo}))
     }, [shippingInfo]);
-
 
     return (
         <>      
