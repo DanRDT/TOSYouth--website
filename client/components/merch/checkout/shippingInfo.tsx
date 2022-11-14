@@ -30,7 +30,8 @@ const ShippingInfo = () => {
             return
         }
         const prevCheckout = JSON.parse(localStorage.getItem("CheckoutInfo"))
-        localStorage.setItem("CheckoutInfo", JSON.stringify({...prevCheckout, "shippingInfo":shippingInfo}))
+        localStorage.setItem("CheckoutInfo", JSON.stringify({
+            ...prevCheckout, "shippingInfo":shippingInfo}))
     }, [shippingInfo]);
 
 
