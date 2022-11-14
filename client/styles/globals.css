@@ -80,7 +80,7 @@ Table Of Contents
 
 html{
     font-size: 16px;
-    scrollbar-color: var(--complementary-color) var(--secondary-color);
+    scrollbar-color: var(--complementary-color) var(--primary-color);
     scrollbar-width: thin;
     scroll-behavior: smooth;
     display: flex;

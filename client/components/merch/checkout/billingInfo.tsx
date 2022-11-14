@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react"
+import checkForCheckoutInfo from "../../functions/checkForCheckoutInfo";
 import getCheckoutInfo from "../../functions/getCheckoutInfo";
 
-const BillingInfo = ({sameAsShipping, setSameAsShipping}) => {
+const BillingInfo = ({shippingInfo, setShippingInfo}) => {
+    const [sameAsShipping, setSameAsShipping] = useState('same-as')
+    const [sameAsShippingBox, setSameAsShippingBox] = useState(true)
     const [billingInfo, setBillingInfo] = useState({
         "name": '',
         "email": '',
@@ -20,10 +23,23 @@ const BillingInfo = ({sameAsShipping, setSameAsShipping}) => {
             return tempObject
         })
     }
-    
     useEffect(() => {
+        checkForCheckoutInfo();
         setBillingInfo(getCheckoutInfo("billing"))
     }, []);
+
+    useEffect(() => {
+        if (billingInfoRenders.current != 2) {
+            return
+        }
+        if (JSON.stringify(shippingInfo) != JSON.stringify(billingInfo)) {
+            setSameAsShipping('')
+            setSameAsShippingBox(false)
+        } else {
+            setSameAsShipping('same-as')
+            setSameAsShippingBox(true)
+        }
+    }, [billingInfo]);
 
     useEffect(() => {
         billingInfoRenders.current = billingInfoRenders.current + 1
@@ -35,18 +51,25 @@ const BillingInfo = ({sameAsShipping, setSameAsShipping}) => {
             ...prevCheckout, "billingInfo":billingInfo}))
     }, [billingInfo]);
     
+
+    
     return (
         <>  
             <div className={`same-as-shipping-container ${sameAsShipping}`}>
                 <input 
-                  onClick={() => {
-                    if (sameAsShipping == '') {
-                      setSameAsShipping("same-as")
-                    } else if (sameAsShipping == 'same-as') {
-                      setSameAsShipping('')
-                    }
-                  }} 
-                  className="same-as-shipping" id="same-as-shipping" type="checkbox"/>
+                    defaultChecked={sameAsShippingBox}
+                    onChange={() => {
+                        console.log(sameAsShipping);
+                        
+                        if (sameAsShipping == '') {
+                            setSameAsShipping("same-as")
+                            // setSameAsShippingBox(true)
+                        } else if (sameAsShipping == 'same-as') {
+                            setSameAsShipping('')
+                            // setSameAsShippingBox(false)
+                        }
+                    }} 
+                    className={`same-as-shipping ${sameAsShipping}`} id="same-as-shipping" type="checkbox"/>
                 <label className="same-as-shipping-lbl" htmlFor="same-as-shipping">Same as shipping</label>
             </div>    
             <section className={`billing-info ${sameAsShipping}`}>

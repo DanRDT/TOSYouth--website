@@ -1,17 +1,9 @@
 import { useEffect, useRef, useState } from "react"
+import checkForCheckoutInfo from "../../functions/checkForCheckoutInfo";
 import getCheckoutInfo from "../../functions/getCheckoutInfo";
 
-const ShippingInfo = () => {
-    const [shippingInfo, setShippingInfo] = useState({
-        "name": '',
-        "email": '',
-        "phone": '',
-        "address": '',
-        "unit": '',
-        "zip": '',
-        "city": '',
-        "state": ''
-    });
+const ShippingInfo = ({shippingInfo, setShippingInfo}) => {
+    
     const shippingInfoRenders = useRef(0)
 
     function changeShippingInfo(e, shippingInfoKey) {
@@ -22,6 +14,7 @@ const ShippingInfo = () => {
     }
     
     useEffect(() => {
+        checkForCheckoutInfo();
         setShippingInfo(getCheckoutInfo("shipping"))
     }, []);
     useEffect(() => {

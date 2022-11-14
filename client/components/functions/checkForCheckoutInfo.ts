@@ -27,11 +27,14 @@ function setEmpty() {
 function checkForCheckoutInfo() {
     const CheckoutInfo = localStorage.getItem("CheckoutInfo")
 
-    if (CheckoutInfo == "" || CheckoutInfo == null ) {
+    if (CheckoutInfo == "" || CheckoutInfo == null || CheckoutInfo == "{}") {
         setEmpty()
     }   
     try {
-        typeof JSON.parse(CheckoutInfo)
+        const local = JSON.parse(CheckoutInfo)
+        if (local.shippingInfo == undefined || local.billingInfo == undefined) {
+            throw new Error("Missing item");
+        }
     } catch {
         setEmpty()
     }
