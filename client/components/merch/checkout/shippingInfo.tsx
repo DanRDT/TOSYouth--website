@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import getCheckoutInfo from "../../functions/getCheckoutInfo";
 
 const ShippingInfo = () => {
@@ -12,6 +12,7 @@ const ShippingInfo = () => {
         "city": '',
         "state": ''
     });
+    const shippingInfoRenders = useRef(0)
 
     function changeShippingInfo(e, shippingInfoKey) {
         setShippingInfo(prev => {
@@ -19,18 +20,19 @@ const ShippingInfo = () => {
             return tempObject
         })
     }
-
+    
     useEffect(() => {
-        console.log(getCheckoutInfo("shipping"))
         setShippingInfo(getCheckoutInfo("shipping"))
     }, []);
-
     useEffect(() => {
-        console.log(shippingInfo);
+        shippingInfoRenders.current = shippingInfoRenders.current + 1
+        if (shippingInfoRenders.current < 2) {
+            return
+        }
         const prevCheckout = JSON.parse(localStorage.getItem("CheckoutInfo"))
-        console.log(shippingInfo);
-        localStorage.setItem("CheckoutInfo", JSON.stringify({...prevCheckout, shippingInfo}))
+        localStorage.setItem("CheckoutInfo", JSON.stringify({...prevCheckout, "shippingInfo":shippingInfo}))
     }, [shippingInfo]);
+
 
     return (
         <>      

@@ -4,7 +4,16 @@ import ShippingInfo from "./shippingInfo"
 
 const CheckoutInfo = () => {
     const [sameAsShipping, setSameAsShipping] = useState('')
-
+    const [checkoutInfo, setCheckoutInfo] = useState({
+        "name": '',
+        "email": '',
+        "phone": '',
+        "address": '',
+        "unit": '',
+        "zip": '',
+        "city": '',
+        "state": ''
+    });
     
     return (
         <>  
