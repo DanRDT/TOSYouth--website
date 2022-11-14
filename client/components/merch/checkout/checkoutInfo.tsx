@@ -31,6 +31,13 @@ const CheckoutInfo = () => {
         "state": ''
     });
 
+    const updateLocalOnRedirect = (e) => {
+        if (e.target.className != "nav-link") {
+            return
+        }
+        setLocalCheckoutInfo(shippingInfo, billingInfo)
+    }
+
     useEffect(() => {
         checkForShoppingCart();
         checkForCheckoutInfo();
@@ -42,6 +49,11 @@ const CheckoutInfo = () => {
         setShippingInfo(shippingLocal)
         setBillingInfo(billingLocal)
     }, []);
+
+    useEffect(() => {
+        document.addEventListener("click", updateLocalOnRedirect);
+        return () => document.removeEventListener("click", updateLocalOnRedirect)
+    }, [billingInfo, shippingInfo]);
 
     return (
         <>  

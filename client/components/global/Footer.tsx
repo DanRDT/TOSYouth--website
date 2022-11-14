@@ -6,10 +6,10 @@ const Footer = () => {
         <footer>
             <div className={"seperation-line"}></div>
             <nav className={"footer-nav"}>
-                <Link href="/"><a>Home</a></Link>
-                <Link href="/about-us"><a>About Us</a></Link>
-                <Link href="/events"><a>Events</a></Link>
-                <Link href="/merch"><a>Merch</a></Link>
+                <Link href="/"><a className="nav-link">Home</a></Link>
+                <Link href="/about-us"><a className="nav-link">About Us</a></Link>
+                <Link href="/events"><a className="nav-link">Events</a></Link>
+                <Link href="/merch"><a className="nav-link">Merch</a></Link>
             </nav>
             <p className={"copyright"}>© 2022 Tabernacle of Salvation Church Youth</p>
         </footer>

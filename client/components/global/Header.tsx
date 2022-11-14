@@ -4,8 +4,8 @@ const Header = () => {
     return (
         <header>
             <Link href="/">
-                <a className="logo">
-                    <img src="/imgs/logo.svg" alt="logo"></img>
+                <a className="logo nav-link">
+                    <img className="nav-link" src="/imgs/logo.svg" alt="logo"></img>
                 </a>
             </Link>
             <div id="menu-button" data-active="false">
@@ -14,13 +14,13 @@ const Header = () => {
                 <div className="menu-button-line"></div>
             </div>
             <nav className="header-nav" data-visible="false">
-                <Link href="/"><a>Home</a></Link>
-                <Link href="/about-us"><a>About Us</a></Link>
-                <Link href="/events"><a>Events</a></Link>
-                <Link href="/merch"><a>Merch</a></Link>
+                <Link href="/"><a className="nav-link">Home</a></Link>
+                <Link href="/about-us"><a className="nav-link">About Us</a></Link>
+                <Link href="/events"><a className="nav-link">Events</a></Link>
+                <Link href="/merch"><a className="nav-link">Merch</a></Link>
                 <Link href="/merch/cart">
                     <a className="shopping-cart">
-                        <img src="/imgs/cart-icon.png" alt="cart-icon"></img>
+                        <img className="nav-link" src="/imgs/cart-icon.png" alt="cart-icon"></img>
                     </a>
                 </Link>
             </nav>

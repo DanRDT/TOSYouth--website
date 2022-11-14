@@ -193,10 +193,12 @@ header {
 /* Logo */
 .logo {
     margin-left: clamp(1rem, 4vw, 1.7rem);
+    height: 100%;
 }
 .logo img {
     width: 3rem;
     width: clamp(3.5rem, 10vw, 5.5rem);
+    height: 100%;
 }
 
 
@@ -278,12 +280,16 @@ nav a::after {
     transform: translateY(0.3rem) scaleX(0.5);
     opacity: 0;
     transition: transform 0.2s;
+    pointer-events: none;
 }
 
 nav a:hover::after,
 nav a:active::after {
     transform: translateY(0) scaleX(1);
     opacity: 1;
+}
+nav a:last-child:after{
+    opacity: 0 !important;
 }
 
 /* Shopping Cart */
@@ -293,9 +299,6 @@ nav a:active::after {
 .shopping-cart:hover,
 .shopping-cart:active {
     filter: drop-shadow(0.7px 0.7px 0.6px grey); 
-}
-.shopping-cart::after{
-    opacity: 0 !important;
 }
 .shopping-cart img {
     width: 2.75rem;
