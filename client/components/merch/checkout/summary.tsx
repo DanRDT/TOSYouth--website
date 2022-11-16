@@ -4,7 +4,7 @@ import getCart from "../../hooks/getCart"
 import setLocalCheckoutInfo from "../../hooks/setLocalCheckoutInfo"
 import useCartEventListener from "../../hooks/useCartEventListener"
 
-const Summary = ({billingInfo, shippingInfo, checkoutInfoValid}) => {
+const Summary = ({billingInfo, shippingInfo}) => {
     const [checkoutInfoValidCss, setCheckoutInfoValidCss] = useState('')
     
     const [cart, setCart] = useState([]);
@@ -30,12 +30,26 @@ const Summary = ({billingInfo, shippingInfo, checkoutInfoValid}) => {
     useCartEventListener(setCart)
 
 
+    function checkCheckoutInfo() {
+        let checkoutInfoValid = false;
 
+        if (checkoutInfoValid) {  
+            
+
+            //redirect to stripe
+            window.location.assign('//stripe.com');
+        } else {
+            setCheckoutInfoValidCss("checkout-info-not-valid")
+            setTimeout(() => {
+                setCheckoutInfoValidCss('')
+            }, 2200);
+        }
+
+    }
 
     
 
     function infoNotValid() {
-        setCheckoutInfoValidCss("checkout-info-not-valid")
         setTimeout(() => {
             setCheckoutInfoValidCss('')
         }, 2200);
@@ -50,22 +64,13 @@ const Summary = ({billingInfo, shippingInfo, checkoutInfoValid}) => {
                 <p>Estimated Delivery: 5-7 business days</p>
                 <h4 className="tax">Tax: <span className="rgt-item">{tax}</span></h4>
                 <h4 className="total">Total: <span className="rgt-item">{total}</span></h4>
-                { checkoutInfoValid ? 
-                    (<a className="pay-btn" 
-                        onClick={() => {
-                            setLocalCheckoutInfo(shippingInfo, billingInfo)
-                        }}>
-                        <h4>Proceed to Payment</h4>
-                    </a>)
-                :
-                    (<a className={`pay-btn ${checkoutInfoValidCss}`} 
-                        onClick={() => {
-                            setLocalCheckoutInfo(shippingInfo, billingInfo)
-                            infoNotValid()
-                        }}>
-                        <h4>Proceed to Payment</h4>
-                    </a>)
-                }
+                <a className={`pay-btn ${checkoutInfoValidCss}`} 
+                    onClick={() => {
+                        setLocalCheckoutInfo(shippingInfo, billingInfo)
+                        checkCheckoutInfo()
+                    }}>
+                    <h4>Proceed to Payment</h4>
+                </a>
             </section>
         </>
     )

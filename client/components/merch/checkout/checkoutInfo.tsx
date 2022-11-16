@@ -30,8 +30,7 @@ const CheckoutInfo = () => {
         "city": '',
         "state": ''
     });
-    const [checkoutInfoValid, setCheckoutInfoValid] = useState(true)
-
+    
 
     const updateLocalOnRedirect = (e) => {
         if (e.target.className != "nav-link") {
@@ -82,7 +81,7 @@ const CheckoutInfo = () => {
                 sameAsShipping={sameAsShipping} setSameAsShipping={setSameAsShipping}/>
             
             <div className="seperation-line"></div>
-            <Summary shippingInfo={shippingInfo} billingInfo={billingInfo} checkoutInfoValid={checkoutInfoValid}/>
+            <Summary shippingInfo={shippingInfo} billingInfo={billingInfo} />
         </>
     )
     

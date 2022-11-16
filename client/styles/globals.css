@@ -288,7 +288,7 @@ nav a:active::after {
     transform: translateY(0) scaleX(1);
     opacity: 1;
 }
-nav a:last-child:after{
+header nav a:last-child:after{
     opacity: 0 !important;
 }
 
