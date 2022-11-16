@@ -196,9 +196,8 @@
 }
 
 .total {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     /* border-top: 1px solid black; */
-
 }
 
 .total span {
@@ -216,6 +215,7 @@
     cursor: pointer;
     transition: background 0.2s;
     margin-top: 1.5rem;
+    position: relative;
 }
 .pay-btn h4 {
     color: var(--primary-color);
@@ -224,3 +224,12 @@
     background-color: var(--complementary-color-darker);
 }
 
+.pay-btn.checkout-info-not-valid::after {
+    content: "Fill out all of the fields properly";
+    position: absolute;
+    bottom: -1.6rem;
+    right: 50%;
+    width: max-content;
+    transform: translateX(50%) scale(0.9);
+    pointer-events: none;
+}
