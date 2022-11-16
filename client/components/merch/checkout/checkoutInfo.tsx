@@ -81,7 +81,7 @@ const CheckoutInfo = () => {
                 sameAsShipping={sameAsShipping} setSameAsShipping={setSameAsShipping}/>
             
             <div className="seperation-line"></div>
-            <Summary shippingInfo={shippingInfo} billingInfo={billingInfo} />
+            <Summary shippingInfo={shippingInfo} billingInfo={billingInfo} sameAsShipping={sameAsShipping}/>
         </>
     )
     
