@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import checkForCheckoutInfo from "../../hooks/checkForCheckoutInfo";
-import getCheckoutInfo from "../../hooks/getCheckoutInfo";
 
-const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShipping}) => {
+const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShipping, checkoutInfoValidCss}) => {
     
     function changeShippingInfo(e, shippingInfoKey) {
         setShippingInfo(prev => {
@@ -20,22 +18,22 @@ const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShip
     return (
         <>      
             <section className="shipping-info">
-                <h4>Name
+                <h4 className={checkoutInfoValidCss.shippingName}>Name
                 <input className="info-input" type="text" name="name" placeholder="..." required
                     value={shippingInfo.name}
                     onChange={(e) => {changeShippingInfo(e, "name")}}
                 /></h4>
-                <h4>Email
+                <h4 className={checkoutInfoValidCss.shippingEmail}>Email
                 <input className="info-input" type="email" name="email" placeholder="..." required
                     value={shippingInfo.email}
                     onChange={(e) => {changeShippingInfo(e, "email")}}
                 /></h4>
-                <h4>Street Address
+                <h4 className={checkoutInfoValidCss.shippingAddress}>Street Address
                 <input className="info-input" type="text" name="address" placeholder="..." required
                     value={shippingInfo.address}
                     onChange={(e) => {changeShippingInfo(e, "address")}}
                 /></h4>
-                <h4><div>Phone <p>&nbsp;&nbsp;( xxx-xxx-xxxx )</p></div>
+                <h4 className={checkoutInfoValidCss.shippingPhone}><div>Phone <p>&nbsp;&nbsp;( xxx-xxx-xxxx )</p></div>
                 <input className="info-input" type="tel" name="phone" placeholder="..." required
                     value={shippingInfo.phone}
                     onChange={(e) => {changeShippingInfo(e, "phone")}}
@@ -45,17 +43,17 @@ const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShip
                     value={shippingInfo.unit}
                     onChange={(e) => {changeShippingInfo(e, "unit")}}
                 /></h4>
-                <h4>Zip Code
+                <h4 className={checkoutInfoValidCss.shippingZip}>Zip Code
                 <input className="info-input" type="text" name="zip" placeholder="..." required
                     value={shippingInfo.zip}
                     onChange={(e) => {changeShippingInfo(e, "zip")}}
                 /></h4>
-                <h4>City
+                <h4 className={checkoutInfoValidCss.shippingCity}>City
                 <input className="info-input" type="text" name="city" placeholder="..." required
                     value={shippingInfo.city}
                     onChange={(e) => {changeShippingInfo(e, "city")}}
                 /></h4>
-                <h4>State
+                <h4 className={checkoutInfoValidCss.shippingState}>State
                     <select 
                         value={shippingInfo.state}
                         onChange={(e) => {

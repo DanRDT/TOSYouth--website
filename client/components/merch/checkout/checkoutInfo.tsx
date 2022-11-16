@@ -30,7 +30,22 @@ const CheckoutInfo = () => {
         "city": '',
         "state": ''
     });
-    
+    const [checkoutInfoValidCss, setCheckoutInfoValidCss] = useState({
+        "shippingName": '',
+        "shippingEmail": '',
+        "shippingPhone": '',
+        "shippingAddress": '',
+        "shippingZip": '',
+        "shippingCity": '',
+        "shippingState": '',
+        "billingName": '',
+        "billingEmail": '',
+        "billingPhone": '',
+        "billingAddress": '',
+        "billingZip": '',
+        "billingCity": '',
+        "billingState": ''
+    });
 
     const updateLocalOnRedirect = (e) => {
         if (e.target.className != "nav-link") {
@@ -70,7 +85,8 @@ const CheckoutInfo = () => {
             
             <ShippingInfo 
                 shippingInfo={shippingInfo} setShippingInfo={setShippingInfo}
-                setBillingInfo={setBillingInfo} sameAsShipping={sameAsShipping}/>
+                setBillingInfo={setBillingInfo} sameAsShipping={sameAsShipping}
+                checkoutInfoValidCss={checkoutInfoValidCss}/>
 
             <div className="seperation-line"></div>
             <h3 className="info-lbl">Billing Information</h3>
@@ -78,10 +94,13 @@ const CheckoutInfo = () => {
             <BillingInfo 
                 shippingInfo={shippingInfo}
                 billingInfo={billingInfo} setBillingInfo={setBillingInfo}
-                sameAsShipping={sameAsShipping} setSameAsShipping={setSameAsShipping}/>
+                sameAsShipping={sameAsShipping} setSameAsShipping={setSameAsShipping}
+                checkoutInfoValidCss={checkoutInfoValidCss}/>
             
             <div className="seperation-line"></div>
-            <Summary shippingInfo={shippingInfo} billingInfo={billingInfo} sameAsShipping={sameAsShipping}/>
+            <Summary 
+                shippingInfo={shippingInfo} billingInfo={billingInfo} 
+                sameAsShipping={sameAsShipping} setCheckoutInfoValidCss={setCheckoutInfoValidCss}/>
         </>
     )
     
