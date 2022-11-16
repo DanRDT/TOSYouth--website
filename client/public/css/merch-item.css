@@ -199,7 +199,7 @@ h3 {
 }
 .sizes.pick-size::after {
     position: absolute;
-    color: #ff1505;
+    color: #e92c38;
     content: "Pick A Size";
     bottom: -1.1rem;
 }

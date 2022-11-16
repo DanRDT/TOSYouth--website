@@ -4,8 +4,7 @@ import getCart from "../../hooks/getCart"
 import setLocalCheckoutInfo from "../../hooks/setLocalCheckoutInfo"
 import useCartEventListener from "../../hooks/useCartEventListener"
 
-const Summary = ({billingInfo, shippingInfo}) => {
-    const [checkoutInfoValid, setCheckoutInfoValid] = useState(true)
+const Summary = ({billingInfo, shippingInfo, checkoutInfoValid}) => {
     const [checkoutInfoValidCss, setCheckoutInfoValidCss] = useState('')
     
     const [cart, setCart] = useState([]);
@@ -28,8 +27,12 @@ const Summary = ({billingInfo, shippingInfo}) => {
         setTax("$" + (tax).toFixed(2))
         setTotal("$" + (currentSubtotal+tax).toFixed(2))
     }, [cart]);
-
     useCartEventListener(setCart)
+
+
+
+
+    
 
     function infoNotValid() {
         setCheckoutInfoValidCss("checkout-info-not-valid")

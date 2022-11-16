@@ -87,7 +87,48 @@
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
+    position: relative;
 }
+.shipping-info h4::after,
+.billing-info h4::after {
+    content: "";
+    position: absolute;
+    bottom: -1.1rem;
+    left: 0;
+    font-size: clamp(0.8rem, 3vw, 0.95rem);
+    width: max-content;
+    pointer-events: none;
+    color: #e92c38;
+}
+.shipping-info h4:nth-child(1):after,
+.billing-info h4:nth-child(1)::after {
+    content: "Name required";
+}
+.shipping-info h4:nth-child(2):after,
+.billing-info h4:nth-child(2)::after {
+    content: "Valid email address required";
+}
+.shipping-info h4:nth-child(3):after,
+.billing-info h4:nth-child(3)::after {
+    content: "Address required";
+}
+.shipping-info h4:nth-child(4):after,
+.billing-info h4:nth-child(4)::after {
+    content: "Valid phone number required";
+}
+.shipping-info h4:nth-child(6):after,
+.billing-info h4:nth-child(6)::after {
+    content: "Zip code required";
+}
+.shipping-info h4:nth-child(7):after,
+.billing-info h4:nth-child(7)::after {
+    content: "City required";
+}
+.shipping-info h4:nth-child(8):after,
+.billing-info h4:nth-child(8)::after {
+    content: "State required";
+}
+
 .shipping-info h4 input,
 .billing-info h4 input {
     padding: 0.4rem;
@@ -104,7 +145,7 @@
     }
     .shipping-info h4 input,
     .billing-info h4 input {
-        width: clamp(15rem, 70vw, 27rem);
+        width: clamp(17rem, 78vw, 27rem);
     }
 }
 
