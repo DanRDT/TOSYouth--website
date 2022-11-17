@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react"
+import useClearRequiredPopup from "../../hooks/useClearRequiredPopup"
 
-const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShipping, checkoutInfoValidCss}) => {
+const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShipping, checkoutInfoValidCss, setCheckoutInfoValidCss}) => {
     
     function changeShippingInfo(e, shippingInfoKey) {
         setShippingInfo(prev => {
             const tempObject = {...prev, [shippingInfoKey]: e.target.value}
             return tempObject
         })
+        useClearRequiredPopup(e.target.value, shippingInfoKey, "shipping", setCheckoutInfoValidCss)
     }
     
     useEffect(() => {

@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react"
-import checkForShoppingCart from "../../hooks/checkForShoppingCart"
-import getCart from "../../hooks/getCart"
-import setLocalCheckoutInfo from "../../hooks/setLocalCheckoutInfo"
+import checkForShoppingCart from "../../hooks/functions/checkForShoppingCart"
+import getCart from "../../hooks/functions/getCart"
+import setLocalCheckoutInfo from "../../hooks/functions/setLocalCheckoutInfo"
 import useCartEventListener from "../../hooks/useCartEventListener"
+import checkIfValid from "../../hooks/useCheckIfValid"
 
 const Summary = ({shippingInfo, billingInfo, sameAsShipping, setCheckoutInfoValidCss}) => {
     const [infoValidPayBtnCss, setInfoValidPayBtnCss] = useState('')
@@ -29,87 +30,28 @@ const Summary = ({shippingInfo, billingInfo, sameAsShipping, setCheckoutInfoVali
     }, [cart]);
     useCartEventListener(setCart)
 
-    function addRequiredPopup(key) {
-        setCheckoutInfoValidCss(prev => {
-            const tempObject = {...prev, [key]: "required"}
-            return tempObject
-        })
-        setTimeout(() => {
-            setCheckoutInfoValidCss(prev => {
-                const tempObject = {...prev, [key]: ""}
-                return tempObject
-            })
-        }, 8000);
-    }
-
     function checkCheckoutInfo() {
         let checkoutInfoValid = true;
-        const regExNormal = /[A-Za-z]+/
-        const regExPhone = /^\d{3}-\d{3}-\d{4}$/
-        const regExZip = /^\d{5}/
-        const regExEmail = /[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?/;
 
-        if (!regExNormal.test(shippingInfo.name)) {
-            checkoutInfoValid = false
-            addRequiredPopup("shippingName")
+        checkoutInfoValid = checkIfValid(shippingInfo.name, "name", "shipping", setCheckoutInfoValidCss)
+        checkoutInfoValid = checkIfValid(shippingInfo.email, "email", "shipping", setCheckoutInfoValidCss)
+        checkoutInfoValid = checkIfValid(shippingInfo.address, "address", "shipping", setCheckoutInfoValidCss)
+        checkoutInfoValid = checkIfValid(shippingInfo.phone, "phone", "shipping", setCheckoutInfoValidCss)
+        checkoutInfoValid = checkIfValid(shippingInfo.zip, "zip", "shipping", setCheckoutInfoValidCss)
+        checkoutInfoValid = checkIfValid(shippingInfo.city, "city", "shipping", setCheckoutInfoValidCss)
+        checkoutInfoValid = checkIfValid(shippingInfo.state, "state", "shipping", setCheckoutInfoValidCss)
+        if (sameAsShipping != 'same-as') {
+            checkoutInfoValid = checkIfValid(billingInfo.name, "name", "billing", setCheckoutInfoValidCss)
+            checkoutInfoValid = checkIfValid(billingInfo.email, "email", "billing", setCheckoutInfoValidCss)
+            checkoutInfoValid = checkIfValid(billingInfo.address, "address", "billing", setCheckoutInfoValidCss)
+            checkoutInfoValid = checkIfValid(billingInfo.phone, "phone", "billing", setCheckoutInfoValidCss)
+            checkoutInfoValid = checkIfValid(billingInfo.zip, "zip", "billing", setCheckoutInfoValidCss)
+            checkoutInfoValid = checkIfValid(billingInfo.city, "city", "billing", setCheckoutInfoValidCss)
+            checkoutInfoValid = checkIfValid(billingInfo.state, "state", "billing", setCheckoutInfoValidCss)
         }
-        if (!regExEmail.test(shippingInfo.email)) {
-            checkoutInfoValid = false
-            addRequiredPopup("shippingEmail")
-        }
-        if (!regExNormal.test(shippingInfo.address)) {
-            checkoutInfoValid = false
-            addRequiredPopup("shippingAddress")
-        }
-        if (!regExPhone.test(shippingInfo.phone)) {
-            checkoutInfoValid = false
-            addRequiredPopup("shippingPhone")
-        }
-        if (!regExZip.test(shippingInfo.zip)) {
-            checkoutInfoValid = false
-            addRequiredPopup("shippingZip")
-        }
-        if (!regExNormal.test(shippingInfo.city)) {
-            checkoutInfoValid = false
-            addRequiredPopup("shippingCity")
-        }
-        if (!regExNormal.test(shippingInfo.state)) {
-            checkoutInfoValid = false
-            addRequiredPopup("shippingState")
-        }
-        if (sameAsShipping != "same-as") {
-            if (!regExNormal.test(billingInfo.name)) {
-                checkoutInfoValid = false
-                addRequiredPopup("billingName")
-            }
-            if (!regExEmail.test(billingInfo.email)) {
-                checkoutInfoValid = false
-                addRequiredPopup("billingEmail")
-            }
-            if (!regExNormal.test(billingInfo.address)) {
-                checkoutInfoValid = false
-                addRequiredPopup("billingAddress")
-            }
-            if (!regExPhone.test(billingInfo.phone)) {
-                checkoutInfoValid = false
-                addRequiredPopup("billingPhone")
-            }
-            if (!regExZip.test(billingInfo.zip)) {
-                checkoutInfoValid = false
-                addRequiredPopup("billingZip")
-            }
-            if (!regExNormal.test(billingInfo.city)) {
-                checkoutInfoValid = false
-                addRequiredPopup("billingCity")
-            }
-            if (!regExNormal.test(billingInfo.state)) {
-                checkoutInfoValid = false
-                addRequiredPopup("billingState")
-            }
-        }
-        
-        if ((checkoutInfoValid)) {
-            //redirect to stripe
+
+        if (checkoutInfoValid) {
+            //add correct redirect to stripe soon
             window.location.assign('//stripe.com');
         } else {
             setInfoValidPayBtnCss("checkout-info-not-valid")
@@ -121,13 +63,6 @@ const Summary = ({shippingInfo, billingInfo, sameAsShipping, setCheckoutInfoVali
     }
 
     
-
-    function infoNotValid() {
-        setTimeout(() => {
-            setInfoValidPayBtnCss('')
-        }, 2200);
-    }
-
     return (
         <>      
             <section className="summary">

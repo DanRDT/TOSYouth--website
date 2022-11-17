@@ -1,16 +1,28 @@
-import { useEffect, useRef, useState } from "react"
-import checkForCheckoutInfo from "../../hooks/checkForCheckoutInfo";
-import getCheckoutInfo from "../../hooks/getCheckoutInfo";
-import setLocalCheckoutInfo from "../../hooks/setLocalCheckoutInfo";
+import { useEffect } from "react";
+import setLocalCheckoutInfo from "../../hooks/functions/setLocalCheckoutInfo";
+import useClearRequiredPopup from "../../hooks/useClearRequiredPopup";
 
-const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping, setSameAsShipping, checkoutInfoValidCss}) => {
+const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping, setSameAsShipping, checkoutInfoValidCss, setCheckoutInfoValidCss}) => {
 
     function changeBillingInfo(e, billingInfoKey) {
         setBillingInfo(prev => {
             const tempObject = {...prev, [billingInfoKey]: e.target.value}
             return tempObject
         })
+        useClearRequiredPopup(e.target.value, billingInfoKey, "billing", setCheckoutInfoValidCss)
     }
+
+    useEffect(() => {
+        //required for background clearing of billing info popups when same as is checked
+        if (sameAsShipping == '') return
+        useClearRequiredPopup(billingInfo.name, "name", "billing", setCheckoutInfoValidCss)
+        useClearRequiredPopup(billingInfo.email, "email", "billing", setCheckoutInfoValidCss)
+        useClearRequiredPopup(billingInfo.address, "address", "billing", setCheckoutInfoValidCss)
+        useClearRequiredPopup(billingInfo.phone, "phone", "billing", setCheckoutInfoValidCss)
+        useClearRequiredPopup(billingInfo.zip, "zip", "billing", setCheckoutInfoValidCss)
+        useClearRequiredPopup(billingInfo.city, "city", "billing", setCheckoutInfoValidCss)
+        useClearRequiredPopup(billingInfo.state, "state", "billing", setCheckoutInfoValidCss)
+    }, [billingInfo])
 
     return (
         <>  

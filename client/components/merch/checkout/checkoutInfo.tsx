@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { useEffect, useState } from "react"
-import checkForCheckoutInfo from "../../hooks/checkForCheckoutInfo";
-import checkForShoppingCart from "../../hooks/checkForShoppingCart";
-import getCheckoutInfo from "../../hooks/getCheckoutInfo";
-import setLocalCheckoutInfo from "../../hooks/setLocalCheckoutInfo";
+import checkForCheckoutInfo from "../../hooks/functions/checkForCheckoutInfo";
+import checkForShoppingCart from "../../hooks/functions/checkForShoppingCart";
+import getCheckoutInfo from "../../hooks/functions/getCheckoutInfo";
+import setLocalCheckoutInfo from "../../hooks/functions/setLocalCheckoutInfo";
 import BillingInfo from "./billingInfo"
 import ShippingInfo from "./shippingInfo"
 import Summary from "./summary";
@@ -86,7 +86,7 @@ const CheckoutInfo = () => {
             <ShippingInfo 
                 shippingInfo={shippingInfo} setShippingInfo={setShippingInfo}
                 setBillingInfo={setBillingInfo} sameAsShipping={sameAsShipping}
-                checkoutInfoValidCss={checkoutInfoValidCss}/>
+                checkoutInfoValidCss={checkoutInfoValidCss} setCheckoutInfoValidCss={setCheckoutInfoValidCss}/>
 
             <div className="seperation-line"></div>
             <h3 className="info-lbl">Billing Information</h3>
@@ -95,7 +95,7 @@ const CheckoutInfo = () => {
                 shippingInfo={shippingInfo}
                 billingInfo={billingInfo} setBillingInfo={setBillingInfo}
                 sameAsShipping={sameAsShipping} setSameAsShipping={setSameAsShipping}
-                checkoutInfoValidCss={checkoutInfoValidCss}/>
+                checkoutInfoValidCss={checkoutInfoValidCss} setCheckoutInfoValidCss={setCheckoutInfoValidCss}/>
             
             <div className="seperation-line"></div>
             <Summary 

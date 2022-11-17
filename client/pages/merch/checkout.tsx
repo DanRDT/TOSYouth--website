@@ -1,5 +1,5 @@
 import Meta from '../../components/global/meta'
-import checkForCheckoutInfo from '../../components/hooks/checkForCheckoutInfo'
+import checkForCheckoutInfo from '../../components/hooks/functions/checkForCheckoutInfo'
 import CheckoutInfo from '../../components/merch/checkout/checkoutInfo'
 import { useEffect } from 'react'
 
