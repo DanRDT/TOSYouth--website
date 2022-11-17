@@ -80,7 +80,7 @@ const CheckoutInfo = () => {
                 <h4>Shopping Cart</h4>
               </a></Link>
             </div>
-            <div className="seperation-line spcl"></div>
+            <div className="separation-line full-length"></div>
             <h3 className="info-lbl">Shipping Information</h3>
             
             <ShippingInfo 
@@ -88,7 +88,7 @@ const CheckoutInfo = () => {
                 setBillingInfo={setBillingInfo} sameAsShipping={sameAsShipping}
                 checkoutInfoValidCss={checkoutInfoValidCss} setCheckoutInfoValidCss={setCheckoutInfoValidCss}/>
 
-            <div className="seperation-line"></div>
+            <div className="separation-line"></div>
             <h3 className="info-lbl">Billing Information</h3>
             
             <BillingInfo 
@@ -97,7 +97,7 @@ const CheckoutInfo = () => {
                 sameAsShipping={sameAsShipping} setSameAsShipping={setSameAsShipping}
                 checkoutInfoValidCss={checkoutInfoValidCss} setCheckoutInfoValidCss={setCheckoutInfoValidCss}/>
             
-            <div className="seperation-line"></div>
+            <div className="separation-line"></div>
             <Summary 
                 shippingInfo={shippingInfo} billingInfo={billingInfo} 
                 sameAsShipping={sameAsShipping} setCheckoutInfoValidCss={setCheckoutInfoValidCss}/>

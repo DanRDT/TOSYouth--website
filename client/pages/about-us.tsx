@@ -11,7 +11,7 @@ export default function Home() {
             <div className='main-container'>
                 <section>
                     <h1 >About Us</h1>
-                    <div className='seperation-line'></div>
+                    <div className='separation-line'></div>
                     <div className='grid'>
                         <div className='about-us-img' data-appear-on-scroll="false"></div>
                         <div className='about-us-info' data-appear-on-scroll="false">

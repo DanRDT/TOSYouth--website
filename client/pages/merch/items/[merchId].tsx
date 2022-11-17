@@ -11,7 +11,7 @@ export default function Home() {
             <link rel="stylesheet" type="text/css" href="/css/merch-item.css"/>
             <main>
                 <div className='main-container'>
-                <div className="seperation-line"></div>
+                <div className="separation-line"></div>
                 <Item id={id}/>
                 </div>
             </main>

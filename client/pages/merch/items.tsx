@@ -1,5 +1,5 @@
-import Meta from '../../../components/global/meta'
-import Items from '../../../components/merch/items'
+import Meta from '../../components/global/meta'
+import Items from '../../components/merch/items'
 
 
 

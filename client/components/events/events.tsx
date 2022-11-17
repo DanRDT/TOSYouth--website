@@ -1,20 +1,10 @@
 import Link from "next/link";
-import { useEffect, useState } from "react"
 
-const Events = () => {
-    const [events, setEvents] = useState([]);
-
-    useEffect(() => {
-        async function getEvents() {
-            const res = await fetch("/api/events")
-            setEvents(await res.json());
-        }
-        getEvents();
-    }, []);
+function Events ({events}) {
     
     return (
         <>      
-        {events.map((event) => (<div className='event-container' key={event.id}>
+        {events?.map((event) => (<div className='event-container' key={event.id}>
         <div className='event' data-appear-on-scroll="false" data-appear-on-scroll-delay="true" >
                 <div className='event-img' style={{background: `var(--placeholder-color) url(${event.image}) no-repeat center/cover`}}></div>
                 <div className='event-info'>
@@ -23,7 +13,7 @@ const Events = () => {
                     <Link href={`/events/${event.id}`}><a className='more-info-button' >More Info</a></Link>
                 </div>
             </div>
-        <div className='seperation-line'></div>
+        <div className='separation-line'></div>
         </div>))}
         </>
     )

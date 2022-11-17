@@ -1,33 +1,6 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import Meta from "../global/meta";
 
-const Details = (eventId) => {
-    const router = useRouter();
-        
-    const [event, setEvent] = useState(
-        {
-        "id": "",
-        "name": "",
-        "date": "",
-        "description": "",
-        "price": "",
-        "image": ""
-    }
-    );
-
-    useEffect(() => {
-        if(!router.isReady) return;
-        async function getEvent() {
-            
-            const res = await fetch(`/api/events/${eventId.eventId}`);
-            const events = await res.json();
-            await setEvent(events)
-        }
-        getEvent();
-
-    }, [router.isReady]);
-    
+const Details = ({event}) => {
     return ( 
         <div data-appear-on-scroll="false" className='event-details'>
             <Meta title={event.name} description={event.description}/>

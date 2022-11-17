@@ -2,12 +2,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react"
 
 const Subtotal = ({cart}) => {
-    const [cartLength, setCartLenght] = useState(0);
+    const [cartLength, setCartLength] = useState(0);
     const [subtotal, setSubtotal] = useState("");
     const [emptyCart, setEmptyCart] = useState("");
 
     useEffect(() => {
-        setCartLenght(cart.length)
+        setCartLength(cart.length)
 
         let currentSubtotal :any = 0;
         cart.map((cartItem)=>{

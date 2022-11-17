@@ -1,7 +1,5 @@
 import Meta from '../../components/global/meta'
 import CartItems from '../../components/merch/cart/cart'
-import Subtotal from '../../components/merch/cart/subtotal'
-
 
 
 export default function Home() {
@@ -13,7 +11,7 @@ export default function Home() {
             <div className='main-container'>
             <section>
                 <h1 >Cart</h1>
-                <div className="seperation-line spcl"></div>
+                <div className="separation-line special"></div>
                     <CartItems/>
             </section>
             </div>

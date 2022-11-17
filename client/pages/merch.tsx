@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Meta from '../../components/global/meta'
-import LatestItems from '../../components/merch/latestItems'
+import Meta from '../components/global/meta'
+import LatestItems from '../components/merch/latestItems'
 
 
 
@@ -20,7 +20,7 @@ export default function Home() {
                     </div>
                 </section>
                 <section id="section2">
-                    <div className='subheading'>THE LASTEST</div>
+                    <div className='subheading'>THE LATEST</div>
                     <div className='latest-items'>
                         <LatestItems/>
                     </div>

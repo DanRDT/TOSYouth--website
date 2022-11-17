@@ -107,7 +107,7 @@ const Item = ({id}) => {
     useEffect(() => {
         if(!router.isReady) return;
         async function getItem() {            
-            const res = await fetch(`/api/merch/${id}`)
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/${id}`)
             setItem(await res.json());
         }
         getItem();
@@ -142,7 +142,7 @@ const Item = ({id}) => {
                     <h4 className={`add-to-cart-btn ${cartLoading}`} onClick={addItem}>{added}
                         <div className={`loading-animation ${cartLoading}`}></div>
                     </h4>
-                    <div className="plchlder"></div>
+                    <div className="placeholder"></div>
                 </div>
             </section>
         </>

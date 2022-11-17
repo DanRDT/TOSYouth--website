@@ -4,7 +4,7 @@ const Footer = () => {
     
     return (
         <footer>
-            <div className={"seperation-line"}></div>
+            <div className={"separation-line"}></div>
             <nav className={"footer-nav"}>
                 <Link href="/"><a className="nav-link">Home</a></Link>
                 <Link href="/about-us"><a className="nav-link">About Us</a></Link>

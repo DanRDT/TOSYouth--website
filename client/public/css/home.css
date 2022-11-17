@@ -5,7 +5,7 @@ Table of Contents
         Section 1
             Title
             Picture
-            Trapazoid Quote
+            Trapezoid Quote
             Larger screens
 
         Section 2
@@ -77,21 +77,21 @@ Table of Contents
     right: 2vw;
 }
 
-/* Trapazoid Quote */
-.trapazoid-container {
+/* Trapezoid Quote */
+.trapezoid-container {
     position: relative;
     top: -3vh;
     left: -5%;
     z-index: 1;
 }
-.trapazoid {
+.trapezoid {
     max-width: clamp(20rem,70vw,32rem);
     background: var(--complementary-color);
     margin: 0 10% 4rem 2rem;
     padding: clamp(3rem, 5.5vw, 5.5rem) clamp(2rem, 3vw, 4rem);
     transform: skewX(10deg);
 }
-.trapazoid-container h3 {
+.trapezoid-container h3 {
     transform: skewX(-10deg);
     line-height: clamp( 1.3rem, 4.8vw, 1.7rem);
     font-size: clamp(0.9rem, 3vw, 1.3rem);
@@ -185,7 +185,7 @@ Table of Contents
     transform: translateY(5rem);
 }
 
-.trapazoid-container[data-appear-on-scroll="false"],
+.trapezoid-container[data-appear-on-scroll="false"],
 .title[data-appear-on-scroll="false"] {
     transform: translate(-10rem, 0rem);
 }
@@ -197,7 +197,7 @@ Table of Contents
 }
 
 @media (min-width: 650px) {
-    .trapazoid-container[data-appear-on-scroll="false"] {
+    .trapezoid-container[data-appear-on-scroll="false"] {
     transform: translate(10rem, 0rem);
     }
 }

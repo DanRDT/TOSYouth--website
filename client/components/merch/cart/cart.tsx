@@ -21,7 +21,7 @@ const CartItems = () => {
         if (typeof cart != "undefined" && cart != null && cart.length != null
         && cart.length > 0) {
             return cart.map((item, index) => (
-                <div key={"cartitem"+index} className="cart-item-container">
+                <div key={"cartItem"+index} className="cart-item-container">
                 <div className="cart-item">
                     <Link href={`/merch/items/${item.id}`}><a><img className="cart-item-img" src={item.image}/></a></Link>
                     <div className="cart-item-info">
@@ -35,12 +35,12 @@ const CartItems = () => {
                         </h4>
                     </div>
                 </div>
-                <div className="seperation-line"></div>
+                <div className="separation-line"></div>
             </div>
             ))
         } else {
             return (
-                <div key={"emptycart"} className="cart-item-container">
+                <div key={"emptyCart"} className="cart-item-container">
                 <div className="cart-item">
                     <div className="cart-item-info">
                         <h3 style={{margin: "2rem 0"}}>Shopping Cart is empty</h3>

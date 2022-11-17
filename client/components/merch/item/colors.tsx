@@ -20,7 +20,7 @@ function getColor(color) {
             return "#fff";
         case "black":
             return "#000";
-        case "biege":
+        case "beige":
             return "#E9E0CF";
         case "light blue":
             return "#8096A3";
@@ -34,7 +34,7 @@ function getDisplay(color) {
     switch (color){
         case "white":
         case "black":
-        case "biege":
+        case "beige":
             return "flex";
         default:
             return "none";

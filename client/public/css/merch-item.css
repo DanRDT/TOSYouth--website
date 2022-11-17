@@ -28,7 +28,7 @@
     gap: 2rem;
 }
 
-.main-container > .seperation-line {
+.main-container > .separation-line {
     margin-top: 2.5rem;
 }
 
@@ -96,11 +96,11 @@
     display: flex;
     flex-direction: column;
 }
-.plchlder{
+.placeholder{
     max-width: clamp( 30ch, 40vw,45ch);
 }
     
-.plchlder::after {
+.placeholder::after {
     content: "_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _";
     pointer-events: none;
     opacity: 0; 
@@ -325,7 +325,7 @@ h3 {
         flex-direction: column;
         width: fit-content;
     }
-    .main-container > .seperation-line {
+    .main-container > .separation-line {
         display: none;
     }
     .back-arrow {

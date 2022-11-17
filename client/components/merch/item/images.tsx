@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 
 const Images = ({item}) => {
     const [selectedImage, setSelectedImage] = useState(0)
-    const [prevImageBorder, setprevImageBorder] = useState(0)
+    const [prevImageBorder, setPrevImageBorder] = useState(0)
     const [selectedImageBorder, setSelectedImageBorder] = useState(["selected"])
 
 
@@ -11,7 +11,7 @@ const Images = ({item}) => {
             const tempArray = [...prevSelectedImageBorder]
             tempArray[prevImageBorder] = ""
             tempArray[selectedImage] = "selected"
-            setprevImageBorder(selectedImage)
+            setPrevImageBorder(selectedImage)
             return tempArray
         })
     }, [selectedImage])

@@ -17,14 +17,14 @@ export default function Home() {
                 <div className='cross-picture-container' data-appear-on-scroll="false">
                     <div className='cross-picture'></div>
                 </div>
-                <div className='trapazoid-container' data-appear-on-scroll="false">
-                    <div className='trapazoid'>
+                <div className='trapezoid-container' data-appear-on-scroll="false">
+                    <div className='trapezoid'>
                         <h3>But if we walk in the light, as he is in the light, we have fellowship with one another, and the blood of Jesus, his Son, purifies us from all sin.<br/>1 John 1:7</h3> 
                     </div>
                 </div>
             </section>
             
-            <div className='seperation-line'></div>
+            <div className='separation-line'></div>
 
             <section id="section2">
                 <h3 className='about-us' data-appear-on-scroll="false">
@@ -34,7 +34,7 @@ export default function Home() {
                 <Link href="/about-us"><a className='learn-more' data-appear-on-scroll="false">Learn More</a></Link>
             </section>
             
-            <div className='seperation-line'></div>
+            <div className='separation-line'></div>
             
             <section id="section3">
                 <h2 className='heading' data-appear-on-scroll="false">Contact</h2>

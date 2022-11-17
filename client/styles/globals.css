@@ -346,12 +346,12 @@ footer {
     width: 100%;
 }
 
-.seperation-line {
+.separation-line {
     width: 95%;
     height: 3px;
     background: var(--secondary-color);
 }
-.seperation-line.spcl {
+.separation-line.full-length {
     width: calc(95% + 2rem);
 }
 

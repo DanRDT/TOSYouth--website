@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 const Sizes = ({item, selectedItem, setSelectedItem, pickSize}) => {
     const [selectedSize, setSelectedSize] = useState(null)
-    const [prevSelectedSize, setprevSelectedSize] = useState(null)
+    const [prevSelectedSize, setPrevSelectedSize] = useState(null)
     const [selectedSizes, setSelectedSizes] = useState([""])
 
     function setSize(size) {
@@ -16,7 +16,7 @@ const Sizes = ({item, selectedItem, setSelectedItem, pickSize}) => {
             const tempArray = [...prevSelectedSizes]
             tempArray[prevSelectedSize] = ""
             tempArray[selectedSize] = "selected"
-            setprevSelectedSize(selectedSize)
+            setPrevSelectedSize(selectedSize)
             return tempArray
         })
     }, [selectedItem.size])
