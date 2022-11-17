@@ -1,13 +1,14 @@
-import Meta from '../components/global/meta'
-import Events from '../components/events/events'
+import Meta from '../../components/global/meta'
+import Events from '../../components/events/events'
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/events`)
     
     return {
         props: {
             events: await res.json(),
         },
+        revalidate: process.env.REVALIDATE,
     }
 }
 

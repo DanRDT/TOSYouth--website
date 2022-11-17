@@ -1,10 +1,19 @@
 import Link from 'next/link'
-import Meta from '../components/global/meta'
-import LatestItems from '../components/merch/latestItems'
+import Meta from '../../components/global/meta'
+import LatestItems from '../../components/merch/latestItems'
 
+export async function getStaticProps() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/items`)
+    
+    return {
+        props: {
+            items: await res.json(),
+        },
+        revalidate: process.env.REVALIDATE,
+    }
+}
 
-
-export default function Home() {
+export default function Home({items}) {
   return (
     <>    
         <link rel="stylesheet" type="text/css" href="/css/merch.css" key="merch-css"/>
@@ -22,7 +31,7 @@ export default function Home() {
                 <section id="section2">
                     <div className='subheading'>THE LATEST</div>
                     <div className='latest-items'>
-                        <LatestItems/>
+                        <LatestItems items={items}/>
                     </div>
                 </section>
                 <section id="section3">

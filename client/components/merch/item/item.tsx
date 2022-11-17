@@ -10,7 +10,7 @@ import Images from "./images";
 import Quantity from "./quantity";
 import Sizes from "./sizes";
 
-const Item = ({id}) => {
+const Item = ({item}) => {
     const router = useRouter();
     
     const [cart, setCart] = useState([]);
@@ -18,17 +18,6 @@ const Item = ({id}) => {
     const [cartLoading, setCartLoading] = useState("");
     const [pickSize, setPickSize] = useState("");
 
-    const [item, setItem] = useState({
-        "id":"",
-        "name":"",
-        "description":"",
-        "price":"",
-        "images":[""],
-        "type":"",
-        "gender":"",
-        // "colors":[""],
-        "sizes":[""]
-    });
     const [selectedItem, setSelectedItem] = useState({
         "id": "",
         "name": "",
@@ -103,15 +92,6 @@ const Item = ({id}) => {
         setCart(getCart());
     }, []);
     useCartEventListener(setCart)
-    
-    useEffect(() => {
-        if(!router.isReady) return;
-        async function getItem() {            
-            const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/${id}`)
-            setItem(await res.json());
-        }
-        getItem();
-    }, [router.isReady]);
     
     useEffect(() => {
         setSelectedItem({

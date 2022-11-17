@@ -1,16 +1,6 @@
 import Link from "next/link";
-import { useEffect, useState } from "react"
 
-const Items = () => {
-    const [items, setItems] = useState([]);
-
-    useEffect(() => {
-        async function getItems() {
-            const res = await fetch("/api/merch/items")
-            setItems(await res.json());
-        }
-        getItems();
-    }, []);
+const Items = ({items}) => {
     
     return (
         <>      

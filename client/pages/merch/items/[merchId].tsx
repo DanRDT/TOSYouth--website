@@ -1,10 +1,28 @@
-import { useRouter } from 'next/router';
 import Item from '../../../components/merch/item/item'
 
+export async function getStaticPaths() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/items`)
+    const items = await res.json()
+    return {
+        paths: items.map((item)=>({
+            params: {merchId: item.id.toString()},
+        })),
+        fallback: false
+    }
+}
 
-export default function Home() {
-    const router = useRouter();
-    const id = router.query.merchId
+export async function getStaticProps({params}) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/${params.merchId}`)
+    
+    return {
+        props: {
+            item: await res.json(),
+        },
+
+    }
+}
+
+export default function Home({item}) {
 
     return (
         <>    
@@ -12,7 +30,7 @@ export default function Home() {
             <main>
                 <div className='main-container'>
                 <div className="separation-line"></div>
-                <Item id={id}/>
+                <Item item={item}/>
                 </div>
             </main>
         </>

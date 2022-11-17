@@ -1,8 +1,18 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import Details from '../../components/events/details'
 
-export async function getServerSideProps({params}) {
+export async function getStaticPaths() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/events`)
+    const events = await res.json()
+    return {
+        paths: events.map((event)=>({
+            params: {eventId: event.id.toString()},
+        })),
+        fallback: false
+    }
+}
+
+export async function getStaticProps({params}) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/events/${params.eventId}`);
     const event = await res.json();
 
@@ -14,8 +24,6 @@ export async function getServerSideProps({params}) {
 }
 
 export default function Home({event}) {
-    const router = useRouter();
-    const id = router.query.eventId
 
     return (
         <>    
