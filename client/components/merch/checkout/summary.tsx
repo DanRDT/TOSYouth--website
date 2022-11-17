@@ -31,26 +31,20 @@ const Summary = ({shippingInfo, billingInfo, sameAsShipping, setCheckoutInfoVali
     useCartEventListener(setCart)
 
     function checkCheckoutInfo() {
-        let checkoutInfoValid = true;
+        let checkoutInfoValid: number = 0;
+        const shipping = ["name", "email", "address", "phone", "zip", "city", "state"]
+        const billing = ["name", "email", "address", "phone", "zip", "city", "state"]
 
-        checkoutInfoValid = checkIfValid(shippingInfo.name, "name", "shipping", setCheckoutInfoValidCss)
-        checkoutInfoValid = checkIfValid(shippingInfo.email, "email", "shipping", setCheckoutInfoValidCss)
-        checkoutInfoValid = checkIfValid(shippingInfo.address, "address", "shipping", setCheckoutInfoValidCss)
-        checkoutInfoValid = checkIfValid(shippingInfo.phone, "phone", "shipping", setCheckoutInfoValidCss)
-        checkoutInfoValid = checkIfValid(shippingInfo.zip, "zip", "shipping", setCheckoutInfoValidCss)
-        checkoutInfoValid = checkIfValid(shippingInfo.city, "city", "shipping", setCheckoutInfoValidCss)
-        checkoutInfoValid = checkIfValid(shippingInfo.state, "state", "shipping", setCheckoutInfoValidCss)
+        shipping.map((key) => {
+            checkoutInfoValid += checkIfValid(shippingInfo[key], key, "shipping", setCheckoutInfoValidCss)
+        })
         if (sameAsShipping != 'same-as') {
-            checkoutInfoValid = checkIfValid(billingInfo.name, "name", "billing", setCheckoutInfoValidCss)
-            checkoutInfoValid = checkIfValid(billingInfo.email, "email", "billing", setCheckoutInfoValidCss)
-            checkoutInfoValid = checkIfValid(billingInfo.address, "address", "billing", setCheckoutInfoValidCss)
-            checkoutInfoValid = checkIfValid(billingInfo.phone, "phone", "billing", setCheckoutInfoValidCss)
-            checkoutInfoValid = checkIfValid(billingInfo.zip, "zip", "billing", setCheckoutInfoValidCss)
-            checkoutInfoValid = checkIfValid(billingInfo.city, "city", "billing", setCheckoutInfoValidCss)
-            checkoutInfoValid = checkIfValid(billingInfo.state, "state", "billing", setCheckoutInfoValidCss)
+            billing.map((key) => {
+                checkoutInfoValid += checkIfValid(billingInfo[key], key, "billing", setCheckoutInfoValidCss)
+            })
         }
 
-        if (checkoutInfoValid) {
+        if (checkoutInfoValid == 0) {
             //add correct redirect to stripe soon
             window.location.assign('//stripe.com');
         } else {
