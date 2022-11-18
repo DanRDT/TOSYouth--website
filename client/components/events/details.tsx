@@ -1,5 +1,5 @@
 import Meta from "../global/meta";
-
+//get event from api/events/:id
 const Details = ({event}) => {
     return ( 
         <div data-appear-on-scroll="false" className='event-details'>

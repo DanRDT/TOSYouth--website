@@ -7,6 +7,7 @@ const Images = ({item}) => {
 
 
     useEffect(() => {
+        // change selected image border and remove prev border
         setSelectedImageBorder(prevSelectedImageBorder => {
             const tempArray = [...prevSelectedImageBorder]
             tempArray[prevImageBorder] = ""

@@ -15,6 +15,7 @@ export default Colors
 
 
 function getColor(color) {
+    //return color hex code
     switch (color){
         case "white":
             return "#fff";
@@ -31,12 +32,10 @@ function getColor(color) {
     }
 }
 function getDisplay(color) {
-    switch (color){
-        case "white":
-        case "black":
-        case "beige":
-            return "flex";
-        default:
-            return "none";
+    // check if color is know 
+    if (getColor(color) == "none") {
+        return "none"
+    } else {
+        return "flex"
     }
 }

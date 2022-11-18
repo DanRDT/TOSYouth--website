@@ -1,12 +1,14 @@
-export default function checkIfValid(input: string, inputType: string, shippingOrBilling: string, setCss) {
+export default function checkIfValid(input: string, inputType: string, shippingOrBilling: string, setCss): number {
     let checkoutInfoValid = true;
     const regExNormal = /[A-Za-z]+/
-    const regExPhone = /^\d{3}-\d{3}-\d{4}$/
-    const regExZip = /^\d{5}/
     const regExEmail = /[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?/;
+    const regExPhone = /^\d{3}-\d{3}-\d{4}$/ //checks for xxx-xxx-xxxx
+    const regExZip = /^\d{5}/
     
+    // convert to proper key naming convention
     const key: string = (shippingOrBilling + inputType[0].toUpperCase() + inputType.substring(1))
     
+    // check if the regEx finds a match
     if (inputType == "name" || inputType == "address" || inputType == "city" || inputType == "state") {
         if (!regExNormal.test(input)) {
             checkoutInfoValid = false
@@ -35,8 +37,8 @@ export default function checkIfValid(input: string, inputType: string, shippingO
     }
 }
     
-
-function addRequiredPopup(key, setCss) {
+// add css class "required"
+function addRequiredPopup(key: string, setCss): void {
     setCss(prev => {
         const tempObject = {...prev, [key]: "required"}
         return tempObject

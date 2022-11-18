@@ -4,6 +4,7 @@ import useClearRequiredPopup from "../../hooks/useClearRequiredPopup"
 const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShipping, checkoutInfoValidCss, setCheckoutInfoValidCss}) => {
     
     function changeShippingInfo(e, shippingInfoKey) {
+        //update shippingInfo state on change
         setShippingInfo(prev => {
             const tempObject = {...prev, [shippingInfoKey]: e.target.value}
             return tempObject
@@ -12,6 +13,7 @@ const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShip
     }
     
     useEffect(() => {
+        //set billing to shipping if set to same 
         if (sameAsShipping == "same-as") {
             setBillingInfo(shippingInfo)
         }

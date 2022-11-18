@@ -6,12 +6,14 @@ const Sizes = ({item, selectedItem, setSelectedItem, pickSize}) => {
     const [selectedSizes, setSelectedSizes] = useState([""])
 
     function setSize(size) {
+        // update selected size state
         setSelectedItem(prevSelectedItem => {
             return {...prevSelectedItem, "size": size}
         })
     }
     
     useEffect(()=>{
+        // add selected css class and remove prev
         setSelectedSizes(prevSelectedSizes => {
             const tempArray = [...prevSelectedSizes]
             tempArray[prevSelectedSize] = ""
@@ -28,8 +30,8 @@ const Sizes = ({item, selectedItem, setSelectedItem, pickSize}) => {
                     key={"size"+index} 
                     className={`size ${selectedSizes[index]}`} 
                     onClick={() => {
-                        setSize(size)
-                        setSelectedSize(index)
+                        setSize(size) // update state
+                        setSelectedSize(index) // update css
                     }}>
                     {size}
                 </div>

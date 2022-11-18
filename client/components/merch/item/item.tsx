@@ -11,8 +11,6 @@ import Quantity from "./quantity";
 import Sizes from "./sizes";
 
 const Item = ({item}) => {
-    const router = useRouter();
-    
     const [cart, setCart] = useState([]);
     const [added, setAdded] = useState("Add to Cart");
     const [cartLoading, setCartLoading] = useState("");
@@ -29,6 +27,7 @@ const Item = ({item}) => {
     });
     
     const addItem = () => {
+        // check if size was selected
         if (selectedItem.size == "") {
             setPickSize("pick-size")
             setTimeout(() => {
@@ -36,15 +35,22 @@ const Item = ({item}) => {
             }, 2500);
             return
         }
+
+        // add css class
         setCartLoading("active-loading")
+
         const newCart = cart.map(e => e);
-        let exists = false;
+        let itemExists = false;
         newCart.map((cartItem, i) => {
-            if (cartItem.id == selectedItem.id && cartItem.size == selectedItem.size) {
+            // update cart item if exists
+            if (cartItem.id == selectedItem.id && cartItem.size == selectedItem.size) { // check id and size
+                // max quantity
                 let quantity = (Number(cartItem.quantity) + Number(selectedItem.quantity)) + ''
-                if (Number(quantity) > 10) {
+                if (Number(quantity) > 10) { 
                     quantity = '10'
                 }
+                
+                //update at index
                 newCart[i] = {
                     "id": selectedItem.id,
                     "name": selectedItem.name,
@@ -54,10 +60,12 @@ const Item = ({item}) => {
                     "size": selectedItem.size,
                     "quantity": quantity
                 }
-                exists = true;
+                itemExists = true;
             }
         })
-        if (!exists) {
+
+        // create new cart item if doesn't exist
+        if (!itemExists) {
             newCart.push({
                 "id": item.id,
                 "name": item.name,
@@ -69,21 +77,22 @@ const Item = ({item}) => {
             })
         }
 
+        // reset quantity
         setSelectedItem(prevItem => {
             return {...prevItem, "quantity": "1"}
         })
 
+        // add item to state and localStorage
         setCart(newCart);
         localStorage.setItem("ShoppingCart", JSON.stringify(newCart))
         
+        //clear loading animation
         setTimeout(() => {
             setAdded("Added")
             setCartLoading("")
         }, 300);
         setTimeout(() => {
             setAdded("Add to Cart")
-            setCartLoading("")
-            setPickSize("")
         }, 1800);
     }
 
@@ -91,9 +100,11 @@ const Item = ({item}) => {
         checkForShoppingCart();
         setCart(getCart());
     }, []);
-    useCartEventListener(setCart)
+
+    useCartEventListener(setCart) // cart changes in other tabs
     
     useEffect(() => {
+        // set select item info after getting basic info from api
         setSelectedItem({
             ...selectedItem,
             "id": item.id,
@@ -113,8 +124,8 @@ const Item = ({item}) => {
                     <h3 className="title">{item.name}</h3>
                     <h4 className="price">{`$${item.price}`}</h4>
                     <h4 className="description">{item.description}</h4>
-                    {/* <h4 className="color-lbl">Color</h4> */}
-                    {/* <Colors item={item}/> */}
+                    {/* <h4 className="color-lbl">Color</h4>
+                    <Colors item={item}/> */}
                     <h4 className="size-lbl">Size</h4>
                     <Sizes item={item} selectedItem={selectedItem} setSelectedItem={setSelectedItem} pickSize={pickSize}/>
                     <h4 className="quantity-lbl">Quantity</h4>

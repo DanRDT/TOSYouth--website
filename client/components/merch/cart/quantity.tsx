@@ -7,7 +7,6 @@ const Quantity = ({index, item, cart, setCart}) => {
         
         setCart(newCart);
         localStorage.setItem("ShoppingCart", JSON.stringify(newCart))
-        
     }
 
     return (

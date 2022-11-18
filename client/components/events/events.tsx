@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+//get events from api/events and list out
 function Events ({events}) {
     
     return (

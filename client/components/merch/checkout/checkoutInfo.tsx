@@ -48,6 +48,7 @@ const CheckoutInfo = () => {
     });
 
     const updateLocalOnRedirect = (e) => {
+        // set local storage if user navigates to another page
         if (e.target.className != "nav-link") {
             return
         }
@@ -57,6 +58,7 @@ const CheckoutInfo = () => {
     useEffect(() => {
         checkForShoppingCart();
         checkForCheckoutInfo();
+        // set checkout info to saved info
         const shippingLocal = getCheckoutInfo("shipping");
         const billingLocal = getCheckoutInfo("billing");
         if (JSON.stringify(shippingLocal) != JSON.stringify(billingLocal)) {
@@ -67,6 +69,7 @@ const CheckoutInfo = () => {
     }, []);
 
     useEffect(() => {
+        //listen for redirects
         document.addEventListener("click", updateLocalOnRedirect);
         return () => document.removeEventListener("click", updateLocalOnRedirect)
     }, [billingInfo, shippingInfo]);

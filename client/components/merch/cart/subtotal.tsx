@@ -7,8 +7,8 @@ const Subtotal = ({cart}) => {
     const [emptyCart, setEmptyCart] = useState("");
 
     useEffect(() => {
+        //check if cart is empty and calculate subtotal
         setCartLength(cart.length)
-
         let currentSubtotal :any = 0;
         cart.map((cartItem)=>{
             currentSubtotal = currentSubtotal + (Number(cartItem.price) * Number(cartItem.quantity))
@@ -17,6 +17,7 @@ const Subtotal = ({cart}) => {
     }, [cart]);
     
     function cartEmpty() {
+        //add "empty-cart" css class
         setEmptyCart("empty-cart")
         setTimeout(() => {
             setEmptyCart("")

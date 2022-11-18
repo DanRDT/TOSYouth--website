@@ -19,6 +19,7 @@ const Summary = ({shippingInfo, billingInfo, sameAsShipping, setCheckoutInfoVali
     }, []);
 
     useEffect(() => {
+        // calculate totals
         let currentSubtotal = 0;
         cart.map((cartItem)=>{
             currentSubtotal = currentSubtotal + (Number(cartItem.price) * Number(cartItem.quantity))
@@ -28,13 +29,17 @@ const Summary = ({shippingInfo, billingInfo, sameAsShipping, setCheckoutInfoVali
         setTax("$" + (tax).toFixed(2))
         setTotal("$" + (currentSubtotal+tax).toFixed(2))
     }, [cart]);
-    useCartEventListener(setCart)
+
+    // useCartEventListener(setCart) //listen for cart changes in other tabs
 
     function checkCheckoutInfo() {
+        //check if fields are valid
         let checkoutInfoValid: number = 0;
+        
         const shipping = ["name", "email", "address", "phone", "zip", "city", "state"]
         const billing = ["name", "email", "address", "phone", "zip", "city", "state"]
-
+        
+        //loop thru each value, if invalid add 1
         shipping.map((key) => {
             checkoutInfoValid += checkIfValid(shippingInfo[key], key, "shipping", setCheckoutInfoValidCss)
         })
@@ -44,10 +49,13 @@ const Summary = ({shippingInfo, billingInfo, sameAsShipping, setCheckoutInfoVali
             })
         }
 
+        //if fields are valid redirect to stripe
         if (checkoutInfoValid == 0) {
-            //add correct redirect to stripe soon
+            //add correct redirect to stripe 
+            //use api to check input validity in backend
             window.location.assign('//stripe.com');
         } else {
+            // add not valid css class
             setInfoValidPayBtnCss("checkout-info-not-valid")
             setTimeout(() => {
                 setInfoValidPayBtnCss('')
@@ -69,7 +77,7 @@ const Summary = ({shippingInfo, billingInfo, sameAsShipping, setCheckoutInfoVali
                 <a className={`pay-btn ${infoValidPayBtnCss}`} 
                     onClick={() => {
                         setLocalCheckoutInfo(shippingInfo, billingInfo)
-                        checkCheckoutInfo()
+                        checkCheckoutInfo() 
                     }}>
                     <h4>Proceed to Payment</h4>
                 </a>

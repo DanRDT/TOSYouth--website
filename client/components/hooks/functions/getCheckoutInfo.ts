@@ -1,5 +1,5 @@
-export default function getCheckoutInfo(info) {
-
+export default function getCheckoutInfo(info: string) {
+    // return proper checkout info from local storage
     if (info == 'shipping') {
         return (JSON.parse(localStorage.getItem("CheckoutInfo"))).shippingInfo
     } else if (info == 'billing') {

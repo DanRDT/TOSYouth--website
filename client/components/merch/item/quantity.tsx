@@ -4,6 +4,7 @@ const Quantity = ({selectedItem, setSelectedItem}) => {
     function minus() {
         setSelectedItem(prevSelectedItem => {
             const quantity = (Number(prevSelectedItem.quantity) - 1) + '';
+            // min quantity
             if (Number(quantity) < 1) {
                 return {...prevSelectedItem}
             }
@@ -13,6 +14,7 @@ const Quantity = ({selectedItem, setSelectedItem}) => {
     function plus() {
         setSelectedItem(prevSelectedItem => {
             const quantity = (Number(prevSelectedItem.quantity) + 1) + '';
+            // max out quantity
             if (Number(quantity) > 10) {
                 return {...prevSelectedItem}
             }

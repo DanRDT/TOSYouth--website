@@ -5,6 +5,7 @@ import useClearRequiredPopup from "../../hooks/useClearRequiredPopup";
 const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping, setSameAsShipping, checkoutInfoValidCss, setCheckoutInfoValidCss}) => {
 
     function changeBillingInfo(e, billingInfoKey) {
+        //update billingInfo state on change
         setBillingInfo(prev => {
             const tempObject = {...prev, [billingInfoKey]: e.target.value}
             return tempObject
@@ -13,15 +14,14 @@ const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping,
     }
 
     useEffect(() => {
-        //required for background clearing of billing info popups when same as is checked
+        //clear billing info popups when "same as shipping" is checked
         if (sameAsShipping == '') return
-        useClearRequiredPopup(billingInfo.name, "name", "billing", setCheckoutInfoValidCss)
-        useClearRequiredPopup(billingInfo.email, "email", "billing", setCheckoutInfoValidCss)
-        useClearRequiredPopup(billingInfo.address, "address", "billing", setCheckoutInfoValidCss)
-        useClearRequiredPopup(billingInfo.phone, "phone", "billing", setCheckoutInfoValidCss)
-        useClearRequiredPopup(billingInfo.zip, "zip", "billing", setCheckoutInfoValidCss)
-        useClearRequiredPopup(billingInfo.city, "city", "billing", setCheckoutInfoValidCss)
-        useClearRequiredPopup(billingInfo.state, "state", "billing", setCheckoutInfoValidCss)
+        const billing = ["name", "email", "address", "phone", "zip", "city", "state"]
+        
+        billing.map((key) => {
+            useClearRequiredPopup(billingInfo[key], key, "billing", setCheckoutInfoValidCss)
+        })
+
     }, [billingInfo])
 
     return (

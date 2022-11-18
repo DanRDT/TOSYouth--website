@@ -20,6 +20,7 @@ export async function getStaticProps({params}) {
         props: {
             event: event,
         },
+        revalidate: Number(process.env.REVALIDATE),
     }
 }
 

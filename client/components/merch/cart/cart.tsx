@@ -15,9 +15,11 @@ const CartItems = () => {
         setCart(getCart());
     }, []);
     
-    useCartEventListener(setCart)
+    useCartEventListener(setCart) //changes in other tabs
     
     function displayCart() {
+        
+        //check if cart is empty
         if (typeof cart != "undefined" && cart != null && cart.length != null
         && cart.length > 0) {
             return cart.map((item, index) => (

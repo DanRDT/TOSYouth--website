@@ -1,6 +1,8 @@
 export default checkForCheckoutInfo;
 
-function setEmpty() {
+
+function setEmpty(): void {
+    //if no checkout info found or checkout info is incorrect set to this
     localStorage.setItem("CheckoutInfo", JSON.stringify(
     { "shippingInfo": {
             "name": '',
@@ -24,12 +26,13 @@ function setEmpty() {
     }}))
 }
 
-function checkForCheckoutInfo() {
+function checkForCheckoutInfo(): void {
     const CheckoutInfo = localStorage.getItem("CheckoutInfo")
-
+    // check if checkout info exists in local storage
     if (CheckoutInfo == "" || CheckoutInfo == null || CheckoutInfo == "{}") {
         setEmpty()
     }   
+    // check if its an object and has proper keys
     try {
         const local = JSON.parse(CheckoutInfo)
         if (local.shippingInfo == undefined || local.billingInfo == undefined) {
