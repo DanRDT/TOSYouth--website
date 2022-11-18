@@ -223,7 +223,7 @@
 }
 
 .most-wanted-short-img {
-    background: var(--placeholder-color) url("/imgs/sample-images/folded-hoodie.jpg") no-repeat center/cover;
+    background: var(--placeholder-color) url("") no-repeat center/cover;
     height: auto;
     width: clamp(10rem, 25vw, 18rem);
     aspect-ratio: 18/11;
@@ -233,7 +233,7 @@
     z-index: 2;
 }
 .most-wanted-tall-img {
-    background: var(--placeholder-color) url("/imgs/sample-images/girl-in-hoodie.jpg") no-repeat center/cover;
+    background: var(--placeholder-color) url("") no-repeat center/cover;
     height: auto;
     width: clamp(9rem, 27vw, 17rem);
     aspect-ratio: 17/30;

@@ -1,8 +1,18 @@
 import Meta from '../components/global/meta'
 
+export async function getStaticProps() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/about-us`)
+    
+    return {
+        props: {
+            info: await res.json(),
+        },
+        revalidate: Number(process.env.REVALIDATE),
+    }
+}
 
-
-export default function Home() {
+export default function Home({info}) {
+    
   return (
     <>    
     <link rel="stylesheet" type="text/css" href="/css/about-us.css"/>
@@ -13,20 +23,20 @@ export default function Home() {
                     <h1 >About Us</h1>
                     <div className='separation-line'></div>
                     <div className='grid'>
-                        <div className='about-us-img' data-appear-on-scroll="false"></div>
+                        <div className='about-us-img' style={{backgroundImage: `url(${info.section1.image})`}} data-appear-on-scroll="false"></div>
                         <div className='about-us-info' data-appear-on-scroll="false">
-                            <h2>Missionary</h2>
-                            <h4>We do missionary trips and such insert more text here. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit missionary trips and such insert more text here. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</h4>
+                            <h2>{info.section1.heading}</h2>
+                            <h4>{info.section1.text}</h4>
                         </div>
                         <div className='about-us-info' data-appear-on-scroll="false" data-appear-on-scroll-delay="true">
-                            <h2>Youth Services</h2>
-                            <h4>We have youth services every monday and such insert more text here. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit and such insert more text here. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</h4>
+                            <h2>{info.section2.heading}</h2>
+                            <h4>{info.section2.text}</h4>
                         </div>
-                        <div className='about-us-img' data-appear-on-scroll="false" data-appear-on-scroll-delay="true"></div>
-                        <div className='about-us-img' data-appear-on-scroll="false" data-appear-on-scroll-delay="true"></div>
+                        <div className='about-us-img' style={{backgroundImage: `url(${info.section2.image})`}} data-appear-on-scroll="false" data-appear-on-scroll-delay="true"></div>
+                        <div className='about-us-img' style={{backgroundImage: `url(${info.section3.image})`}} data-appear-on-scroll="false" data-appear-on-scroll-delay="true"></div>
                         <div className='about-us-info' data-appear-on-scroll="false" data-appear-on-scroll-delay="true">
-                            <h2>Other topic</h2>
-                            <h4>Enter some other topic here and such insert more text here. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit and such insert more text here. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</h4>
+                            <h2>{info.section3.heading}</h2>
+                            <h4>{info.section3.text}</h4>
                         </div>
                     </div>
                 </section>

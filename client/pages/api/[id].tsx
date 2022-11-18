@@ -11,12 +11,12 @@ export default async function handler(req, res) {
     await client.connect();
     const db = client.db("Website");
 
-    const collection = db.collection("Merch");
+    const collection = db.collection("WebpageText");
 
     const searchCursor = await collection.findOne({"id": id});
     
     result = searchCursor;
-
+    
     res.status(200).json(result)
     
   } catch (error) {
@@ -27,5 +27,4 @@ export default async function handler(req, res) {
   }
 
 }
-
 

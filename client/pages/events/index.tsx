@@ -22,7 +22,7 @@ export default function Home({events}) {
                 <section id="section1">
                     <h1>Youth Services</h1>
                     <div className='separation-line'></div>
-                    <h2 data-appear-on-scroll="false">Every Monday at 7PM <br/> Contact us if you would like to participate </h2>
+                    <h2 data-appear-on-scroll="false">Every Monday at 7PM <br/> Get in touch with us if you would like to participate </h2>
                 </section>
                 <section id="section2">
                     <h1>Upcoming Events</h1>

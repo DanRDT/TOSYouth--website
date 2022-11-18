@@ -3,17 +3,20 @@ import Meta from '../../components/global/meta'
 import LatestItems from '../../components/merch/latestItems'
 
 export async function getStaticProps() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/items`)
+    const itemsRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/items`)
+    const mostWantedRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/most-wanted`)
     
     return {
         props: {
-            items: await res.json(),
+            items: await itemsRes.json(),
+            mostWanted: await mostWantedRes.json(),
         },
         revalidate: Number(process.env.REVALIDATE),
     }
 }
 
-export default function Home({items}) {
+export default function Home({items, mostWanted}) {
+
   return (
     <>    
         <link rel="stylesheet" type="text/css" href="/css/merch.css" key="merch-css"/>
@@ -39,16 +42,18 @@ export default function Home({items}) {
                         <div className='most-wanted-heading' data-appear-on-scroll="false">
                             <h2>The Most</h2>
                             <h1>WANTED</h1>
-                            <Link href="/merch/items"><a href="/merch/items" className='shop-now-button'>Take a Look</a></Link>
+                            <Link href={`/merch/items/${mostWanted.id}`}><a className='shop-now-button'>Take a Look</a></Link>
                         </div>
                         <div className='most-wanted-imgs' data-appear-on-scroll="false">
-                            <div className='most-wanted-short-img'></div>
-                            <div className='most-wanted-tall-img'></div>
+                            <div className='most-wanted-short-img' 
+                                style={{backgroundImage: `url(${mostWanted.mostWanted.shortImage})`}}></div>
+                            <div className='most-wanted-tall-img' 
+                                style={{backgroundImage: `url(${mostWanted.mostWanted.tallImage})`}}></div>
                         </div>
                     </div>
                 </section>
                 <section id="section4">
-                    <Link href="/merch/items"><a href="/merch/items" className='shop-now-button' data-appear-on-scroll="false">Shop All</a></Link>            
+                    <Link href="/merch/items"><a className='shop-now-button' data-appear-on-scroll="false">Shop All</a></Link>            
                 </section>
             </div>
         </main>

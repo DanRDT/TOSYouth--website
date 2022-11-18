@@ -1,7 +1,18 @@
 import Meta from '../components/global/meta'
 import Link from 'next/link'
 
-export default function Home() {
+export async function getStaticProps() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/home`)
+    
+    return {
+        props: {
+            info: await res.json(),
+        },
+        revalidate: Number(process.env.REVALIDATE),
+    }
+}
+
+export default function Home({info}) {
   return (
     <>    
       <link rel="stylesheet" type="text/css" href="/css/home.css"/>
@@ -19,7 +30,7 @@ export default function Home() {
                 </div>
                 <div className='trapezoid-container' data-appear-on-scroll="false">
                     <div className='trapezoid'>
-                        <h3>But if we walk in the light, as he is in the light, we have fellowship with one another, and the blood of Jesus, his Son, purifies us from all sin.<br/>1 John 1:7</h3> 
+                        <h3>{info.verseText}<br/>{info.verseLoc}</h3> 
                     </div>
                 </div>
             </section>
@@ -28,7 +39,7 @@ export default function Home() {
 
             <section id="section2">
                 <h3 className='about-us' data-appear-on-scroll="false">
-                    “We are the youth of Tabernacle of Salvation. Add some other text here. Sample text to follow. Potato wedges probably are not best for relationships. He had a vague sense that trees gave birth to dinosaurs. The light in his life was actually a fire burning all around him.”
+                    {info.quote}
                     <div className='quotes'></div>
                 </h3>
                 <Link href="/about-us"><a className='learn-more' data-appear-on-scroll="false">Learn More</a></Link>
