@@ -312,11 +312,10 @@ header nav a:last-child:after{
 .shopping-cart.empty #empty-cart-icon {
     opacity: 1;
 }
-.shopping-cart.empty::before {
+.shopping-cart.empty .cart-count {
     opacity: 0;
 }
-.shopping-cart::before {
-    content: "15";
+.cart-count {
     font-family: 'Arial';
     font-weight: bold;
     position: absolute;
