@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CartIcon from "./cartIcon";
 
 const Header = () => {
     return (
@@ -18,11 +19,7 @@ const Header = () => {
                 <Link href="/about-us"><a className="nav-link">About Us</a></Link>
                 <Link href="/events"><a className="nav-link">Events</a></Link>
                 <Link href="/merch"><a className="nav-link">Merch</a></Link>
-                <Link href="/merch/cart">
-                    <a className="shopping-cart">
-                        <img className="nav-link" src="/imgs/cart-icon.png" alt="cart-icon"></img>
-                    </a>
-                </Link>
+                <CartIcon/>
             </nav>
         </header>
     )

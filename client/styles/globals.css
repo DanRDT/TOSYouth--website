@@ -295,15 +295,39 @@ header nav a:last-child:after{
 /* Shopping Cart */
 .shopping-cart {
     cursor: pointer;
+    position: relative;
 }
 .shopping-cart:hover,
 .shopping-cart:active {
     filter: drop-shadow(0.7px 0.7px 0.6px grey); 
 }
-.shopping-cart img {
-    width: 2.75rem;
+.shopping-cart svg {
+    width: 3rem;
     padding-right: 0.2rem;
 }
+
+#empty-cart-icon {
+    opacity: 0;
+}
+.shopping-cart.empty #empty-cart-icon {
+    opacity: 1;
+}
+.shopping-cart.empty::before {
+    opacity: 0;
+}
+.shopping-cart::before {
+    content: "15";
+    font-family: 'Arial';
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    color: var(--secondary-color);
+    width: 2.5rem;
+    top: 0.1rem;
+    left: 0.67rem;
+    font-size: 1rem;
+}
+
 
 /* Larger Screens */
 @media (min-width: 650px) {
@@ -327,7 +351,7 @@ header nav a:last-child:after{
         display: none;
     }
     .shopping-cart{
-        margin-right: 1.5rem;
+        margin-right: 1.6rem;
     }
 }
 

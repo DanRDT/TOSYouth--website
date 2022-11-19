@@ -14,7 +14,7 @@ const Meta = ({title, description}) => {
             <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" key="meta-viewport"/>
             <title>{title}</title>
             <meta name="description" content={description}/>
-            <link rel="icon" href="/imgs/logo-icon.svg" key="meta-icon"/>
+            <link rel="icon" href="/imgs/favicon.svg" key="meta-icon"/>
         </Head>
     )
 }
