@@ -1,22 +1,15 @@
 import Link from "next/link";
-import { useEffect, useState } from "react"
-import checkForShoppingCart from "../../hooks/functions/checkForShoppingCart";
-import getCart from "../../hooks/functions/getCart";
-import useCartEventListener from "../../hooks/useCartEventListener";
 import Quantity from "./quantity";
 import Remove from "./remove";
 import Subtotal from "./subtotal";
+import { useCart, useSetCart } from "../../context/cartContext";
+
 
 const CartItems = () => {
-    const [cart, setCart] = useState([]);
+    
+    const cart = useCart();
+    const setCart = useSetCart();
 
-    useEffect(() => {
-        checkForShoppingCart();
-        setCart(getCart());
-    }, []);
-    
-    useCartEventListener(setCart) //changes in other tabs
-    
     function displayCart() {
         
         //check if cart is empty

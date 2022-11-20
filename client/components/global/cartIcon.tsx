@@ -3,12 +3,15 @@ import { useEffect, useState } from "react";
 import checkForShoppingCart from "../hooks/functions/checkForShoppingCart";
 import getCart from "../hooks/functions/getCart";
 import useCartEventListener from "../hooks/useCartEventListener";
+import { useCart, useSetCart } from "../context/cartContext";
 
 const Header = () => {
+    const cart = useCart();
+    const setCart = useSetCart();
+    
     const [cartCount, setCartCount] = useState(4)
     const [emptyCartCss, setEmptyCartCss] = useState('empty')
-    const [cart, setCart] = useState([])
-    
+
     useEffect(() => {
         checkForShoppingCart();
         setCart(getCart());

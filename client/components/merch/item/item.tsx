@@ -1,17 +1,17 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react"
-import checkForShoppingCart from "../../hooks/functions/checkForShoppingCart";
-import getCart from "../../hooks/functions/getCart";
 import Meta from "../../global/meta";
-import useCartEventListener from "../../hooks/useCartEventListener";
-import Colors from "./colors";
+// import Colors from "./colors";
 import Images from "./images";
 import Quantity from "./quantity";
 import Sizes from "./sizes";
+import { useCart, useSetCart } from "../../context/cartContext";
+
 
 const Item = ({item}) => {
-    const [cart, setCart] = useState([]);
+    const cart = useCart();
+    const setCart = useSetCart();
+
     const [added, setAdded] = useState("Add to Cart");
     const [cartLoading, setCartLoading] = useState("");
     const [pickSize, setPickSize] = useState("");
@@ -95,14 +95,7 @@ const Item = ({item}) => {
             setAdded("Add to Cart")
         }, 1800);
     }
-
-    useEffect(() => {
-        checkForShoppingCart();
-        setCart(getCart());
-    }, []);
-
-    useCartEventListener(setCart) // cart changes in other tabs
-    
+   
     useEffect(() => {
         // set select item info after getting basic info from api
         setSelectedItem({
