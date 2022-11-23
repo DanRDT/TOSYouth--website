@@ -8,7 +8,7 @@ const LatestItems = ({items}) => {
         {items.slice(-4).map((item) => (
             <Link href={`/merch/items/${item.id}`} key={item.id}><a className='merch-item' data-appear-on-scroll="false" data-appear-on-scroll-delay="true">
                 <div className='item-img'>
-                    <img src={item.images[0]} alt=""/>
+                    <img src={item.image} alt=""/>
                 </div>
                 <h3>{item.name}</h3>
                 <h4>${item.price}</h4>

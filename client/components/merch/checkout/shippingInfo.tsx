@@ -42,7 +42,7 @@ const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShip
                     value={shippingInfo.phone}
                     onChange={(e) => {changeShippingInfo(e, "phone")}}
                 /></h4>
-                <h4>Apartment / Unit / Suite
+                <h4><div>Apartment / Unit / Suite<p>&nbsp;&nbsp;(optional)</p></div>
                 <input className="info-input" type="text" name="unit" placeholder="..." required
                     value={shippingInfo.unit}
                     onChange={(e) => {changeShippingInfo(e, "unit")}}
