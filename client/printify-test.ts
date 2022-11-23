@@ -1,7 +1,6 @@
 export {}
 const json = {
   "current_page": 1,
-
   "data": // array of items
   [
     {
@@ -2309,8 +2308,6 @@ const json = {
       "twodaydelivery_enabled": false
     }
   ],
-
-
   "first_page_url": "/?page=1",
   "from": 1,
   "last_page": 1,
@@ -2322,38 +2319,6 @@ const json = {
   "to": 2,
   "total": 2
 }
-
-const items = []
-
-json.data.map((item) => {
-  // const enabledVariants = [];
-  let price;
-  let image;
-
-  //check for price by getting first enabled item price
-  for (let i = 0; i < item.variants.length; i++) {
-    if (item.variants[i].is_enabled) {
-      price = item.variants[i].price
-      i += item.variants.length
-    }
-  }
-
-  //get default image
-  for (let i = 0; i < item.images.length; i++) {
-    if (item.images[i].is_default) {
-      image = item.images[i].src
-      i += item.variants.length
-    }
-  }
-  
-  items.push({
-    "id": item.id,
-    "name": item.title,
-    "price": price,
-    "image": image
-  })
-  
-})
 
 
 const item = { 
@@ -2378,11 +2343,11 @@ console.log(item.colors);
 // console.log(item.colorsHexCode);
 console.log(item.sizes);
 
-//get enabled variants
-// const variants = json.data[0].variants
-// const enabledVariants = [];
-// variants.map((variant)=>{
-//   if (variant.is_enabled) {
-//     enabled.push(variant.title)
-//   }
-// })
+// get enabled variants
+const variants = json.data[0].variants
+const enabledVariants = [];
+variants.map((variant)=>{
+  if (variant.is_enabled) {
+    enabledVariants.push(variant.title)
+  }
+})

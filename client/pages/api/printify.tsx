@@ -1,5 +1,3 @@
-import { NextFetchEvent } from 'next/server';
-import data from './printify.json';
 
 export default async function handler(req, res) {
     const printifyRes = await fetch("https://api.printify.com/v1/shops/5414762/products.json", {
