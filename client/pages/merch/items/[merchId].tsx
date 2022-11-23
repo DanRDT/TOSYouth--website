@@ -1,8 +1,9 @@
 import Item from '../../../components/merch/item/item'
 
 export async function getStaticPaths() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/items`)
-    const items = await res.json()
+    // const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/items`)
+    // const items = await res.json()
+    const items = [{"id": 1},{"id": 2}]
     return {
         paths: items.map((item)=>({
             params: {merchId: item.id.toString()},
