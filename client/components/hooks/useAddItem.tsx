@@ -44,7 +44,7 @@ export default function addItem(item, selectedItem, setSelectedItem, cart, setCa
             "name": item.name,
             "price": item.price,
             "image": selectedItem.image,
-            // "color": "Rainbow",
+            "color": selectedItem.color,
             "size": selectedItem.size,
             "quantity": Number(selectedItem.quantity) + ''
         })

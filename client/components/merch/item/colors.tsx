@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react"
 
-const Colors = ({item, selectedItem, setSelectedItem, pickColorPopup}) => {
+const Colors = ({item, selectedItem, setSelectedItem, pickColorPopup, set}) => {
     const [selectedColor, setSelectedColor] = useState("0")
     const [prevSelectedColor, setPrevSelectedColor] = useState("0")
     const [selectedColorCss, setSelectedColorCss] = useState(["selected"])
 
-    function setColor(color) {
+    function setColor(color, index) {
         // update selected color state
-        setSelectedItem(prevSelectedItem => {
-            return {...prevSelectedItem, "color": color}
+        const sizes = []
+        item.color_variants[index].sizes.map((variant)=>{
+            sizes.push(variant.size)
         })
-        
+        setSelectedItem(prevSelectedItem => {
+            return {...prevSelectedItem, 
+                "color": color,
+                "sizes": sizes,
+                "size": ""
+            }
+        })
     }
     
     useEffect(()=>{
@@ -22,6 +29,7 @@ const Colors = ({item, selectedItem, setSelectedItem, pickColorPopup}) => {
             setPrevSelectedColor(selectedColor)
             return tempArray
         })
+        
     }, [selectedItem.color])
 
     return (    
@@ -31,7 +39,7 @@ const Colors = ({item, selectedItem, setSelectedItem, pickColorPopup}) => {
                 className={`color ${selectedColorCss[index]}`}
                 style={{backgroundColor: color_variant.hexCode}}
                 onClick={() => {
-                    setColor(color_variant.color) // update state
+                    setColor(color_variant.color, index) // update state
                     setSelectedColor(index) // update css
                 }}
                 ></div>

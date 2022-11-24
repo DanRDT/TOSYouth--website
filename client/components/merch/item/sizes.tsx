@@ -25,7 +25,7 @@ const Sizes = ({item, selectedItem, setSelectedItem, pickSizePopup}) => {
 
     return (
         <div className={`sizes ${pickSizePopup}`}>
-            {item.sizes.map((size,index) => (
+            {selectedItem.sizes.map((size,index) => (
                 <div 
                     key={"size"+index} 
                     className={`size ${selectedSizeCss[index]}`} 

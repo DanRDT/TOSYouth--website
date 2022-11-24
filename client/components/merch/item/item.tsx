@@ -26,6 +26,7 @@ const Item = ({item}) => {
         "images": [],
         "color": "",
         "size": "",
+        "sizes": [],
         "variant-id": "",
         "quantity": "1"
     });
@@ -36,12 +37,18 @@ const Item = ({item}) => {
    
     useEffect(() => {
         // set select item info after getting basic info from api
+        const sizes = []
+        item.color_variants[0].sizes.map((variant)=>{
+            sizes.push(variant.size)
+        })
+        
         setSelectedItem({
             ...selectedItem,
             "id": item.id,
             "name": item.name,
             "price": item.price,
             "color": item.color_variants[0].color,
+            "sizes": sizes,
             "image": item.color_variants[0].images[0],
             "images": item.color_variants[0].images
         })
@@ -55,14 +62,14 @@ const Item = ({item}) => {
                 {/* <Images item={item}/> */}
                 <div className="item-info">
                     <h3 className="title">{item.name}</h3>
-                    <h4 className="price">{`$${item.price}`}</h4>
+                    <h4 className="price">{`$${selectedItem.price}`}</h4>
                     <h4 className="description">{item.description}</h4>
                     <h4 className="color-lbl">Color</h4>
                     <Colors item={item} selectedItem={selectedItem} 
                     setSelectedItem={setSelectedItem} pickColorPopup={pickColorPopup}/>
                     <h4 className="size-lbl">Size</h4>
-                    {/* <Sizes item={item} selectedItem={selectedItem} 
-                    setSelectedItem={setSelectedItem} pickSizePopup={pickSizePopup}/> */}
+                    <Sizes item={item} selectedItem={selectedItem} 
+                    setSelectedItem={setSelectedItem} pickSizePopup={pickSizePopup}/>
                     <h4 className="quantity-lbl">Quantity</h4>
                     <Quantity selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>
                     <h4 className={`add-to-cart-btn ${cartLoading}`} onClick={() => addItem()}>{added}

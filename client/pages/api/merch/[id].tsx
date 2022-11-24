@@ -89,6 +89,11 @@ export default async function handler(req, res) {
                 "sizes": 
                 [
                     {
+                        "size": "XS",
+                        "variant_id": 14367,
+                        "variant_price": 4485
+                    },
+                    {
                         "size": "S",
                         "variant_id": 14367,
                         "variant_price": 4485
