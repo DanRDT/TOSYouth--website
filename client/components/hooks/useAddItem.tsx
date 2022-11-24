@@ -1,10 +1,10 @@
 
-export default function addItem(item, selectedItem, setSelectedItem, cart, setCart, setCartLoading, setPickSize, setAdded) {
+export default function addItem(item, selectedItem, setSelectedItem, cart, setCart, setCartLoading, setPickSizePopup, setAdded) {
     // check if size was selected
     if (selectedItem.size == "") {
-        setPickSize("pick-size")
+        setPickSizePopup("pick-size")
         setTimeout(() => {
-            setPickSize("")
+            setPickSizePopup("")
         }, 2500);
         return
     }
@@ -16,7 +16,7 @@ export default function addItem(item, selectedItem, setSelectedItem, cart, setCa
     let itemExists = false;
     newCart.map((cartItem, i) => {
         // update cart item if exists
-        if (cartItem.id == selectedItem.id && cartItem.size == selectedItem.size) { // check id and size
+        if (cartItem.id == selectedItem.id && cartItem.size == selectedItem.size && cartItem.color == selectedItem.color) { // check id and size
             // max quantity
             let quantity = (Number(cartItem.quantity) + Number(selectedItem.quantity)) + ''
             if (Number(quantity) > 10) { 
@@ -29,7 +29,7 @@ export default function addItem(item, selectedItem, setSelectedItem, cart, setCa
                 "name": selectedItem.name,
                 "price": selectedItem.price,
                 "image": selectedItem.image,
-                // "color": selectedItem.color,
+                "color": selectedItem.color,
                 "size": selectedItem.size,
                 "quantity": quantity
             }

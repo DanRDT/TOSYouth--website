@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 
-const Sizes = ({item, selectedItem, setSelectedItem, pickSize}) => {
+const Sizes = ({item, selectedItem, setSelectedItem, pickSizePopup}) => {
     const [selectedSize, setSelectedSize] = useState(null)
     const [prevSelectedSize, setPrevSelectedSize] = useState(null)
-    const [selectedSizes, setSelectedSizes] = useState([""])
+    const [selectedSizeCss, setSelectedSizeCss] = useState([""])
 
     function setSize(size) {
         // update selected size state
@@ -14,8 +14,8 @@ const Sizes = ({item, selectedItem, setSelectedItem, pickSize}) => {
     
     useEffect(()=>{
         // add selected css class and remove prev
-        setSelectedSizes(prevSelectedSizes => {
-            const tempArray = [...prevSelectedSizes]
+        setSelectedSizeCss(prevSelectedSizeCss => {
+            const tempArray = [...prevSelectedSizeCss]
             tempArray[prevSelectedSize] = ""
             tempArray[selectedSize] = "selected"
             setPrevSelectedSize(selectedSize)
@@ -24,11 +24,11 @@ const Sizes = ({item, selectedItem, setSelectedItem, pickSize}) => {
     }, [selectedItem.size])
 
     return (
-        <div className={`sizes ${pickSize}`}>
+        <div className={`sizes ${pickSizePopup}`}>
             {item.sizes.map((size,index) => (
                 <div 
                     key={"size"+index} 
-                    className={`size ${selectedSizes[index]}`} 
+                    className={`size ${selectedSizeCss[index]}`} 
                     onClick={() => {
                         setSize(size) // update state
                         setSelectedSize(index) // update css

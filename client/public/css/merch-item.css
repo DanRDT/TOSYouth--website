@@ -155,10 +155,8 @@ h3 {
     margin: 0.5rem 0 0 0.1rem;
 }
 
-.color {
+/* .color {
     background-color: var(--placeholder-color);
-    /* width: clamp( 3.3rem, 8.5vw,3.6rem); */
-    /* height: clamp( 3.3rem, 8.5vw,3.6rem); */
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 10rem;
@@ -173,10 +171,29 @@ h3 {
 
 .color.selected {
     border: 2.5px solid black;
+} */
+.color {
+    background-color: var(--placeholder-color);
+    /* width: clamp( 3.3rem, 8.5vw,3.6rem); */
+    /* height: clamp( 3.3rem, 8.5vw,3.6rem); */
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 10rem;
+    border: 1.5px solid rgb(90, 90, 90);
+    cursor: pointer;
+    position: relative;
+}
+
+.color:hover {
+    border: 2px solid rgb(90, 90, 90);
+}
+
+.color.selected {
+    outline: 2px solid rgb(90, 90, 90);
 }
 .color.selected::after {
     content: "";
-    background-color: black;
+    background-color: #444;
     display: inline-block;
     width: 0.4rem;
     height: 0.4rem;

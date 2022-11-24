@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { useEffect, useState } from "react"
 import Meta from "../../global/meta";
-// import Colors from "./colors";
+import Colors from "./colors";
 import Images from "./images";
 import Quantity from "./quantity";
 import Sizes from "./sizes";
 import { useCart, useSetCart } from "../../context/cartContext";
 import useAddItem from "../../hooks/useAddItem";
-import addItem from "../../hooks/useAddItem";
 
 
 const Item = ({item}) => {
@@ -16,20 +15,23 @@ const Item = ({item}) => {
 
     const [added, setAdded] = useState("Add to Cart");
     const [cartLoading, setCartLoading] = useState("");
-    const [pickSize, setPickSize] = useState("");
+    const [pickSizePopup, setPickSizePopup] = useState("");
+    const [pickColorPopup, setPickColorPopup] = useState("");
 
     const [selectedItem, setSelectedItem] = useState({
         "id": "",
         "name": "",
         "price": "",
         "image": "",
-        // "color": "",
+        "images": [],
+        "color": "",
         "size": "",
+        "variant-id": "",
         "quantity": "1"
     });
     
-    function addItem() {
-        useAddItem(item, selectedItem, setSelectedItem, cart, setCart, setCartLoading, setPickSize, setAdded)
+    function addItem() {        
+        useAddItem(item, selectedItem, setSelectedItem, cart, setCart, setCartLoading, setPickSizePopup, setAdded)
     }
    
     useEffect(() => {
@@ -39,7 +41,9 @@ const Item = ({item}) => {
             "id": item.id,
             "name": item.name,
             "price": item.price,
-            "image": item.images[0],
+            "color": item.color_variants[0].color,
+            "image": item.color_variants[0].images[0],
+            "images": item.color_variants[0].images
         })
     }, [item]);
     
@@ -48,15 +52,17 @@ const Item = ({item}) => {
             <section>
                 <Meta title={item.name} description={item.description} />
                 <Link href="/merch/items"><a className="back-arrow"><img src="/imgs/arrow-down.svg" alt="Return"/></a></Link>
-                <Images item={item}/>
+                {/* <Images item={item}/> */}
                 <div className="item-info">
                     <h3 className="title">{item.name}</h3>
                     <h4 className="price">{`$${item.price}`}</h4>
                     <h4 className="description">{item.description}</h4>
-                    {/* <h4 className="color-lbl">Color</h4>
-                    <Colors item={item}/> */}
+                    <h4 className="color-lbl">Color</h4>
+                    <Colors item={item} selectedItem={selectedItem} 
+                    setSelectedItem={setSelectedItem} pickColorPopup={pickColorPopup}/>
                     <h4 className="size-lbl">Size</h4>
-                    <Sizes item={item} selectedItem={selectedItem} setSelectedItem={setSelectedItem} pickSize={pickSize}/>
+                    {/* <Sizes item={item} selectedItem={selectedItem} 
+                    setSelectedItem={setSelectedItem} pickSizePopup={pickSizePopup}/> */}
                     <h4 className="quantity-lbl">Quantity</h4>
                     <Quantity selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>
                     <h4 className={`add-to-cart-btn ${cartLoading}`} onClick={() => addItem()}>{added}

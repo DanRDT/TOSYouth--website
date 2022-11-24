@@ -23,7 +23,7 @@ const CartItems = () => {
                         <Link href={`/merch/items/${item.id}`}><a><h3>{item.name}</h3></a></Link>
                         <h4>${item.price}</h4>
                         <h4>Size: {item.size}</h4>
-                        {/* <h4>Color: {item.color}</h4> */}
+                        <h4>Color: {item.color}</h4>
                         <h4 className="quantity">Quantity
                             <Quantity index={index} item={item} cart={cart} setCart={setCart}/>
                             <Remove item={item} cart={cart} setCart={setCart}/>

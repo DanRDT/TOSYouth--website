@@ -1,10 +1,40 @@
-const Colors = ({item}) => {
+import { useEffect, useState } from "react"
+
+const Colors = ({item, selectedItem, setSelectedItem, pickColorPopup}) => {
+    const [selectedColor, setSelectedColor] = useState("0")
+    const [prevSelectedColor, setPrevSelectedColor] = useState("0")
+    const [selectedColorCss, setSelectedColorCss] = useState(["selected"])
+
+    function setColor(color) {
+        // update selected color state
+        setSelectedItem(prevSelectedItem => {
+            return {...prevSelectedItem, "color": color}
+        })
+        
+    }
+    
+    useEffect(()=>{
+        // add selected css class and remove prev
+        setSelectedColorCss(prevSelectedColorCss => {
+            const tempArray = [...prevSelectedColorCss]
+            tempArray[prevSelectedColor] = ""
+            tempArray[selectedColor] = "selected"
+            setPrevSelectedColor(selectedColor)
+            return tempArray
+        })
+    }, [selectedItem.color])
 
     return (    
         <div className="colors">
-            {item.colors.map((color,index) => (
-                <div key={"color"+index} className="color" title={color}
-                style={{backgroundColor: getColor(color), display: getDisplay(color)}}></div>
+            {item.color_variants.map((color_variant,index) => (
+                <div key={"color"+index} title={color_variant.color}
+                className={`color ${selectedColorCss[index]}`}
+                style={{backgroundColor: color_variant.hexCode}}
+                onClick={() => {
+                    setColor(color_variant.color) // update state
+                    setSelectedColor(index) // update css
+                }}
+                ></div>
                 
             ))}
         </div>
@@ -13,29 +43,3 @@ const Colors = ({item}) => {
 
 export default Colors
 
-
-function getColor(color) {
-    //return color hex code
-    switch (color){
-        case "white":
-            return "#fff";
-        case "black":
-            return "#000";
-        case "beige":
-            return "#E9E0CF";
-        case "light blue":
-            return "#8096A3";
-        case "light grey":
-            return "#D7D7D7";
-        default:
-            return "none";
-    }
-}
-function getDisplay(color) {
-    // check if color is know 
-    if (getColor(color) == "none") {
-        return "none"
-    } else {
-        return "flex"
-    }
-}
