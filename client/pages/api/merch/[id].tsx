@@ -75,7 +75,7 @@ export default async function handler(req, res) {
         "id": "637d78e2e21e9a36610eb989",
         "name": "Crew-neck Sweatshirt",
         "description": "Take the cold seasons in style with this premium crew neck sweatshirt. Available in multiple colors, this sweatshirt is sure to keep you warm and stylish all day long. It’s not only beautiful but also comfy and soft to the touch.",
-        "price": "4495",
+        "price": "44.95 - 45.99",
         "color_variants": 
         [
             {
@@ -90,23 +90,23 @@ export default async function handler(req, res) {
                 [
                     {
                         "size": "XS",
-                        "variant_id": 14367,
-                        "variant_price": 4485
+                        "variant_id": "14367",
+                        "variant_price": "44.85"
                     },
                     {
                         "size": "S",
-                        "variant_id": 14367,
-                        "variant_price": 4485
+                        "variant_id": "14367",
+                        "variant_price": "44.85"
                     },
                     {
                         "size": "M",
-                        "variant_id": 14567,
-                        "variant_price": 4495
+                        "variant_id": "14567",
+                        "variant_price": "44.95"
                     },
                     {
                         "size": "L",
-                        "variant_id": 14767,
-                        "variant_price": 4995
+                        "variant_id": "14767",
+                        "variant_price": "49.95"
                     }
                 ]
             },
@@ -122,23 +122,23 @@ export default async function handler(req, res) {
                 [
                     {
                         "size": "S",
-                        "variant_id": 15367,
-                        "variant_price": 4475
+                        "variant_id": "15367",
+                        "variant_price": "44.75"
                     },
                     {
                         "size": "M",
-                        "variant_id": 15567,
-                        "variant_price": 4490
+                        "variant_id": "15567",
+                        "variant_price": "44.90"
                     },
                     {
                         "size": "L",
-                        "variant_id": 15767,
-                        "variant_price": 4999
+                        "variant_id": "15767",
+                        "variant_price": "49.99"
                     },
                     {
                         "size": "XL",
-                        "variant_id": 15867,
-                        "variant_price": 5495
+                        "variant_id": "15867",
+                        "variant_price": "54.95"
                     }
                 ]
             },
@@ -154,23 +154,23 @@ export default async function handler(req, res) {
                 [
                     {
                         "size": "S",
-                        "variant_id": 15367,
-                        "variant_price": 4475
+                        "variant_id": "15367",
+                        "variant_price": "44.75"
                     },
                     {
                         "size": "M",
-                        "variant_id": 15567,
-                        "variant_price": 4490
+                        "variant_id": "15567",
+                        "variant_price": "44.90"
                     },
                     {
                         "size": "L",
-                        "variant_id": 15767,
-                        "variant_price": 4999
+                        "variant_id": "15767",
+                        "variant_price": "49.99"
                     },
                     {
                         "size": "XL",
-                        "variant_id": 15867,
-                        "variant_price": 5495
+                        "variant_id": "15867",
+                        "variant_price": "54.95"
                     }
                 ]
             }

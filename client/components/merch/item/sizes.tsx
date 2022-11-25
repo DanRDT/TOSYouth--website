@@ -10,10 +10,17 @@ const Sizes = ({item, pickSizePopup}) => {
     const [prevSelectedSize, setPrevSelectedSize] = useState(null) //index
     const [selectedSizeCss, setSelectedSizeCss] = useState([""]) //array for css classnames
 
-    function setSize(size) {
+    function setSize(size, index) {
         // update selected size state
+        const variant_id = item.color_variants[selectedItem.color_index].sizes[index].variant_id
+        const price = item.color_variants[selectedItem.color_index].sizes[index].variant_price
+        
         setSelectedItem(prevSelectedItem => {
-            return {...prevSelectedItem, "size": size}
+            return {...prevSelectedItem, 
+                "size": size,
+                "variant_id": variant_id,
+                "price": price
+            }
         })
     }
     
@@ -45,7 +52,7 @@ const Sizes = ({item, pickSizePopup}) => {
                     key={"size"+index} 
                     className={`size ${selectedSizeCss[index]}`} 
                     onClick={() => {
-                        setSize(size) // update state
+                        setSize(size, index) // update state
                         setSelectedSize(index) // update css
                     }}>
                     {size}

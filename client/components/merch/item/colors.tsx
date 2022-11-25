@@ -15,14 +15,24 @@ const Colors = ({item}) => {
         item.color_variants[index].sizes.map((variant)=>{
             sizes.push(variant.size)
         })
+        const images = []
+        item.color_variants[index].images.map((image)=>{
+            images.push(image)
+        })
 
         // update the selected item color
         // this also updates the sizes and images connected to that color 
         setSelectedItem(prevSelectedItem => {
             return {...prevSelectedItem, 
                 "color": color,
+                "color_index": index,
                 "sizes": sizes,
-                "size": ""
+                "image": images[0],
+                "images": images,
+                //reset size selections
+                "size": "",
+                "variant_id": "",
+                "price": item.price,
             }
         })
     }

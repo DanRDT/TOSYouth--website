@@ -22,9 +22,10 @@ export function ItemProvider({ children }) {
         "image": "",
         "images": [],
         "color": "",
+        "color_index": 0,
         "size": "",
         "sizes": [],
-        "variant-id": "",
+        "variant_id": "",
         "quantity": "1"
     });
 
