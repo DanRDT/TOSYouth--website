@@ -1,5 +1,8 @@
+import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
 
-const Quantity = ({selectedItem, setSelectedItem}) => {
+const Quantity = () => {
+    const selectedItem = useSelectedItem(); 
+    const setSelectedItem = useSetSelectedItem();
 
     function minus() {
         setSelectedItem(prevSelectedItem => {

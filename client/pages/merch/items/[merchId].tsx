@@ -1,4 +1,5 @@
 import Item from '../../../components/merch/item/item'
+import { ItemProvider } from "../../../components/context/itemContext"
 
 export async function getStaticPaths() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/items`)
@@ -26,6 +27,7 @@ export default function Home({item}) {
 
     return (
         <>    
+        <ItemProvider>
             <link rel="stylesheet" type="text/css" href="/css/merch-item.css"/>
             <main>
                 <div className='main-container'>
@@ -33,6 +35,7 @@ export default function Home({item}) {
                 <Item item={item}/>
                 </div>
             </main>
+        </ItemProvider>
         </>
     )
 }

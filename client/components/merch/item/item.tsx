@@ -7,6 +7,7 @@ import Quantity from "./quantity";
 import Sizes from "./sizes";
 import { useCart, useSetCart } from "../../context/cartContext";
 import useAddItem from "../../hooks/useAddItem";
+import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
 
 
 const Item = ({item}) => {
@@ -16,20 +17,9 @@ const Item = ({item}) => {
     const [added, setAdded] = useState("Add to Cart");
     const [cartLoading, setCartLoading] = useState("");
     const [pickSizePopup, setPickSizePopup] = useState("");
-    const [pickColorPopup, setPickColorPopup] = useState("");
 
-    const [selectedItem, setSelectedItem] = useState({
-        "id": "",
-        "name": "",
-        "price": "",
-        "image": "",
-        "images": [],
-        "color": "",
-        "size": "",
-        "sizes": [],
-        "variant-id": "",
-        "quantity": "1"
-    });
+    const selectedItem = useSelectedItem(); 
+    const setSelectedItem = useSetSelectedItem();
     
     function addItem() {        
         useAddItem(item, selectedItem, setSelectedItem, cart, setCart, setCartLoading, setPickSizePopup, setAdded)
@@ -41,7 +31,7 @@ const Item = ({item}) => {
         item.color_variants[0].sizes.map((variant)=>{
             sizes.push(variant.size)
         })
-        
+
         setSelectedItem({
             ...selectedItem,
             "id": item.id,
@@ -65,13 +55,11 @@ const Item = ({item}) => {
                     <h4 className="price">{`$${selectedItem.price}`}</h4>
                     <h4 className="description">{item.description}</h4>
                     <h4 className="color-lbl">Color</h4>
-                    <Colors item={item} selectedItem={selectedItem} 
-                    setSelectedItem={setSelectedItem} pickColorPopup={pickColorPopup}/>
+                    <Colors item={item} />
                     <h4 className="size-lbl">Size</h4>
-                    <Sizes item={item} selectedItem={selectedItem} 
-                    setSelectedItem={setSelectedItem} pickSizePopup={pickSizePopup}/>
+                    <Sizes item={item} pickSizePopup={pickSizePopup} />
                     <h4 className="quantity-lbl">Quantity</h4>
-                    <Quantity selectedItem={selectedItem} setSelectedItem={setSelectedItem}/>
+                    <Quantity />
                     <h4 className={`add-to-cart-btn ${cartLoading}`} onClick={() => addItem()}>{added}
                         <div className={`loading-animation ${cartLoading}`}></div>
                     </h4>
