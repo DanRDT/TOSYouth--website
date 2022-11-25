@@ -31,6 +31,7 @@ export default function addItem(item, selectedItem, setSelectedItem, cart, setCa
                 "image": selectedItem.image,
                 "color": selectedItem.color,
                 "size": selectedItem.size,
+                "variant_id": selectedItem.variant_id,
                 "quantity": quantity
             }
             itemExists = true;
@@ -40,12 +41,13 @@ export default function addItem(item, selectedItem, setSelectedItem, cart, setCa
     // create new cart item if doesn't exist
     if (!itemExists) {
         newCart.push({
-            "id": item.id,
-            "name": item.name,
-            "price": item.price,
+            "id": selectedItem.id,
+            "name": selectedItem.name,
+            "price": selectedItem.price,
             "image": selectedItem.image,
             "color": selectedItem.color,
             "size": selectedItem.size,
+            "variant_id": selectedItem.variant_id,
             "quantity": Number(selectedItem.quantity) + ''
         })
     }

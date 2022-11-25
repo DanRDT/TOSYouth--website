@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react"
+import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
+
 
 const Images = ({item}) => {
+    const selectedItem = useSelectedItem(); 
+
     const [selectedImage, setSelectedImage] = useState(0)
     const [prevImageBorder, setPrevImageBorder] = useState(0)
     const [selectedImageBorder, setSelectedImageBorder] = useState(["selected"])
@@ -20,9 +24,9 @@ const Images = ({item}) => {
     
     return (    
         <div className="images">
-            <img className="main-image" src={item.images[selectedImage]}/>
+            <img className="main-image" src={selectedItem.images[selectedImage]}/>
             <div className="extra-images">
-                {item.images.map((image,index) => (
+                {selectedItem.images.map((image,index) => (
                     <img
                         key={"image"+index}
                         className={`extra-image ${selectedImageBorder[index]}`}

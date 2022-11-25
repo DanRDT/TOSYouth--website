@@ -147,8 +147,8 @@ export default async function handler(req, res) {
                 "hexCode": "#666",
                 "images": 
                 [
-                    "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/68016/77958/crewneck-sweatshirt.jpg",
-                    "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/68016/77979/crewneck-sweatshirt.jpg"
+                    "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/62629/77954/crewneck-sweatshirt.jpg",
+                    "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/62629/77975/crewneck-sweatshirt.jpg"
                 ],
                 "sizes": 
                 [

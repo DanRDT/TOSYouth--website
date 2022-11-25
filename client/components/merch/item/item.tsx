@@ -14,12 +14,12 @@ const Item = ({item}) => {
     const cart = useCart();
     const setCart = useSetCart();
 
+    const selectedItem = useSelectedItem(); 
+    const setSelectedItem = useSetSelectedItem();
+
     const [added, setAdded] = useState("Add to Cart");
     const [cartLoading, setCartLoading] = useState("");
     const [pickSizePopup, setPickSizePopup] = useState("");
-
-    const selectedItem = useSelectedItem(); 
-    const setSelectedItem = useSetSelectedItem();
     
     function addItem() {        
         useAddItem(item, selectedItem, setSelectedItem, cart, setCart, setCartLoading, setPickSizePopup, setAdded)
@@ -49,7 +49,7 @@ const Item = ({item}) => {
             <section>
                 <Meta title={item.name} description={item.description} />
                 <Link href="/merch/items"><a className="back-arrow"><img src="/imgs/arrow-down.svg" alt="Return"/></a></Link>
-                {/* <Images item={item}/> */}
+                <Images item={item}/>
                 <div className="item-info">
                     <h3 className="title">{item.name}</h3>
                     <h4 className="price">{`$${selectedItem.price}`}</h4>

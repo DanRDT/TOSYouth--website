@@ -19,7 +19,7 @@ const Sizes = ({item, pickSizePopup}) => {
             return {...prevSelectedItem, 
                 "size": size,
                 "variant_id": variant_id,
-                "price": price
+                "price": price,
             }
         })
     }
