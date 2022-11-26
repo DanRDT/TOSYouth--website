@@ -22,7 +22,7 @@ const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShip
     return (
         <>      
             <section className="shipping-info">
-                <h4 className={checkoutInfoValidCss.shippingName}>Name
+                <h4 className={checkoutInfoValidCss.shippingName}>Full Name
                 <input className="info-input" type="text" name="name" placeholder="..." required
                     value={shippingInfo.name}
                     onChange={(e) => {changeShippingInfo(e, "name")}}

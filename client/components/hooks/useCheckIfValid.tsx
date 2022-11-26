@@ -1,6 +1,7 @@
 export default function checkIfValid(input: string, inputType: string, shippingOrBilling: string, setCss): number {
     let checkoutInfoValid = true;
     const regExNormal = /[A-Za-z]+/
+    const regExName = /[A-Za-z\'\-]+ [A-Za-z\'\-]+/
     const regExEmail = /[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?/;
     const regExPhone = /^\d{3}-\d{3}-\d{4}$/ //checks for xxx-xxx-xxxx
     const regExZip = /^\d{5}/
@@ -9,8 +10,13 @@ export default function checkIfValid(input: string, inputType: string, shippingO
     const key: string = (shippingOrBilling + inputType[0].toUpperCase() + inputType.substring(1))
     
     // check if the regEx finds a match
-    if (inputType == "name" || inputType == "address" || inputType == "city" || inputType == "state") {
+    if (inputType == "address" || inputType == "city" || inputType == "state") {
         if (!regExNormal.test(input)) {
+            checkoutInfoValid = false
+            addRequiredPopup(key, setCss)
+        }
+    } else if (inputType == "name") {
+        if (!regExName.test(input)) {
             checkoutInfoValid = false
             addRequiredPopup(key, setCss)
         }
@@ -30,6 +36,37 @@ export default function checkIfValid(input: string, inputType: string, shippingO
             addRequiredPopup(key, setCss)
         }
     }
+    
+    // switch (inputType) {
+    //     case "name":
+    //         if (!regExName.test(input)) {
+    //             checkoutInfoValid = false
+    //             addRequiredPopup(key, setCss)
+    //         } break;
+    //     case "email":
+    //         if (!regExEmail.test(input)) {
+    //             checkoutInfoValid = false
+    //             addRequiredPopup(key, setCss)
+    //         } break;
+    //     case "phone":
+    //         if (!regExPhone.test(input)) {
+    //             checkoutInfoValid = false
+    //             addRequiredPopup(key, setCss)
+    //         } break;
+    //     case "zip":
+    //         if (!regExZip.test(input)) {
+    //             checkoutInfoValid = false
+    //             addRequiredPopup(key, setCss)
+    //         } break;
+    //     case "address":
+    //     case "city":
+    //     case "state":
+    //         if (!regExNormal.test(input)) {
+    //             checkoutInfoValid = false
+    //             addRequiredPopup(key, setCss)
+    //         } break;
+    // }
+
     if (checkoutInfoValid == true) {
         return 0
     } else {

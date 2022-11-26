@@ -315,7 +315,6 @@ export default async function handler(req, res) {
 
 
 
-
 function getColorVariantImages(images, variantId) {
     let colorVariantImages: string[] = [];
     images.map((image) => {

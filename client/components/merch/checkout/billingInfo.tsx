@@ -41,7 +41,7 @@ const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping,
                 <label className="same-as-shipping-lbl" htmlFor="same-as-shipping">Same as shipping</label>
             </div>    
             <section className={`billing-info ${sameAsShipping}`}>
-                <h4 className={checkoutInfoValidCss.billingName}>Name
+                <h4 className={checkoutInfoValidCss.billingName}>Full Name
                 <input className="info-input" type="text" name="name" placeholder="..." required
                     value={billingInfo.name}
                     onChange={(e) => {changeBillingInfo(e, "name")}}

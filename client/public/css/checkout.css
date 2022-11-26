@@ -103,7 +103,7 @@ select {
 }
 .shipping-info h4.required:nth-child(1):after,
 .billing-info h4.required:nth-child(1)::after {
-    content: "Name required";
+    content: "First and last name required";
 }
 .shipping-info h4.required:nth-child(2):after,
 .billing-info h4.required:nth-child(2)::after {
