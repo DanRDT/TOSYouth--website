@@ -89,27 +89,27 @@ export default async function handler(req, res) {
 
 
             // check if options id's are size or color first
+            // change if more than two options ever occurs (Not yet found a case where that will happen)
             let variantOptionsColorIndex = 0 
             let variantOptionsSizeIndex = 1
-
             if (options[variant.options[1]].type == "color") {
                 variantOptionsColorIndex = 1 
                 variantOptionsSizeIndex = 0
             }
+
             const variantColor = options[variant.options[variantOptionsColorIndex]].color
             const hexCode = options[variant.options[variantOptionsColorIndex]].hexCode
             const variantSize = options[variant.options[variantOptionsSizeIndex]].size
 
+
             // create first default item before mapping thru the color_variants
             if (!firstVariantCreated) {
                 firstVariantCreated = true
+
                 color_variants.push({
                     "color": variantColor,
                     "hexCode": hexCode,
-                    "images": 
-                    [
-                        
-                    ],
+                    "images": getColorVariantImages(printifyItem.images, variant.id),
                     "sizes": 
                     [
                         {
@@ -135,15 +135,28 @@ export default async function handler(req, res) {
                         })
                 }
             })
-            //create new color variant
+
             if (colorExists == false) {
+                // add images for new color
+                // let colorVariantImages: string[] = [];
+                // printifyItem.images.map((image) => {
+
+                //     // check if one variant id equals the new color variant id
+                //     image.variant_ids.some((variant_id) => {
+                //         if (variant_id == variant.id) {
+                //             colorVariantImages.push(image.src)
+                //             return true
+                //         }
+                //     })
+                // })
+                
+
+
+                //create new color variant
                 color_variants.push({
                     "color": variantColor,
                     "hexCode": hexCode,
-                    "images": 
-                    [
-                        
-                    ],
+                    "images": getColorVariantImages(printifyItem.images, variant.id),
                     "sizes": 
                     [
                         {
@@ -155,13 +168,13 @@ export default async function handler(req, res) {
                 })
             }
 
-            // add images for new items
-
+            
+            
             // check for Min And Max Price
             if (variant.price < minPrice) minPrice = variant.price
             if (variant.price > maxPrice) maxPrice = variant.price
         })
-
+        
 
 
 
@@ -186,7 +199,7 @@ export default async function handler(req, res) {
             "price": price,
             "color_variants": color_variants
         }
-
+        
         res.status(200).json(item);
     } else {
         res.status(404).json({"Error": "Something when data fetch from printify"})
@@ -300,3 +313,20 @@ export default async function handler(req, res) {
 }
 
 
+
+
+
+function getColorVariantImages(images, variantId) {
+    let colorVariantImages: string[] = [];
+    images.map((image) => {
+
+        // check if one variant id equals the new color variant id
+        image.variant_ids.some((variant_id) => {
+            if (variant_id == variantId) {
+                colorVariantImages.push(image.src)
+                return true
+            }
+        })
+    })
+    return colorVariantImages
+}
