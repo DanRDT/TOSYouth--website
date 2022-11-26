@@ -61,57 +61,51 @@ export default async function handler(req, res) {
         }
         printifyItem.options.map((printifyOptionType) => {
             printifyOptionType.values.map((value)=>{
-                let option: object = {}
-
+                let option: object = {
+                    [printifyOptionType.type]: value.title,
+                    "type": printifyOptionType.type
+                }
+                
+                //add hex code for colors
                 if (printifyOptionType.type == "color") {
-                    //add hex code for colors
                     option = {
-                        [printifyOptionType.type]: value.title,
-                        "hexCode": value.colors[0]
-                    }
-                } else {
-                    option = {
-                        [printifyOptionType.type]: value.title
+                        ...option,
+                        "hexCode": value.colors[0],
                     }
                 }
+
                 options = {...options, [value.id]: option}
             })
         })
 
 
-        const variants = printifyItem.variants
-
-        
-        let color_variants: any = [
-            // {
-            //     "color": options[variants[0].options[0]].color,
-            //     "hexCode": options[variants[0].options[0]].hexCode,
-            //     "images": 
-            //     [
-                    
-            //     ],
-            //     "sizes": 
-            //     [
-            //         {
-            //             "size": options[variants[0].options[1]].size,
-            //             "variant_id": variants[0].id,
-            //             "variant_price": variants[0].price
-            //         }
-            //     ]
-            // }
-        ]
-
+        let color_variants: any = []
         let firstVariantCreated = false;
+
         // get all color and size variants
         printifyItem.variants.map((variant) => {
             if (!variant.is_enabled) return
             // if (!variant.is_available) return
-            
+
+
+            // check if options id's are size or color first
+            let variantOptionsColorIndex = 0 
+            let variantOptionsSizeIndex = 1
+
+            if (options[variant.options[1]].type == "color") {
+                variantOptionsColorIndex = 1 
+                variantOptionsSizeIndex = 0
+            }
+            const variantColor = options[variant.options[variantOptionsColorIndex]].color
+            const hexCode = options[variant.options[variantOptionsColorIndex]].hexCode
+            const variantSize = options[variant.options[variantOptionsSizeIndex]].size
+
+            // create first default item before mapping thru the color_variants
             if (!firstVariantCreated) {
                 firstVariantCreated = true
                 color_variants.push({
-                    "color": options[variant.options[0]].color,
-                    "hexCode": options[variant.options[0]].hexCode,
+                    "color": variantColor,
+                    "hexCode": hexCode,
                     "images": 
                     [
                         
@@ -119,49 +113,33 @@ export default async function handler(req, res) {
                     "sizes": 
                     [
                         {
-                            "size": options[variant.options[1]].size,
+                            "size": variantSize,
                             "variant_id": variant.id,
-                            "variant_price": variant.price
+                            "variant_price": variant.price/100
                         }
                     ]
                 })
                 return
             }
 
-            const variantColor = options[variant.options[0]].color
-            const variantSize = options[variant.options[1]].size
-
-            let colorExists = false;
-            // let sizeExists = false;
             
+            let colorExists = false;
             //update existing color variants
             color_variants.map((existingVariant, i) => {
                 if (existingVariant.color == variantColor) {
                     colorExists = true
-
-                    // check for existing size for color
-                    // existingVariant.sizes.map((size) => {
-                    //     if (size == variantSize) {
-                    //         sizeExists = true
-                    //     }
-                    // })    
-
-                    //create new size variant for color
-                    // if (sizeExists == false) {
                         color_variants[i].sizes.push({
                             "size": variantSize,
                             "variant_id": variant.id,
-                            "variant_price": variant.price
+                            "variant_price": variant.price/100
                         })
-                    // }
-
                 }
             })
             //create new color variant
             if (colorExists == false) {
                 color_variants.push({
                     "color": variantColor,
-                    "hexCode": options[variant.options[0]].hexCode,
+                    "hexCode": hexCode,
                     "images": 
                     [
                         
@@ -171,17 +149,13 @@ export default async function handler(req, res) {
                         {
                             "size": variantSize,
                             "variant_id": variant.id,
-                            "variant_price": variant.price
+                            "variant_price": variant.price/100
                         }
                     ]
                 })
             }
 
-
-
-
-
-
+            // add images for new items
 
             // check for Min And Max Price
             if (variant.price < minPrice) minPrice = variant.price
@@ -194,8 +168,16 @@ export default async function handler(req, res) {
 
         // Description comes as html. This converts it.
         const description = htmlToText(printifyItem.description, { wordwrap: false });
+        
         //set default price range
+        if (minPrice == maxPrice) {
+            
+        }
+        // convert from cents
+        minPrice /= 100
+        maxPrice /= 100
         const price = `${minPrice} - ${maxPrice}`
+    
 
         const item = {
             "id": printifyItem.id,
@@ -203,24 +185,6 @@ export default async function handler(req, res) {
             "description": description,
             "price": price,
             "color_variants": color_variants
-            // [
-            //     {
-            //         "color": "",
-            //         "hexCode": "",
-            //         "images": 
-            //         [
-            //             ""
-            //         ],
-            //         "sizes": 
-            //         [
-            //             {
-            //                 "size": "",
-            //                 "variant_id": "",
-            //                 "variant_price": ""
-            //             }
-            //         ]
-            //     }
-            // ]
         }
 
         res.status(200).json(item);
