@@ -35,60 +35,31 @@ export default async function handler(req, res) {
     
     if (!printifyItem.is_locked) { // false means its not been published
         res.status(403).json({"Error": "Item Not Allowed"});        
-    } else {
+    } else if (printifyItem.is_locked) {
 
-        // Description comes as html. This converts it.
-        const description = htmlToText(printifyItem.description, { wordwrap: false });
+        // used to calculate default price range
+        let minPrice = 10000000000000000;
+        let maxPrice = 0;
         
-        const item = {
-            "id": printifyItem.id,
-            "name": printifyItem.title,
-            "description": description,
-            "price": "",
-            "color_variants": 
-            [
-                {
-                    "color": "",
-                    "hexCode": "",
-                    "images": 
-                    [
-                        ""
-                    ],
-                    "sizes": 
-                    [
-                        {
-                            "size": "",
-                            "variant_id": "",
-                            "variant_price": ""
-                        }
-                    ]
-                }
-            ]
-        }
         
-        // options reorganized
-        const options: object = [
-            // {
-            //     "2420": {
-            //         "color": "Black",
-            //         "hexCode": "000"
-            //     },
-            //     "2421": {
-            //         "color": "White",
-            //         "hexCode": "fff"
-            //     }
+        // reorganize options 
+        let options: object = {
+            // "2420": {
+            //     "color": "Black",
+            //     "hexCode": "000"
             // },
-            // {
-            //     "14": {
-            //         "size": "S",
-            //     },
-            //     "15": {
-            //         "size": "M",
-            //     }
+            // "2421": {
+            //     "color": "White",
+            //     "hexCode": "fff"
+            // },
+            // "14": {
+            //     "size": "S",
+            // },
+            // "15": {
+            //     "size": "M",
             // }
-        ]
-        printifyItem.options.map((printifyOptionType, i) => {
-            let optionType: object = {}
+        }
+        printifyItem.options.map((printifyOptionType) => {
             printifyOptionType.values.map((value)=>{
                 let option: object = {}
 
@@ -103,17 +74,158 @@ export default async function handler(req, res) {
                         [printifyOptionType.type]: value.title
                     }
                 }
-
-                optionType = {...optionType, [value.id]: option }
-                
+                options = {...options, [value.id]: option}
             })
-            options[i] = optionType
         })
 
-                    
-        
 
-        res.status(200).json(options);
+        const variants = printifyItem.variants
+
+        
+        let color_variants: any = [
+            // {
+            //     "color": options[variants[0].options[0]].color,
+            //     "hexCode": options[variants[0].options[0]].hexCode,
+            //     "images": 
+            //     [
+                    
+            //     ],
+            //     "sizes": 
+            //     [
+            //         {
+            //             "size": options[variants[0].options[1]].size,
+            //             "variant_id": variants[0].id,
+            //             "variant_price": variants[0].price
+            //         }
+            //     ]
+            // }
+        ]
+
+        let firstVariantCreated = false;
+        // get all color and size variants
+        printifyItem.variants.map((variant) => {
+            if (!variant.is_enabled) return
+            // if (!variant.is_available) return
+            
+            if (!firstVariantCreated) {
+                firstVariantCreated = true
+                color_variants.push({
+                    "color": options[variant.options[0]].color,
+                    "hexCode": options[variant.options[0]].hexCode,
+                    "images": 
+                    [
+                        
+                    ],
+                    "sizes": 
+                    [
+                        {
+                            "size": options[variant.options[1]].size,
+                            "variant_id": variant.id,
+                            "variant_price": variant.price
+                        }
+                    ]
+                })
+                return
+            }
+
+            const variantColor = options[variant.options[0]].color
+            const variantSize = options[variant.options[1]].size
+
+            let colorExists = false;
+            // let sizeExists = false;
+            
+            //update existing color variants
+            color_variants.map((existingVariant, i) => {
+                if (existingVariant.color == variantColor) {
+                    colorExists = true
+
+                    // check for existing size for color
+                    // existingVariant.sizes.map((size) => {
+                    //     if (size == variantSize) {
+                    //         sizeExists = true
+                    //     }
+                    // })    
+
+                    //create new size variant for color
+                    // if (sizeExists == false) {
+                        color_variants[i].sizes.push({
+                            "size": variantSize,
+                            "variant_id": variant.id,
+                            "variant_price": variant.price
+                        })
+                    // }
+
+                }
+            })
+            //create new color variant
+            if (colorExists == false) {
+                color_variants.push({
+                    "color": variantColor,
+                    "hexCode": options[variant.options[0]].hexCode,
+                    "images": 
+                    [
+                        
+                    ],
+                    "sizes": 
+                    [
+                        {
+                            "size": variantSize,
+                            "variant_id": variant.id,
+                            "variant_price": variant.price
+                        }
+                    ]
+                })
+            }
+
+
+
+
+
+
+
+            // check for Min And Max Price
+            if (variant.price < minPrice) minPrice = variant.price
+            if (variant.price > maxPrice) maxPrice = variant.price
+        })
+
+
+
+
+
+        // Description comes as html. This converts it.
+        const description = htmlToText(printifyItem.description, { wordwrap: false });
+        //set default price range
+        const price = `${minPrice} - ${maxPrice}`
+
+        const item = {
+            "id": printifyItem.id,
+            "name": printifyItem.title,
+            "description": description,
+            "price": price,
+            "color_variants": color_variants
+            // [
+            //     {
+            //         "color": "",
+            //         "hexCode": "",
+            //         "images": 
+            //         [
+            //             ""
+            //         ],
+            //         "sizes": 
+            //         [
+            //             {
+            //                 "size": "",
+            //                 "variant_id": "",
+            //                 "variant_price": ""
+            //             }
+            //         ]
+            //     }
+            // ]
+        }
+
+        res.status(200).json(item);
+    } else {
+        res.status(404).json({"Error": "Something when data fetch from printify"})
     }
     // const item = {
     //     "id": "637d78e2e21e9a36610eb989",
