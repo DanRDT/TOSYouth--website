@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from "react"
+import setPhoneNumberValue from "../../hooks/functions/setPhoneNumberValue"
 import useClearRequiredPopup from "../../hooks/useClearRequiredPopup"
 
 const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShipping, checkoutInfoValidCss, setCheckoutInfoValidCss}) => {
     
     function changeShippingInfo(e, shippingInfoKey) {
+        let value =  e.target.value
         //update shippingInfo state on change
+        if (shippingInfoKey == "phone") value = setPhoneNumberValue(value)
         setShippingInfo(prev => {
-            const tempObject = {...prev, [shippingInfoKey]: e.target.value}
+            const tempObject = {...prev, [shippingInfoKey]: value}
             return tempObject
         })
         useClearRequiredPopup(e.target.value, shippingInfoKey, "shipping", setCheckoutInfoValidCss)

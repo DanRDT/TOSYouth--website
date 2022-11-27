@@ -115,7 +115,8 @@ export default async function handler(req, res) {
                         {
                             "size": variantSize,
                             "variant_id": variant.id,
-                            "variant_price": variant.price/100
+                            "variant_price": variant.price/100,
+                            "size_id": variant.options[variantOptionsSizeIndex]
                         }
                     ]
                 })
@@ -131,7 +132,8 @@ export default async function handler(req, res) {
                         color_variants[i].sizes.push({
                             "size": variantSize,
                             "variant_id": variant.id,
-                            "variant_price": variant.price/100
+                            "variant_price": variant.price/100,
+                            "size_id": variant.options[variantOptionsSizeIndex]
                         })
                 }
             })
@@ -162,7 +164,8 @@ export default async function handler(req, res) {
                         {
                             "size": variantSize,
                             "variant_id": variant.id,
-                            "variant_price": variant.price/100
+                            "variant_price": variant.price/100,
+                            "size_id": variant.options[variantOptionsSizeIndex]
                         }
                     ]
                 })
@@ -175,8 +178,11 @@ export default async function handler(req, res) {
             if (variant.price > maxPrice) maxPrice = variant.price
         })
         
-
-
+        // sort size variants
+        color_variants.map((color)=> {
+            insertionSortSizes(color.sizes)
+        })
+        
 
 
         // Description comes as html. This converts it.
@@ -313,6 +319,20 @@ export default async function handler(req, res) {
 }
 
 
+
+function insertionSortSizes(array) {
+    for (let i = 1; i < array.length; i++) {
+        let current = array[i] //saved value
+        let prevIndex = i - 1 
+        while (prevIndex >= 0 && array[prevIndex].size_id > current.size_id) {
+            array[prevIndex + 1] = array[prevIndex]
+            prevIndex--
+        }
+        array[prevIndex + 1] = current
+        // console.log(current);
+    }
+    return array
+}
 
 
 function getColorVariantImages(images, variantId) {

@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import setLocalCheckoutInfo from "../../hooks/functions/setLocalCheckoutInfo";
+import setPhoneNumberValue from "../../hooks/functions/setPhoneNumberValue";
 import useClearRequiredPopup from "../../hooks/useClearRequiredPopup";
 
 const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping, setSameAsShipping, checkoutInfoValidCss, setCheckoutInfoValidCss}) => {
 
     function changeBillingInfo(e, billingInfoKey) {
         //update billingInfo state on change
+        if (billingInfoKey == "phone") setPhoneNumberValue(e)
         setBillingInfo(prev => {
             const tempObject = {...prev, [billingInfoKey]: e.target.value}
             return tempObject
@@ -59,7 +61,10 @@ const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping,
                 <h4 className={checkoutInfoValidCss.billingPhone}><div>Phone <p>&nbsp;&nbsp;( xxx-xxx-xxxx )</p></div>
                 <input className="info-input" type="text" name="phone" placeholder="..." required
                     value={billingInfo.phone}
-                    onChange={(e) => {changeBillingInfo(e, "phone")}}
+                    onChange={(e) => {
+                        changeBillingInfo(e, "phone")
+                        return (e + "yes")
+                    }}
                 /></h4>
                 <h4><div>Apartment / Unit / Suite<p>&nbsp;&nbsp;(optional)</p></div>
                 <input className="info-input" type="text" name="unit" placeholder="..." required
