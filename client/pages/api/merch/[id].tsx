@@ -129,31 +129,35 @@ export default async function handler(req, res) {
             color_variants.map((existingVariant, i) => {
                 if (existingVariant.color == variantColor) {
                     colorExists = true
-                        color_variants[i].sizes.push({
-                            "size": variantSize,
-                            "variant_id": variant.id,
-                            "variant_price": variant.price/100,
-                            "size_id": variant.options[variantOptionsSizeIndex]
+                    color_variants[i].sizes.push({
+                        "size": variantSize,
+                        "variant_id": variant.id,
+                        "variant_price": variant.price/100,
+                        "size_id": variant.options[variantOptionsSizeIndex]
+                    })
+
+                    // required because printify variant
+                    let images = [...color_variants[i].images]
+                    getColorVariantImages(printifyItem.images, variant.id).map((image)=> {
+                        let imageExists = false
+                        // check if image already exists on color variant
+                        color_variants[i].images.map((existingImage)=> {
+                            if (image == existingImage) {
+                                imageExists = true
+                            }
                         })
+                        if (!imageExists) {
+                            images.push(image)
+                        }
+                    })
+                    color_variants[i] = {...color_variants[i], 
+                        "images": images}
+                    
                 }
             })
 
             if (colorExists == false) {
-                // add images for new color
-                // let colorVariantImages: string[] = [];
-                // printifyItem.images.map((image) => {
-
-                //     // check if one variant id equals the new color variant id
-                //     image.variant_ids.some((variant_id) => {
-                //         if (variant_id == variant.id) {
-                //             colorVariantImages.push(image.src)
-                //             return true
-                //         }
-                //     })
-                // })
                 
-
-
                 //create new color variant
                 color_variants.push({
                     "color": variantColor,
@@ -182,22 +186,23 @@ export default async function handler(req, res) {
         color_variants.map((color)=> {
             insertionSortSizes(color.sizes)
         })
-        
+
 
 
         // Description comes as html. This converts it.
         const description = htmlToText(printifyItem.description, { wordwrap: false });
         
         //set default price range
-        if (minPrice == maxPrice) {
-            
-        }
+        let price = ""
         // convert from cents
         minPrice /= 100
         maxPrice /= 100
-        const price = `${minPrice} - ${maxPrice}`
+        if (minPrice == maxPrice) {
+            price = maxPrice + ''
+        } else {
+            price = `${minPrice} - ${maxPrice}`
+        }
     
-
         const item = {
             "id": printifyItem.id,
             "name": printifyItem.title,
@@ -322,21 +327,20 @@ export default async function handler(req, res) {
 
 function insertionSortSizes(array) {
     for (let i = 1; i < array.length; i++) {
-        let current = array[i] //saved value
+        let current = array[i]
         let prevIndex = i - 1 
         while (prevIndex >= 0 && array[prevIndex].size_id > current.size_id) {
             array[prevIndex + 1] = array[prevIndex]
             prevIndex--
         }
         array[prevIndex + 1] = current
-        // console.log(current);
     }
     return array
 }
 
 
 function getColorVariantImages(images, variantId) {
-    let colorVariantImages: string[] = [];
+    let colorVariantImages = [];
     images.map((image) => {
 
         // check if one variant id equals the new color variant id
