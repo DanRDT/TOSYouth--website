@@ -9,63 +9,36 @@ export default function checkIfValid(input: string, inputType: string, shippingO
     // convert to proper key naming convention
     const key: string = (shippingOrBilling + inputType[0].toUpperCase() + inputType.substring(1))
     
-    // check if the regEx finds a match
-    if (inputType == "address" || inputType == "city" || inputType == "state") {
-        if (!regExNormal.test(input)) {
-            checkoutInfoValid = false
-            addRequiredPopup(key, setCss)
-        }
-    } else if (inputType == "name") {
-        if (!regExName.test(input)) {
-            checkoutInfoValid = false
-            addRequiredPopup(key, setCss)
-        }
-    } else if (inputType == "email") {
-        if (!regExEmail.test(input)) {
-            checkoutInfoValid = false
-            addRequiredPopup(key, setCss)
-        }
-    } else if (inputType == "phone") {
-        if (!regExPhone.test(input)) {
-            checkoutInfoValid = false
-            addRequiredPopup(key, setCss)
-        }
-    } else if (inputType == "zip") {
-        if (!regExZip.test(input)) {
-            checkoutInfoValid = false
-            addRequiredPopup(key, setCss)
-        }
+    // check if the regEx finds a match    
+    switch (inputType) {
+        case "name":
+            if (!regExName.test(input)) {
+                checkoutInfoValid = false
+                addRequiredPopup(key, setCss)
+            } break;
+        case "email":
+            if (!regExEmail.test(input)) {
+                checkoutInfoValid = false
+                addRequiredPopup(key, setCss)
+            } break;
+        case "phone":
+            if (!regExPhone.test(input)) {
+                checkoutInfoValid = false
+                addRequiredPopup(key, setCss)
+            } break;
+        case "zip":
+            if (!regExZip.test(input)) {
+                checkoutInfoValid = false
+                addRequiredPopup(key, setCss)
+            } break;
+        case "address":
+        case "city":
+        case "state":
+            if (!regExNormal.test(input)) {
+                checkoutInfoValid = false
+                addRequiredPopup(key, setCss)
+            } break;
     }
-    
-    // switch (inputType) {
-    //     case "name":
-    //         if (!regExName.test(input)) {
-    //             checkoutInfoValid = false
-    //             addRequiredPopup(key, setCss)
-    //         } break;
-    //     case "email":
-    //         if (!regExEmail.test(input)) {
-    //             checkoutInfoValid = false
-    //             addRequiredPopup(key, setCss)
-    //         } break;
-    //     case "phone":
-    //         if (!regExPhone.test(input)) {
-    //             checkoutInfoValid = false
-    //             addRequiredPopup(key, setCss)
-    //         } break;
-    //     case "zip":
-    //         if (!regExZip.test(input)) {
-    //             checkoutInfoValid = false
-    //             addRequiredPopup(key, setCss)
-    //         } break;
-    //     case "address":
-    //     case "city":
-    //     case "state":
-    //         if (!regExNormal.test(input)) {
-    //             checkoutInfoValid = false
-    //             addRequiredPopup(key, setCss)
-    //         } break;
-    // }
 
     if (checkoutInfoValid == true) {
         return 0

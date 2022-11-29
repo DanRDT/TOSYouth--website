@@ -7,7 +7,7 @@ const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShip
     function changeShippingInfo(e, shippingInfoKey) {
         let value =  e.target.value
         //update shippingInfo state on change
-        if (shippingInfoKey == "phone") value = setPhoneNumberValue(value)
+        // if (shippingInfoKey == "phone") value = setPhoneNumberValue(value)
         setShippingInfo(prev => {
             const tempObject = {...prev, [shippingInfoKey]: value}
             return tempObject

@@ -9,57 +9,33 @@ export default function useClearRequiredPopup(input :string, inputType :string, 
     const key :string = (shippingOrBilling + inputType[0].toUpperCase() + inputType.substring(1))
     
     // check if the regEx finds a match
-    if (inputType == "address" || inputType == "city" || inputType == "state") {
-        if (regExNormal.test(input)) {
-            removeRequiredPopup(key, setCss)
-        }
-    } else if (inputType == "name") {
-        if (regExName.test(input)) {
-            removeRequiredPopup(key, setCss)
-        }
-    } else if (inputType == "email") {
-        if (regExEmail.test(input)) {
-            removeRequiredPopup(key, setCss)
-        }
-    } else if (inputType == "phone") {
-        if (regExPhone.test(input)) {
-            removeRequiredPopup(key, setCss)
-        }
-    } else if (inputType == "zip") {
-        if (regExZip.test(input)) {
-            removeRequiredPopup(key, setCss)
-        }
-    } else {
-        console.error("Not a recognized input type");
-    }  
-
-    // switch (inputType) {
-    //     case "name":
-    //         if (regExName.test(input)) {
-    //             removeRequiredPopup(key, setCss)
-    //         } break;
-    //     case "email":
-    //         if (regExEmail.test(input)) {
-    //             removeRequiredPopup(key, setCss)
-    //         } break;
-    //     case "phone":
-    //         if (regExPhone.test(input)) {
-    //             removeRequiredPopup(key, setCss)
-    //         } break;
-    //     case "zip":
-    //         if (regExZip.test(input)) {
-    //             removeRequiredPopup(key, setCss)
-    //         } break;
-    //     case "address":
-    //     case "city":
-    //     case "state":
-    //         if (regExName.test(input)) {
-    //             removeRequiredPopup(key, setCss)
-    //         } break;
-    //     default:
-    //         console.error("Not a recognized input type");
-    //         break;
-    // }
+    switch (inputType) {
+        case "name":
+            if (regExName.test(input)) {
+                removeRequiredPopup(key, setCss)
+            } break;
+        case "email":
+            if (regExEmail.test(input)) {
+                removeRequiredPopup(key, setCss)
+            } break;
+        case "phone":
+            if (regExPhone.test(input)) {
+                removeRequiredPopup(key, setCss)
+            } break;
+        case "zip":
+            if (regExZip.test(input)) {
+                removeRequiredPopup(key, setCss)
+            } break;
+        case "address":
+        case "city":
+        case "state":
+            if (regExNormal.test(input)) {
+                removeRequiredPopup(key, setCss)
+            } break;
+        default:
+            console.error("Not a recognized input type");
+            break;
+    }
 }
 
 // remove css class "required"
