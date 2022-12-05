@@ -5,14 +5,15 @@ import useClearRequiredPopup from "../../hooks/useClearRequiredPopup"
 const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShipping, checkoutInfoValidCss, setCheckoutInfoValidCss}) => {
     
     function changeShippingInfo(e, shippingInfoKey) {
-        let value =  e.target.value
-        //update shippingInfo state on change
-        // if (shippingInfoKey == "phone") value = setPhoneNumberValue(value)
+        let input = e.target.value;
+        // force format for phone number
+        if (shippingInfoKey == "phone") input = setPhoneNumberValue(input)
+        //update billingInfo state on change
         setShippingInfo(prev => {
-            const tempObject = {...prev, [shippingInfoKey]: value}
+            const tempObject = {...prev, [shippingInfoKey]: input}
             return tempObject
         })
-        useClearRequiredPopup(e.target.value, shippingInfoKey, "shipping", setCheckoutInfoValidCss)
+        useClearRequiredPopup(input, shippingInfoKey, "shipping", setCheckoutInfoValidCss)
     }
     
     useEffect(() => {
@@ -40,12 +41,12 @@ const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShip
                     value={shippingInfo.address}
                     onChange={(e) => {changeShippingInfo(e, "address")}}
                 /></h4>
-                <h4 className={checkoutInfoValidCss.shippingPhone}><div>Phone <p>&nbsp;&nbsp;( xxx-xxx-xxxx )</p></div>
+                <h4 className={checkoutInfoValidCss.shippingPhone}><div>Phone {/*<p>&nbsp;&nbsp;( xxx-xxx-xxxx )</p>*/}</div>
                 <input className="info-input" type="tel" name="phone" placeholder="..." required
                     value={shippingInfo.phone}
                     onChange={(e) => {changeShippingInfo(e, "phone")}}
                 /></h4>
-                <h4><div>Apartment / Unit / Suite<p>&nbsp;&nbsp;(optional)</p></div>
+                <h4><div>Apartment / Unit / Suite <p>&nbsp;&nbsp;(optional)</p></div>
                 <input className="info-input" type="text" name="unit" placeholder="..." required
                     value={shippingInfo.unit}
                     onChange={(e) => {changeShippingInfo(e, "unit")}}

@@ -6,13 +6,15 @@ import useClearRequiredPopup from "../../hooks/useClearRequiredPopup";
 const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping, setSameAsShipping, checkoutInfoValidCss, setCheckoutInfoValidCss}) => {
 
     function changeBillingInfo(e, billingInfoKey) {
+        let input = e.target.value;
+        // force format for phone number
+        if (billingInfoKey == "phone") input = setPhoneNumberValue(input)
         //update billingInfo state on change
-        if (billingInfoKey == "phone") setPhoneNumberValue(e)
         setBillingInfo(prev => {
-            const tempObject = {...prev, [billingInfoKey]: e.target.value}
+            const tempObject = {...prev, [billingInfoKey]: input}
             return tempObject
         })
-        useClearRequiredPopup(e.target.value, billingInfoKey, "billing", setCheckoutInfoValidCss)
+        useClearRequiredPopup(input, billingInfoKey, "billing", setCheckoutInfoValidCss)
     }
 
     useEffect(() => {
@@ -58,7 +60,7 @@ const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping,
                     value={billingInfo.address}
                     onChange={(e) => {changeBillingInfo(e, "address")}}
                 /></h4>
-                <h4 className={checkoutInfoValidCss.billingPhone}><div>Phone <p>&nbsp;&nbsp;( xxx-xxx-xxxx )</p></div>
+                <h4 className={checkoutInfoValidCss.billingPhone}><div>Phone {/*<p>&nbsp;&nbsp;( xxx-xxx-xxxx )</p>*/}</div>
                 <input className="info-input" type="text" name="phone" placeholder="..." required
                     value={billingInfo.phone}
                     onChange={(e) => {
@@ -66,7 +68,7 @@ const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping,
                         return (e + "yes")
                     }}
                 /></h4>
-                <h4><div>Apartment / Unit / Suite<p>&nbsp;&nbsp;(optional)</p></div>
+                <h4><div>Apartment / Unit / Suite <p>&nbsp;&nbsp;(optional)</p></div>
                 <input className="info-input" type="text" name="unit" placeholder="..." required
                     value={billingInfo.unit}
                     onChange={(e) => {changeBillingInfo(e, "unit")}}
