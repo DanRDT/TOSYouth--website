@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       
 //   } catch (error) {
 //       console.error(error)
-//       res.status(500)
+//       res.status(500)2
 //   } finally {
 //       client.close();
 //   }
@@ -215,6 +215,7 @@ export default async function handler(req, res) {
     } else {
         res.status(404).json({"Error": "Something when data fetch from printify"})
     }
+    // sample item
     // const item = {
     //     "id": "637d78e2e21e9a36610eb989",
     //     "name": "Crew-neck Sweatshirt",
@@ -285,42 +286,9 @@ export default async function handler(req, res) {
     //                     "variant_price": "54.95"
     //                 }
     //             ]
-    //         },
-    //         {
-    //             "color": "Grey",
-    //             "hexCode": "#666",
-    //             "images": 
-    //             [
-    //                 "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/62629/77954/crewneck-sweatshirt.jpg",
-    //                 "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/62629/77975/crewneck-sweatshirt.jpg"
-    //             ],
-    //             "sizes": 
-    //             [
-    //                 {
-    //                     "size": "S",
-    //                     "variant_id": "15367",
-    //                     "variant_price": "44.75"
-    //                 },
-    //                 {
-    //                     "size": "M",
-    //                     "variant_id": "15567",
-    //                     "variant_price": "44.90"
-    //                 },
-    //                 {
-    //                     "size": "L",
-    //                     "variant_id": "15767",
-    //                     "variant_price": "49.99"
-    //                 },
-    //                 {
-    //                     "size": "XL",
-    //                     "variant_id": "15867",
-    //                     "variant_price": "54.95"
-    //                 }
-    //             ]
     //         }
     //     ]
     // }
-    // res.status(200).json(item);
 }
 
 
