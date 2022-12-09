@@ -7,7 +7,7 @@ const Scripts = () => {
         <Script
             strategy="afterInteractive"
             type="module"
-            src="/scripts/navigation.js"
+            src="/scripts/main.js"
             onError={() => {
                 console.log("UI Scripts Error");
             }}

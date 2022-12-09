@@ -7,7 +7,6 @@ const Footer = () => {
             <div className={"separation-line"}></div>
             <nav className={"footer-nav"}>
                 <Link href="/" className="nav-link">Home</Link>
-                <Link href="/about-us"><a className="nav-link">About Us</a></Link>
                 <Link href="/events"><a className="nav-link">Events</a></Link>
                 <Link href="/merch"><a className="nav-link">Merch</a></Link>
             </nav>

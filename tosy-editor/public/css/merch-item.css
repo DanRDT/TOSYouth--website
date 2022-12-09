@@ -1,0 +1,28 @@
+/* Table of Contents 
+
+    Section
+    
+
+*/
+
+
+/* Section */
+.main-container section {    
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 1.5rem 0;
+    gap: 2rem;
+}
+
+.main-container > .separation-line {
+    margin-top: 2.5rem;
+}
+
+.back-arrow {
+    position: absolute;
+    top: -2rem;
+    left: 1rem;
+    transition: transform 0s;
+    transform: rotate(90deg);
+}
