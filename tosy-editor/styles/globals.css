@@ -112,7 +112,12 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+section {
     justify-content: center;
+}
+
+#__next {
     min-height: 100%;
 }
 

@@ -3,14 +3,6 @@ const { htmlToText } = require('html-to-text');
 export default async function handler(req, res) {
     const { id } = req.query
 
-    if (req.method == 'GET') {
-        console.log("get");
-    } else if (req.method == 'POST') {
-        console.log("post");
-    } else if (req.method == 'PATCH') {
-        console.log("patch");
-    }
-
     const printifyRes = await fetch(`https://api.printify.com/v1/shops/5414762/products/${id}.json`, {
         method: 'GET',
         headers: {"Authorization": `Bearer ${process.env.PRINTIFY_TOKEN_READ_ONLY}`}
@@ -200,7 +192,6 @@ export default async function handler(req, res) {
     } else {
         res.status(404).json({"Error": "Something when data fetch from printify"})
     }
-
     // sample item
     // const item = {
     //     "id": "637d78e2e21e9a36610eb989",

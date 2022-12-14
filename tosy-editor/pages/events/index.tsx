@@ -23,7 +23,7 @@ export default function Home({events}) {
                     <div className='separation-line'></div>
                     <div className='events' key="events">
                         <Events events={events}/>
-                        <h3 className='events-to-come-lbl' data-appear-on-scroll="false" data-appear-on-scroll-delay="true">More Events To Come...</h3>
+                        <h3 className='create-new-event-btn' data-appear-on-scroll="false" data-appear-on-scroll-delay="true">Create new event</h3>
                     </div>                
                 </section>
             </div>

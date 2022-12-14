@@ -16,7 +16,9 @@ const Header = () => {
             <nav className="header-nav" data-visible="false">
                 <Link href="/"><a className="nav-link">Home</a></Link>
                 <Link href="/events"><a className="nav-link">Events</a></Link>
-                <Link href="/merch"><a className="nav-link">Merch</a></Link>            </nav>
+                <Link href="/merch"><a className="nav-link">Merch</a></Link>
+                <Link href="/account"><a className="nav-link"></a></Link>
+            </nav>
         </header>
     )
     

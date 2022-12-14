@@ -1,4 +1,5 @@
 import { ItemProvider } from "../../components/context/itemContext"
+import mongoose from "mongoose"
 
 export async function getServerSideProps({params}) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/${params.merchId}`)
