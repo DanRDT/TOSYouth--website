@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       
 //   } catch (error) {
 //       console.error(error)
-//       res.status(500)2
+//       res.status(500)
 //   } finally {
 //       client.close();
 //   }

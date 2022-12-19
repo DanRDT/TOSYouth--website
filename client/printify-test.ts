@@ -1,4 +1,3 @@
-export {}
 const json = {
   "current_page": 1,
   "data": // array of items
@@ -14,7 +13,6 @@ const json = {
         "Women's Clothing",
         "DTG",
         "Regular fit",
-        "Unisex"
       ],
       "options": [
         {
@@ -2351,3 +2349,5 @@ variants.map((variant)=>{
     enabledVariants.push(variant.title)
   }
 })
+
+export default json
