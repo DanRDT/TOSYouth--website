@@ -19,8 +19,18 @@ const itemSchema = new mongoose.Schema({
     name: String,
     description: String,
     price: String,
-    color_variants: [colorVariantSchema]
-})
+    color_variants: [colorVariantSchema],
+    item_on_sale: Boolean,
+    main_image: String
+}, { collection: 'Merch' })
 
+let MerchItem;
 
-export default mongoose.model("Item", itemSchema) 
+if (mongoose.models.MerchItem) {
+    MerchItem = mongoose.model('MerchItem');
+} else {
+    MerchItem = mongoose.model('MerchItem', itemSchema);
+}
+
+export default MerchItem;
+

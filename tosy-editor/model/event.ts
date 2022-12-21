@@ -7,6 +7,6 @@ const eventSchema = new mongoose.Schema({
     description: String,
     price: String,
     image: String
-})
+}, { collection: 'Events' })
 
 export default mongoose.model("Event", eventSchema) 
