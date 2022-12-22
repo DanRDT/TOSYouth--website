@@ -12,8 +12,7 @@ function urlChange (history){
         }, 1)
         return pushState.apply(history, arguments);
     };
-}(window.history);
-urlChange(history);
+}(history)
 
 // Navigation Slide-out Functionality
 import navigation from "./navigation.js"
