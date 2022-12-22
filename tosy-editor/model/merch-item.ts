@@ -13,7 +13,6 @@ const colorVariantSchema = new mongoose.Schema({
     sizes: [sizeSchema]   
 })
 
-
 const itemSchema = new mongoose.Schema({
     id: String,
     name: String,
@@ -24,13 +23,41 @@ const itemSchema = new mongoose.Schema({
     main_image: String
 }, { collection: 'Merch' })
 
-let MerchItem;
+itemSchema.post("save", function(doc, next) {
+    console.log(doc);
+    next()
+})
 
+
+itemSchema.methods.updateItem = function (newItem) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let MerchItem
 if (mongoose.models.MerchItem) {
     MerchItem = mongoose.model('MerchItem');
 } else {
     MerchItem = mongoose.model('MerchItem', itemSchema);
 }
+
+// const MerchItem =  mongoose.model('MerchItem', itemSchema)
 
 export default MerchItem;
 
