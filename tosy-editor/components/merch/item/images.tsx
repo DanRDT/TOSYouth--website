@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react"
-import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
+import { useSelectedItem } from "../../context/itemContext"
+import { useUpdatedItem, useSetUpdatedItem } from "../../context/updatedItemContext"
+
 
 
 const Images = ({item}) => {
     const selectedItem = useSelectedItem(); 
+
+    const updatedItem = useUpdatedItem(); 
+    const setUpdatedItem = useSetUpdatedItem();
 
     const [selectedImage, setSelectedImage] = useState(0)
     const [prevImageBorder, setPrevImageBorder] = useState(0)
@@ -23,6 +28,7 @@ const Images = ({item}) => {
 
     
     return (    
+    
         <div className="images">
             <img className="main-image" src={selectedItem.images[selectedImage]}/>
             <div className="extra-images">
@@ -37,7 +43,19 @@ const Images = ({item}) => {
                     />
                 ))}
             </div>
+            <div className="image-controls">
+                <h4 className={`img-btn`} onClick={() => {}}>Hide
+                    {/* <div className={`loading-animation`}></div> */}
+                </h4>
+                <h4 className={`img-btn`} onClick={() => {}}>Delete
+                    {/* <div className={`loading-animation`}></div> */}
+                </h4>
+                <h4 className={`img-btn`} onClick={() => {}}>Add
+                    {/* <div className={`loading-animation`}></div> */}
+                </h4>
+            </div>
         </div>
+
     )
 }
 

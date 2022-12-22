@@ -4,8 +4,9 @@ import Meta from "../../global/meta";
 import Colors from "./colors";
 import Images from "./images";
 import Sizes from "./sizes";
-import useAddItem from "../../hooks/useSaveItem";
+import useSaveItem from "../../hooks/useSaveItem";
 import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
+import { useUpdatedItem, useSetUpdatedItem } from "../../context/updatedItemContext"
 
 
 const Item = ({item}) => {
@@ -13,12 +14,15 @@ const Item = ({item}) => {
     const selectedItem = useSelectedItem(); 
     const setSelectedItem = useSetSelectedItem();
 
+    const updatedItem = useUpdatedItem(); 
+    const setUpdatedItem = useSetUpdatedItem();
+
     const [saved, setSaved] = useState("Save");
     const [saveLoading, setSaveLoading] = useState("");
     const [pickSizePopup, setPickSizePopup] = useState("");
     
     function saveItem() {        
-        // useSaveItem(item, selectedItem, setSelectedItem, cart, setCart, setSaveLoading, setPickSizePopup, setSaved)
+        // useSaveItem(item, selectedItem, setSelectedItem, setSaveLoading, setSaved)
     }
    
     useEffect(() => {
@@ -38,13 +42,15 @@ const Item = ({item}) => {
             "image": item.color_variants[0].images[0],
             "images": item.color_variants[0].images
         })
+
+        setUpdatedItem(item)
     }, [item]);
     
     return (
         <>      
             <section>
                 <Meta title={item.name} description={item.description} />
-                <Link href="/merch/items"><a className="back-arrow"><img src="/imgs/arrow-down.svg" alt="Return"/></a></Link>
+                <Link href="/merch"><a className="back-arrow"><img src="/imgs/arrow-down.svg" alt="Return"/></a></Link>
                 <Images item={item}/>
                 <div className="item-info">
                     <h3 className="title">{item.name}</h3>
@@ -54,7 +60,6 @@ const Item = ({item}) => {
                     <Colors item={item} />
                     <h4 className="size-lbl">Size</h4>
                     <Sizes item={item} pickSizePopup={pickSizePopup} />
-                    <h4 className="quantity-lbl">Quantity</h4>
                     <h4 className={`save-btn ${saveLoading}`} onClick={() => saveItem()}>{saved}
                         <div className={`loading-animation ${saveLoading}`}></div>
                     </h4>

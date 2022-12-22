@@ -25,8 +25,7 @@ export function ItemProvider({ children }) {
         "color_index": 0,
         "size": "",
         "sizes": [],
-        "variant_id": "",
-        "quantity": "1"
+        "variant_id": ""
     });
 
     return (

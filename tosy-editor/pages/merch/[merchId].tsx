@@ -1,4 +1,5 @@
 import { ItemProvider } from "../../components/context/itemContext"
+import { UpdatedItemProvider } from "../../components/context/updatedItemContext"
 import Item from "../../components/merch/item/main"
 
 export async function getServerSideProps({params}) {
@@ -23,13 +24,15 @@ export default function Home({item}) {
     return (
         <>    
         <ItemProvider>
-            <link rel="stylesheet" type="text/css" href="/css/merch-item.css"/>
-            <main>
-                <div className='main-container'>
-                <div className="separation-line"></div>
-                <Item item={item}/>
-                </div>
-            </main>
+            <UpdatedItemProvider>
+                <link rel="stylesheet" type="text/css" href="/css/merch-item.css"/>
+                <main>
+                    <div className='main-container'>
+                    <div className="separation-line"></div>
+                    <Item item={item}/>
+                    </div>
+                </main>
+            </UpdatedItemProvider>
         </ItemProvider>
         </>
     )
