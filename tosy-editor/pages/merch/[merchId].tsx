@@ -1,13 +1,19 @@
 import { ItemProvider } from "../../components/context/itemContext"
-// import Item from "../../components/merch/item"
-import mongoose from "mongoose"
+import Item from "../../components/merch/item/main"
 
 export async function getServerSideProps({params}) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/${params.merchId}`)
+    const data = await res.json()
     
+    if (!data) {
+        return {
+          notFound: true,
+        }
+    }
+
     return {
         props: {
-            item: await res.json(),
+            item: data,
         }
     }
 }
@@ -21,7 +27,7 @@ export default function Home({item}) {
             <main>
                 <div className='main-container'>
                 <div className="separation-line"></div>
-                {/* <Item item={item}/> */}
+                <Item item={item}/>
                 </div>
             </main>
         </ItemProvider>

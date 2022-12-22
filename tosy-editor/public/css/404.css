@@ -1,0 +1,25 @@
+body { 
+    color: var(--secondary-color); 
+    background: var(--primary-color); 
+}
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.error-h1 {
+    display:inline-block;
+    margin-right:20px;
+    padding:0 23px 0 0;
+    line-height:49px;
+    border-right: 1px solid rgba(0, 0, 0, .3);
+}
+.sub-container {
+    display:inline-block;
+}
+.error-h2 {
+    line-height:49px;
+}
+        

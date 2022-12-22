@@ -10,7 +10,7 @@ export default function Home() {
             <div className='main-container'>
                 <section>
                     <h1>Tosy Website Login</h1>
-                    <h3>Help section</h3>
+                    {/* <h3>Help section</h3> */}
                 </section>
                 <section className="navigation-grid">
                     <div className="grid-item">
