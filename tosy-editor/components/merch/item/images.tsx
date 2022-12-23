@@ -24,16 +24,39 @@ const Images = ({item}) => {
             if (variant.color != selectedItem.color) return
             let images = variant.images
             images.push({"src": imageLink, "active": false})
+
+            updateImage(images, i)
+        })
+
+    }
+
+    function deleteImage() {
+        updatedItem.color_variants.map((variant, i)=>{
+            if (variant.color != selectedItem.color) return
+
+            let images = variant.images.filter((image, index) => { 
+                if (index != selectedImage) {
+                    return image;
+                }
+            });
+            setSelectedImage(0)
+
+            updateImage(images, i)
+        })
+
+    }
+
+    function updateImage(images, i) {
+
             setUpdatedItem(prev => {
                 prev.color_variants[i].images = images
                 return prev
             })
+            //updates GUI
             setSelectedItem({
                 ...selectedItem,
                 "images": images
             })
-        })
-
     }
 
     useEffect(() => {
@@ -47,12 +70,18 @@ const Images = ({item}) => {
         })
     }, [selectedImage])
 
-    
+    function getMainImage() {
+        try {
+            return selectedItem.images[selectedImage].src
+        } catch (error) {
+            return ""
+        }
+    }
     
     return (    
     
         <div className="images">
-            <img className="main-image" src={selectedItem.images[selectedImage].src}/>
+            <img className="main-image" src={getMainImage()}/>
             <div className="extra-images">
                 {selectedItem.images.map((image,index) => (
                     <div className='extra-image-container' title={image.active?"Image is active":"Image is hidden"} key={"image"+index}>
@@ -71,7 +100,7 @@ const Images = ({item}) => {
                 <h4 className={`img-btn`} onClick={() => {}}>Hide/Show
                     {/* <div className={`loading-animation`}></div> */}
                 </h4>
-                <h4 className={`img-btn`} onClick={() => {}}>Delete
+                <h4 className={`img-btn`} onClick={() => deleteImage()}>Delete
                     {/* <div className={`loading-animation`}></div> */}
                 </h4>
                 <input className={`img-link`} placeholder="Enter a Link" type="text" >
