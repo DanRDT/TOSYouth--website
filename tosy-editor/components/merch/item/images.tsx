@@ -31,6 +31,7 @@ const Images = ({item}) => {
     }
 
     function deleteImage() {
+        if(typeof selectedItem[selectedImage] === 'undefined') return
         updatedItem.color_variants.map((variant, i)=>{
             if (variant.color != selectedItem.color) return
 
@@ -47,8 +48,7 @@ const Images = ({item}) => {
     }
 
     function hideOrShowImage() {
-        const imageLink = (document.querySelector('.img-link') as HTMLInputElement).value;
-        if (selectedItem.images.length == 0) return
+        if(typeof selectedItem[selectedImage] === 'undefined') return
         
         updatedItem.color_variants.map((variant, i)=>{
             if (variant.color != selectedItem.color) return
