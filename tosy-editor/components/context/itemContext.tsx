@@ -20,7 +20,12 @@ export function ItemProvider({ children }) {
         "name": "",
         "price": "",
         "image": "",
-        "images": [],
+        "images": [
+            {
+                "src": "",
+                "active": true
+            }
+        ],
         "color": "",
         "color_index": 0,
         "size": "",

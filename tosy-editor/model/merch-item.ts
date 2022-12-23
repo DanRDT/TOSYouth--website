@@ -6,10 +6,15 @@ const sizeSchema = new mongoose.Schema({
     variant_price: String
 })
 
+const imagesSchema = new mongoose.Schema({
+    src: String, 
+    active: Boolean
+})
+
 const colorVariantSchema = new mongoose.Schema({
     color: String,
     hexCode: String,
-    images: [String],
+    images: [{src: String, active: Boolean}],
     sizes: [sizeSchema]   
 })
 

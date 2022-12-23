@@ -15,6 +15,24 @@ const Images = ({item}) => {
     const [selectedImageBorder, setSelectedImageBorder] = useState(["selected"])
 
 
+    function addImage() {
+        const imageLink = (document.querySelector('.img-link') as HTMLInputElement).value;
+        if (imageLink === "") return
+
+        updatedItem.color_variants.map((variant)=>{
+            if (variant.color === selectedItem.color) {
+                console.log(variant);
+                
+            }
+        })
+        console.log(selectedItem);
+        // setUpdatedItem(prev => {
+        //     return {...prev}
+        // })
+
+        
+    }
+
     useEffect(() => {
         // change selected image border and remove prev border
         setSelectedImageBorder(prevSelectedImageBorder => {
@@ -27,20 +45,23 @@ const Images = ({item}) => {
     }, [selectedImage])
 
     
+    
     return (    
     
         <div className="images">
-            <img className="main-image" src={selectedItem.images[selectedImage]}/>
+            <img className="main-image" src={selectedItem.images[selectedImage].src}/>
             <div className="extra-images">
                 {selectedItem.images.map((image,index) => (
-                    <img
-                        key={"image"+index}
-                        className={`extra-image ${selectedImageBorder[index]}`}
-                        src={image}
-                        onClick={() => {
-                            setSelectedImage(index)
-                        }}
-                    />
+                    <div className='extra-image-container' title={image.active?"Image is active":"Image is hidden"} key={"image"+index}>
+                        <img
+                            className={`extra-image ${selectedImageBorder[index]} ${image.active}`}
+                            src={image.src}
+                            onClick={() => {
+                                setSelectedImage(index)
+                            }}
+                        />
+                        <div className={`img-active ${image.active}`} ></div>
+                    </div>
                 ))}
             </div>
             <div className="image-controls">
@@ -50,7 +71,9 @@ const Images = ({item}) => {
                 <h4 className={`img-btn`} onClick={() => {}}>Delete
                     {/* <div className={`loading-animation`}></div> */}
                 </h4>
-                <h4 className={`img-btn`} onClick={() => {}}>Add
+                <input className={`img-link`} placeholder="Enter a Link" type="text" >
+                </input>
+                <h4 className={`img-btn`} onClick={() => addImage()}>Add
                     {/* <div className={`loading-animation`}></div> */}
                 </h4>
             </div>

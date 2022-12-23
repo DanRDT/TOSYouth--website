@@ -24,7 +24,12 @@ export function UpdatedItemProvider({ children }) {
             {
                 "color": "",
                 "hexCode": "",
-                "images": [""],
+                "images": [
+                    {
+                        "src": "",
+                        "active": true
+                    }
+                ],
                 "sizes": [
                     {
                         "size": "",
