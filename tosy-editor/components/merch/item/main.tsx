@@ -22,7 +22,7 @@ const Item = ({item}) => {
     const [pickSizePopup, setPickSizePopup] = useState("");
     
     function saveItem() {        
-        // useSaveItem(item, selectedItem, setSelectedItem, setSaveLoading, setSaved)
+        useSaveItem({item, updatedItem, selectedItem, setSelectedItem, setSaveLoading, setSaved})
     }
    
     useEffect(() => {

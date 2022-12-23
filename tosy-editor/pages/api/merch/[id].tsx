@@ -25,7 +25,8 @@ export default async function handler(req, res) {
 
         await Item.replaceOne({id: id}, updatedItem)
         const result = await Item.findOne({id: id})
-        return res.status(200).json(result)
+        // return res.status(200).json(result)
+        return res.status(200).json({"success": true})
     }
     
 }
