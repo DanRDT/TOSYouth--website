@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { useSelectedItem } from "../../context/itemContext"
+import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
 import { useUpdatedItem, useSetUpdatedItem } from "../../context/updatedItemContext"
 
 
 
 const Images = ({item}) => {
-    const selectedItem = useSelectedItem(); 
+    const selectedItem = useSelectedItem();
+    const setSelectedItem = useSetSelectedItem();
 
     const updatedItem = useUpdatedItem(); 
     const setUpdatedItem = useSetUpdatedItem();
@@ -18,19 +19,21 @@ const Images = ({item}) => {
     function addImage() {
         const imageLink = (document.querySelector('.img-link') as HTMLInputElement).value;
         if (imageLink === "") return
-
-        updatedItem.color_variants.map((variant)=>{
-            if (variant.color === selectedItem.color) {
-                console.log(variant);
-                
-            }
-        })
-        console.log(selectedItem);
-        // setUpdatedItem(prev => {
-        //     return {...prev}
-        // })
-
         
+        updatedItem.color_variants.map((variant, i)=>{
+            if (variant.color != selectedItem.color) return
+            let images = variant.images
+            images.push({"src": imageLink, "active": false})
+            setUpdatedItem(prev => {
+                prev.color_variants[i].images = images
+                return prev
+            })
+            setSelectedItem({
+                ...selectedItem,
+                "images": images
+            })
+        })
+
     }
 
     useEffect(() => {
@@ -65,7 +68,7 @@ const Images = ({item}) => {
                 ))}
             </div>
             <div className="image-controls">
-                <h4 className={`img-btn`} onClick={() => {}}>Hide
+                <h4 className={`img-btn`} onClick={() => {}}>Hide/Show
                     {/* <div className={`loading-animation`}></div> */}
                 </h4>
                 <h4 className={`img-btn`} onClick={() => {}}>Delete
