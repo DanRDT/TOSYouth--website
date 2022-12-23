@@ -25,7 +25,7 @@ const Images = ({item}) => {
             let images = variant.images
             images.push({"src": imageLink, "active": false})
 
-            updateImage(images, i)
+            updateImageState(images, i)
         })
 
     }
@@ -41,12 +41,31 @@ const Images = ({item}) => {
             });
             setSelectedImage(0)
 
-            updateImage(images, i)
+            updateImageState(images, i)
         })
 
     }
 
-    function updateImage(images, i) {
+    function hideOrShowImage() {
+        const imageLink = (document.querySelector('.img-link') as HTMLInputElement).value;
+        if (selectedItem.images.length == 0) return
+        
+        updatedItem.color_variants.map((variant, i)=>{
+            if (variant.color != selectedItem.color) return
+            
+            let images = variant.images
+            if (images[selectedImage].active) {
+                images[selectedImage].active = false
+            } else {
+                images[selectedImage].active = true
+            }
+
+            updateImageState(images, i)
+        })
+
+    }
+
+    function updateImageState(images, i) {
 
             setUpdatedItem(prev => {
                 prev.color_variants[i].images = images
@@ -97,7 +116,7 @@ const Images = ({item}) => {
                 ))}
             </div>
             <div className="image-controls">
-                <h4 className={`img-btn`} onClick={() => {}}>Hide/Show
+                <h4 className={`img-btn`} onClick={() => hideOrShowImage()}>Hide/Show
                     {/* <div className={`loading-animation`}></div> */}
                 </h4>
                 <h4 className={`img-btn`} onClick={() => deleteImage()}>Delete
