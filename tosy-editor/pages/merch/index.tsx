@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Meta from '../../components/global/meta'
 import Items from '../../components/merch/items'
 
@@ -21,7 +22,8 @@ export default function Home({items}) {
                 <section>
                     <div className='subheading'>
                         <h3>Our Items</h3>
-                        {/* <div className="sort-button">Sort</div> */}
+                        <Link href="/merch/printify" ><h4 className="subheading-btn">Printify</h4></Link>
+                        {/* <div className="sort-btn">Sort</div> */}
                     </div>
                     <div className='merch-items'>
                         <Items items={items}/>

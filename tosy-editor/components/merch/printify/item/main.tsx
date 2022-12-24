@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { useEffect, useState } from "react"
-import Meta from "../../global/meta";
+import Meta from "../../../global/meta";
 import Colors from "./colors";
 import Images from "./images";
 import Sizes from "./sizes";
-import useSaveItem from "../../hooks/useSaveItem";
-import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
-import { useUpdatedItem, useSetUpdatedItem } from "../../context/updatedItemContext"
+import useSaveItem from "../../../hooks/useSaveItem";
+import { useSelectedItem, useSetSelectedItem } from "../../../context/itemContext"
+import { useUpdatedItem, useSetUpdatedItem } from "../../../context/updatedItemContext"
 
 
 const Item = ({item}) => {
@@ -17,7 +17,7 @@ const Item = ({item}) => {
     const updatedItem = useUpdatedItem(); 
     const setUpdatedItem = useSetUpdatedItem();
 
-    const [saved, setSaved] = useState("Save");
+    const [saved, setSaved] = useState("Add Item to Database");
     const [saveLoading, setSaveLoading] = useState("");
     const [pickSizePopup, setPickSizePopup] = useState("");
     

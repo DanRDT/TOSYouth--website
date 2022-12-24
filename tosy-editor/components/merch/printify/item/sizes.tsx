@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
+import { useSelectedItem, useSetSelectedItem } from "../../../context/itemContext"
 
 
 const Sizes = ({item, pickSizePopup}) => {

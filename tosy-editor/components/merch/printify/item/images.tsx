@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
-import { useUpdatedItem, useSetUpdatedItem } from "../../context/updatedItemContext"
+import { useSelectedItem, useSetSelectedItem } from "../../../context/itemContext"
+import { useUpdatedItem, useSetUpdatedItem } from "../../../context/updatedItemContext"
 
 
 
