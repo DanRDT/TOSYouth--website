@@ -22,7 +22,7 @@ export default function Home({items}) {
                 <section>
                     <div className='subheading'>
                         <h3>Printify Items</h3>
-                        <Link href="/merch/printify" ><h4 className="subheading-btn">Our Items</h4></Link>
+                        <Link href="/merch" ><h4 className="subheading-btn">Our Items</h4></Link>
                         {/* <div className="sort-button">Sort</div> */}
                     </div>
                     <div className='merch-items'>

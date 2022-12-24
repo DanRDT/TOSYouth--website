@@ -292,7 +292,7 @@ function getColorVariantImages(images, variantId) {
         // check if one variant id equals the new color variant id
         image.variant_ids.some((variant_id) => {
             if (variant_id == variantId) {
-                colorVariantImages.push({"src": image.src, "active": false})
+                colorVariantImages.push({"src": image.src, "active": true})
                 return true
             }
         })

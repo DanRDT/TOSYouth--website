@@ -1,5 +1,5 @@
 
-export default async function addItem({item, updatedItem, selectedItem, setSelectedItem, setSaveLoading, setSaved}) {
+export default async function addItem({item, updatedItem, setSaveLoading, setSaved}) {
 
     // add css class
     setSaveLoading("active-loading")
@@ -22,7 +22,7 @@ export default async function addItem({item, updatedItem, selectedItem, setSelec
     })
     .then((res) => {
         if (!res.ok) {
-            throw new Error(`${res.statusText} ~ Network code: ${res.status}`);
+            throw new Error(`${res.statusText} ~ Network code: ${res.status} \n ${res.body}`);
         }
         return res.json();
     })

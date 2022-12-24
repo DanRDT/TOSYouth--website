@@ -4,7 +4,7 @@ import Meta from "../../../global/meta";
 import Colors from "./colors";
 import Images from "./images";
 import Sizes from "./sizes";
-import useSaveItem from "../../../hooks/useSaveItem";
+import useSaveNewItem from "../../../hooks/useSaveNewItem";
 import { useSelectedItem, useSetSelectedItem } from "../../../context/itemContext"
 import { useUpdatedItem, useSetUpdatedItem } from "../../../context/updatedItemContext"
 
@@ -22,7 +22,7 @@ const Item = ({item}) => {
     const [pickSizePopup, setPickSizePopup] = useState("");
     
     function saveItem() {        
-        useSaveItem({item, updatedItem, selectedItem, setSelectedItem, setSaveLoading, setSaved})
+        useSaveNewItem({item, updatedItem, setSaveLoading, setSaved})
     }
    
     useEffect(() => {
@@ -50,7 +50,7 @@ const Item = ({item}) => {
         <>      
             <section>
                 <Meta title={item.name} description={item.description} />
-                <Link href="/merch"><a className="back-arrow"><img src="/imgs/arrow-down.svg" alt="Return"/></a></Link>
+                <Link href="/merch/printify"><a className="back-arrow"><img src="/imgs/arrow-down.svg" alt="Return"/></a></Link>
                 <Images item={item}/>
                 <div className="item-info">
                     <h3 className="title">{item.name}</h3>

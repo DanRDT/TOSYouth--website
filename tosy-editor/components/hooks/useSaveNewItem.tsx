@@ -1,5 +1,5 @@
 
-export default async function addItem({item, updatedItem, selectedItem, setSelectedItem, setSaveLoading, setSaved}) {
+export default async function addItem({item, updatedItem, setSaveLoading, setSaved}) {
 
     // add css class
     setSaveLoading("active-loading")
@@ -14,7 +14,7 @@ export default async function addItem({item, updatedItem, selectedItem, setSelec
     }
 
     const res = fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/${updatedItem.id}`, {
-        method: 'PATCH',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -26,17 +26,14 @@ export default async function addItem({item, updatedItem, selectedItem, setSelec
         }
         return res.json();
     })
-    .then((res) => {
-        console.log(res);
-    })
-    .then(()=>{
+    .then((res)=>{
         //clear loading animation
         setTimeout(() => {
-            setSaved("Item Added")
+            setSaved(res.message)
             setSaveLoading("")
         }, 300);
         setTimeout(() => {
-            setSaved("Save")
+            setSaved("Add Item to Database")
         }, 1800);
     })
     .catch((error) => {

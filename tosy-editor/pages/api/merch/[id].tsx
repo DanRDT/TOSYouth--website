@@ -15,6 +15,7 @@ export default async function handler(req, res) {
         const result = await Item.findOne({id: id})
         return res.status(200).json(result)
     } 
+    
     else if (req.method === "PATCH") {
 
         // TODO: insert auth
@@ -26,7 +27,24 @@ export default async function handler(req, res) {
         await Item.replaceOne({id: id}, updatedItem)
         const result = await Item.findOne({id: id})
         // return res.status(200).json(result)
-        return res.status(200).json({"success": true})
+        return res.status(200).json({"success": true, "message": "Item updated"})
+    } 
+    
+    else if (req.method === "POST") {
+
+        // TODO: insert auth
+
+        const newItem = req.body
+        
+        const result = await Item.findOne({id: newItem.id})
+        if (result != null) {
+            return res.status(250).json({"success": false, "message": "Item already exists in database"})
+        }
+
+        // TODO: insert check conditions
+
+        await Item.create(newItem)
+        return res.status(201).json({"success": true, "message": "Item added"})
     }
     
 }
