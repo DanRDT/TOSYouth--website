@@ -36,7 +36,7 @@ export default async function handler(req, res) {
           "id": item.id,
           "name": item.title,
           "price": price,
-          "image": image
+          "main_image": image
         })
       
     })

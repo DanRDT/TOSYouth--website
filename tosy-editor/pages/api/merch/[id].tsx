@@ -15,7 +15,7 @@ export default async function handler(req, res) {
         const result = await Item.findOne({id: id})
         return res.status(200).json(result)
     } 
-    else if (req.method === "POST") {
+    else if (req.method === "PATCH") {
 
         // TODO: insert auth
 

@@ -14,7 +14,7 @@ export default async function addItem({item, updatedItem, selectedItem, setSelec
     }
 
     const res = fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/${updatedItem.id}`, {
-        method: 'POST',
+        method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
         },

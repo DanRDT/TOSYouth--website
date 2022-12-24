@@ -119,7 +119,7 @@ export default async function handler(req, res) {
                         let imageExists = false
                         // check if image already exists on color variant
                         color_variants[i].images.map((existingImage)=> {
-                            if (image == existingImage) {
+                            if (image.src == existingImage.src) {
                                 imageExists = true
                             }
                         })
@@ -185,7 +185,9 @@ export default async function handler(req, res) {
             "name": printifyItem.title,
             "description": description,
             "price": price,
-            "color_variants": color_variants
+            "color_variants": color_variants,
+            "item_on_sale": false,
+            "main_image": color_variants[0].images[0].src
         }
         
         res.status(200).json(item);
@@ -194,80 +196,76 @@ export default async function handler(req, res) {
     }
     // sample item
     // const item = {
-    // "id": "637d78e2e21e9a36610eb989",
-//     "name": "Crew-neck Sweatshirt",
-//     "description": "Take the cold seasons in style with this premium crew neck sweatshirt. Available in multiple colors, this sweatshirt is sure to keep you warm and stylish all day long. It’s not only beautiful but also comfy and soft to the touch.",
-//     "price": "44.95 - 45.99",
-//     "color_variants": 
-//     [
-//         {
-//             "color": "Black",
-//             "hexCode": "#000",
-//             "images": 
-//             [
-//                 "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/62627/77952/crewneck-sweatshirt.jpg",
-//                 "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/62627/77973/crewneck-sweatshirt.jpg"
-//             ],
-//             "sizes": 
-//             [
-//                 {
-//                     "size": "XS",
-//                     "variant_id": "14367",
-//                     "variant_price": "44.85"
-//                 },
-//                 {
-//                     "size": "S",
-//                     "variant_id": "14367",
-//                     "variant_price": "44.85"
-//                 },
-//                 {
-//                     "size": "M",
-//                     "variant_id": "14567",
-//                     "variant_price": "44.95"
-//                 },
-//                 {
-//                     "size": "L",
-//                     "variant_id": "14767",
-//                     "variant_price": "49.95"
-//                 }
-//             ]
-//         },
-//         {
-//             "color": "White",
-//             "hexCode": "#fff",
-//             "images": 
-//             [
-//                 "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/68016/77958/crewneck-sweatshirt.jpg",
-//                 "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/68016/77979/crewneck-sweatshirt.jpg"
-//             ],
-//             "sizes": 
-//             [
-//                 {
-//                     "size": "S",
-//                     "variant_id": "15367",
-//                     "variant_price": "44.75"
-//                 },
-//                 {
-//                     "size": "M",
-//                     "variant_id": "15567",
-//                     "variant_price": "44.90"
-//                 },
-//                 {
-//                     "size": "L",
-//                     "variant_id": "15767",
-//                     "variant_price": "49.99"
-//                 },
-//                 {
-//                     "size": "XL",
-//                     "variant_id": "15867",
-//                     "variant_price": "54.95"
-//                 }
-//             ]
-//         }
-//     ],
-//     "item_on_sale": true,
-//     "main_image": "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/68016/77958/crewneck-sweatshirt.jpg"
-//     }
+    //     "id": "637d78e2e21e9a36610eb989",
+    //     "name": "Crewneck Sweatshirt",
+    //     "description": "Take the cold seasons in style with this premium crew neck sweatshirt. Available in multiple colors, this sweatshirt is sure to keep you warm and stylish all day long. It’s not only beautiful but also comfy and soft to the touch.",
+    //     "price": "37.95",
+    //     "color_variants": [
+    //         {
+    //             "color": "White",
+    //             "hexCode": "#ffffff",
+    //             "images": [ {
+    //                     "src": "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/68016/77958/crewneck-sweatshirt.jpg",
+    //                     "active": true
+    //                 },
+    //                 {
+    //                     "src": "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/68016/77959/crewneck-sweatshirt.jpg",
+    //                     "active": true
+    //                 }
+    //             ],
+    //             "sizes": [
+    //                 {
+    //                     "size": "S",
+    //                     "variant_id": 68014,
+    //                     "variant_price": 37.95,
+    //                     "size_id": 14
+    //                 },
+    //                 {
+    //                     "size": "M",
+    //                     "variant_id": 68015,
+    //                     "variant_price": 37.95,
+    //                     "size_id": 15
+    //                 },
+    //                 {
+    //                     "size": "L",
+    //                     "variant_id": 68016,
+    //                     "variant_price": 37.95,
+    //                     "size_id": 16
+    //                 }
+    //             ]
+    //         },
+    //         {
+    //             "color": "Black",
+    //             "hexCode": "#000000",
+    //             "images": [
+    //                 {
+    //                     "src": "https://images-api.printify.com/mockup/637d78e2e21e9a36610eb989/62627/77952/crewneck-sweatshirt.jpg",
+    //                     "active": true
+    //                 }
+    //             ],
+    //             "sizes": [
+    //                 {
+    //                     "size": "S",
+    //                     "variant_id": 62615,
+    //                     "variant_price": 37.95,
+    //                     "size_id": 14
+    //                 },
+    //                 {
+    //                     "size": "M",
+    //                     "variant_id": 62621,
+    //                     "variant_price": 37.95,
+    //                     "size_id": 15
+    //                 },
+    //                 {
+    //                     "size": "L",
+    //                     "variant_id": 62627,
+    //                     "variant_price": 37.95,
+    //                     "size_id": 16
+    //                 }
+    //             ]
+    //         },
+    //     ]
+    // }
 
 }
 
@@ -294,7 +292,7 @@ function getColorVariantImages(images, variantId) {
         // check if one variant id equals the new color variant id
         image.variant_ids.some((variant_id) => {
             if (variant_id == variantId) {
-                colorVariantImages.push(image.src)
+                colorVariantImages.push({"src": image.src, "active": false})
                 return true
             }
         })
