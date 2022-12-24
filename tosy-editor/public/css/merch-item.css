@@ -112,6 +112,63 @@
     background-color: #cf1c1c;
 }
 
+.warning-popup-bg {
+    display: none;
+}
+.warning-popup-bg.active {
+    position: fixed;
+    z-index: 500;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(1px);
+    display: flex;
+}
+.warning-popup {
+    position: relative;
+    z-index: 500;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 19rem;
+    height: 10rem;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.warning-popup-btns {
+    display: flex;
+    gap: 1rem;
+}
+.warning-popup-btn {
+    padding: 1rem 1.2rem;
+    background-color: #cc1c1c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.warning-popup-btn:nth-of-type(2) {
+    background-color: white;
+    color: black;
+    border: 1px solid grey;
+}
+.warning-popup-btn:hover {
+    background-color: #b31a1a
+}
+.warning-popup-btn:hover:nth-of-type(2) {
+    background-color: var(--placeholder-color)
+}
+
+
 
 /* Item Info */
 .item-info {

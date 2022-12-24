@@ -4,6 +4,15 @@ export default async function addItem({item, updatedItem, selectedItem, setSelec
     // add css class
     setSaveLoading("active-loading")
 
+    if (updatedItem.id != item.id) {
+        setSaved("Input Error")
+        setSaveLoading("")
+        
+        setTimeout(() => {
+            setSaved("Save")
+        }, 1800);
+    }
+
     const res = fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/${updatedItem.id}`, {
         method: 'POST',
         headers: {
