@@ -102,7 +102,7 @@ const Images = ({item}) => {
         })
     }, [selectedImage])
 
-    function getMainImage() {
+    function getSelectedImage() {
         try {
             return selectedItem.images[selectedImage].src
         } catch (error) {
@@ -113,7 +113,7 @@ const Images = ({item}) => {
     return (    
     
         <div className="images">
-            <img className="main-image" src={getMainImage()}/>
+            <img className="main-image" src={getSelectedImage()}/>
             <div className="extra-images">
                 {selectedItem.images.map((image,index) => (
                     <div className='extra-image-container' title={image.active?"Image is active":"Image is hidden"} key={"image"+index}>

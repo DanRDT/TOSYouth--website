@@ -7,6 +7,7 @@ import Sizes from "./sizes";
 import useSaveItem from "../../hooks/useSaveItem";
 import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
 import { useUpdatedItem, useSetUpdatedItem } from "../../context/updatedItemContext"
+import MainImage from "./mainImage";
 
 
 const Item = ({item}) => {
@@ -39,7 +40,7 @@ const Item = ({item}) => {
             "price": item.price,
             "color": item.color_variants[0].color,
             "sizes": sizes,
-            "image": item.color_variants[0].images[0],
+            "selected_image": item.color_variants[0].images[0].src,
             "images": item.color_variants[0].images
         })
 
@@ -57,13 +58,13 @@ const Item = ({item}) => {
             })
         }
     }
-
+    
     return (
         <>      
             <section>
                 <Meta title={item.name} description={item.description} />
                 <Link href="/merch"><a className="back-arrow"><img src="/imgs/arrow-down.svg" alt="Return"/></a></Link>
-                <Images item={item}/>
+                <Images/>
                 <div className="item-info">
                     <h3 className="title">{updatedItem.name}</h3>
                     <h4 className="price">{`$${updatedItem.price}`}</h4>
@@ -72,6 +73,8 @@ const Item = ({item}) => {
                     <Colors item={item} />
                     <h4 className="size-lbl">Size</h4>
                     <Sizes item={item} pickSizePopup={pickSizePopup} />
+                    <h4 className="main-img-lbl">Main Image</h4>
+                    <MainImage />
                     <div className="btns-container">
                         <h4 className="">{`Item On Sale: ${updatedItem.item_on_sale?"True":"False"}`}</h4>
                         <h4 className={`activate-btn ${saveLoading}`} onClick={() => activateItem(updatedItem.item_on_sale)}>

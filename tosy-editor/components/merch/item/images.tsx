@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
 import { useUpdatedItem, useSetUpdatedItem } from "../../context/updatedItemContext"
+import getSelectedImage from "../../hooks/functions/getSelectedImage";
 
 
 
-const Images = ({item}) => {
+const Images = () => {
     const selectedItem = useSelectedItem();
     const setSelectedItem = useSetSelectedItem();
 
@@ -100,20 +101,15 @@ const Images = ({item}) => {
             setPrevImageBorder(selectedImage)
             return tempArray
         })
+        setSelectedItem(prev => {return {...prev, "selected_image": getSelectedImage(selectedItem.images, selectedImage)}})
     }, [selectedImage])
 
-    function getMainImage() {
-        try {
-            return selectedItem.images[selectedImage].src
-        } catch (error) {
-            return ""
-        }
-    }
+    
     
     return (    
     
         <div className="images">
-            <img className="main-image" src={getMainImage()}/>
+            <img className="main-image" src={getSelectedImage(selectedItem.images, selectedImage)}/>
             <div className="extra-images">
                 {selectedItem.images.map((image,index) => (
                     <div className='extra-image-container' title={image.active?"Image is active":"Image is hidden"} key={"image"+index}>
@@ -129,8 +125,8 @@ const Images = ({item}) => {
                 ))}
             </div>
             <div className="image-controls">
-                <h4 className={`img-btn`} onClick={() => hideOrShowImage()}>Hide/Show</h4>
-                <h4 className={`img-btn`} onClick={() => deletePopup()}>Delete</h4>
+                <h4 className='img-btn' onClick={() => hideOrShowImage()}>Hide/Show</h4>
+                <h4 className='img-btn' onClick={() => deletePopup()}>Delete</h4>
                     <div className={`warning-popup-bg ${warningPopupCSS}`}>
                         <div className={`warning-popup`}>
                             Are you sure you wish to delete<br/>the image?<br/> - <br/>(Permanent if saved) 
@@ -144,7 +140,7 @@ const Images = ({item}) => {
                     </div>
                 <input className={`img-link`} placeholder="Enter a Link" type="text" >
                 </input>
-                <h4 className={`img-btn`} onClick={() => addImage()}>Add</h4>
+                <h4 className='img-btn' onClick={() => addImage()}>Add</h4>
             </div>
         </div>
 

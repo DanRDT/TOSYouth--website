@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
+import getSelectedImage from "../../hooks/functions/getSelectedImage";
 
 const Colors = ({item}) => {
     const selectedItem = useSelectedItem(); 
@@ -15,10 +16,10 @@ const Colors = ({item}) => {
         item.color_variants[index].sizes.map((variant)=>{
             sizes.push(variant.size)
         })
-        const images = []
-        item.color_variants[index].images.map((image)=>{
-            images.push(image)
-        })
+        const images = item.color_variants[index].images
+        // item.color_variants[index].images.map((image)=>{
+        //     images.push(image)
+        // })
 
         // update the selected item color
         // this also updates the sizes and images connected to that color 
@@ -27,7 +28,7 @@ const Colors = ({item}) => {
                 "color": color,
                 "color_index": index,
                 "sizes": sizes,
-                "image": images[0],
+                "selected_image": getSelectedImage(images, 0),
                 "images": images,
                 //reset size selections
                 "size": "",
