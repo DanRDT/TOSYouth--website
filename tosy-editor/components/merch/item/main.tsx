@@ -46,6 +46,18 @@ const Item = ({item}) => {
         setUpdatedItem(item)
     }, [item]);
     
+    function activateItem(onSale) {
+        if (onSale) {
+            setUpdatedItem(prev => {
+                return {...prev, item_on_sale: false}
+            })
+        } else {
+            setUpdatedItem(prev => {
+                return {...prev, item_on_sale: true}
+            })
+        }
+    }
+
     return (
         <>      
             <section>
@@ -53,16 +65,22 @@ const Item = ({item}) => {
                 <Link href="/merch"><a className="back-arrow"><img src="/imgs/arrow-down.svg" alt="Return"/></a></Link>
                 <Images item={item}/>
                 <div className="item-info">
-                    <h3 className="title">{item.name}</h3>
-                    <h4 className="price">{`$${selectedItem.price}`}</h4>
-                    <h4 className="description">{item.description}</h4>
+                    <h3 className="title">{updatedItem.name}</h3>
+                    <h4 className="price">{`$${updatedItem.price}`}</h4>
+                    <h4 className="description">{updatedItem.description}</h4>
                     <h4 className="color-lbl">Color</h4>
                     <Colors item={item} />
                     <h4 className="size-lbl">Size</h4>
                     <Sizes item={item} pickSizePopup={pickSizePopup} />
-                    <h4 className={`save-btn ${saveLoading}`} onClick={() => saveItem()}>{saved}
-                        <div className={`loading-animation ${saveLoading}`}></div>
-                    </h4>
+                    <div className="btns-container">
+                        <h4 className="">{`Item On Sale: ${updatedItem.item_on_sale?"True":"False"}`}</h4>
+                        <h4 className={`activate-btn ${saveLoading}`} onClick={() => activateItem(updatedItem.item_on_sale)}>
+                            {updatedItem.item_on_sale?"Deactivate":"Activate"}
+                        </h4>
+                    </div>
+                        <h4 className={`save-btn ${saveLoading}`} onClick={() => saveItem()}>{saved}
+                            <div className={`loading-animation ${saveLoading}`}></div>
+                        </h4>
                     <div className="placeholder"></div>
                 </div>
             </section>

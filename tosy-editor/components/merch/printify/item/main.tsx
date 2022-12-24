@@ -14,15 +14,15 @@ const Item = ({item}) => {
     const selectedItem = useSelectedItem(); 
     const setSelectedItem = useSetSelectedItem();
 
-    const updatedItem = useUpdatedItem(); 
-    const setUpdatedItem = useSetUpdatedItem();
+    const printifyItem = useUpdatedItem(); 
+    const setPrintifyItem = useSetUpdatedItem();
 
     const [saved, setSaved] = useState("Add Item to Database");
     const [saveLoading, setSaveLoading] = useState("");
     const [pickSizePopup, setPickSizePopup] = useState("");
     
     function saveItem() {        
-        useSaveNewItem({item, updatedItem, setSaveLoading, setSaved})
+        useSaveNewItem({item, printifyItem, setSaveLoading, setSaved})
     }
    
     useEffect(() => {
@@ -43,7 +43,7 @@ const Item = ({item}) => {
             "images": item.color_variants[0].images
         })
 
-        setUpdatedItem(item)
+        setPrintifyItem(item)
     }, [item]);
     
     return (

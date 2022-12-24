@@ -1,10 +1,10 @@
 
-export default async function addItem({item, updatedItem, setSaveLoading, setSaved}) {
+export default async function addItem({item, printifyItem, setSaveLoading, setSaved}) {
 
     // add css class
     setSaveLoading("active-loading")
 
-    if (updatedItem.id != item.id) {
+    if (printifyItem.id != item.id) {
         setSaved("Input Error")
         setSaveLoading("")
         
@@ -13,12 +13,12 @@ export default async function addItem({item, updatedItem, setSaveLoading, setSav
         }, 1800);
     }
 
-    const res = fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/${updatedItem.id}`, {
+    const res = fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/${printifyItem.id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(updatedItem)
+        body: JSON.stringify(printifyItem)
     })
     .then((res) => {
         if (!res.ok) {

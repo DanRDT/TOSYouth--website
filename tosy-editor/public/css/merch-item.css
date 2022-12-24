@@ -368,17 +368,27 @@ h3 {
     transition: none;
 }
 
+.btns-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
 
-/* Add to Cart */
+
+/* Save Item */
+.save-btn {
+    margin-top: 2.5rem;
+}
 .save-btn,
-.img-btn {
+.img-btn,
+.activate-btn {
     padding: 1rem 2rem;
     background-color: var(--complementary-color);
     width: fit-content;
     color: var(--primary-color);
     cursor: pointer;
     transition: background 0.2s;
-    margin-top: 2.5rem;
     position: relative;
 }
 .img-btn {
