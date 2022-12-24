@@ -15,7 +15,7 @@ const Images = ({item}) => {
     const [prevImageBorder, setPrevImageBorder] = useState(0)
     const [selectedImageBorder, setSelectedImageBorder] = useState(["selected"])
     
-    const [warningActiveCSS, setWarningActiveCSS] = useState('active')
+    const [warningPopupCSS, setWarningPopupCSS] = useState('')
 
     function addImage() {
         const imageLink = (document.querySelector('.img-link') as HTMLInputElement).value;
@@ -31,14 +31,19 @@ const Images = ({item}) => {
 
     }
 
-    function deleteImage() {
+    function deletePopup() {
         // warning popup
-        const body = document.querySelector('body')
-        body.style.overflowY = "hidden"
-        body.style.overflowY = "visible" 
+        document.querySelector('body').style.overflowY = "hidden"
+        setWarningPopupCSS('active')
 
+    }
 
+    function deleteImage(confirmedDelete) {
+        // clear popup
+        document.querySelector('body').style.overflowY = "visible"
+        setWarningPopupCSS('')
 
+        if (!confirmedDelete) return
 
         // delete image
         updatedItem.color_variants.map((variant, i)=>{
@@ -126,13 +131,15 @@ const Images = ({item}) => {
             </div>
             <div className="image-controls">
                 <h4 className={`img-btn`} onClick={() => hideOrShowImage()}>Hide/Show</h4>
-                <h4 className={`img-btn`} onClick={() => deleteImage()}>Delete</h4>
-                    <div className={`warning-popup-bg ${warningActiveCSS}`}>
+                <h4 className={`img-btn`} onClick={() => deletePopup()}>Delete</h4>
+                    <div className={`warning-popup-bg ${warningPopupCSS}`}>
                         <div className={`warning-popup`}>
-                            Are you sure you wish to delete the image? 
+                            Are you sure you wish to delete<br/>the image?<br/> - <br/>(Permanent if saved) 
                             <div className='warning-popup-btns'>
-                                <div className='warning-popup-btn'>Delete</div>
-                                <div className='warning-popup-btn'>Cancel</div>
+                                <div className='warning-popup-btn' 
+                                onClick={() => deleteImage(true)}>Delete</div>
+                                <div className='warning-popup-btn'
+                                onClick={() => deleteImage(false)}>Cancel</div>
                             </div>
                         </div>
                     </div>
