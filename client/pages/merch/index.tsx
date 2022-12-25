@@ -4,7 +4,7 @@ import LatestItems from '../../components/merch/latestItems'
 
 export async function getStaticProps() {
     const itemsRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/items`)
-    const mostWantedRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/most-wanted`)
+    const mostWantedRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/most-wanted`)
     
     return {
         props: {
@@ -16,7 +16,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({items, mostWanted}) {
-
+    
   return (
     <>    
         <link rel="stylesheet" type="text/css" href="/css/merch.css" key="merch-css"/>
@@ -42,13 +42,13 @@ export default function Home({items, mostWanted}) {
                         <div className='most-wanted-heading' data-appear-on-scroll="false">
                             <h2>The Most</h2>
                             <h1>WANTED</h1>
-                            <Link href={`/merch/items/${mostWanted.id}`}><a className='shop-now-button'>Take a Look</a></Link>
+                            <Link href={`/merch/items/${mostWanted.item_id}`}><a className='shop-now-button'>Take a Look</a></Link>
                         </div>
                         <div className='most-wanted-imgs' data-appear-on-scroll="false">
                             <div className='most-wanted-short-img' 
-                                style={{backgroundImage: `url(${mostWanted.mostWanted.shortImage})`}}></div>
+                                style={{backgroundImage: `url(${mostWanted.short_image})`}}></div>
                             <div className='most-wanted-tall-img' 
-                                style={{backgroundImage: `url(${mostWanted.mostWanted.tallImage})`}}></div>
+                                style={{backgroundImage: `url(${mostWanted.tall_image})`}}></div>
                         </div>
                     </div>
                 </section>
