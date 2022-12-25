@@ -1,5 +1,5 @@
 
-export default async function addItem({item, printifyItem, setSaveLoading, setSaved}) {
+export default async function addNewItem({item, printifyItem, setSaveLoading, setSaved}) {
 
     // add css class
     setSaveLoading("active-loading")

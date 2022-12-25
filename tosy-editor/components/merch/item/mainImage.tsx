@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useSelectedItem } from "../../context/itemContext"
 import { useUpdatedItem, useSetUpdatedItem } from "../../context/updatedItemContext"
 
@@ -10,8 +9,6 @@ const MainImage = () => {
     const selectedItem = useSelectedItem();
 
     function setMainImage() {
-        console.log(selectedItem.selected_image);
-        
         setUpdatedItem(prev => {
             return {...prev, "main_image": selectedItem.selected_image}
         })

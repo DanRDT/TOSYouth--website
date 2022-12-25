@@ -8,6 +8,7 @@ import useSaveItem from "../../hooks/useSaveItem";
 import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
 import { useUpdatedItem, useSetUpdatedItem } from "../../context/updatedItemContext"
 import MainImage from "./mainImage";
+import useDeleteItem from "../../hooks/useDeleteItem";
 
 
 const Item = ({item}) => {
@@ -20,6 +21,10 @@ const Item = ({item}) => {
 
     const [saved, setSaved] = useState("Save");
     const [saveLoading, setSaveLoading] = useState("");
+    
+    const [deleteItem, setDeleteItem] = useState("Delete");
+    const [deleteLoading, setDeleteLoading] = useState("");
+    
     const [pickSizePopup, setPickSizePopup] = useState("");
     
     function saveItem() {        
@@ -74,16 +79,21 @@ const Item = ({item}) => {
                     <h4 className="size-lbl">Size</h4>
                     <Sizes item={item} pickSizePopup={pickSizePopup} />
                     <h4 className="main-img-lbl">Main Image</h4>
-                    <MainImage />
-                    <div className="btns-container">
+                    <MainImage/>
+                    <div className="item-on-sale-container">
                         <h4 className="">{`Item On Sale: ${updatedItem.item_on_sale?"True":"False"}`}</h4>
                         <h4 className={`activate-btn ${saveLoading}`} onClick={() => activateItem(updatedItem.item_on_sale)}>
                             {updatedItem.item_on_sale?"Deactivate":"Activate"}
                         </h4>
                     </div>
+                    <div className="btns-container">
                         <h4 className={`save-btn ${saveLoading}`} onClick={() => saveItem()}>{saved}
                             <div className={`loading-animation ${saveLoading}`}></div>
                         </h4>
+                        <h4 className={`delete-btn ${deleteLoading}`} onClick={() => useDeleteItem({updatedItem, setDeleteLoading, setDeleteItem})}>{deleteItem}
+                            <div className={`loading-animation ${deleteLoading}`}></div>
+                        </h4>
+                    </div>
                     <div className="placeholder"></div>
                 </div>
             </section>

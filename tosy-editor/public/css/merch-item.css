@@ -225,8 +225,7 @@ h3 {
 .color-lbl,
 .size-lbl,
 .main-img-lbl,
-.quantity-lbl,
-.save-btn {
+.quantity-lbl {
     margin-top: 1.5rem;
 }
 
@@ -376,21 +375,29 @@ h3 {
     transition: none;
 }
 
-.btns-container {
+.item-on-sale-container {
     display: flex;
     align-items: center;
     gap: 2rem;
     margin-top: 1rem;
 }
-
+.btns-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    width: 100%;
+}
 
 /* Save Item */
-.save-btn {
-    margin-top: 2.5rem;
+.save-btn,
+.delete-btn {
+    margin-top: 1.5rem;
 }
 .save-btn,
 .img-btn,
-.activate-btn {
+.activate-btn,
+.delete-btn {
     padding: 1rem 2rem;
     background-color: var(--complementary-color);
     width: fit-content;
@@ -404,7 +411,9 @@ h3 {
 }
 
 .save-btn:hover,
-.img-btn:hover {
+.img-btn:hover,
+.activate-btn:hover,
+.delete-btn:hover {
     background-color: var(--complementary-color-darker);
 }
 .img-link {
@@ -414,7 +423,8 @@ h3 {
     position: relative;
 }
 
-.save-btn.active-loading {
+.save-btn.active-loading,
+.delete-btn.active-loading {
     color: transparent;
     pointer-events: none;
 }
@@ -469,7 +479,10 @@ h3 {
         width: auto;
         height: 100%;
     }
-    .save-btn {
+    /* .save-btn {
+        align-self: center;
+    } */
+    .item-info {
         align-self: center;
     }
     .title {
@@ -479,6 +492,9 @@ h3 {
     h3,
     h4 {
         max-width: clamp( 20rem, 77vw, 25rem);
+    }
+    .btns-container {
+        justify-content: center;
     }
 }
 @media (max-width: 420px) {

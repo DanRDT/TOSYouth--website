@@ -1,24 +1,11 @@
 
-export default async function addItem({item, updatedItem, setSaveLoading, setSaved}) {
+export default async function deleteItem({updatedItem, setDeleteLoading, setDeleteItem}) {
 
     // add css class
-    setSaveLoading("active-loading")
-
-    if (updatedItem.id != item.id) {
-        setSaved("Input Error")
-        setSaveLoading("")
-        
-        setTimeout(() => {
-            setSaved("Save")
-        }, 1800);
-    }
+    setDeleteLoading("active-loading")
 
     const res = fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/${updatedItem.id}`, {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(updatedItem)
+        method: 'DELETE'
     })
     .then((res) => {
         if (!res.ok) {
@@ -26,25 +13,30 @@ export default async function addItem({item, updatedItem, setSaveLoading, setSav
         }
         return res.json();
     })
+    .then((res) => {
+        console.log(res);
+    })
     .then(()=>{
         //clear loading animation
         setTimeout(() => {
-            setSaved("Saved")
-            setSaveLoading("")
+            setDeleteItem("Deleted")
+            setDeleteLoading("")
         }, 300);
+    })
+    .then(()=>{
         setTimeout(() => {
-            setSaved("Save")
-        }, 1800);
+            window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/merch`;
+        }, 1000);
     })
     .catch((error) => {
         console.error('There has been a problem with the server request ~', error);
         //clear loading animation
         setTimeout(() => {
-            setSaved("Server Error")
-            setSaveLoading("")
+            setDeleteItem("Server Error")
+            setDeleteLoading("")
         }, 300);
         setTimeout(() => {
-            setSaved("Save")
+            setDeleteItem("Delete")
         }, 1800);
     });
         

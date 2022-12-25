@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     
     
     if (req.method === "GET") {
-        const result = await Item.findOne({id: id})
+        const result = await Item.findOne({"id": id})
         return res.status(200).json(result)
     } 
     
@@ -24,8 +24,8 @@ export default async function handler(req, res) {
         
         // TODO: insert check conditions
 
-        await Item.replaceOne({id: id}, updatedItem)
-        const result = await Item.findOne({id: id})
+        await Item.replaceOne({"id": id}, updatedItem)
+        // const result = await Item.findOne({"id": id})
         // return res.status(200).json(result)
         return res.status(200).json({"success": true, "message": "Item updated"})
     } 
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
 
         const newItem = req.body
         
-        const result = await Item.findOne({id: newItem.id})
+        const result = await Item.findOne({"id": newItem.id})
         if (result != null) {
             return res.status(250).json({"success": false, "message": "Item already exists in database"})
         }
@@ -45,6 +45,13 @@ export default async function handler(req, res) {
 
         await Item.create(newItem)
         return res.status(201).json({"success": true, "message": "Item added"})
+    } 
+    
+    else if (req.method === "DELETE") {
+        // TODO: insert auth
+
+        await Item.deleteMany({"id": id})
+        return res.status(201).json({"success": true, "message": "Item deleted"})
     }
     
 }
