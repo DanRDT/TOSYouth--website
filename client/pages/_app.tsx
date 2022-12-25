@@ -3,14 +3,15 @@ import type { AppProps } from 'next/app'
 import Header from "../components/global/header";
 import Footer from "../components/global/footer";
 import React from 'react';
-import Scripts from '../components/global/scripts';
+import useScripts from '../components/global/scripts';
 import { CartProvider } from "../components/context/cartContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useScripts({pageProps});
+
   return (
     <>
       <React.StrictMode>
-        <Scripts/>
         <CartProvider>
           <Header/>
           <Component {...pageProps} />

@@ -399,6 +399,7 @@ h3 {
     }
     .extra-images {
         flex-direction: row;
+        align-self: center;
     }
 
     .item-info {
