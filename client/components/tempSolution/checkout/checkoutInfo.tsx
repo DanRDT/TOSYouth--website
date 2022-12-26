@@ -8,14 +8,10 @@ import Summary from "./summary";
 
 const CheckoutInfo = () => {
     const [shippingInfo, setShippingInfo] = useState({
-        "name": '',
+        "first_name": '',
+        "last_name": '',
         "email": '',
-        "phone": '',
-        "address": '',
-        "unit": '',
-        "zip": '',
-        "city": '',
-        "state": ''
+        "phone": ''
     });
     
     const [checkoutInfoValidCss, setCheckoutInfoValidCss] = useState({
@@ -37,7 +33,7 @@ const CheckoutInfo = () => {
     }
 
     useEffect(() => {
-        checkForCheckoutInfo();
+        checkForCheckoutInfo()
         // set checkout info to saved info
         const shippingLocal = getCheckoutInfo("shipping");
         setShippingInfo(shippingLocal)
@@ -59,7 +55,7 @@ const CheckoutInfo = () => {
               </a></Link>
             </div>
             <div className="separation-line full-length"></div>
-            <h3 className="info-lbl">Shipping Information</h3>
+            <h3 className="info-lbl">Customer Details</h3>
             
             <ShippingInfo 
                 shippingInfo={shippingInfo} setShippingInfo={setShippingInfo}

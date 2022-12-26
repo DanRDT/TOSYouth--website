@@ -29,6 +29,7 @@ export default function useClearRequiredPopup(input :string, inputType :string, 
         case "address":
         case "city":
         case "state":
+        case "normal":
             if (regExNormal.test(input)) {
                 removeRequiredPopup(key, setCss)
             } break;

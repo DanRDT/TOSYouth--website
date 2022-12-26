@@ -1,13 +1,13 @@
+import { useEffect } from 'react'
 import Meta from '../../components/global/meta'
 import checkForCheckoutInfo from '../../components/hooks/functions/checkForCheckoutInfo'
-import CheckoutInfo from '../../components/merch/checkout/checkoutInfo'
-import { useEffect } from 'react'
+
+// read the readme.md file in '/components/tempSolution' for more info
+// import CheckoutInfo from '../../components/merch/checkout/checkoutInfo'
+import CheckoutInfo from '../../components/tempSolution/checkout/checkoutInfo'
+
 
 export default function Home() {
-
-  useEffect(() => {
-    checkForCheckoutInfo();
-  }, []);
   
   return (
     <>    

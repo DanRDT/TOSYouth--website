@@ -6,14 +6,10 @@ function setEmpty(): void {
     localStorage.setItem("CheckoutInfo", JSON.stringify(
     { 
         "shippingInfo": {
-            "name": '',
+            "first_name": '',
+            "last_name": '',
             "email": '',
-            "phone": '',
-            "address": '',
-            "unit": '',
-            "zip": '',
-            "city": '',
-            "state": ''
+            "phone": ''
         }
     }))
 }
