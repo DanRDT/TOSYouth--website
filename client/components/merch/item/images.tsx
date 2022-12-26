@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useSelectedItem } from "../../context/itemContext"
+import getSelectedImage from "../../hooks/functions/getSelectedImage";
 
 
 const Images = ({item}) => {
@@ -21,17 +22,11 @@ const Images = ({item}) => {
         })
     }, [selectedImage])
 
-    function getSelectedImage() {
-        try {
-            return selectedItem.images[selectedImage].src
-        } catch (error) {
-            return ""
-        }
-    }
+    
     
     return (    
         <div className="images">
-            <img className="main-image" src={getSelectedImage()}/>
+            <img className="main-image" src={getSelectedImage(selectedItem.images, selectedImage)}/>
             <div className="extra-images">
                 {selectedItem.images.map((image,index) => (
                     <img

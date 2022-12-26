@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
+import getSelectedImage from "../../hooks/functions/getSelectedImage";
 
 const Colors = ({item}) => {
     const selectedItem = useSelectedItem(); 
@@ -27,7 +28,7 @@ const Colors = ({item}) => {
                 "color": color,
                 "color_index": index,
                 "sizes": sizes,
-                "image": images[0].src,
+                "image": getSelectedImage(images, 0),
                 "images": images,
                 //reset size selections
                 "size": "",
