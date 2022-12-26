@@ -12,28 +12,27 @@ export default async function handler(req, res) {
 
         const latestItemsIDs = await collection.findOne({ "id": "latest-items"})
 
-        console.log(latestItemsIDs);
-        
+        const urls = latestItemsIDs.latest_items
+
         let result = [];
 
-        await latestItemsIDs.latest_items.slice(-4).map((id) => {
-            const latestItemRes = fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/${id}`)
-                .then((res)=>{
-                    result.push(res.json())
+        await Promise.all(urls.slice(-4).map(url =>
+            fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/${url}`)
+              .then((res) => {
+                return res.json()
+              })
+              .then((item)=>{
+                result.push({
+                    "id": item.id,
+                    "name": item.name,
+                    "price": item.price,
+                    "main_image": item.main_image,
                 })
-                
-        })
-        
-        // latestItemsIDs.latest_items.slice(-4).map((id) => {
-        //     const merch = db.collection("Merch")
-        //     const item = merch.findOne({"id": id})
-        //     result.push(item)
-        //     console.log(item)
-        // })
+              })
+              .catch(e => console.log(e))
+        ))
 
-        console.log(result);
-        
-        
+        res.status(200).json(result)
         
     } catch (error) {
         console.error(error)
