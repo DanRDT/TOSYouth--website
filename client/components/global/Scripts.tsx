@@ -6,21 +6,46 @@ const useScripts = ({pageProps}) => {
         const navigationButton = document.querySelector('#menu-button')
         const navigation = document.querySelector('nav')
 
-        function handleClick() {
+        const handleClick = () => {
             const visibility = navigation.getAttribute('data-visible')
             if (visibility === "false") {
                 navigation.setAttribute("data-visible", "true")
                 navigationButton.setAttribute("data-active", "true")
+                document.querySelector('body').style.overflowY = "hidden"
             }
             else if (visibility === "true") {
                 navigation.setAttribute("data-visible", "false")
                 navigationButton.setAttribute("data-active", "false")
+                document.querySelector('body').style.overflowY = "visible"
             }
         }
-        
+
         navigationButton.addEventListener('click', handleClick)
         
-        return ()=> navigationButton.removeEventListener('click', handleClick)
+        
+        const handleRoutingClick = () => {
+            navigation.setAttribute("data-visible", "false")
+            navigationButton.setAttribute("data-active", "false")
+            document.querySelector('body').style.overflowY = "visible"
+        }
+
+        const headerLinks = document.querySelectorAll('.header-link')
+
+        headerLinks.forEach((headerLink) => {
+            headerLink.addEventListener('click', handleRoutingClick)
+        })
+        
+        
+        navigationButton.addEventListener('click', handleClick)
+
+        return () => {
+            navigationButton.removeEventListener('click', handleClick)
+
+            headerLinks.forEach((headerLink) => {
+                headerLink.removeEventListener('click', handleRoutingClick)
+            })
+        }
+
     }, [])
 
 

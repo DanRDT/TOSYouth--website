@@ -1,14 +1,14 @@
 import Link from "next/link";
 
-const LatestItems = ({items}) => {
+const LatestItems = ({latest_items}) => {
     
     // display 4 latest items
     return (
         <>
-        {items.slice(-4).map((item) => (
+        {latest_items.map((item) => (
             <Link href={`/merch/items/${item.id}`} key={item.id}><a className='merch-item' data-appear-on-scroll="false" data-appear-on-scroll-delay="true">
                 <div className='item-img'>
-                    <img src={item.image} alt=""/>
+                    <img src={item.main_image} alt=""/>
                 </div>
                 <h3>{item.name}</h3>
                 <h4>${item.price}</h4>

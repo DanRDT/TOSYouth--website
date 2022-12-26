@@ -3,19 +3,19 @@ import Meta from '../../components/global/meta'
 import LatestItems from '../../components/merch/latestItems'
 
 export async function getStaticProps() {
-    const itemsRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/items`)
+    const itemsRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/latest-items`)
     const mostWantedRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/most-wanted`)
     
     return {
         props: {
-            items: await itemsRes.json(),
+            latest_items: await itemsRes.json(),
             mostWanted: await mostWantedRes.json(),
         },
         revalidate: Number(process.env.REVALIDATE),
     }
 }
 
-export default function Home({items, mostWanted}) {
+export default function Home({latest_items, mostWanted}) {
     
   return (
     <>    
@@ -34,7 +34,7 @@ export default function Home({items, mostWanted}) {
                 <section id="section2">
                     <div className='subheading'>THE LATEST</div>
                     <div className='latest-items'>
-                        <LatestItems items={items}/>
+                        <LatestItems latest_items={latest_items}/>
                     </div>
                 </section>
                 <section id="section3">

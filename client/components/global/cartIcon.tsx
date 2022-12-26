@@ -31,7 +31,7 @@ const Header = () => {
 
     return (
         <Link href="/merch/cart">
-            <a className={`shopping-cart ${emptyCartCss}`}>
+            <a className={`shopping-cart ${emptyCartCss} header-link`}>
                 <svg viewBox="0 0 397 356" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M359.5 322C359.778 303.086 344.416 287.638 325.5 287.5C306.447 287.361 290.72 302.948 291 322C291.276 340.778 306.721 355.637 325.5 355.5C344.14 355.364 359.226 340.638 359.5 322Z" fill="black"/>
                     <path d="M213 322C213.278 303.086 197.916 287.638 179 287.5C159.947 287.361 144.22 302.948 144.5 322C144.776 340.778 160.221 355.637 179 355.5C197.64 355.364 212.726 340.638 213 322Z" fill="black"/>

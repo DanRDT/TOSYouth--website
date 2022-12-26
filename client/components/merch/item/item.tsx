@@ -39,7 +39,7 @@ const Item = ({item}) => {
             "price": item.price,
             "color": item.color_variants[0].color,
             "sizes": sizes,
-            "image": item.color_variants[0].images[0],
+            "image": item.color_variants[0].images[0].src,
             "images": item.color_variants[0].images
         })
     }, [item]);

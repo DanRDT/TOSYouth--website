@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
+import { useSelectedItem } from "../../context/itemContext"
 
 
 const Images = ({item}) => {
@@ -21,16 +21,23 @@ const Images = ({item}) => {
         })
     }, [selectedImage])
 
+    function getSelectedImage() {
+        try {
+            return selectedItem.images[selectedImage].src
+        } catch (error) {
+            return ""
+        }
+    }
     
     return (    
         <div className="images">
-            <img className="main-image" src={selectedItem.images[selectedImage]}/>
+            <img className="main-image" src={getSelectedImage()}/>
             <div className="extra-images">
                 {selectedItem.images.map((image,index) => (
                     <img
                         key={"image"+index}
                         className={`extra-image ${selectedImageBorder[index]}`}
-                        src={image}
+                        src={image.src}
                         onClick={() => {
                             setSelectedImage(index)
                         }}

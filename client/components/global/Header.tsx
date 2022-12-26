@@ -15,10 +15,10 @@ const Header = () => {
                 <div className="menu-button-line"></div>
             </div>
             <nav className="header-nav" data-visible="false">
-                <Link href="/"><a className="nav-link">Home</a></Link>
-                <Link href="/about-us"><a className="nav-link">About Us</a></Link>
-                <Link href="/events"><a className="nav-link">Events</a></Link>
-                <Link href="/merch"><a className="nav-link">Merch</a></Link>
+                <Link href="/"><a className="nav-link header-link">Home</a></Link>
+                <Link href="/about-us"><a className="nav-link header-link">About Us</a></Link>
+                <Link href="/events"><a className="nav-link header-link">Events</a></Link>
+                <Link href="/merch"><a className="nav-link header-link">Merch</a></Link>
                 <CartIcon/>
             </nav>
         </header>

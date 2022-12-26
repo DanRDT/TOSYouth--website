@@ -27,7 +27,7 @@ const Colors = ({item}) => {
                 "color": color,
                 "color_index": index,
                 "sizes": sizes,
-                "image": images[0],
+                "image": images[0].src,
                 "images": images,
                 //reset size selections
                 "size": "",
