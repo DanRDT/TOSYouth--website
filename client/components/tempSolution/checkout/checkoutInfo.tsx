@@ -8,8 +8,8 @@ import Summary from "./summary";
 
 const CheckoutInfo = () => {
     const [shippingInfo, setShippingInfo] = useState({
-        "first_name": '',
-        "last_name": '',
+        "firstName": '',
+        "lastName": '',
         "email": '',
         "phone": ''
     });

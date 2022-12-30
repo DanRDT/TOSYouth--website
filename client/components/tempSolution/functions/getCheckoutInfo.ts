@@ -5,14 +5,10 @@ export default function getCheckoutInfo(info: string) {
     } else {
         console.error("Checkout Object "+info+" not found");
         return {
-            "name": '',
+            "firstName": '',
+            "lastName": '',
             "email": '',
-            "phone": '',
-            "address": '',
-            "unit": '',
-            "zip": '',
-            "city": '',
-            "state": ''
+            "phone": ''
         }
     }
 }

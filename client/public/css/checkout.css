@@ -307,3 +307,36 @@ p {
     transform: translateX(50%) scale(0.9);
     pointer-events: none;
 }
+.pay-btn.active-loading{
+    pointer-events: none;
+}
+.pay-btn.active-loading h4 {
+    opacity: 0;
+}
+
+.loading-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 0.6rem;
+    border-radius: 50px;
+    border: 0.3rem solid transparent;
+    border-top: 0.3rem solid var(--primary-color);
+    border-bottom: 0.3rem solid var(--primary-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0s;
+  }
+  .loading-animation.active-loading {
+    opacity: 1;
+    animation: loading-submit 1.3s linear infinite;
+  }
+
+@keyframes loading-submit {
+    0%{
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+}

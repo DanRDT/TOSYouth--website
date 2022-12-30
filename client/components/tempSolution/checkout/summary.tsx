@@ -11,6 +11,7 @@ const Summary = ({shippingInfo, setCheckoutInfoValidCss}) => {
     const [subtotal, setSubtotal] = useState('')
     const [tax, setTax] = useState('')
     const [total, setTotal] = useState('')
+    const [placeOrderLoading, setPlaceOrderLoading] = useState('');
 
     useEffect(() => {
         checkForShoppingCart();
@@ -40,11 +41,53 @@ const Summary = ({shippingInfo, setCheckoutInfoValidCss}) => {
             checkoutInfoValid += checkIfValid(shippingInfo[key], key, "shipping", setCheckoutInfoValidCss)
         })
 
-        //if fields are valid redirect to stripe
+        //if fields are valid then redirect 
         if (checkoutInfoValid == 0) {
             //add correct redirect to stripe 
             //use api to check input validity in backend
-            window.location.assign('//stripe.com');
+            // window.location.assign('//stripe.com');
+
+            setPlaceOrderLoading('active-loading')
+
+            fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/orders/email-order`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "id": `${crypto.randomUUID()}`,
+                    "items": cart,
+                    "totals": {
+                        "total": subtotal
+                    },
+                    "customer_info": {
+                        "first_name": shippingInfo.firstName,
+                        "last_name": shippingInfo.lastName,
+                        "email": shippingInfo.email,
+                        "phone": shippingInfo.phone
+                    }
+                })
+            })
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error(`${res.statusText} ~ Network code: ${res.status} \n ${res.body}`);
+                }
+                return res.json();
+            })
+            .then((res)=>{
+                if (res.status == "success") {
+                    window.location.assign(`${process.env.NEXT_PUBLIC_BASE_URL}/merch/checkout/confirmed`);
+                } else {
+                    window.location.assign(`${process.env.NEXT_PUBLIC_BASE_URL}/merch/checkout/denied`);
+                }
+                
+            })
+            .catch((error) => {
+                console.error('There has been a problem with the server request ~', error);
+                window.location.assign(`${process.env.NEXT_PUBLIC_BASE_URL}/merch/checkout/denied`);
+            })
+
+
         } else {
             // add not valid css class
             setInfoValidPayBtnCss("checkout-info-not-valid")
@@ -63,14 +106,15 @@ const Summary = ({shippingInfo, setCheckoutInfoValidCss}) => {
                 <h4 className="shipping">Shipping: <span className="rgt-item"> Free </span>
                 </h4>
                 <p>Estimated Delivery: 5-7 business days</p>
-                <h4 className="tax">Tax: <span className="rgt-item">{tax}</span></h4>
-                <h4 className="total">Total: <span className="rgt-item">{total}</span></h4>
-                <a className={`pay-btn ${infoValidPayBtnCss}`} 
+                {/* <h4 className="tax">Tax: <span className="rgt-item">{tax}</span></h4> */}
+                <h4 className="total">Total: <span className="rgt-item">{subtotal}</span></h4>
+                <a className={`pay-btn ${infoValidPayBtnCss} ${placeOrderLoading}`} 
                     onClick={() => {
                         setLocalCheckoutInfo(shippingInfo)
                         checkCheckoutInfo() 
                     }}>
-                    <h4>Proceed to Payment</h4>
+                    <h4>Place Order</h4>
+                    <div className={`loading-animation ${placeOrderLoading}`}></div>
                 </a>
             </section>
         </>

@@ -26,11 +26,6 @@ export default function checkIfValid(input: string, inputType: string, shippingO
                 checkoutInfoValid = false
                 addRequiredPopup(key, setCss)
             } break;
-        case "zip":
-            if (!regExZip.test(input)) {
-                checkoutInfoValid = false
-                addRequiredPopup(key, setCss)
-            } break;
         case "firstName":
         case "lastName":
             if (!regExNormal.test(input)) {

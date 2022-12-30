@@ -1,6 +1,6 @@
 export default getHTML;
 
-
+// fix name and id
 function getHTML(orderReq): String {
     let html = "";
     
