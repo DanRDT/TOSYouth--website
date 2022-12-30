@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import setPhoneNumberValue from "../../hooks/functions/setPhoneNumberValue"
-import useClearRequiredPopup from "../../hooks/useClearRequiredPopup"
+import useClearRequiredPopup from "../functions/useClearRequiredPopup"
 
 const ShippingInfo = ({shippingInfo, setShippingInfo, checkoutInfoValidCss, setCheckoutInfoValidCss}) => {
     
@@ -19,15 +19,15 @@ const ShippingInfo = ({shippingInfo, setShippingInfo, checkoutInfoValidCss, setC
     return (
         <>      
             <section className="shipping-info">
-                <h4 className={checkoutInfoValidCss.shippingName}>First Name
+                <h4 className={checkoutInfoValidCss.shippingFirstName}>First Name
                 <input className="info-input" type="text" name="name" placeholder="..." required
-                    defaultValue={shippingInfo.first_name}
-                    onChange={(e) => {changeShippingInfo(e, "normal")}}
+                    defaultValue={shippingInfo.firstName}
+                    onChange={(e) => {changeShippingInfo(e, "firstName")}}
                 /></h4>
-                <h4 className={checkoutInfoValidCss.shippingName}>Last Name
+                <h4 className={checkoutInfoValidCss.shippingLastName}>Last Name
                 <input className="info-input" type="text" name="name" placeholder="..." required
-                    defaultValue={shippingInfo.last_name}
-                    onChange={(e) => {changeShippingInfo(e, "normal")}}
+                    defaultValue={shippingInfo.lastName}
+                    onChange={(e) => {changeShippingInfo(e, "lastName")}}
                 /></h4>
                 <h4 className={checkoutInfoValidCss.shippingEmail}>Email
                 <input className="info-input" type="email" name="email" placeholder="..." required

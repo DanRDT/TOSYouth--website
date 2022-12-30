@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import checkForShoppingCart from "../../hooks/functions/checkForShoppingCart"
 import getCart from "../../hooks/functions/getCart"
 import setLocalCheckoutInfo from "../functions/setLocalCheckoutInfo"
-import checkIfValid from "../../hooks/useCheckIfValid"
+import checkIfValid from "../functions/useCheckIfValid"
 
 const Summary = ({shippingInfo, setCheckoutInfoValidCss}) => {
     const [infoValidPayBtnCss, setInfoValidPayBtnCss] = useState('')
@@ -33,7 +33,7 @@ const Summary = ({shippingInfo, setCheckoutInfoValidCss}) => {
         //check if fields are valid
         let checkoutInfoValid: number = 0;
         
-        const shipping = ["name", "email", "address", "phone", "zip", "city", "state"]
+        const shipping = ["firstName", "lastName", "email", "phone"]
         
         //loop thru each value, if invalid add 1
         shipping.map((key) => {

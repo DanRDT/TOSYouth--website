@@ -101,7 +101,7 @@ select {
     pointer-events: none;
     color: #e92c38;
 }
-.shipping-info h4.required:nth-child(1):after,
+/* .shipping-info h4.required:nth-child(1):after,
 .billing-info h4.required:nth-child(1)::after {
     content: "First and last name required";
 }
@@ -128,7 +128,22 @@ select {
 .shipping-info h4.required:nth-child(8):after,
 .billing-info h4.required:nth-child(8)::after {
     content: "State required";
+} */
+
+.shipping-info h4.required:nth-child(1):after {
+    content: "First name required";
 }
+.shipping-info h4.required:nth-child(2):after {
+    content: "Last name required";
+}
+.shipping-info h4.required:nth-child(3):after {
+    content: "Valid email address required";
+}
+.shipping-info h4.required:nth-child(4):after {
+    content: "Phone number required";
+}
+
+
 
 .shipping-info h4 input,
 .billing-info h4 input {

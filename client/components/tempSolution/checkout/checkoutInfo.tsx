@@ -15,18 +15,16 @@ const CheckoutInfo = () => {
     });
     
     const [checkoutInfoValidCss, setCheckoutInfoValidCss] = useState({
-        "shippingName": '',
+        "shippingFirstName": '',
+        "shippingLastName": '',
         "shippingEmail": '',
-        "shippingPhone": '',
-        "shippingAddress": '',
-        "shippingZip": '',
-        "shippingCity": '',
-        "shippingState": ''
+        "shippingPhone": ''
     });
 
     const updateLocalOnRedirect = (e) => {
         // set local storage if user navigates to another page
-        if (e.target.className != "nav-link") {
+        const regEx = /nav-link/
+        if (!regEx.test(e.target.className)) {
             return
         }
         setLocalCheckoutInfo(shippingInfo)

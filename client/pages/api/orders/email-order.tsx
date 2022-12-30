@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer'
+import getHTML from '../../../components/tempSolution/functions/getHTML'
 
 export default async function handler(req, res) {  
     
@@ -13,39 +14,45 @@ export default async function handler(req, res) {
         }
     })
 
-    const orderDetails = 
-`
-<div> 
-    <a href="${process.env.NEXT_PUBLIC_BASE_URL}/merch/items/${orderReq.quantity}" style="color: #000;text-decoration: none;">
-        <h4 >${orderReq.name}</h4>
-    </a>
-    <p>$${orderReq.price}</p>
-    <p >Size: ${orderReq.size}</p>
-    <p >Color: ${orderReq.color}</p>
-    <p >Quantity: ${orderReq.quantity}</p>
-</div>
-`
-    
+    const orderDetails = getHTML(orderReq)
 
 
-    const options = {
-        "from": process.env.EMAIL_USERNAME,
-        "to": process.env.TEST_EMAIL_RECIPIENT,
-        "subject": `Order: ${orderReq.id}`,
+    const internalEmail = {
+        "from": `TOSY Youth <${process.env.EMAIL_USERNAME}>`,
+        "to": process.env.EMAIL_USERNAME,
+        "subject": `Order for ${orderReq.customer_info.first_name} ${orderReq.customer_info.last_name}`,
+        "html": orderDetails
+    }
+
+    const customerEmail = {
+        "from": `TOSY Youth <${process.env.EMAIL_USERNAME}>`,
+        "to": orderReq.customer_info.email,
+        "subject": `Order for ${orderReq.customer_info.first_name} ${orderReq.customer_info.last_name}`,
         "html": orderDetails
     }
     
 
-    transporter.sendMail(options, (err, info) => {
+    await transporter.sendMail(internalEmail, (err, info) => {
         if (err) {
             console.log(err);
+            res.status(200).json({"status": "failed"});
             return
         }
         console.log(`Sent: ${info.response}`);
-        
+
+        transporter.sendMail(customerEmail, (err, info) => {
+            if (err) {
+                console.log(err);
+                res.status(200).json({"status": "failed"});
+                return
+            }
+            console.log(`Sent: ${info.response}`);
+            res.status(200).json({"status": "success"});
+            
+        })
     })
+    
 
 
   
-    await res.status(200).json({"test": "test"});
 }

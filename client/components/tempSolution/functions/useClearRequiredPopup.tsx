@@ -8,6 +8,7 @@ export default function useClearRequiredPopup(input :string, inputType :string, 
     // convert to proper key naming convention
     const key :string = (shippingOrBilling + inputType[0].toUpperCase() + inputType.substring(1))
     
+
     // check if the regEx finds a match
     switch (inputType) {
         case "name":
@@ -26,9 +27,8 @@ export default function useClearRequiredPopup(input :string, inputType :string, 
             if (regExZip.test(input)) {
                 removeRequiredPopup(key, setCss)
             } break;
-        case "address":
-        case "city":
-        case "state":
+        case "firstName":
+        case "lastName":
             if (regExNormal.test(input)) {
                 removeRequiredPopup(key, setCss)
             } break;
