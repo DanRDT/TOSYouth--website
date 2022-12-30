@@ -24,10 +24,10 @@ const Summary = ({shippingInfo, setCheckoutInfoValidCss}) => {
         cart.map((cartItem)=>{
             currentSubtotal = currentSubtotal + (Number(cartItem.price) * Number(cartItem.quantity))
         })
-        setSubtotal("$" + currentSubtotal.toFixed(2))
+        setSubtotal(currentSubtotal.toFixed(2))
         let tax = currentSubtotal * 0.07;
-        setTax("$" + (tax).toFixed(2))
-        setTotal("$" + (currentSubtotal+tax).toFixed(2))
+        setTax((tax).toFixed(2))
+        setTotal((currentSubtotal+tax).toFixed(2))
     }, [cart]);
 
     function checkCheckoutInfo() {
@@ -49,7 +49,7 @@ const Summary = ({shippingInfo, setCheckoutInfoValidCss}) => {
 
             setPlaceOrderLoading('active-loading')
 
-            fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/orders/email-order`, {
+            fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/orders/create-order`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -102,12 +102,12 @@ const Summary = ({shippingInfo, setCheckoutInfoValidCss}) => {
     return (
         <>      
             <section className="summary">
-                <h4 className="subtotal">Subtotal: <span>{subtotal}</span></h4>
+                <h4 className="subtotal">Subtotal: <span>${subtotal}</span></h4>
                 <h4 className="shipping">Shipping: <span className="rgt-item"> Free </span>
                 </h4>
                 <p>Estimated Delivery: 5-7 business days</p>
-                {/* <h4 className="tax">Tax: <span className="rgt-item">{tax}</span></h4> */}
-                <h4 className="total">Total: <span className="rgt-item">{subtotal}</span></h4>
+                {/* <h4 className="tax">Tax: <span className="rgt-item">${tax}</span></h4> */}
+                <h4 className="total">Total: <span className="rgt-item">${subtotal}</span></h4>
                 <a className={`pay-btn ${infoValidPayBtnCss} ${placeOrderLoading}`} 
                     onClick={() => {
                         setLocalCheckoutInfo(shippingInfo)

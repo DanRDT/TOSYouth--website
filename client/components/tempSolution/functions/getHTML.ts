@@ -265,7 +265,7 @@ function getHTML(orderReq): String {
                                                     <td class="pad" style="padding-bottom:15px;padding-left:10px;padding-right:10px;padding-top:50px;">
                                                         <div style="font-family: sans-serif">
                                                             <div class style="font-size: 12px; mso-line-height-alt: 14.399999999999999px; color: #555555; line-height: 1.2; font-family: Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;">
-                                                                <p style="margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;">${item.price}</p>
+                                                                <p style="margin: 0; font-size: 14px; mso-line-height-alt: 16.8px;">$${item.price}</p>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -315,30 +315,44 @@ function getHTML(orderReq): String {
         html + 
         `
         <table id="total" class="row row-9" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-            <tbody>
-                <tr>
-                    <td>
-                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 700px;" width="700">
-                            <tbody>
-                                <tr>
-                                    <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
-                                        <table class="paragraph_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
-                                            <tr>
-                                                <td class="pad" style="padding-top:35px;padding-bottom:35px;">
-                                                    <div style="color:#101112;font-size:19px;font-family:Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight:400;line-height:150%;text-align:center;direction:ltr;letter-spacing:0px;mso-line-height-alt:28.5px;">
-                                                        <p style="margin: 0;">Total: ${orderReq.totals.total}</p>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+						<tbody>
+							<tr>
+								<td>
+									<table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: #000000; width: 700px;" width="700">
+										<tbody>
+											<tr>
+												<td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 5px; padding-bottom: 5px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+													<table class="paragraph_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad" style="padding-top:30px;padding-bottom:20px;">
+																<div style="color:#101112;font-size:19px;font-family:Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight:400;line-height:150%;text-align:center;direction:ltr;letter-spacing:0px;mso-line-height-alt:28.5px;">
+																	<p style="margin: 0;">Total: $${orderReq.totals.total}</p>
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<td class="pad" style="padding-top:5px;padding-bottom:30px;">
+																<div style="color:#101112;font-size:18px;font-family:Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight:400;line-height:150%;text-align:center;direction:ltr;letter-spacing:0px;mso-line-height-alt:28.5px;">
+																	<p style="margin: 0;">Order for ${orderReq.customer_info.first_name} ${orderReq.customer_info.last_name}</p>
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<td class="pad" style="padding-top:0px;padding-bottom:30px;">
+																<div style="color:#101112;font-size:15px;font-family:Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif;font-weight:400;line-height:150%;text-align:center;direction:ltr;letter-spacing:0px;mso-line-height-alt:28.5px;">
+																	<p style="margin: 0;">Order Id: ${orderReq.id}</p>
+																</div>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
         <table class="row row-10" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
             <tbody>
                 <tr>

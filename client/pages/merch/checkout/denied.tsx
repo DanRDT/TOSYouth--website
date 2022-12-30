@@ -14,7 +14,7 @@ export default function Home() {
           <div className='main-container'>
               <h1>Denied</h1>
               <div className="separation-line special"></div>
-              <h2>Something went wrong</h2>
+              <h2 style={{paddingTop: "2rem"}}>Something went wrong</h2>
             </div>
         </main>
     </>

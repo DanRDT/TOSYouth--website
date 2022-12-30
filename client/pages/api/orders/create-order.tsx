@@ -1,11 +1,27 @@
 import nodemailer from 'nodemailer'
 import getHTML from '../../../components/tempSolution/functions/getHTML'
+import Order from "../../../models/orders";
+import mongoose from "mongoose";
 
 export default async function handler(req, res) {  
     
     const orderReq = req.body
 
+    const DB_Order = {
+        ...orderReq, 
+        "order_status": {
+            "paid": false,
+            "ordered": false
+        }
+    }
+    
+    const uri = `mongodb+srv://${process.env.DB_USERNAME_WRITE_PRIV}:${process.env.DB_PASSWORD_WRITE_PRIV}@tosydatabase.6xjkcub.mongodb.net/Website?retryWrites=true&w=majority`;
+    
+    mongoose.set('strictQuery', false);
+    mongoose.connect(uri);
 
+    await Order.create(DB_Order)
+    
     const transporter = nodemailer.createTransport({
         "service": "hotmail",
         "auth": {
@@ -48,7 +64,6 @@ export default async function handler(req, res) {
             }
             console.log(`Sent: ${info.response}`);
             res.status(200).json({"status": "success"});
-            
         })
     })
     
