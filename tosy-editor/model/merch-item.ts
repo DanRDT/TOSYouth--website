@@ -41,20 +41,6 @@ itemSchema.methods.updateItem = function (newItem) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let MerchItem
 if (mongoose.models.MerchItem) {
     MerchItem = mongoose.model('MerchItem');

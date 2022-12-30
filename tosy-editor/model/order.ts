@@ -27,6 +27,18 @@ const orderSchema = new mongoose.Schema({
             paid: Boolean,
             ordered: Boolean
         }
-}, { collection: 'emailOrders' })
+}, { collection: 'MerchOrders' })
 
-export default mongoose.model("emailOrder", orderSchema) 
+
+
+let MerchOrder
+if (mongoose.models.MerchOrder) {
+    MerchOrder = mongoose.model("MerchOrder")
+} else {
+    MerchOrder = mongoose.model("MerchOrder", orderSchema)
+}
+
+
+// const Order = mongoose.model("MerchOrder", orderSchema) 
+
+export default MerchOrder

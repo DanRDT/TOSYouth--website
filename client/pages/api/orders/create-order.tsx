@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer'
 import getHTML from '../../../components/tempSolution/functions/getHTML'
-import Order from "../../../models/orders";
+import Order from "../../../models/order";
 import mongoose from "mongoose";
 
 export default async function handler(req, res) {  
