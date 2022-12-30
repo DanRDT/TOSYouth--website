@@ -21,10 +21,11 @@ export default function Home({order}) {
 
     return (
         <>    
-            <link rel="stylesheet" type="text/css" href="/css/merch-item.css"/>
+            <link rel="stylesheet" type="text/css" href="/css/order.css"/>
             <main>
                 <div className='main-container'>
-                <div className="separation-line"></div>
+                <h1 >Order</h1>
+                <div className="separation-line special"></div>
                 <Order order={order}/>
                 </div>
             </main>

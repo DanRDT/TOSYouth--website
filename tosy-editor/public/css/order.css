@@ -1,0 +1,95 @@
+/* Table of Contents
+
+    Section
+        Order Item
+            Order Item Image
+            Order Item Info
+                Quantity
+
+        Checkout
+
+*/
+
+
+/* Section */
+.order-items,
+.order-item-container,
+.main-container section,
+.checkout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.order-item-container {
+    width: 95%;
+}
+
+
+
+
+/* Order Item */
+.order-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    width: 100%;
+    gap: clamp(1rem , 4vw,1.5rem);
+}
+
+
+/* Order Item Image */
+.order-item-img {
+    width: clamp(8rem, 30vw, 10rem);
+    height: 10rem;
+    object-fit: cover;
+    border: 1px solid grey;
+    border-radius: 0.5rem;
+}
+
+
+/* Order Item Info */
+.order-item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-item-info > h4,
+.order-item-info h3 {
+    margin-top: 0.8rem;
+    width: fit-content;
+}
+.order-item-info h3 {
+    font-size: clamp(1.3rem, 5vw, 1.60rem);
+}
+.order-item-info > h4,
+.subtotal,
+.quantity-dropdown select,
+.checkout-btn {
+    font-size: clamp(0.95rem, 3.3vw, 1.1rem);
+}
+
+
+
+
+
+/* Pay Info */
+.pay-info {
+    margin: 2.5rem 0 2rem 0;
+}
+
+.paid-btn {
+    padding: 0.8rem 2.2rem;
+    background-color: var(--complementary-color);
+    width: fit-content;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 2rem;
+    position: relative;
+}
+.paid-btn:hover {
+    background-color: var(--complementary-color-darker);
+}
