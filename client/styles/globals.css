@@ -90,7 +90,7 @@ html{
 }
 
 body {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
     position: relative;
     min-height: 100%;
     overflow-x: hidden;
