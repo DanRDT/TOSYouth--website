@@ -2,7 +2,20 @@ import Link from 'next/link'
 import Meta from '../../components/global/meta'
 import LatestItems from '../../components/merch/latestItems'
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+//     const itemsRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/latest-items`)
+//     const mostWantedRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/most-wanted`)
+    
+//     return {
+//         props: {
+//             latest_items: await itemsRes.json(),
+//             mostWanted: await mostWantedRes.json(),
+//         },
+//         revalidate: Number(process.env.REVALIDATE),
+//     }
+// }
+
+export async function getServerSideProps() {
     const itemsRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/latest-items`)
     const mostWantedRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/most-wanted`)
     
@@ -11,7 +24,6 @@ export async function getStaticProps() {
             latest_items: await itemsRes.json(),
             mostWanted: await mostWantedRes.json(),
         },
-        revalidate: Number(process.env.REVALIDATE),
     }
 }
 
