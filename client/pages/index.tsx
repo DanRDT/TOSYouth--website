@@ -18,7 +18,6 @@ export async function getServerSideProps() {
         props: {
             info: await res.json(),
         },
-        revalidate: Number(process.env.REVALIDATE_RARE),
     }
 }
 
