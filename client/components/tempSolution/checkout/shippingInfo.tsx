@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import setPhoneNumberValue from "../../hooks/functions/setPhoneNumberValue"
-import useClearRequiredPopup from "../functions/useClearRequiredPopup"
+import ClearRequiredPopup from "../functions/useClearRequiredPopup"
 
 const ShippingInfo = ({shippingInfo, setShippingInfo, checkoutInfoValidCss, setCheckoutInfoValidCss}) => {
     
@@ -13,7 +13,7 @@ const ShippingInfo = ({shippingInfo, setShippingInfo, checkoutInfoValidCss, setC
             const tempObject = {...prev, [shippingInfoKey]: input}
             return tempObject
         })
-        useClearRequiredPopup(input, shippingInfoKey, "shipping", setCheckoutInfoValidCss)
+        ClearRequiredPopup(input, shippingInfoKey, "shipping", setCheckoutInfoValidCss)
     }
     
     return (

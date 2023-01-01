@@ -1,4 +1,4 @@
-export default function useClearRequiredPopup(input :string, inputType :string, shippingOrBilling :string, setCss :object) {
+export default function ClearRequiredPopup(input :string, inputType :string, shippingOrBilling :string, setCss :object) {
     const regExNormal = /[A-Za-z]+/
     const regExName = /[A-Za-z\'\-]+ [A-Za-z\'\-]+/
     const regExEmail = /[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_‘{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?/;

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import setLocalCheckoutInfo from "../../hooks/functions/setLocalCheckoutInfo";
 import setPhoneNumberValue from "../../hooks/functions/setPhoneNumberValue";
-import useClearRequiredPopup from "../../hooks/ClearRequiredPopup";
+import ClearRequiredPopup from "../../hooks/ClearRequiredPopup";
 
 const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping, setSameAsShipping, checkoutInfoValidCss, setCheckoutInfoValidCss}) => {
 
@@ -14,7 +14,7 @@ const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping,
             const tempObject = {...prev, [billingInfoKey]: input}
             return tempObject
         })
-        useClearRequiredPopup(input, billingInfoKey, "billing", setCheckoutInfoValidCss)
+        ClearRequiredPopup(input, billingInfoKey, "billing", setCheckoutInfoValidCss)
     }
 
     useEffect(() => {
@@ -23,7 +23,7 @@ const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping,
         const billing = ["name", "email", "address", "phone", "zip", "city", "state"]
         
         billing.map((key) => {
-            useClearRequiredPopup(billingInfo[key], key, "billing", setCheckoutInfoValidCss)
+            ClearRequiredPopup(billingInfo[key], key, "billing", setCheckoutInfoValidCss)
         })
 
     }, [billingInfo])
