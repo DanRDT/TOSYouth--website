@@ -6,7 +6,7 @@ import Images from "./images";
 import Quantity from "./quantity";
 import Sizes from "./sizes";
 import { useCart, useSetCart } from "../../context/cartContext";
-import useAddItem from "../../hooks/useAddItem";
+import AddCartItem from "../../hooks/AddCartItem";
 import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
 
 
@@ -22,7 +22,7 @@ const Item = ({item}) => {
     const [pickSizePopup, setPickSizePopup] = useState("");
     
     function addItem() {        
-        useAddItem(item, selectedItem, setSelectedItem, cart, setCart, setCartLoading, setPickSizePopup, setAdded)
+        AddCartItem(item, selectedItem, setSelectedItem, cart, setCart, setCartLoading, setPickSizePopup, setAdded)
     }
    
     useEffect(() => {

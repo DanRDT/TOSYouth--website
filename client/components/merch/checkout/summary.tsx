@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react"
 import checkForShoppingCart from "../../hooks/functions/checkForShoppingCart"
 import getCart from "../../hooks/functions/getCart"
 import setLocalCheckoutInfo from "../../hooks/functions/setLocalCheckoutInfo"
-import useCartEventListener from "../../hooks/useCartEventListener"
-import checkIfValid from "../../hooks/useCheckIfValid"
+import CartEventListener from "../../hooks/CartEventListener"
+import checkIfValid from "../../hooks/CheckIfValid"
 
 const Summary = ({shippingInfo, billingInfo, sameAsShipping, setCheckoutInfoValidCss}) => {
     const [infoValidPayBtnCss, setInfoValidPayBtnCss] = useState('')

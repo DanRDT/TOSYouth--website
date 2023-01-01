@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import getCart from "./functions/getCart";
 
-export default function useCartEventListener(setCart) {
+export default function CartEventListener(setCart) {
     useEffect(() => {
         // update cart if it changes in another tab
         const storageEventHandler = (event) => {

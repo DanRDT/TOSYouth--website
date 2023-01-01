@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import setPhoneNumberValue from "../../hooks/functions/setPhoneNumberValue"
-import useClearRequiredPopup from "../../hooks/useClearRequiredPopup"
+import useClearRequiredPopup from "../../hooks/ClearRequiredPopup"
 
 const ShippingInfo = ({shippingInfo, setShippingInfo, setBillingInfo, sameAsShipping, checkoutInfoValidCss, setCheckoutInfoValidCss}) => {
     

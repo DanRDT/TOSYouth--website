@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import setLocalCheckoutInfo from "../../hooks/functions/setLocalCheckoutInfo";
 import setPhoneNumberValue from "../../hooks/functions/setPhoneNumberValue";
-import useClearRequiredPopup from "../../hooks/useClearRequiredPopup";
+import useClearRequiredPopup from "../../hooks/ClearRequiredPopup";
 
 const BillingInfo = ({shippingInfo, billingInfo, setBillingInfo, sameAsShipping, setSameAsShipping, checkoutInfoValidCss, setCheckoutInfoValidCss}) => {
 
