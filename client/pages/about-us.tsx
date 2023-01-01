@@ -1,15 +1,25 @@
 import Meta from '../components/global/meta'
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/about-us`)
+    
+//     return {
+//         props: {
+//             info: await res.json(),
+//         },
+//         revalidate: Number(process.env.REVALIDATE_RARE),
+//     }
+// }
+export async function getServerSideProps() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/about-us`)
     
     return {
         props: {
             info: await res.json(),
         },
-        revalidate: Number(process.env.REVALIDATE_RARE),
     }
 }
+
 
 export default function Home({info}) {
     

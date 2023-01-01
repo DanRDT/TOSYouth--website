@@ -1,14 +1,23 @@
 import Meta from '../../../components/global/meta'
 import Items from '../../../components/merch/items'
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/items`)
+
+//     return {
+//         props: {
+//             items: await res.json(),
+//         },
+//         revalidate: Number(process.env.REVALIDATE),
+//     }
+// }
+export async function getServerSideProps() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/merch/items`)
 
     return {
         props: {
             items: await res.json(),
         },
-        revalidate: Number(process.env.REVALIDATE),
     }
 }
 
