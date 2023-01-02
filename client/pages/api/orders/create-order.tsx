@@ -35,7 +35,7 @@ export default async function handler(req, res) {
 
     const internalEmail = {
         "from": `TOSY Youth <${process.env.EMAIL_USERNAME}>`,
-        "to": process.env.EMAIL_USERNAME,
+        "to": process.env.INTERNAL_EMAIL,
         "subject": `Order for ${orderReq.customer_info.first_name} ${orderReq.customer_info.last_name}`,
         "html": orderDetails
     }
