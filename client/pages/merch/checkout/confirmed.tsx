@@ -16,6 +16,7 @@ export default function Home() {
               <h1>Confirmed</h1>
               <div className="separation-line special"></div>
               <h2 style={{paddingTop: "2rem"}}>Order was placed</h2>
+              <h4 style={{paddingTop: "2rem"}}>Check your email to view your order</h4>
               {/* <h2 style={{paddingTop: "2rem"}}></h2> */}
             </div>
         </main>

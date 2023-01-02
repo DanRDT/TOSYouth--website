@@ -247,6 +247,7 @@
     bottom: clamp( 1rem, 6vw, 5rem);
     left: clamp(1.5rem, 5.5vw, 3rem);
     z-index: 2;
+    border-radius: 5px;
 }
 .most-wanted-tall-img {
     background: var(--placeholder-color) url("") no-repeat center/cover;

@@ -10,9 +10,9 @@ export default async function handler(req, res) {
     const items = []
 
     printifyData.data.map((item) => {
-        if (!item.is_locked) { //true means its been published
-            return
-        }
+        // if (!item.is_locked) { //true means its been published
+        //     return
+        // }
         let price;
         let image;
 

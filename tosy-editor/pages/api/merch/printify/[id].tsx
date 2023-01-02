@@ -10,9 +10,9 @@ export default async function handler(req, res) {
     const printifyItem = await printifyRes.json()
 
     
-    if (!printifyItem.is_locked) { // false means its not been published
-        res.status(403).json({"Error": "Item Not Allowed"});        
-    } else if (printifyItem.is_locked) {
+    // if (!printifyItem.is_locked) { // false means its not been published
+    //     res.status(403).json({"Error": "Item Not Allowed"});        
+    // } else if (printifyItem.is_locked) {
 
         // used to calculate default price range
         let minPrice = 10000000000000000;
@@ -191,9 +191,9 @@ export default async function handler(req, res) {
         }
         
         res.status(200).json(item);
-    } else {
-        res.status(404).json({"Error": "Something when data fetch from printify"})
-    }
+    // } else {
+    //     res.status(404).json({"Error": "Something when data fetch from printify"})
+    // }
     // sample item
     // const item = {
     //     "id": "637d78e2e21e9a36610eb989",

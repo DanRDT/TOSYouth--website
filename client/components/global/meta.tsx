@@ -14,7 +14,18 @@ const Meta = ({title, description}) => {
             <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" key="meta-viewport"/>
             <title>{title}</title>
             <meta name="description" content={description}/>
-            <link rel="icon" href="/imgs/favicon.svg" key="meta-icon"/>
+            
+            <link rel="icon" 
+            type="image/svg+xml"
+            media="(prefers-color-scheme: dark)" 
+            href="/imgs/favicon-dark-mode.png"
+            key="meta-icon-dark"/>
+
+            <link rel="icon" 
+            type="image/svg+xml"
+            media="(prefers-color-scheme: light)" 
+            href="/imgs/favicon.png" 
+            key="meta-icon-light"/>
         </Head>
     )
 }
