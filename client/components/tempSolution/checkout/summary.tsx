@@ -76,6 +76,7 @@ const Summary = ({shippingInfo, setCheckoutInfoValidCss}) => {
             })
             .then((res)=>{
                 if (res.status == "success") {
+                    localStorage.setItem("ShoppingCart", "[]")
                     window.location.assign(`${process.env.NEXT_PUBLIC_BASE_URL}/merch/checkout/confirmed`);
                 } else {
                     window.location.assign(`${process.env.NEXT_PUBLIC_BASE_URL}/merch/checkout/denied`);
