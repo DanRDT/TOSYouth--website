@@ -4,11 +4,11 @@ import Meta from "../../global/meta";
 import Colors from "./colors";
 import Images from "./images";
 import Sizes from "./sizes";
-import useSaveItem from "../../hooks/useSaveItem";
+import saveItem from "../../hooks/SaveItem";
 import { useSelectedItem, useSetSelectedItem } from "../../context/itemContext"
 import { useUpdatedItem, useSetUpdatedItem } from "../../context/updatedItemContext"
 import MainImage from "./mainImage";
-import useDeleteItem from "../../hooks/useDeleteItem";
+import DeleteItem from "../../hooks/DeleteItem";
 
 
 const Item = ({item}) => {
@@ -27,9 +27,6 @@ const Item = ({item}) => {
     
     const [pickSizePopup, setPickSizePopup] = useState("");
     
-    function saveItem() {        
-        useSaveItem({item, updatedItem, setSaveLoading, setSaved})
-    }
    
     useEffect(() => {
         // set select item info after getting basic info from api
@@ -87,10 +84,10 @@ const Item = ({item}) => {
                         </h4>
                     </div>
                     <div className="btns-container">
-                        <h4 className={`save-btn ${saveLoading}`} onClick={() => saveItem()}>{saved}
+                        <h4 className={`save-btn ${saveLoading}`} onClick={() => saveItem({item, updatedItem, setSaveLoading, setSaved})}>{saved}
                             <div className={`loading-animation ${saveLoading}`}></div>
                         </h4>
-                        <h4 className={`delete-btn ${deleteLoading}`} onClick={() => useDeleteItem({updatedItem, setDeleteLoading, setDeleteItem})}>{deleteItem}
+                        <h4 className={`delete-btn ${deleteLoading}`} onClick={() => DeleteItem({updatedItem, setDeleteLoading, setDeleteItem})}>{deleteItem}
                             <div className={`loading-animation ${deleteLoading}`}></div>
                         </h4>
                     </div>

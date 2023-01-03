@@ -4,7 +4,7 @@ import Meta from "../../../global/meta";
 import Colors from "./colors";
 import Images from "./images";
 import Sizes from "./sizes";
-import useSaveNewItem from "../../../hooks/useSaveNewItem";
+import SaveNewItem from "../../../hooks/SaveNewItem";
 import { useSelectedItem, useSetSelectedItem } from "../../../context/itemContext"
 import { useUpdatedItem, useSetUpdatedItem } from "../../../context/updatedItemContext"
 
@@ -22,7 +22,7 @@ const Item = ({item}) => {
     const [pickSizePopup, setPickSizePopup] = useState("");
     
     function saveItem() {        
-        useSaveNewItem({item, printifyItem, setSaveLoading, setSaved})
+        SaveNewItem({item, printifyItem, setSaveLoading, setSaved})
     }
    
     useEffect(() => {

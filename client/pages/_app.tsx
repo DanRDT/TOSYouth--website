@@ -5,6 +5,7 @@ import Footer from "../components/global/footer";
 import React from 'react';
 import useScripts from '../components/global/scripts';
 import { CartProvider } from "../components/context/cartContext";
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useScripts({pageProps});
@@ -15,6 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <CartProvider>
           <Header/>
           <Component {...pageProps} />
+          <Analytics/>
         </CartProvider>
         <Footer/>
       </React.StrictMode>

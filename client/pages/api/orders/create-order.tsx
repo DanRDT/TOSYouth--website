@@ -50,24 +50,27 @@ export default async function handler(req, res) {
 
     await transporter.sendMail(internalEmail, (err, info) => {
         if (err) {
-            console.log(err);
-            res.status(200).json({"status": "failed"});
+            orderError(err)
             return
         }
         console.log(`Sent: ${info.response}`);
 
         transporter.sendMail(customerEmail, (err, info) => {
             if (err) {
-                console.log(err);
-                res.status(200).json({"status": "failed"});
+                orderError(err)
                 return
             }
             console.log(`Sent: ${info.response}`);
-            res.status(200).json({"status": "success"});
+            res.status(220).json({"status": "success"});
         })
     })
     
 
 
+    function orderError(err) {
+        console.log(err)
+        Order.deleteOne({DB_Order})
+        res.status(220).json({"status": "failed"})
+    }
   
 }

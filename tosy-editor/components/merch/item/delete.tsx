@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useUpdatedItem } from "../../context/updatedItemContext"
-import useDeleteItem from "../../hooks/useDeleteItem";
+import useDeleteItem from "../../hooks/DeleteItem";
 
 
 const Delete = () => {
